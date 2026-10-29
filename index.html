@@ -26,20 +26,20 @@
   --bg: #0f121b; --panel: #171b27; --ink: #eef0f7; --muted: #9aa1b5; --line: #262b3a;
   --accent: #7d97ff; --accent-soft: #1d2440; --on-accent: #0f121b; color-scheme: dark; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
-.wrap { max-width: 480px; margin: 0 auto; padding-block: 40px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+.wrap { box-sizing: border-box; width: 100%; max-width: 480px; margin: 0 auto; padding-block: 40px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
 header { display: grid; justify-items: center; text-align: center; gap: 10px; }
 .avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 32px; }
 h1 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 32px; letter-spacing: -0.02em; text-wrap: balance; }
 .handle { font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .lead { margin: 0; max-width: 34ch; color: var(--muted); }
 .lead b { color: var(--ink); font-weight: 600; }
-.unggulan { background: var(--accent); color: var(--on-accent); border-radius: 20px; padding: 22px; display: grid; gap: 12px; }
+.unggulan { min-width: 0; background: var(--accent); color: var(--on-accent); border-radius: 20px; padding: 22px; display: grid; gap: 12px; }
 .unggulan .label { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
 .unggulan h2 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.15; text-wrap: balance; }
 .unggulan p { margin: 0; }
 .langkah { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 15px; }
-.langkah li { display: flex; gap: 10px; }
-.langkah span { font-family: var(--mono); }
+.langkah li { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 10px; }
+.langkah .no { font-family: var(--mono); }
 .kode { display: inline-block; font-family: var(--mono); background: var(--on-accent); color: var(--accent); border-radius: 6px; padding: 0 6px; }
 .tombol { justify-self: start; display: inline-flex; align-items: center; gap: 8px; background: var(--on-accent); color: var(--accent); text-decoration: none; font-weight: 600; border-radius: 999px; padding: 10px 18px; }
 section { display: grid; gap: 10px; }
@@ -70,9 +70,9 @@ footer code { font-family: var(--mono); }
     <div class="label">Berlangsung sekarang</div>
     <h2>100 domain gratis untuk 100 cerita terbaik</h2>
     <ol class="langkah">
-      <li><span>1</span>Buka reel "Apa itu domain?" di Instagram-ku.</li>
-      <li><span>2</span>Komentar <span class="kode">DOMAIN</span> lalu ceritakan domainnya mau buat apa.</li>
-      <li><span>3</span>100 cerita terbaik aku pilih dan aku kabari lewat DM.</li>
+      <li><span class="no">1</span><span>Buka reel "Apa itu domain?" di Instagram-ku.</span></li>
+      <li><span class="no">2</span><span>Komentar <span class="kode">DOMAIN</span> lalu ceritakan domainnya mau buat apa.</span></li>
+      <li><span class="no">3</span><span>100 cerita terbaik aku pilih dan aku kabari lewat DM.</span></li>
     </ol>
     <a class="tombol" href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Buka Instagram →</a>
   </article>
