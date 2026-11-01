@@ -67,6 +67,26 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 footer { text-align: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .tombol:hover { transform: none; } }
+
+/* Gaya kaca pastel (referensi Pinterest Maliki 1 Nov): latar lavender + cahaya peach/biru, kartu kaca, aksen gradasi biru→ungu→merah muda. */
+:root { --bg: #eef0fb; --surface: rgba(255,255,255,.72); --ink: #1b2150; --muted: #5a6087; --line: rgba(120,130,200,.18);
+  --navy: #1c2154; --on-navy: #e7e9ff; --gold: #3a44b8; --gold-soft: #e6e8fb; --ikon: #3a44b8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f1230; --surface: rgba(30,35,80,.62); --ink: #eceeff; --muted: #a9afd8; --line: rgba(165,180,252,.16);
+  --navy: #11153a; --on-navy: #e7e9ff; --gold: #a5b4fc; --gold-soft: #262c66; --ikon: #a5b4fc; } }
+:root[data-theme="dark"] { --bg: #0f1230; --surface: rgba(30,35,80,.62); --ink: #eceeff; --muted: #a9afd8; --line: rgba(165,180,252,.16);
+  --navy: #11153a; --on-navy: #e7e9ff; --gold: #a5b4fc; --gold-soft: #262c66; --ikon: #a5b4fc; }
+body { background: var(--bg); background-image: radial-gradient(80vw 60vw at 100% -10%, rgba(255,180,150,.75), transparent 60%), radial-gradient(70vw 60vw at -20% 30%, rgba(130,150,255,.6), transparent 60%), radial-gradient(70vw 50vw at 60% 110%, rgba(190,160,255,.55), transparent 60%); background-attachment: fixed; }
+.foto { border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,.7), 0 10px 30px rgba(79,91,213,.25); }
+h1 { font-weight: 600; letter-spacing: -0.03em; }
+.daftar { -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 10px 40px rgba(79,91,213,.10); }
+.sosial a { box-shadow: 0 6px 20px rgba(79,91,213,.12); }
+.daftar { border-radius: 22px; border-color: rgba(255,255,255,.6); }
+.sorotan { border: 0; border-radius: 22px; background: linear-gradient(150deg, #1c2154 0%, #3b3f9e 55%, #7a5bc9 100%); box-shadow: 0 16px 40px rgba(59,63,158,.35); }
+.sorotan .eyebrow { color: #c7d2fe; }
+.sorotan .eyebrow::before { background: #f9a8b8; box-shadow: 0 0 0 3px rgba(249,168,184,.25); }
+.langkah { border-top-color: rgba(255,255,255,.18); }
+.langkah .no { color: #c7d2fe; }
+.tombol { border-radius: 999px; background: #ffffff; color: #1c2154; }
 </style>
 </head>
 <body>

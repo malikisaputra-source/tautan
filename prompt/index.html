@@ -108,6 +108,35 @@ nav.daftar .no{min-width:44px}
 @media (max-width:640px){.isi-artikel{padding-left:16px;padding-right:16px}}
 
 
+
+/* Gaya kaca pastel (referensi Pinterest Maliki 1 Nov): latar lavender dengan cahaya peach & biru, kartu kaca putih, teks navy pekat, aksen gradasi biru→ungu→merah muda, tombol pil navy. */
+:root{
+  --bg:#eef0fb; --panel:rgba(255,255,255,.72); --tinta:#1b2150; --abu:#5a6087; --abu2:#5a6087; --garis:rgba(120,130,200,.18);
+  --biru:#4f5bd5; --biru-tua:#3a44b8; --biru-lembut:#e6e8fb; --hijau:#3a44b8; --hijau-lembut:#e6e8fb;
+  --editor:#1c2154; --editor-garis:#2c3375; --editor-teks:#e7e9ff; --editor-redup:#9aa2e0; --tag:#a5b4fc;
+  --navy:#1b2150; --bayang:0 10px 40px rgba(79,91,213,.12),0 2px 6px rgba(27,33,80,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1230; --panel:rgba(30,35,80,.62); --tinta:#eceeff; --abu:#a9afd8; --abu2:#a9afd8; --garis:rgba(165,180,252,.16);
+  --biru:#8f9bff; --biru-tua:#a5b4fc; --biru-lembut:#262c66; --hijau:#a5b4fc; --hijau-lembut:#262c66;
+  --editor:#11153a; --editor-garis:#262c66; --navy:#e7e9ff; --bayang:0 10px 40px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1230; --panel:rgba(30,35,80,.62); --tinta:#eceeff; --abu:#a9afd8; --abu2:#a9afd8; --garis:rgba(165,180,252,.16);
+  --biru:#8f9bff; --biru-tua:#a5b4fc; --biru-lembut:#262c66; --hijau:#a5b4fc; --hijau-lembut:#262c66;
+  --editor:#11153a; --editor-garis:#262c66; --navy:#e7e9ff; --bayang:0 10px 40px rgba(0,0,0,.35); color-scheme:dark}
+body{background:var(--bg);background-image:radial-gradient(60vw 50vw at 95% -10%,rgba(255,180,150,.75),transparent 60%),radial-gradient(55vw 45vw at -10% 20%,rgba(130,150,255,.6),transparent 60%),radial-gradient(50vw 40vw at 60% 110%,rgba(190,160,255,.55),transparent 60%);background-attachment:fixed}
+aside,.hero,article{background:var(--panel);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.6);border-radius:22px;box-shadow:var(--bayang)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) aside,:root:not([data-theme="light"]) .hero,:root:not([data-theme="light"]) article{border-color:var(--garis)}}
+:root[data-theme="dark"] aside,:root[data-theme="dark"] .hero,:root[data-theme="dark"] article{border-color:var(--garis)}
+.avatar{background:linear-gradient(135deg,#6d7cff,#a78bfa 55%,#f9a8b8);border-radius:50%}
+h1{font-weight:600;letter-spacing:-.03em;font-size:clamp(32px,5vw,46px)}
+h1 .grad{background:linear-gradient(90deg,#4f5bd5,#8b5cf6 55%,#e8799a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lencana{background:var(--biru-lembut);color:var(--biru-tua)}
+.tombol.utama{background:var(--navy);border-color:var(--navy);color:var(--bg);border-radius:999px}
+.editor{border-radius:16px;background:linear-gradient(160deg,var(--editor),#2a2266);box-shadow:0 8px 24px rgba(28,33,84,.25)}
+button.salin{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);border-radius:999px;color:#fff}
+.chip{border-radius:999px}
+nav.daftar a.aktif,nav.daftar a:hover{background:var(--biru-lembut)}
 </style>
 </head>
 <body>
@@ -121,7 +150,7 @@ nav.daftar .no{min-width:44px}
   <main>
     <section class="hero">
       <span class="lencana">● 10 prompt · gratis</span>
-      <h1>Prompt Gratis</h1>
+      <h1>Prompt <span class="grad">Gratis</span></h1>
       <p>Semua prompt dari video yang sudah tayang. Salin, ganti bagian yang <code>disorot</code> dengan punyamu, lalu tempel di Claude, ChatGPT, atau Gemini.</p>
     </section>
     <h2 class="seri" id="kelas">Kelas AI · Praktik</h2><article id="p4"><div class="kepala"><div class="baris-meta"><span class="chip biru">P4</span><span class="chip">tayang 1 Nov 2026</span></div><h3>Sambungkan AI ke Google Kalender</h3><p>Sambungkan dulu Google Calendar di Claude (+ → Connectors). Ganti isinya dengan jadwalmu; AI akan minta izin tiap menambah acara, klik Allow once.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>masukkan-jadwal.prompt</span><button class="salin" type="button" data-salin="k1">Salin prompt</button></div><pre class="kode" id="k1" data-teks="Masukkan jadwal minggu ini ke Google Calendar-ku (judul diawali &quot;[nama usaha] ·&quot;):
