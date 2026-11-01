@@ -10,83 +10,125 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
-/* Satu kolom baca seperti halaman bio malikisaputra.biz.id: navy + emas, Newsreader untuk judul, kartu prompt bergaya berkas teks */
-:root {
-  --bg: #f6f4ef; --kartu: #ffffff; --tinta: #14213d; --redup: #5b6478; --garis: #e3ddd0;
-  --emas: #85600a; --emas-lembut: #f3e7c6; --kode-bg: #f4f1ea; --kode: #1d2740; --ok: #2f7d4f;
-  --serif: "Newsreader", Georgia, serif; --sans: "Public Sans", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+/* Layout: gaya halaman prompt SROI. Kumpulan prompt:  — sidebar daftar tutorial (desktop) + panel utama berisi editor prompt bergaya IDE, tombol biru langit. Di HP sidebar jadi baris tab yang bisa digulir. */
+:root{
+  --bg:#f7f8fa; --panel:#ffffff; --tinta:#0f172a; --abu:#64748b; --abu2:#94a3b8; --garis:#e5e7eb;
+  --biru:#0ea5e9; --biru-tua:#0284c7; --biru-lembut:#e0f2fe; --hijau:#16a34a; --hijau-lembut:#dcfce7;
+  --editor:#0b1220; --editor-garis:#1e293b; --editor-teks:#e2e8f0; --editor-redup:#64748b;
+  --tag:#7dd3fc; --var-bg:#fef08a; --var-teks:#713f12; --angka:#fca5a5;
+  --bayang:0 1px 2px rgba(15,23,42,.04),0 4px 16px rgba(15,23,42,.06);
+  --f-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0e1526; --kartu: #152038; --tinta: #eef1f7; --redup: #9aa5bd; --garis: #26324d;
-  --emas: #e0b84a; --emas-lembut: #3a3216; --kode-bg: #0b1222; --kode: #dfe5f2; --ok: #5cc48a; color-scheme: dark } }
-:root[data-theme="dark"] {
-  --bg: #0e1526; --kartu: #152038; --tinta: #eef1f7; --redup: #9aa5bd; --garis: #26324d;
-  --emas: #e0b84a; --emas-lembut: #3a3216; --kode-bg: #0b1222; --kode: #dfe5f2; --ok: #5cc48a; color-scheme: dark }
-* { box-sizing: border-box }
-body { background: var(--bg); color: var(--tinta); font: 16px/1.6 var(--sans); }
-.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-header { display: grid; gap: 10px; margin-bottom: 28px }
-.akun { font: 500 14px var(--mono); color: var(--emas); letter-spacing: .04em }
-h1 { font: 600 clamp(34px, 7vw, 52px)/1.05 var(--serif); margin: 0; text-wrap: balance; letter-spacing: -0.01em }
-.lead { color: var(--redup); max-width: 60ch; margin: 0 }
-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 8px }
-nav a { font: 500 13px var(--sans); color: var(--tinta); text-decoration: none; border: 1px solid var(--garis); background: var(--kartu); border-radius: 999px; padding: 6px 12px }
-nav a:hover, nav a:focus-visible { border-color: var(--emas); outline: none }
-h2.seri { font: 600 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--redup); margin: 36px 0 12px; display: flex; align-items: center; gap: 10px }
-h2.seri::after { content: ""; flex: 1; height: 1px; background: var(--garis) }
-article { background: var(--kartu); border: 1px solid var(--garis); border-radius: 14px; padding: 20px; margin-bottom: 16px; scroll-margin-top: 16px }
-.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font: 500 12px var(--mono); color: var(--redup) }
-.lencana { background: var(--emas-lembut); color: var(--tinta); border-radius: 6px; padding: 2px 8px }
-h3 { font: 600 24px/1.2 var(--serif); margin: 10px 0 6px; text-wrap: balance }
-.cara { color: var(--redup); margin: 0 0 14px; max-width: 62ch }
-.berkas { border: 1px solid var(--garis); border-radius: 10px; overflow: hidden; margin-top: 10px }
-.atas { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px; background: var(--kode-bg); border-bottom: 1px solid var(--garis); font: 12px var(--mono); color: var(--redup) }
-button.salin { font: 600 13px var(--sans); color: var(--bg); background: var(--tinta); border: 0; border-radius: 8px; padding: 7px 12px; cursor: pointer; min-height: 34px }
-button.salin:focus-visible { outline: 2px solid var(--emas); outline-offset: 2px }
-button.salin.ok { background: var(--ok) }
-pre { margin: 0; padding: 14px; background: var(--kode-bg); color: var(--kode); font: 13.5px/1.6 var(--mono); white-space: pre-wrap; word-break: break-word; overflow-x: auto }
-footer { margin-top: 40px; color: var(--redup); font-size: 14px; border-top: 1px solid var(--garis); padding-top: 16px }
-footer a { color: var(--emas) }
-@media (prefers-reduced-motion: no-preference) { button.salin { transition: background .15s } }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a0d12; --panel:#11161d; --tinta:#e8edf3; --abu:#94a3b8; --abu2:#64748b; --garis:#1f2731;
+  --biru:#38bdf8; --biru-tua:#0ea5e9; --biru-lembut:#0c2a3d; --hijau:#22c55e; --hijau-lembut:#0f2a1a;
+  --editor:#070b12; --editor-garis:#1a2330; --bayang:0 1px 2px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a0d12; --panel:#11161d; --tinta:#e8edf3; --abu:#94a3b8; --abu2:#64748b; --garis:#1f2731;
+  --biru:#38bdf8; --biru-tua:#0ea5e9; --biru-lembut:#0c2a3d; --hijau:#22c55e; --hijau-lembut:#0f2a1a;
+  --editor:#070b12; --editor-garis:#1a2330; --bayang:0 1px 2px rgba(0,0,0,.3); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--tinta);font:15px/1.55 var(--f-sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+a{color:var(--biru-tua)}
+.app{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.app{grid-template-columns:minmax(0,1fr)}}
+
+/* sidebar */
+aside{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));background:var(--panel);border:1px solid var(--garis);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--bayang)}
+.profil{display:flex;gap:12px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--biru),#6366f1);color:#fff;font-weight:700;display:grid;place-items:center;font-size:17px;flex:none}
+.profil b{display:block;font-size:15px}
+.profil span{font-size:13px;color:var(--abu)}
+.kecil-judul{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--abu2);text-transform:uppercase}
+nav.daftar{display:flex;flex-direction:column;gap:4px}
+nav.daftar a{display:flex;gap:10px;align-items:flex-start;text-decoration:none;color:var(--tinta);padding:9px 10px;border-radius:10px;font-size:14px;font-weight:500}
+nav.daftar a:hover,nav.daftar a.aktif{background:var(--biru-lembut)}
+nav.daftar a.aktif{color:var(--biru-tua)}
+nav.daftar .no{font:600 12px var(--f-mono);color:var(--abu2);padding-top:2px;flex:none}
+.tombol{display:inline-flex;justify-content:center;align-items:center;gap:8px;font:600 14px var(--f-sans);text-decoration:none;border-radius:10px;padding:10px 14px;border:1px solid var(--garis);color:var(--tinta);background:var(--panel);cursor:pointer}
+.tombol.utama{background:var(--biru);border-color:var(--biru);color:#fff}
+.tombol:focus-visible,button:focus-visible,nav a:focus-visible{outline:3px solid var(--biru);outline-offset:2px}
+@media (max-width:880px){
+  aside{position:static;padding:14px}
+  nav.daftar{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:2px}
+  nav.daftar a{flex:none;border:1px solid var(--garis);padding:7px 11px}
+  .sembunyi-hp{display:none}
+}
+
+/* utama */
+main{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero{background:var(--panel);border:1px solid var(--garis);border-radius:16px;padding:28px;box-shadow:var(--bayang);display:flex;flex-direction:column;gap:16px}
+.lencana{align-self:flex-start;font:600 12px var(--f-sans);color:var(--hijau);background:var(--hijau-lembut);padding:5px 10px;border-radius:999px}
+h1{margin:0;font-size:clamp(28px,4.4vw,40px);line-height:1.12;letter-spacing:-.025em;font-weight:700;text-wrap:balance;max-width:22ch}
+.hero p{margin:0;color:var(--abu);font-size:16px;max-width:62ch}
+.statistik{display:flex;flex-wrap:wrap;gap:10px}
+.statistik div{border:1px solid var(--garis);border-radius:12px;padding:10px 14px;min-width:120px}
+.statistik b{display:block;font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.statistik span{font-size:12px;color:var(--abu)}
+.cara{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--abu)}
+.cara code{font:500 12px var(--f-mono);background:var(--var-bg);color:var(--var-teks);padding:1px 6px;border-radius:5px}
+
+article{background:var(--panel);border:1px solid var(--garis);border-radius:16px;box-shadow:var(--bayang);overflow:hidden;scroll-margin-top:16px}
+.kepala{padding:22px 24px 18px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--garis)}
+.baris-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{font:600 11px var(--f-sans);letter-spacing:.04em;border:1px solid var(--garis);color:var(--abu);padding:3px 8px;border-radius:999px}
+.chip.biru{border-color:transparent;background:var(--biru-lembut);color:var(--biru-tua)}
+h3{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+.kepala p{margin:0;color:var(--abu);max-width:66ch}
+.isi-artikel{padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px}
+@media (max-width:1040px){.isi-artikel{padding:20px 24px 24px;display:flex;flex-direction:column;gap:14px}}
+
+.editor{background:var(--editor);border:1px solid var(--editor-garis);border-radius:12px;overflow:hidden;min-width:0}
+
+.editor-atas{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px 9px 14px;border-bottom:1px solid var(--editor-garis)}
+.berkas{display:flex;align-items:center;gap:8px;font:500 12px var(--f-mono);color:var(--editor-redup);min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.titik{display:flex;gap:5px;flex:none}.titik i{width:9px;height:9px;border-radius:50%;background:#334155}
+button.salin{flex:none;font:600 12px var(--f-sans);border:1px solid #334155;background:#1e293b;color:#e2e8f0;border-radius:8px;padding:6px 12px;cursor:pointer}
+button.salin.ok{background:#14532d;border-color:#166534;color:#bbf7d0}
+pre.kode{margin:0;padding:14px 0;overflow-x:auto;font:400 13px/1.7 var(--f-mono);color:var(--editor-teks);counter-reset:baris}
+pre.kode span.b{display:block;padding:0 16px 0 52px;position:relative;white-space:pre-wrap;word-break:break-word}
+pre.kode span.b::before{counter-increment:baris;content:counter(baris);position:absolute;left:0;width:36px;text-align:right;color:#334155;user-select:none}
+.t{color:var(--tag)} .v{background:var(--var-bg);color:var(--var-teks);border-radius:4px;padding:0 3px} .n{color:var(--angka)} .c{color:var(--editor-redup)}
+
+.kaki{font-size:12px;color:var(--abu2);text-align:center}
+
+.profil{text-decoration:none;color:inherit}
+h2.seri{margin:12px 0 -8px;font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--abu);display:flex;align-items:center;gap:10px;scroll-margin-top:16px}
+h2.seri::after{content:"";flex:1;height:1px;background:var(--garis)}
+.hero code{font:500 13px var(--f-mono);background:var(--var-bg);color:var(--var-teks);padding:1px 6px;border-radius:5px}
+nav.daftar .kecil-judul{margin:10px 10px 2px}
+nav.daftar .no{min-width:44px}
+@media (max-width:640px){.isi-artikel{padding-left:16px;padding-right:16px}}
+
+
 </style>
 </head>
 <body>
 
-
-<div class="wrap">
-  <header>
-    <div class="akun">@malikisaputra · Kelas AI &amp; Tutor AI</div>
-    <h1>Prompt Gratis</h1>
-    <p class="lead">Semua prompt dari video yang sudah tayang. Tinggal salin, ganti bagian di [kurung] atau {{kurawal}} dengan punyamu, lalu tempel di Claude, ChatGPT, atau Gemini.</p>
-    <nav aria-label="Lompat ke seri">
-      <a href="#kelas">Kelas AI</a><a href="#tutor">Tutor AI</a><a href="#balas">Balas komentar</a>
-    </nav>
-  </header>
-
-  <h2 class="seri" id="kelas">Kelas AI · Praktik</h2>
-
-  <article id="p4">
-    <div class="meta"><span class="lencana">P4</span><span>tayang 1 Nov 2026</span></div>
-    <h3>Sambungkan AI ke Google Kalender</h3>
-    <p class="cara">Sambungkan dulu Google Calendar di Claude (+ → Connectors). Ganti isinya dengan jadwalmu; AI akan minta izin tiap menambah acara, klik Allow once.</p>
-    <div class="berkas"><div class="atas"><span>masukkan-jadwal.txt</span><button class="salin" type="button" id="salin-p4a">Salin prompt</button></div>
-<pre>Masukkan jadwal minggu ini ke Google Calendar-ku (judul diawali "[nama usaha] ·"):
+<div class="app">
+  <aside>
+    <a class="profil" href="https://malikisaputra.biz.id/"><div class="avatar" aria-hidden="true">M</div><div><b>Maliki Saputra</b><span>@malikisaputra · Kelas AI</span></div></a>
+    <nav class="daftar" aria-label="Daftar prompt"><div class="kecil-judul sembunyi-hp">Kelas AI · Praktik</div><a href="#p4"><span class="no">P4</span><span>Sambungkan AI ke Google Kalender</span></a><a href="#p3"><span class="no">P3</span><span>Skill laporan mingguan</span></a><a href="#p2"><span class="no">P2</span><span>AI yang nulis promosi pakai gaya tulisanmu</span></a><a href="#p1"><span class="no">P1</span><span>Admin AI yang hafal info tokomu</span></a><div class="kecil-judul sembunyi-hp">Tutor AI</div><a href="#t16"><span class="no">#16</span><span>Prompt favorit jadi skill</span></a><a href="#t03"><span class="no">#03</span><span>Rumus prompt yang tidak menghasilkan caption klise</span></a><a href="#t02"><span class="no">#02</span><span>Dashboard SROI dari tabel data</span></a><a href="#t01"><span class="no">#01</span><span>Papan skor live beranimasi untuk Reels</span></a><div class="kecil-judul sembunyi-hp">Balas komentar</div><a href="#b01"><span class="no">Balas #01</span><span>Rumus RTCFC: tambah C untuk Constraint (batasan)</span></a><a href="#b02"><span class="no">Balas #02</span><span>Daftar ejaan voice clone di ElevenLabs</span></a></nav>
+    <a class="tombol utama sembunyi-hp" href="https://www.instagram.com/malikisaputra/">Follow @malikisaputra</a>
+  </aside>
+  <main>
+    <section class="hero">
+      <span class="lencana">● 10 prompt · gratis</span>
+      <h1>Prompt Gratis</h1>
+      <p>Semua prompt dari video yang sudah tayang. Salin, ganti bagian yang <code>disorot</code> dengan punyamu, lalu tempel di Claude, ChatGPT, atau Gemini.</p>
+    </section>
+    <h2 class="seri" id="kelas">Kelas AI · Praktik</h2><article id="p4"><div class="kepala"><div class="baris-meta"><span class="chip biru">P4</span><span class="chip">tayang 1 Nov 2026</span></div><h3>Sambungkan AI ke Google Kalender</h3><p>Sambungkan dulu Google Calendar di Claude (+ → Connectors). Ganti isinya dengan jadwalmu; AI akan minta izin tiap menambah acara, klik Allow once.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>masukkan-jadwal.prompt</span><button class="salin" type="button" data-salin="k1">Salin prompt</button></div><pre class="kode" id="k1" data-teks="Masukkan jadwal minggu ini ke Google Calendar-ku (judul diawali &quot;[nama usaha] ·&quot;):
 - Senin [tgl] 08.00–11.00: [kegiatan]
 - Selasa [tgl] 14.00–15.00: [kegiatan]
 - Rabu [tgl] 07.00–08.00: [kegiatan]
-Kasih pengingat 30 menit sebelumnya.</pre></div>
-    <div class="berkas"><div class="atas"><span>rangkum-jadwal.txt</span><button class="salin" type="button" id="salin-p4b">Salin prompt</button></div>
-<pre>Rangkum jadwalku minggu ini: hari paling padat, dan jam kosong yang bisa aku pakai untuk bikin konten.</pre></div>
-  </article>
-
-  <article id="p3">
-    <div class="meta"><span class="lencana">P3</span><span>tayang 1 Nov 2026</span></div>
-    <h3>Skill laporan mingguan</h3>
-    <p class="cara">Tempel di chat baru Claude, klik Save di kartu skill. Tiap minggu: ketik /laporan-mingguan lalu tempel catatan penjualanmu.</p>
-    <div class="berkas"><div class="atas"><span>prompt-bikin-skill.txt</span><button class="salin" type="button" id="salin-p3">Salin prompt</button></div>
-<pre>Buatkan aku sebuah skill bernama laporan-mingguan.
+Kasih pengingat 30 menit sebelumnya."><span class="b">Masukkan jadwal minggu ini ke Google Calendar-ku (judul diawali &quot;<span class="v">[nama usaha]</span> ·&quot;):</span><span class="b">- Senin <span class="v">[tgl]</span> 08.00–11.00: <span class="v">[kegiatan]</span></span><span class="b">- Selasa <span class="v">[tgl]</span> 14.00–15.00: <span class="v">[kegiatan]</span></span><span class="b">- Rabu <span class="v">[tgl]</span> 07.00–08.00: <span class="v">[kegiatan]</span></span><span class="b">Kasih pengingat 30 menit sebelumnya.</span></pre></div><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>rangkum-jadwal.prompt</span><button class="salin" type="button" data-salin="k2">Salin prompt</button></div><pre class="kode" id="k2" data-teks="Rangkum jadwalku minggu ini: hari paling padat, dan jam kosong yang bisa aku pakai untuk bikin konten."><span class="b">Rangkum jadwalku minggu ini: hari paling padat, dan jam kosong yang bisa aku pakai untuk bikin konten.</span></pre></div></div></article><article id="p3"><div class="kepala"><div class="baris-meta"><span class="chip biru">P3</span><span class="chip">tayang 1 Nov 2026</span></div><h3>Skill laporan mingguan</h3><p>Tempel di chat baru Claude, klik Save di kartu skill. Tiap minggu: ketik /laporan-mingguan lalu tempel catatan penjualanmu.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>prompt-bikin-skill.prompt</span><button class="salin" type="button" data-salin="k3">Salin prompt</button></div><pre class="kode" id="k3" data-teks="Buatkan aku sebuah skill bernama laporan-mingguan.
 Tugasnya: mengubah catatan penjualan seminggu (boleh berantakan, dari WA atau buku) jadi laporan rapi.
 Isi laporan:
 1. Total omzet dan jumlah pesanan minggu ini
@@ -94,15 +136,7 @@ Isi laporan:
 3. Hari paling ramai dan paling sepi
 4. 2 saran singkat untuk minggu depan
 Format: tabel ringkas + poin, bahasa santai, rupiah pakai titik.
-Kalau ada data yang kurang jelas, tandai [CEK] jangan ditebak.</pre></div>
-  </article>
-
-  <article id="p2">
-    <div class="meta"><span class="lencana">P2</span><span>tayang 1 Nov 2026</span></div>
-    <h3>AI yang nulis promosi pakai gaya tulisanmu</h3>
-    <p class="cara">Claude → Projects → buat proyek baru. Tempel ini ke Instructions, lalu di Context → Add text content tempel 5 caption lamamu.</p>
-    <div class="berkas"><div class="atas"><span>instruksi-proyek.txt</span><button class="salin" type="button" id="salin-p2">Salin prompt</button></div>
-<pre>Kamu penulis caption untuk [nama usaha].
+Kalau ada data yang kurang jelas, tandai [CEK] jangan ditebak."><span class="b">Buatkan aku sebuah skill bernama laporan-mingguan.</span><span class="b">Tugasnya: mengubah catatan penjualan seminggu (boleh berantakan, dari WA atau buku) jadi laporan rapi.</span><span class="b">Isi laporan:</span><span class="b">1. Total omzet dan jumlah pesanan minggu ini</span><span class="b">2. 3 produk terlaris</span><span class="b">3. Hari paling ramai dan paling sepi</span><span class="b">4. 2 saran singkat untuk minggu depan</span><span class="b">Format: tabel ringkas + poin, bahasa santai, rupiah pakai titik.</span><span class="b">Kalau ada data yang kurang jelas, tandai <span class="v">[CEK]</span> jangan ditebak.</span></pre></div></div></article><article id="p2"><div class="kepala"><div class="baris-meta"><span class="chip biru">P2</span><span class="chip">tayang 1 Nov 2026</span></div><h3>AI yang nulis promosi pakai gaya tulisanmu</h3><p>Claude → Projects → buat proyek baru. Tempel ini ke Instructions, lalu di Context → Add text content tempel 5 caption lamamu.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>instruksi-proyek.prompt</span><button class="salin" type="button" data-salin="k4">Salin prompt</button></div><pre class="kode" id="k4" data-teks="Kamu penulis caption untuk [nama usaha].
 Pelajari GAYA tulisanku dari contoh caption di Context: panjang kalimat, sapaan, emoji favorit, kata khas, cara membuka dan menutup.
 Tulis caption baru dengan gaya itu.
 Aturan:
@@ -110,42 +144,16 @@ Aturan:
 2. Panjangnya mirip contoh.
 3. Selalu beri 3 versi: santai, promo, cerita.
 4. Akhiri dengan ajakan pesan seperti di contoh.
-5. Jangan menjanjikan harga, stok, atau diskon di luar info yang kuberikan.</pre></div>
-  </article>
-
-  <article id="p1">
-    <div class="meta"><span class="lencana">P1</span><span>tayang 31 Okt 2026</span></div>
-    <h3>Admin AI yang hafal info tokomu</h3>
-    <p class="cara">Buat proyek baru di Claude, tempel ini ke instruksi proyek, lalu isi pengetahuan proyek dengan menu &amp; harga, jam buka, area &amp; ongkir, cara pesan &amp; bayar.</p>
-    <div class="berkas"><div class="atas"><span>instruksi-admin.txt</span><button class="salin" type="button" id="salin-p1">Salin prompt</button></div>
-<pre>Kamu adalah admin chat untuk [nama usaha]. Tugasmu menyiapkan balasan chat pelanggan.
+5. Jangan menjanjikan harga, stok, atau diskon di luar info yang kuberikan."><span class="b">Kamu penulis caption untuk <span class="v">[nama usaha]</span>.</span><span class="b">Pelajari GAYA tulisanku dari contoh caption di Context: panjang kalimat, sapaan, emoji favorit, kata khas, cara membuka dan menutup.</span><span class="b">Tulis caption baru dengan gaya itu.</span><span class="b">Aturan:</span><span class="b">1. Jangan pakai kata atau emoji yang tidak pernah kupakai.</span><span class="b">2. Panjangnya mirip contoh.</span><span class="b">3. Selalu beri 3 versi: santai, promo, cerita.</span><span class="b">4. Akhiri dengan ajakan pesan seperti di contoh.</span><span class="b">5. Jangan menjanjikan harga, stok, atau diskon di luar info yang kuberikan.</span></pre></div></div></article><article id="p1"><div class="kepala"><div class="baris-meta"><span class="chip biru">P1</span><span class="chip">tayang 31 Okt 2026</span></div><h3>Admin AI yang hafal info tokomu</h3><p>Buat proyek baru di Claude, tempel ini ke instruksi proyek, lalu isi pengetahuan proyek dengan menu &amp; harga, jam buka, area &amp; ongkir, cara pesan &amp; bayar.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>instruksi-admin.prompt</span><button class="salin" type="button" data-salin="k5">Salin prompt</button></div><pre class="kode" id="k5" data-teks="Kamu adalah admin chat untuk [nama usaha]. Tugasmu menyiapkan balasan chat pelanggan.
 Aturan:
-1. Jawab HANYA dari info di pengetahuan proyek. Kalau infonya tidak ada, jawab: "Sebentar ya kak, aku cek dulu" dan beri tanda [CEK MANUAL].
-2. Gaya: ramah, singkat (maks. 3 kalimat), sapa "kak", boleh 1 emoji.
+1. Jawab HANYA dari info di pengetahuan proyek. Kalau infonya tidak ada, jawab: &quot;Sebentar ya kak, aku cek dulu&quot; dan beri tanda [CEK MANUAL].
+2. Gaya: ramah, singkat (maks. 3 kalimat), sapa &quot;kak&quot;, boleh 1 emoji.
 3. Kalau pelanggan menanyakan harga atau stok, sebutkan harga dan ajak pesan.
-4. Akhiri dengan pertanyaan yang mendorong pesanan (mis. "Mau diantar jam berapa kak?").
-5. Jangan menjanjikan diskon, stok, atau jadwal di luar info.</pre></div>
-  </article>
+4. Akhiri dengan pertanyaan yang mendorong pesanan (mis. &quot;Mau diantar jam berapa kak?&quot;).
+5. Jangan menjanjikan diskon, stok, atau jadwal di luar info."><span class="b">Kamu adalah admin chat untuk <span class="v">[nama usaha]</span>. Tugasmu menyiapkan balasan chat pelanggan.</span><span class="b">Aturan:</span><span class="b">1. Jawab HANYA dari info di pengetahuan proyek. Kalau infonya tidak ada, jawab: &quot;Sebentar ya kak, aku cek dulu&quot; dan beri tanda <span class="v">[CEK MANUAL]</span>.</span><span class="b">2. Gaya: ramah, singkat (maks. 3 kalimat), sapa &quot;kak&quot;, boleh 1 emoji.</span><span class="b">3. Kalau pelanggan menanyakan harga atau stok, sebutkan harga dan ajak pesan.</span><span class="b">4. Akhiri dengan pertanyaan yang mendorong pesanan (mis. &quot;Mau diantar jam berapa kak?&quot;).</span><span class="b">5. Jangan menjanjikan diskon, stok, atau jadwal di luar info.</span></pre></div></div></article><h2 class="seri" id="tutor">Tutor AI</h2><article id="t16"><div class="kepala"><div class="baris-meta"><span class="chip biru">#16</span><span class="chip">tayang 31 Okt 2026</span></div><h3>Prompt favorit jadi skill</h3><p>Tempel di Claude bersama prompt favoritmu. Pasang berkasnya di Pengaturan › Skills, lalu chat baru cukup 1 kalimat.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>jadikan-skill.prompt</span><button class="salin" type="button" data-salin="k6">Salin prompt</button></div><pre class="kode" id="k6" data-teks="Jadikan prompt di bawah ini sebuah skill. Beri nama singkat, tulis deskripsi kapan skill ini dipakai, lalu susun isinya jadi bagian Peran, Tugas, Konteks, dan Format. Buatkan berkasnya supaya bisa aku pasang di Pengaturan › Skills.
 
-  <h2 class="seri" id="tutor">Tutor AI</h2>
-
-  <article id="t16">
-    <div class="meta"><span class="lencana">#16</span><span>tayang 31 Okt 2026</span></div>
-    <h3>Prompt favorit jadi skill</h3>
-    <p class="cara">Tempel di Claude bersama prompt favoritmu. Pasang berkasnya di Pengaturan › Skills, lalu chat baru cukup 1 kalimat.</p>
-    <div class="berkas"><div class="atas"><span>jadikan-skill.txt</span><button class="salin" type="button" id="salin-t16">Salin prompt</button></div>
-<pre>Jadikan prompt di bawah ini sebuah skill. Beri nama singkat, tulis deskripsi kapan skill ini dipakai, lalu susun isinya jadi bagian Peran, Tugas, Konteks, dan Format. Buatkan berkasnya supaya bisa aku pasang di Pengaturan › Skills.
-
-[tempel prompt favoritmu di sini]</pre></div>
-  </article>
-
-  <article id="t03">
-    <div class="meta"><span class="lencana">#03</span><span>tayang 28 Okt 2026</span></div>
-    <h3>Rumus prompt yang tidak menghasilkan caption klise</h3>
-    <p class="cara">Peran, konteks, tugas, format, lalu AI menilai jawabannya sendiri. Ganti PRODUK, PEMBELI, dan PEMBEDA untuk jualanmu.</p>
-    <div class="berkas"><div class="atas"><span>rumus-prompt.txt</span><button class="salin" type="button" id="salin-t03">Salin prompt</button></div>
-<pre>&lt;peran&gt;
-Kamu copywriter senior untuk UMKM makanan rumahan di Indonesia. Bahasamu hangat dan sehari-hari. Jangan pakai kata klise: "enak dan lezat", "dijamin", "terbaik", "kekinian".
+[tempel prompt favoritmu di sini]"><span class="b">Jadikan prompt di bawah ini sebuah skill. Beri nama singkat, tulis deskripsi kapan skill ini dipakai, lalu susun isinya jadi bagian Peran, Tugas, Konteks, dan Format. Buatkan berkasnya supaya bisa aku pasang di Pengaturan › Skills.</span><span class="b"> </span><span class="b"><span class="v">[tempel prompt favoritmu di sini]</span></span></pre></div></div></article><article id="t03"><div class="kepala"><div class="baris-meta"><span class="chip biru">#03</span><span class="chip">tayang 28 Okt 2026</span></div><h3>Rumus prompt yang tidak menghasilkan caption klise</h3><p>Peran, konteks, tugas, format, lalu AI menilai jawabannya sendiri. Ganti PRODUK, PEMBELI, dan PEMBEDA untuk jualanmu.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>rumus-prompt.prompt</span><button class="salin" type="button" data-salin="k7">Salin prompt</button></div><pre class="kode" id="k7" data-teks="&lt;peran&gt;
+Kamu copywriter senior untuk UMKM makanan rumahan di Indonesia. Bahasamu hangat dan sehari-hari. Jangan pakai kata klise: &quot;enak dan lezat&quot;, &quot;dijamin&quot;, &quot;terbaik&quot;, &quot;kekinian&quot;.
 &lt;/peran&gt;
 
 &lt;konteks&gt;
@@ -169,15 +177,7 @@ Tulis 3 caption Instagram, masing-masing dari sudut berbeda:
 
 &lt;uji&gt;
 Sebelum menjawab, nilai tiap caption 1–5 untuk: spesifik (bukan klise), cocok untuk {{PEMBELI}}, ajakannya jelas. Tulis ulang yang nilainya di bawah 4. Tampilkan hanya versi akhir beserta nilainya.
-&lt;/uji&gt;</pre></div>
-  </article>
-
-  <article id="t02">
-    <div class="meta"><span class="lencana">#02</span><span>tayang 29 Okt 2026</span></div>
-    <h3>Dashboard SROI dari tabel data</h3>
-    <p class="cara">Prompt pertama membuat dashboard dengan rumus yang jelas dan uji angka. Prompt kedua merapikan tampilan untuk HP dan laptop.</p>
-    <div class="berkas"><div class="atas"><span>1-dashboard-sroi.txt</span><button class="salin" type="button" id="salin-t02a">Salin prompt</button></div>
-<pre>&lt;peran&gt;
+&lt;/uji&gt;"><span class="b"><span class="t">&lt;peran&gt;</span></span><span class="b">Kamu copywriter senior untuk UMKM makanan rumahan di Indonesia. Bahasamu hangat dan sehari-hari. Jangan pakai kata klise: &quot;enak dan lezat&quot;, &quot;dijamin&quot;, &quot;terbaik&quot;, &quot;kekinian&quot;.</span><span class="b"><span class="t">&lt;/peran&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;konteks&gt;</span></span><span class="b">Produk: <span class="v">{{PRODUK}}</span>          <span class="c">// contoh: brownies panggang tanpa pengawet</span></span><span class="b">Pembeli: <span class="v">{{PEMBELI}}</span>        <span class="c">// contoh: ibu muda di Bandung, pesan lewat WhatsApp</span></span><span class="b">Pembeda: <span class="v">{{PEMBEDA}}</span>        <span class="c">// contoh: dipanggang tiap pagi, aman untuk anak</span></span><span class="b"><span class="t">&lt;/konteks&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;tugas&gt;</span></span><span class="b">Tulis 3 caption Instagram, masing-masing dari sudut berbeda:</span><span class="b">1. manfaat untuk keluarga</span><span class="b">2. rasa dan tekstur (pakai indra: renyah, lembut, wangi)</span><span class="b">3. urgensi yang jujur (stok terbatas karena dipanggang harian)</span><span class="b"><span class="t">&lt;/tugas&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;format&gt;</span></span><span class="b">- Maksimal 2 kalimat dan 1 emoji per caption</span><span class="b">- Kalimat terakhir selalu ajakan pesan lewat WhatsApp</span><span class="b">- Tanpa tagar</span><span class="b"><span class="t">&lt;/format&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;uji&gt;</span></span><span class="b">Sebelum menjawab, nilai tiap caption 1–5 untuk: spesifik (bukan klise), cocok untuk <span class="v">{{PEMBELI}}</span>, ajakannya jelas. Tulis ulang yang nilainya di bawah 4. Tampilkan hanya versi akhir beserta nilainya.</span><span class="b"><span class="t">&lt;/uji&gt;</span></span></pre></div></div></article><article id="t02"><div class="kepala"><div class="baris-meta"><span class="chip biru">#02</span><span class="chip">tayang 29 Okt 2026</span></div><h3>Dashboard SROI dari tabel data</h3><p>Prompt pertama membuat dashboard dengan rumus yang jelas dan uji angka. Prompt kedua merapikan tampilan untuk HP dan laptop.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>1-dashboard-sroi.prompt</span><button class="salin" type="button" data-salin="k8">Salin prompt</button></div><pre class="kode" id="k8" data-teks="&lt;peran&gt;
 Kamu analis SROI (Social Return on Investment) yang mengikuti prinsip Social Value International, sekaligus front-end engineer.
 &lt;/peran&gt;
 
@@ -205,9 +205,7 @@ Satu berkas HTML + JavaScript, tanpa pustaka luar:
 
 &lt;uji&gt;
 Sebelum selesai, hitung pakai data contoh. Dengan deadweight, atribusi, displacement 0%, durasi 1 tahun, dan investasi Rp 100.000.000, rasio kotornya HARUS 1,23. Kalau hasilmu beda, cari kesalahannya dulu, baru lapor.
-&lt;/uji&gt;</pre></div>
-    <div class="berkas"><div class="atas"><span>2-rapikan-tampilan.txt</span><button class="salin" type="button" id="salin-t02b">Salin prompt</button></div>
-<pre>&lt;tugas&gt;
+&lt;/uji&gt;"><span class="b"><span class="t">&lt;peran&gt;</span></span><span class="b">Kamu analis SROI (Social Return on Investment) yang mengikuti prinsip Social Value International, sekaligus front-end engineer.</span><span class="b"><span class="t">&lt;/peran&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;data&gt;</span></span><span class="b"><span class="v">{{TABEL}}</span>   <span class="c">// kolom: penerima | perubahan | jumlah | satuan | nilai per satuan (Rp) | sumber nilai</span></span><span class="b">Investasi: Rp <span class="v">{{INVESTASI}}</span></span><span class="b"><span class="t">&lt;/data&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;rumus&gt;</span></span><span class="b">Per baris:</span><span class="b">  nilai kotor  = jumlah × nilai per satuan</span><span class="b">  nilai bersih = nilai kotor × (1 − deadweight) × (1 − atribusi) × (1 − displacement)</span><span class="b">Durasi manfaat <span class="v">{{TAHUN}}</span> tahun, drop-off per tahun, diskonto <span class="v">{{DISKONTO}}</span>% per tahun.</span><span class="b">Rasio SROI = total nilai kini ÷ investasi.</span><span class="b"><span class="t">&lt;/rumus&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;buat&gt;</span></span><span class="b">Satu berkas HTML + JavaScript, tanpa pustaka luar:</span><span class="b">- tabel bisa diedit, semua angka dihitung ulang saat mengetik</span><span class="b">- kartu rasio besar + rasio sebelum penyesuaian (selisihnya = nilai yang tidak kita klaim)</span><span class="b">- grafik nilai per tahun</span><span class="b">- slider sensitivitas untuk deadweight dan diskonto</span><span class="b">- baris tanpa sumber diberi tanda peringatan</span><span class="b"><span class="t">&lt;/buat&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;uji&gt;</span></span><span class="b">Sebelum selesai, hitung pakai data contoh. Dengan deadweight, atribusi, displacement 0%, durasi 1 tahun, dan investasi Rp 100.000.000, rasio kotornya HARUS 1,23. Kalau hasilmu beda, cari kesalahannya dulu, baru lapor.</span><span class="b"><span class="t">&lt;/uji&gt;</span></span></pre></div><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>2-rapikan-tampilan.prompt</span><button class="salin" type="button" data-salin="k9">Salin prompt</button></div><pre class="kode" id="k9" data-teks="&lt;tugas&gt;
 Audit dashboard tadi di lebar 375 px (HP) dan 1440 px (laptop), mode terang dan gelap.
 &lt;/tugas&gt;
 
@@ -216,21 +214,13 @@ Audit dashboard tadi di lebar 375 px (HP) dan 1440 px (laptop), mode terang dan 
 - Semua teks lolos kontras WCAG AA (4,5 : 1)
 - Angka rasio tetap sama setelah perbaikan
 Perbaiki yang gagal, lalu laporkan daftar perubahannya.
-&lt;/uji&gt;</pre></div>
-  </article>
-
-  <article id="t01">
-    <div class="meta"><span class="lencana">#01</span><span>tayang 27 Okt 2026</span></div>
-    <h3>Papan skor live beranimasi untuk Reels</h3>
-    <p class="cara">Untuk Claude Code dengan proyek Remotion. Isi tim, kompetisi, dan daftar gol.</p>
-    <div class="berkas"><div class="atas"><span>papan-skor.txt</span><button class="salin" type="button" id="salin-t01">Salin prompt</button></div>
-<pre>&lt;peran&gt;
+&lt;/uji&gt;"><span class="b"><span class="t">&lt;tugas&gt;</span></span><span class="b">Audit dashboard tadi di lebar 375 px (HP) dan 1440 px (laptop), mode terang dan gelap.</span><span class="b"><span class="t">&lt;/tugas&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;uji&gt;</span></span><span class="b">- Tidak ada teks terpotong atau bertumpuk</span><span class="b">- Semua teks lolos kontras WCAG AA (4,5 : 1)</span><span class="b">- Angka rasio tetap sama setelah perbaikan</span><span class="b">Perbaiki yang gagal, lalu laporkan daftar perubahannya.</span><span class="b"><span class="t">&lt;/uji&gt;</span></span></pre></div></div></article><article id="t01"><div class="kepala"><div class="baris-meta"><span class="chip biru">#01</span><span class="chip">tayang 27 Okt 2026</span></div><h3>Papan skor live beranimasi untuk Reels</h3><p>Untuk Claude Code dengan proyek Remotion. Isi tim, kompetisi, dan daftar gol.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>papan-skor.prompt</span><button class="salin" type="button" data-salin="k10">Salin prompt</button></div><pre class="kode" id="k10" data-teks="&lt;peran&gt;
 Kamu motion designer sekaligus engineer Remotion (React + TypeScript).
 &lt;/peran&gt;
 
 &lt;data&gt;
 Laga: {{TIM_A}} vs {{TIM_B}}, {{KOMPETISI}}
-Gol: {{DAFTAR_GOL}}   // format: menit, tim, pencetak — contoh: 89', TIM_A, Mitkov
+Gol: {{DAFTAR_GOL}}   // format: menit, tim, pencetak — contoh: 89&#x27;, TIM_A, Mitkov
 &lt;/data&gt;
 
 &lt;buat&gt;
@@ -248,51 +238,33 @@ Komposisi 1080×1920, 30 fps, 20 detik:
 
 &lt;uji&gt;
 Render still di frame tiap gol + 1 detik. Pastikan skor sudah berganti dan tidak ada teks bertumpuk. Perbaiki dulu sebelum melapor.
-&lt;/uji&gt;</pre></div>
-  </article>
-
-  <h2 class="seri" id="balas">Balas komentar</h2>
-
-  <article id="b01">
-    <div class="meta"><span class="lencana">Balas #01</span><span>tayang 1 Nov 2026</span></div>
-    <h3>Rumus RTCFC: tambah C untuk Constraint (batasan)</h3>
-    <p class="cara">Rumus prompt 4 bagian ditambah batasan. Ganti isinya dengan produk dan pembelimu.</p>
-    <div class="berkas"><div class="atas"><span>rtcfc.txt</span><button class="salin" type="button" id="salin-b01">Salin prompt</button></div>
-<pre>PERAN: Kamu copywriter toko kue rumahan.
+&lt;/uji&gt;"><span class="b"><span class="t">&lt;peran&gt;</span></span><span class="b">Kamu motion designer sekaligus engineer Remotion (React + TypeScript).</span><span class="b"><span class="t">&lt;/peran&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;data&gt;</span></span><span class="b">Laga: <span class="v">{{TIM_A}}</span> vs <span class="v">{{TIM_B}}</span>, <span class="v">{{KOMPETISI}}</span></span><span class="b">Gol: <span class="v">{{DAFTAR_GOL}}</span>   <span class="c">// format: menit, tim, pencetak — contoh: 89&#x27;, TIM_A, Mitkov</span></span><span class="b"><span class="t">&lt;/data&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;buat&gt;</span></span><span class="b">Komposisi 1080×1920, 30 fps, 20 detik:</span><span class="b">- papan skor dengan jam berjalan (menit laga dipetakan ke frame)</span><span class="b">- saat gol: angka skor berganti dengan spring, kilat warna tim, nama pencetak tampil 2 detik</span><span class="b">- logo dari berkas SVG yang aku berikan; kalau tidak ada, monogram 3 huruf</span><span class="b">- semua warna dan font di satu berkas token</span><span class="b"><span class="t">&lt;/buat&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;aturan&gt;</span></span><span class="b">- Tidak ada teks di 200 px teratas dan 250 px terbawah (area tombol Reels)</span><span class="b">- Animasi hanya pakai spring/interpolate Remotion, tanpa CSS animation</span><span class="b"><span class="t">&lt;/aturan&gt;</span></span><span class="b"> </span><span class="b"><span class="t">&lt;uji&gt;</span></span><span class="b">Render still di frame tiap gol + 1 detik. Pastikan skor sudah berganti dan tidak ada teks bertumpuk. Perbaiki dulu sebelum melapor.</span><span class="b"><span class="t">&lt;/uji&gt;</span></span></pre></div></div></article><h2 class="seri" id="balas">Balas komentar</h2><article id="b01"><div class="kepala"><div class="baris-meta"><span class="chip biru">Balas #01</span><span class="chip">tayang 1 Nov 2026</span></div><h3>Rumus RTCFC: tambah C untuk Constraint (batasan)</h3><p>Rumus prompt 4 bagian ditambah batasan. Ganti isinya dengan produk dan pembelimu.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>rtcfc.prompt</span><button class="salin" type="button" data-salin="k11">Salin prompt</button></div><pre class="kode" id="k11" data-teks="PERAN: Kamu copywriter toko kue rumahan.
 TUGAS: Tulis 3 caption Instagram untuk brownies baru.
 KONTEKS: Pembeli ibu muda, pesan lewat WhatsApp. Kelebihan: tanpa pengawet.
 FORMAT: Daftar bernomor, tiap caption diakhiri ajakan pesan.
-BATASAN: Maksimal 20 kata per caption, 1 emoji, jangan pakai kata "murah".</pre></div>
-  </article>
-
-  <article id="b02">
-    <div class="meta"><span class="lencana">Balas #02</span><span>tayang 1 Nov 2026</span></div>
-    <h3>Daftar ejaan voice clone di ElevenLabs</h3>
-    <p class="cara">Tulis di kolom teks ElevenLabs (bukan di caption) supaya suara klonmu mengucapkan istilahnya dengan benar.</p>
-    <div class="berkas"><div class="atas"><span>ejaan-elevenlabs.txt</span><button class="salin" type="button" id="salin-b02">Salin daftar</button></div>
-<pre>AI → Ei Ai
+BATASAN: Maksimal 20 kata per caption, 1 emoji, jangan pakai kata &quot;murah&quot;."><span class="b"><span class="t">PERAN:</span> Kamu copywriter toko kue rumahan.</span><span class="b"><span class="t">TUGAS:</span> Tulis 3 caption Instagram untuk brownies baru.</span><span class="b"><span class="t">KONTEKS:</span> Pembeli ibu muda, pesan lewat WhatsApp. Kelebihan: tanpa pengawet.</span><span class="b"><span class="t">FORMAT:</span> Daftar bernomor, tiap caption diakhiri ajakan pesan.</span><span class="b"><span class="t">BATASAN:</span> Maksimal 20 kata per caption, 1 emoji, jangan pakai kata &quot;murah&quot;.</span></pre></div></div></article><article id="b02"><div class="kepala"><div class="baris-meta"><span class="chip biru">Balas #02</span><span class="chip">tayang 1 Nov 2026</span></div><h3>Daftar ejaan voice clone di ElevenLabs</h3><p>Tulis di kolom teks ElevenLabs (bukan di caption) supaya suara klonmu mengucapkan istilahnya dengan benar.</p></div><div class="isi-artikel"><div class="editor"><div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>ejaan-elevenlabs.prompt</span><button class="salin" type="button" data-salin="k12">Salin prompt</button></div><pre class="kode" id="k12" data-teks="AI → Ei Ai
 Claude → Klod
 WA → Wé A
 HP → hape
 ElevenLabs → Ilevn Lebs
 Voice Clone → Vois Klon
 
-Tips: kata kunci ajakan (mis. REELS) tulis huruf kecil biar nggak dieja per huruf.</pre></div>
-  </article>
-
-  <footer>Prompt baru ditambahkan setiap ada video yang tayang. Follow <a href="https://www.instagram.com/malikisaputra/">@malikisaputra</a> biar nggak ketinggalan kelas berikutnya.</footer>
+Tips: kata kunci ajakan (mis. REELS) tulis huruf kecil biar nggak dieja per huruf."><span class="b">AI → Ei Ai</span><span class="b">Claude → Klod</span><span class="b">WA → Wé A</span><span class="b">HP → hape</span><span class="b">ElevenLabs → Ilevn Lebs</span><span class="b">Voice Clone → Vois Klon</span><span class="b"> </span><span class="b">Tips: kata kunci ajakan (mis. REELS) tulis huruf kecil biar nggak dieja per huruf.</span></pre></div></div></article>
+    <p class="kaki">Prompt baru ditambahkan setiap ada video yang tayang · <a href="https://www.instagram.com/malikisaputra/">@malikisaputra</a> · <a href="https://malikisaputra.biz.id/">malikisaputra.biz.id</a></p>
+  </main>
 </div>
-
 <script>
 document.querySelectorAll("button.salin").forEach((b) => {
   b.addEventListener("click", () => {
-    const pre = b.closest(".berkas").querySelector("pre");
-    const awal = b.textContent;
-    const tandai = () => { b.textContent = "Tersalin ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = awal; b.classList.remove("ok"); }, 1800); };
-    const pilih = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Teks dipilih, tekan salin"; setTimeout(() => { b.textContent = awal; }, 2500); };
-    try { navigator.clipboard.writeText(pre.textContent).then(tandai, pilih); } catch (e) { pilih(); }
+    const pre = document.getElementById(b.dataset.salin); const awal = b.textContent;
+    const ok = () => { b.textContent = "Tersalin ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = awal; b.classList.remove("ok"); }, 1800); };
+    const pilih = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Teks dipilih"; setTimeout(() => { b.textContent = awal; }, 2000); };
+    try { navigator.clipboard.writeText(pre.dataset.teks).then(ok, pilih); } catch (e) { pilih(); }
   });
 });
+const tautan = [...document.querySelectorAll("nav.daftar a")];
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) tautan.forEach((a) => a.classList.toggle("aktif", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-30% 0px -60% 0px" });
+document.querySelectorAll("article").forEach((a) => io.observe(a));
 </script>
 
 </body>
