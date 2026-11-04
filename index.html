@@ -3,160 +3,191 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maliki Studio</title>
+<meta name="description" content="Studio konten AI Maliki Saputra. Semua prompt dari seri TikTok & Reels, gratis dan lengkap: tinggal salin, ganti, jalan.">
+<meta property="og:title" content="Maliki Studio · Prompt gratis dari tiap episode">
+<meta property="og:description" content="Prompt yang aku pakai di video, bukan template seribu prompt. Gratis, lengkap, bisa langsung disalin.">
 <meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
-<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Maliki Saputra</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Tiap hari 1 cara pakai AI buat kerja & usaha. Founder Leads Indonesia & #SemuaBisaBelajar.">
+<meta name="theme-color" content="#05070d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
-<style>
-/* Layout: kartu nama satu kolom (maks 440px), gaya tech halaman prompt SROI: Inter + JetBrains Mono, biru langit, sorotan bergaya editor gelap. */
-:root {
-  --bg: #f7f8fa; --surface: #ffffff; --ink: #0f172a; --muted: #64748b; --line: #e5e7eb;
-  --navy: #0b1220; --on-navy: #e2e8f0; --gold: #0369a1; --gold-soft: #e0f2fe; --ikon: #0369a1; --aksen-gelap: #7dd3fc;
-  --serif: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0a0d12; --surface: #11161d; --ink: #e8edf3; --muted: #94a3b8; --line: #1f2731;
-  --navy: #070b12; --on-navy: #e2e8f0; --gold: #38bdf8; --gold-soft: #0c2a3d; --ikon: #38bdf8; color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --bg: #0a0d12; --surface: #11161d; --ink: #e8edf3; --muted: #94a3b8; --line: #1f2731;
-  --navy: #070b12; --on-navy: #e2e8f0; --gold: #38bdf8; --gold-soft: #0c2a3d; --ikon: #38bdf8; color-scheme: dark; }
-
-body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-.wrap { box-sizing: border-box; width: 100%; max-width: 440px; margin: 0 auto; padding-block: 48px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 32px; }
-svg { display: block; flex: none; }
-svg use { color: inherit; }
-.sosial a svg, .ikon svg, .panah { color: inherit; stroke: currentColor; }
-
-header { display: grid; justify-items: center; text-align: center; gap: 14px; }
-.foto { width: 96px; height: 96px; border-radius: 24px; object-fit: cover; background: var(--navy); box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--gold); }
-h1 { margin: 4px 0 0; font-family: var(--serif); font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -0.025em; text-wrap: balance; }
-.peran { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
-.bio { margin: 0; max-width: 34ch; color: var(--muted); }
-.sosial { display: flex; gap: 10px; margin-top: 2px; }
-.sosial a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; transition: border-color .2s, color .2s; }
-.sosial a:hover { border-color: var(--gold); color: var(--gold); }
-
-.sorotan { background: var(--navy); color: var(--on-navy); border: 1px solid #1e293b; border-radius: 16px; padding: 24px; display: grid; gap: 14px; min-width: 0; }
-.sorotan .eyebrow { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; color: #7dd3fc; text-transform: uppercase; }
-.sorotan .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
-.sorotan h2 { margin: 0; font-family: var(--serif); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
-.langkah { margin: 0; padding: 14px 0 0; list-style: none; display: grid; gap: 10px; border-top: 1px solid rgba(255,255,255,.14); font-size: 15px; }
-.langkah li { display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 10px; }
-.langkah .no { font-family: var(--mono); font-size: 13px; color: #64748b; line-height: 1.75; text-align: right; }
-.kode { font-weight: 600; letter-spacing: .06em; border-bottom: 1px solid #7dd3fc; }
-.tombol { justify-self: start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; box-sizing: border-box; padding: 0 18px; border-radius: 10px; background: #0369a1; color: #ffffff; font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .2s; }
-.tombol:hover { transform: translateX(2px); }
-
-section { display: grid; gap: 10px; }
-h3 { margin: 0; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.daftar { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.daftar a { display: grid; grid-template-columns: 36px minmax(0,1fr) 16px; align-items: center; gap: 14px; padding: 14px 16px; min-height: 44px; color: var(--ink); text-decoration: none; transition: background-color .2s; }
-.daftar a + a { border-top: 1px solid var(--line); }
-.daftar a:hover { background: var(--gold-soft); }
-.ikon { width: 36px; height: 36px; border-radius: 10px; background: var(--bg); color: var(--ikon); display: grid; place-items: center; }
-.daftar b { display: block; font-weight: 600; font-size: 15px; }
-.daftar small { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
-.panah { color: var(--muted); }
-a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-footer { text-align: center; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .tombol:hover { transform: none; } }
-
-/* Gaya kaca pastel (referensi Pinterest Maliki 1 Nov): latar lavender + cahaya peach/biru, kartu kaca, aksen gradasi biru→ungu→merah muda. */
-:root { --bg: #eef0fb; --surface: rgba(255,255,255,.72); --ink: #1b2150; --muted: #5a6087; --line: rgba(120,130,200,.18);
-  --navy: #1c2154; --on-navy: #e7e9ff; --gold: #3a44b8; --gold-soft: #e6e8fb; --ikon: #3a44b8; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f1230; --surface: rgba(30,35,80,.62); --ink: #eceeff; --muted: #a9afd8; --line: rgba(165,180,252,.16);
-  --navy: #11153a; --on-navy: #e7e9ff; --gold: #a5b4fc; --gold-soft: #262c66; --ikon: #a5b4fc; } }
-:root[data-theme="dark"] { --bg: #0f1230; --surface: rgba(30,35,80,.62); --ink: #eceeff; --muted: #a9afd8; --line: rgba(165,180,252,.16);
-  --navy: #11153a; --on-navy: #e7e9ff; --gold: #a5b4fc; --gold-soft: #262c66; --ikon: #a5b4fc; }
-body { background: var(--bg); background-image: radial-gradient(80vw 60vw at 100% -10%, rgba(255,180,150,.75), transparent 60%), radial-gradient(70vw 60vw at -20% 30%, rgba(130,150,255,.6), transparent 60%), radial-gradient(70vw 50vw at 60% 110%, rgba(190,160,255,.55), transparent 60%); background-attachment: fixed; }
-.foto { border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,.7), 0 10px 30px rgba(79,91,213,.25); }
-h1 { font-weight: 600; letter-spacing: -0.03em; }
-.daftar { -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 10px 40px rgba(79,91,213,.10); }
-.sosial a { box-shadow: 0 6px 20px rgba(79,91,213,.12); }
-.daftar { border-radius: 22px; border-color: rgba(255,255,255,.6); }
-.sorotan { border: 0; border-radius: 22px; background: linear-gradient(150deg, #1c2154 0%, #3b3f9e 55%, #7a5bc9 100%); box-shadow: 0 16px 40px rgba(59,63,158,.35); }
-.sorotan .eyebrow { color: #c7d2fe; }
-.sorotan .eyebrow::before { background: #f9a8b8; box-shadow: 0 0 0 3px rgba(249,168,184,.25); }
-.langkah { border-top-color: rgba(255,255,255,.18); }
-.langkah .no { color: #c7d2fe; }
-.tombol { border-radius: 999px; background: #ffffff; color: #1c2154; }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="lewati" href="#perpustakaan">Langsung ke prompt</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
-  <symbol id="i-yt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></symbol>
-  <symbol id="i-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5a2 2 0 0 1 4 0V16M12 10v6"/></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9v6l5-3z" fill="currentColor"/></symbol>
-  <symbol id="i-orang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></symbol>
-  <symbol id="i-buku" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20"/></symbol>
-  <symbol id="i-hati" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
-  <symbol id="i-bangun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="7" height="12" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/><path d="M6 13h1M6 17h1M17 7h1M17 11h1M17 15h1"/></symbol>
-  <symbol id="i-kanan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
-</svg>
+<header class="atas">
+  <a class="logo" href="#" aria-label="Maliki Studio, ke atas">Maliki <span>Studio</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="#seri">Seri</a>
+    <a href="#perpustakaan">Prompt</a>
+    <a href="#bikinin">Bikinin Dong</a>
+    <a class="tombol kecil" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
+  </nav>
+</header>
 
-<main class="wrap">
-  <header>
-    <img class="foto" src="foto.jpg" width="96" height="96" alt="Foto Maliki Saputra">
-    <h1>Maliki Saputra</h1>
-    <div class="peran">Founder · Tutor AI</div>
-    <p class="bio">Tiap hari satu cara pakai AI untuk kerja dan usaha. Founder Leads Indonesia dan #SemuaBisaBelajar.</p>
-    <nav class="sosial" aria-label="Media sosial">
-      <a href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20"><use href="#i-ig"/></svg></a>
-      <a href="https://www.youtube.com/channel/UCxmcYxlxd07Iq260R3hND1A" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20"><use href="#i-yt"/></svg></a>
-      <a href="https://www.linkedin.com/in/malikifsaputra" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="20" height="20"><use href="#i-in"/></svg></a>
-    </nav>
-  </header>
-
-  <article class="sorotan" id="prompt">
-    <div class="eyebrow">Gratis · diperbarui tiap ada video baru</div>
-    <h2>Kumpulan Prompt Gratis</h2>
-    <ol class="langkah">
-      <li><span class="no">1</span><span>Semua prompt dari Kelas AI dan Tutor AI yang sudah tayang.</span></li>
-      <li><span class="no">2</span><span>Klik "Salin prompt", ganti bagian di [kurung] dengan punyamu.</span></li>
-      <li><span class="no">3</span><span>Tempel di Claude, ChatGPT, atau Gemini.</span></li>
-    </ol>
-    <a class="tombol" href="/prompt/">Buka kumpulan prompt <svg width="16" height="16"><use href="#i-kanan"/></svg></a>
-  </article>
-
-  <section aria-labelledby="h-tutor">
-    <h3 id="h-tutor">Tutor AI</h3>
-    <div class="daftar">
-      <a href="https://www.instagram.com/malikisaputra/reels/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-play"/></svg></span><span><b>Tutor AI harian</b><small>Reels setiap hari, prompt ada di link bio</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.youtube.com/channel/UCxmcYxlxd07Iq260R3hND1A" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-yt"/></svg></span><span><b>YouTube Maliki Saputra</b><small>Tutor AI dan bedah bola</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
+<main>
+<!-- HERO -->
+<section class="hero" aria-labelledby="judul-hero">
+  <div class="kata-melayang" aria-hidden="true">
+    <span>peran</span><span>tugas</span><span>konteks</span><span>format</span><span>batasan</span>
+    <span>skill</span><span>agent</span><span>/laporan</span><span>[CEK]</span><span>excel</span><span>jadwal</span><span>caption</span>
+  </div>
+  <div class="hero-isi">
+    <p class="eyebrow"><span class="titik"></span><span class="ketik" data-teks="// prompt dari video, bukan template seribu prompt"></span></p>
+    <h1 id="judul-hero" class="judul-besar">
+      <span class="baris"><span class="kata">Yang</span> <span class="kata">kamu</span> <span class="kata">lihat</span> <span class="kata">di</span> <span class="kata">video,</span></span>
+      <span class="baris"><span class="kata">promptnya</span> <span class="kata">ada</span> <span class="kata aksen">di</span> <span class="kata aksen">sini.</span></span>
+      <span class="baris"><span class="kata aksen2">Gratis.</span> <span class="kata">Lengkap.</span></span>
+    </h1>
+    <p class="sub">Semua prompt dari seri TikTok &amp; Reels aku: tinggal salin, ganti yang di [kurung], jalankan. Lengkap sama cara pakainya.</p>
+    <div class="aksi">
+      <a class="tombol" href="#perpustakaan">Ambil prompt <span aria-hidden="true">→</span></a>
+      <a class="tautan-garis" href="#seri">Lihat seri-serinya</a>
     </div>
-  </section>
+  </div>
+  <div class="gulir" aria-hidden="true"><span>GULIR</span><i></i></div>
+</section>
 
-  <section aria-labelledby="h-gerakan">
-    <h3 id="h-gerakan">Gerakan</h3>
-    <div class="daftar">
-      <a href="https://leadsindonesia.org/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-orang"/></svg></span><span><b>Website Leads Indonesia</b><small>leadsindonesia.org</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.instagram.com/leadsindonesia/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-orang"/></svg></span><span><b>Leads Foundation Indonesia</b><small>Instagram @leadsindonesia</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.instagram.com/semuabisabelajar/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-buku"/></svg></span><span><b>Gerakan #SemuaBisaBelajar</b><small>Instagram</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.youtube.com/@leadsindonesia" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-yt"/></svg></span><span><b>YouTube Leads Indonesia</b><small>Dongeng anak dan lagu dongeng</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.youtube.com/channel/UCTLpzx0zlB18S-R5hATFdxA" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-yt"/></svg></span><span><b>#SemuaBisaBelajar di YouTube</b><small>Video belajar untuk semua</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://semuabisabelajar.leadsindonesia.org/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-hati"/></svg></span><span><b>Dukung Aksi Kebaikan</b><small>Website #SemuaBisaBelajar</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
+<!-- PERNYATAAN DECRYPT -->
+<section class="pernyataan" aria-label="Prinsip">
+  <p class="eyebrow">// prinsip studio</p>
+  <p class="dekripsi" data-teks="Aku nggak jual prompt. Aku pakai sendiri, lalu aku bagi.">Aku nggak jual prompt. Aku pakai sendiri, lalu aku bagi.</p>
+  <p class="status-dekripsi" aria-hidden="true">MEMBUKA <b>0%</b></p>
+</section>
+
+<!-- ANGKA -->
+<section class="angka" aria-label="Studio dalam angka">
+  <div class="sel"><b data-hitung="prompt">0</b><span>prompt siap salin</span></div>
+  <div class="sel"><b data-hitung="seri">0</b><span>seri belajar</span></div>
+  <div class="sel"><b data-hitung="3">0</b><span>website gratis lewat Bikinin Dong</span></div>
+  <div class="sel"><b>Rp<span data-hitung="0">0</span></b><span>biaya untuk kamu</span></div>
+</section>
+
+<!-- SERI -->
+<section id="seri" class="seri" aria-labelledby="judul-seri">
+  <p class="eyebrow">// seri</p>
+  <h2 id="judul-seri" class="judul-bagian">Pilih jalurmu.<br><span class="redup">Tiap seri, langkahnya urut.</span></h2>
+  <div class="kartu-seri" id="kartu-seri"></div>
+</section>
+
+<!-- PERPUSTAKAAN -->
+<section id="perpustakaan" class="perpustakaan" aria-labelledby="judul-pustaka">
+  <p class="eyebrow">// perpustakaan prompt</p>
+  <h2 id="judul-pustaka" class="judul-bagian">Semua prompt.<br><span class="redup">Satu tempat.</span></h2>
+
+  <div class="terminal">
+    <div class="terminal-atas" aria-hidden="true"><i></i><i></i><i></i><span>prompts — maliki studio</span></div>
+    <div class="terminal-alat">
+      <label class="cari">
+        <span class="sr">Cari prompt</span>
+        <span class="tanda" aria-hidden="true">$ grep</span>
+        <input id="cari" type="search" placeholder="cari: caption, excel, CV, kasbon…" autocomplete="off">
+      </label>
+      <div class="chip" id="chip" role="group" aria-label="Saring per seri"></div>
     </div>
-  </section>
+    <p class="perintah" aria-hidden="true">$ ls prompts/ <span id="perintah-seri">--semua</span></p>
+    <ul class="daftar-prompt" id="daftar-prompt" aria-live="polite"></ul>
+    <p class="kosong" id="kosong" hidden>Nggak ketemu. Coba kata lain, atau komen di TikTok minta dibikinin.</p>
+    <p class="kaki-terminal" aria-hidden="true"><span id="jumlah">0</span> prompt · diperbarui tiap ada episode baru</p>
+  </div>
+</section>
 
-  <section aria-labelledby="h-bangun">
-    <h3 id="h-bangun">Yang sedang aku bangun</h3>
-    <div class="daftar">
-      <a href="https://www.instagram.com/imagiive.group/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-bangun"/></svg></span><span><b>Imagiive</b><small>@imagiive.group</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.instagram.com/grafee.media/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-bangun"/></svg></span><span><b>Grafee Media</b><small>@grafee.media</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
-      <a href="https://www.instagram.com/tripbyjejak/" target="_blank" rel="noopener"><span class="ikon"><svg width="20" height="20"><use href="#i-bangun"/></svg></span><span><b>Trip by Jejak</b><small>@tripbyjejak</small></span><svg class="panah" width="16" height="16"><use href="#i-kanan"/></svg></a>
+<!-- CARA PAKAI -->
+<section class="cara" aria-labelledby="judul-cara">
+  <p class="eyebrow">// cara pakai</p>
+  <h2 id="judul-cara" class="judul-bagian">Tiga langkah.<br><span class="redup">Nggak perlu jago.</span></h2>
+  <ol class="langkah">
+    <li><b>01</b><h3>Salin</h3><p>Buka prompt, tekan tombol Salin. Nggak perlu blok teks manual.</p></li>
+    <li><b>02</b><h3>Ganti</h3><p>Ubah yang di [kurung] atau {{KURUNG}} jadi data usahamu sendiri.</p></li>
+    <li><b>03</b><h3>Jalankan</h3><p>Tempel di Claude (atau AI lain). Kalau hasilnya aneh, tonton lagi videonya.</p></li>
+  </ol>
+</section>
+
+<!-- BIKININ DONG -->
+<section id="bikinin" class="bikinin" aria-labelledby="judul-bikinin">
+  <p class="eyebrow">// seri bikinin dong</p>
+  <h2 id="judul-bikinin" class="judul-bagian">Satu episode,<br><span class="aksen">satu website gratis.</span></h2>
+  <p class="sub">Buat UMKM, yayasan, toko, atau pedagang pasar yang belum punya dana untuk website. Komen di TikTok, siapa tahu episode berikutnya punyamu.</p>
+  <div class="galeri">
+    <a class="karya" href="https://lebah-sentolo.vercel.app" target="_blank" rel="noopener"><span class="no">eps 03</span><b>Yayasan Lebah Sentolo</b><small>Sekolah Qur'an · Indramayu</small><span class="panah" aria-hidden="true">↗</span></a>
+    <a class="karya" href="https://baroedak-tatanen.vercel.app" target="_blank" rel="noopener"><span class="no">eps 02</span><b>Baroedak Tatanen</b><small>Komunitas tani · Jawa Barat</small><span class="panah" aria-hidden="true">↗</span></a>
+    <a class="karya" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener"><span class="no">eps 04</span><b>Mungkin punyamu?</b><small>Komen di video terbaru</small><span class="panah" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section class="tentang" aria-labelledby="judul-tentang">
+  <img src="foto.jpg" alt="Foto Maliki Saputra" width="160" height="160" loading="lazy">
+  <div>
+    <p class="eyebrow">// di balik studio</p>
+    <h2 id="judul-tentang" class="judul-bagian kecil">Maliki Saputra</h2>
+    <p>Tiap hari satu cara pakai AI buat kerja &amp; usaha. Founder Leads Indonesia &amp; gerakan #SemuaBisaBelajar. Semua video dibuat bareng Claude, narasinya suara AI (klon suaraku).</p>
+    <div class="sosial">
+      <a href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/channel/UCxmcYxlxd07Iq260R3hND1A" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/in/malikifsaputra" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>malikisaputra.biz.id</footer>
+<section class="tautan-lain" aria-labelledby="judul-lain">
+  <h2 id="judul-lain" class="eyebrow">// tautan lain</h2>
+  <div class="daftar-tautan">
+    <a href="https://leadsindonesia.org/" target="_blank" rel="noopener"><b>Leads Indonesia</b><small>leadsindonesia.org</small></a>
+    <a href="https://semuabisabelajar.leadsindonesia.org/" target="_blank" rel="noopener"><b>Dukung #SemuaBisaBelajar</b><small>Aksi kebaikan</small></a>
+    <a href="https://www.instagram.com/leadsindonesia/" target="_blank" rel="noopener"><b>@leadsindonesia</b><small>Instagram</small></a>
+    <a href="https://www.youtube.com/@leadsindonesia" target="_blank" rel="noopener"><b>YouTube Leads Indonesia</b><small>Dongeng &amp; lagu anak</small></a>
+    <a href="https://www.instagram.com/imagiive.group/" target="_blank" rel="noopener"><b>Imagiive</b><small>@imagiive.group</small></a>
+    <a href="https://www.instagram.com/grafee.media/" target="_blank" rel="noopener"><b>Grafee Media</b><small>@grafee.media</small></a>
+    <a href="https://www.instagram.com/tripbyjejak/" target="_blank" rel="noopener"><b>Trip by Jejak</b><small>@tripbyjejak</small></a>
+  </div>
+</section>
 </main>
+
+<footer class="kaki">
+  <p class="ajakan-besar">Belum paham? <span class="aksen">Komen aja.</span></p>
+  <p>Share ke temanmu yang butuh, repost, dan follow biar nggak ketinggalan episode berikutnya.</p>
+  <p class="kecil">© 2026 Maliki Studio · malikisaputra.biz.id</p>
+</footer>
+
+<!-- DETAIL PROMPT -->
+<div class="lapis" id="lapis" hidden></div>
+<aside class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-judul" hidden>
+  <div class="detail-atas">
+    <span class="lencana" id="detail-seri"></span>
+    <button class="tutup" id="tutup" type="button" aria-label="Tutup">✕</button>
+  </div>
+  <h2 id="detail-judul"></h2>
+  <p class="detail-label" id="detail-label"></p>
+  <div class="editor">
+    <div class="editor-atas"><span id="detail-file">prompt.txt</span><button class="salin" id="salin" type="button">Salin prompt</button></div>
+    <pre id="detail-prompt"></pre>
+  </div>
+  <div class="detail-blok" id="detail-ganti-blok">
+    <h3>Yang perlu kamu ganti</h3>
+    <ul id="detail-ganti"></ul>
+  </div>
+  <div class="detail-blok">
+    <h3>Cara pakai</h3>
+    <ol id="detail-cara"></ol>
+  </div>
+  <div class="detail-blok" id="detail-tentang-blok">
+    <h3>Tentang episode ini</h3>
+    <div id="detail-tentang"></div>
+  </div>
+  <div class="detail-aksi">
+    <a class="tombol" id="detail-video" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Tonton videonya ↗</a>
+    <button class="tautan-garis" id="bagikan" type="button">Bagikan prompt ini</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data/prompt.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
