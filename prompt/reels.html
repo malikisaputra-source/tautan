@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
+<meta name="description" content="Prompt Reels Otomatis dari Tutor AI @malikisaputra, siap disalin.">
+<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Prompt Reels Otomatis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: aplikasi SaaS bersih ala Calendar.io — sidebar daftar tutorial (desktop) + panel utama berisi editor prompt bergaya IDE, tombol biru langit. Di HP sidebar jadi baris tab yang bisa digulir. */
+:root{
+  --bg:#f7f8fa; --panel:#ffffff; --tinta:#0f172a; --abu:#64748b; --abu2:#94a3b8; --garis:#e5e7eb;
+  --biru:#0ea5e9; --biru-tua:#0284c7; --biru-lembut:#e0f2fe; --hijau:#16a34a; --hijau-lembut:#dcfce7;
+  --editor:#0b1220; --editor-garis:#1e293b; --editor-teks:#e2e8f0; --editor-redup:#64748b;
+  --tag:#7dd3fc; --var-bg:#fef08a; --var-teks:#713f12; --angka:#fca5a5;
+  --bayang:0 1px 2px rgba(15,23,42,.04),0 4px 16px rgba(15,23,42,.06);
+  --f-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a0d12; --panel:#11161d; --tinta:#e8edf3; --abu:#94a3b8; --abu2:#64748b; --garis:#1f2731;
+  --biru:#38bdf8; --biru-tua:#0ea5e9; --biru-lembut:#0c2a3d; --hijau:#22c55e; --hijau-lembut:#0f2a1a;
+  --editor:#070b12; --editor-garis:#1a2330; --bayang:0 1px 2px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a0d12; --panel:#11161d; --tinta:#e8edf3; --abu:#94a3b8; --abu2:#64748b; --garis:#1f2731;
+  --biru:#38bdf8; --biru-tua:#0ea5e9; --biru-lembut:#0c2a3d; --hijau:#22c55e; --hijau-lembut:#0f2a1a;
+  --editor:#070b12; --editor-garis:#1a2330; --bayang:0 1px 2px rgba(0,0,0,.3); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--tinta);font:15px/1.55 var(--f-sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+a{color:var(--biru-tua)}
+.app{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.app{grid-template-columns:minmax(0,1fr)}}
+
+/* sidebar */
+aside{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));background:var(--panel);border:1px solid var(--garis);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--bayang)}
+.profil{display:flex;gap:12px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--biru),#6366f1);color:#fff;font-weight:700;display:grid;place-items:center;font-size:17px;flex:none}
+.profil b{display:block;font-size:15px}
+.profil span{font-size:13px;color:var(--abu)}
+.kecil-judul{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--abu2);text-transform:uppercase}
+nav.daftar{display:flex;flex-direction:column;gap:4px}
+nav.daftar a{display:flex;gap:10px;align-items:flex-start;text-decoration:none;color:var(--tinta);padding:9px 10px;border-radius:10px;font-size:14px;font-weight:500}
+nav.daftar a:hover,nav.daftar a.aktif{background:var(--biru-lembut)}
+nav.daftar a.aktif{color:var(--biru-tua)}
+nav.daftar .no{font:600 12px var(--f-mono);color:var(--abu2);padding-top:2px;flex:none}
+.tombol{display:inline-flex;justify-content:center;align-items:center;gap:8px;font:600 14px var(--f-sans);text-decoration:none;border-radius:10px;padding:10px 14px;border:1px solid var(--garis);color:var(--tinta);background:var(--panel);cursor:pointer}
+.tombol.utama{background:var(--biru);border-color:var(--biru);color:#fff}
+.tombol:focus-visible,button:focus-visible,nav a:focus-visible{outline:3px solid var(--biru);outline-offset:2px}
+@media (max-width:880px){
+  aside{position:static;padding:14px}
+  nav.daftar{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:2px}
+  nav.daftar a{flex:none;border:1px solid var(--garis);padding:7px 11px}
+  .sembunyi-hp{display:none}
+}
+
+/* utama */
+main{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero{background:var(--panel);border:1px solid var(--garis);border-radius:16px;padding:28px;box-shadow:var(--bayang);display:flex;flex-direction:column;gap:16px}
+.lencana{align-self:flex-start;font:600 12px var(--f-sans);color:var(--hijau);background:var(--hijau-lembut);padding:5px 10px;border-radius:999px}
+h1{margin:0;font-size:clamp(28px,4.4vw,40px);line-height:1.12;letter-spacing:-.025em;font-weight:700;text-wrap:balance;max-width:22ch}
+.hero p{margin:0;color:var(--abu);font-size:16px;max-width:62ch}
+.statistik{display:flex;flex-wrap:wrap;gap:10px}
+.statistik div{border:1px solid var(--garis);border-radius:12px;padding:10px 14px;min-width:120px}
+.statistik b{display:block;font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.statistik span{font-size:12px;color:var(--abu)}
+.cara{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--abu)}
+.cara code{font:500 12px var(--f-mono);background:var(--var-bg);color:var(--var-teks);padding:1px 6px;border-radius:5px}
+
+article{background:var(--panel);border:1px solid var(--garis);border-radius:16px;box-shadow:var(--bayang);overflow:hidden;scroll-margin-top:16px}
+.kepala{padding:22px 24px 18px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--garis)}
+.baris-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{font:600 11px var(--f-sans);letter-spacing:.04em;border:1px solid var(--garis);color:var(--abu);padding:3px 8px;border-radius:999px}
+.chip.biru{border-color:transparent;background:var(--biru-lembut);color:var(--biru-tua)}
+h2{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+.kepala p{margin:0;color:var(--abu);max-width:66ch}
+.isi-artikel{padding:20px 24px 24px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:20px;align-items:start}
+@media (max-width:1040px){.isi-artikel{grid-template-columns:minmax(0,1fr)}}
+
+.editor{background:var(--editor);border:1px solid var(--editor-garis);border-radius:12px;overflow:hidden;min-width:0}
+.editor+.editor{margin-top:14px}
+.editor-atas{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px 9px 14px;border-bottom:1px solid var(--editor-garis)}
+.berkas{display:flex;align-items:center;gap:8px;font:500 12px var(--f-mono);color:var(--editor-redup);min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.titik{display:flex;gap:5px;flex:none}.titik i{width:9px;height:9px;border-radius:50%;background:#334155}
+button.salin{flex:none;font:600 12px var(--f-sans);border:1px solid #334155;background:#1e293b;color:#e2e8f0;border-radius:8px;padding:6px 12px;cursor:pointer}
+button.salin.ok{background:#14532d;border-color:#166534;color:#bbf7d0}
+pre.kode{margin:0;padding:14px 0;overflow-x:auto;font:400 13px/1.7 var(--f-mono);color:var(--editor-teks);counter-reset:baris}
+pre.kode span.b{display:block;padding:0 16px 0 52px;position:relative;white-space:pre-wrap;word-break:break-word}
+pre.kode span.b::before{counter-increment:baris;content:counter(baris);position:absolute;left:0;width:36px;text-align:right;color:#334155;user-select:none}
+.t{color:var(--tag)} .v{background:var(--var-bg);color:var(--var-teks);border-radius:4px;padding:0 3px} .n{color:var(--angka)} .c{color:var(--editor-redup)}
+
+.samping{display:flex;flex-direction:column;gap:12px}
+.kotak{border:1px solid var(--garis);border-radius:12px;padding:14px 16px}
+.kotak h3{margin:0 0 8px;font-size:13px;font-weight:600}
+.kotak ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--abu)}
+.kotak ul b{color:var(--tinta);font-weight:600}
+.kotak.uji{background:var(--hijau-lembut);border-color:transparent}
+.kotak.uji p{margin:0;font-size:13px;color:var(--tinta)}
+
+.tabel-wrap{overflow-x:auto;border:1px solid var(--garis);border-radius:12px;margin-top:14px}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--garis);white-space:nowrap}
+th{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--abu);background:var(--bg)}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+tfoot td{font-weight:600}
+
+.gabung{background:var(--panel);border:1px solid var(--garis);border-radius:16px;padding:24px;box-shadow:var(--bayang);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.gabung h2{grid-column:1/-1;font-size:20px}
+.langkah{border:1px solid var(--garis);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.langkah b{font-size:14px}
+.langkah span{font-size:13px;color:var(--abu)}
+.langkah .k{font:600 11px var(--f-mono);color:var(--biru-tua)}
+@media (max-width:640px){.gabung{grid-template-columns:minmax(0,1fr)}.hero,.kepala,.isi-artikel,.gabung{padding-left:16px;padding-right:16px}}
+.kaki{font-size:12px;color:var(--abu2);text-align:center}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="profil"><div class="avatar" aria-hidden="true">M</div><div><b>Maliki Saputra</b><span>@malikisaputra · tutor AI harian</span></div></div>
+    <nav class="daftar" aria-label="Daftar tutorial"></nav>
+    <a class="tombol utama sembunyi-hp" href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Follow di Instagram</a>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <span class="lencana">Gratis · tanpa daftar · tanpa syarat</span>
+      <h1>Prompt yang aku pakai sendiri, bukan template seribu prompt.</h1>
+      <p>Setiap prompt di sini dipakai untuk hasil nyata di videonya: dashboard SROI yang dipakai klien, video bola yang tayang tiap minggu. Strukturnya pakai tag seperti yang direkomendasikan Anthropic untuk Claude, dan jalan juga di ChatGPT dan Gemini.</p>
+      <div class="cara"><span>Cara pakai: ganti bagian <code>{{SEPERTI_INI}}</code></span><span>Bagian &lt;uji&gt; jangan dihapus. Di situ AI mengecek hasilnya sendiri.</span></div>
+    </section>
+
+
+    <article id="reels">
+      <div class="kepala">
+        <div class="baris-meta"><span class="chip biru">TUTOR AI #09</span><span class="chip">Claude</span><span class="chip">menengah</span></div>
+        <h2>Reels otomatis pakai Claude: ide, naskah, video</h2>
+        <p>Satu alur dari 10 kalimat pembuka sampai video jadi dengan Remotion, tanpa aplikasi edit.</p>
+      </div>
+      <div class="isi-artikel">
+        <div>
+          <div class="editor">
+            <div class="editor-atas"><span class="berkas"><span class="titik"><i></i><i></i><i></i></span>reels-otomatis.prompt</span><button class="salin" type="button" data-salin="p9">Salin prompt</button></div>
+            <pre class="kode" id="p9"><span hidden>
+&lt;peran&gt;
+Kamu produser video pendek yang juga bisa menulis kode Remotion. Pandu aku langkah demi langkah, bahasa Indonesia sederhana.
+&lt;/peran&gt;
+
+&lt;konteks&gt;
+Topik akunku: {{TOPIK_AKUN}}          // contoh: tips AI untuk UMKM
+Topik video hari ini: {{TOPIK_VIDEO}}  // contoh: catatan keuangan warung
+Durasi: 30–45 detik, format 9:16 (Reels).
+Skill yang aktif: remotion, frontend-design.
+&lt;/konteks&gt;
+
+&lt;tugas&gt;
+1. IDE: tulis 10 kalimat pembuka (maks 8 kata), lalu urutkan dari yang paling bikin orang berhenti scroll. Jelaskan alasan peringkat 1.
+2. NASKAH: dari pembuka terbaik, tulis naskah narasi (kalimat pendek) dan tabel adegan per detik: waktu, isi layar, teks di layar.
+3. VIDEO: buat proyek Remotion 1080×1920 dari tabel adegan itu. Satu komposisi, adegan sebagai Sequence, teks besar yang terbaca di HP.
+4. Beri perintah render dan cara mengganti suara narasi dengan file rekamanku sendiri.
+&lt;/tugas&gt;
+
+&lt;format&gt;
+Kerjakan satu langkah, tunggu aku bilang "lanjut", baru ke langkah berikutnya.
+&lt;/format&gt;
+
+&lt;uji&gt;
+Sebelum mengirim kode, cek: total durasi adegan sama dengan durasi narasi, tidak ada teks di bawah 40px, dan tidak ada teks yang keluar layar.
+&lt;/uji&gt;</span></pre>
+          </div>
+        </div>
+        <div class="samping">
+          <div class="kotak"><h3>Kenapa ini bekerja</h3><ul>
+            <li><b>Satu langkah per balasan</b>, jadi kamu bisa koreksi sebelum lanjut.</li>
+            <li><b>Peringkat pembuka</b> memaksa AI memilih hook yang paling kuat.</li>
+            <li><b>&lt;uji&gt;</b> mencegah durasi meleset dan teks terlalu kecil di HP.</li>
+          </ul></div>
+        </div>
+      </div>
+    </article>
+
+
+
+
+
+
+
+
+
+    <section class="gabung" id="gabung">
+      <h2>Mau belajar bareng tiap hari?</h2>
+      <div class="langkah"><span class="k">1</span><b>Follow @malikisaputra</b><span>Tutorial AI baru setiap hari, gratis.</span><a class="tombol utama" href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Buka Instagram</a></div>
+      <div class="langkah"><span class="k">2</span><b>Gabung Saluran Siaran</b><span>"Belajar AI Bareng Maliki" di profil, khusus follower. Isinya prompt versi pro setiap hari, info tutorial berikutnya, dan tanya jawab.</span></div>
+    </section>
+    <p class="kaki">Prompt boleh dipakai siapa saja. Narasi video memakai suara AI (klon suara Maliki).</p>
+  </main>
+</div>
+
+<script>
+// Isi prompt disimpan apa adanya di <span hidden>; di sini dipecah per baris dan diwarnai (tag, {{variabel}}, komentar //).
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function warnai(baris){
+  var kom='', i=baris.indexOf('//');
+  if(i>=0){kom=baris.slice(i);baris=baris.slice(0,i)}
+  var h=esc(baris)
+    .replace(/&lt;\/?[a-z_]+&gt;/g,function(m){return '<span class="t">'+m+'</span>'})
+    .replace(/\{\{[A-Z_]+\}\}/g,function(m){return '<span class="v">'+m+'</span>'})
+    .replace(/\b(1,23|4,5|375|1440|1080×1920|30|20|200|250|100\.000\.000)\b/g,function(m){return '<span class="n">'+m+'</span>'});
+  return h+(kom?'<span class="c">'+esc(kom)+'</span>':'');
+}
+var asli={};
+document.querySelectorAll('pre.kode').forEach(function(pre){
+  var teks=pre.textContent.replace(/^\n/,'');
+  asli[pre.id]=teks.split('\n').map(function(b){return b.replace(/\s*\/\/.*$/,'')}).join('\n').trim();
+  pre.innerHTML=teks.split('\n').map(function(b){return '<span class="b">'+(b?warnai(b):' ')+'</span>'}).join('');
+});
+document.querySelectorAll('button.salin').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var teks=asli[btn.dataset.salin], pre=document.getElementById(btn.dataset.salin);
+    function ok(){btn.textContent='Tersalin ✓';btn.classList.add('ok');setTimeout(function(){btn.textContent='Salin prompt';btn.classList.remove('ok')},1800)}
+    function pilih(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Tekan Ctrl/⌘+C'}
+    try{navigator.clipboard.writeText(teks).then(ok,pilih)}catch(e){pilih()}
+  });
+});
+// sorot tutorial yang sedang dibaca di sidebar
+var tautan=[].slice.call(document.querySelectorAll('nav.daftar a'));
+function aktif(id){tautan.forEach(function(a){a.classList.toggle('aktif',a.getAttribute('href')==='#'+id)})}
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)aktif(e.target.id)})},{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('article').forEach(function(a){io.observe(a)});
+}
+aktif('rumus');
+if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t){t.scrollIntoView();aktif(t.id)}}
+</script>
+
+
+</body>
+</html>
