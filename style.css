@@ -48,6 +48,8 @@ img { max-width: 100%; display: block; }
 }
 .tombol:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(34,211,238,.65); }
 .tombol.kecil { min-height: 40px; padding: 0 16px; font-size: 14px; }
+.tombol.dengan-ava { gap: 8px; padding-left: 6px; white-space: nowrap; flex: none; }
+.tombol .ava { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.85); flex: none; }
 .tautan-garis { background: none; border: 0; color: var(--redup); font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--garis2); min-height: 44px; transition: color .2s; }
 .tautan-garis:hover { color: var(--teks); text-decoration-color: var(--aksen); }
 
