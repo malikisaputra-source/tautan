@@ -2,7 +2,7 @@
 .hal-kode main { padding-top: 84px; }
 .k-hero {
   max-width: 1200px; margin: 0 auto; padding: 48px var(--gutter) 40px;
-  display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center;
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start;
 }
 .k-pil {
   display: inline-flex; align-items: center; gap: 8px; margin: 0 0 20px;
@@ -295,3 +295,5 @@
 /* atribut hidden harus menang atas display komponen (.tombol, .ks-tp) */
 .hal-kode [hidden] { display: none !important; }
 .ks-bawah { position: static; }
+.k-hero-kiri { padding-top: 8px; }
+@media (min-width: 961px) { .k-hero-kanan .k-kartu:first-child .k-sampul { aspect-ratio: 16 / 9; } }
