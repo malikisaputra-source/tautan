@@ -292,3 +292,6 @@
 .kd-skill-info p { color: var(--redup); font-size: 14.5px; margin: 0; }
 .kd-skill-info b { color: var(--teks); }
 .kd-skill-info code { font-family: var(--mono); color: var(--oranye); font-size: 13px; }
+/* atribut hidden harus menang atas display komponen (.tombol, .ks-tp) */
+.hal-kode [hidden] { display: none !important; }
+.ks-bawah { position: static; }
