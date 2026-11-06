@@ -297,3 +297,9 @@
 .ks-bawah { position: static; }
 .k-hero-kiri { padding-top: 8px; }
 @media (min-width: 961px) { .k-hero-kanan .k-kartu:first-child .k-sampul { aspect-ratio: 16 / 9; } }
+.k-hero > * { min-width: 0; }
+.kd-aksi .tombol { white-space: normal; min-width: 0; }
+.k-detail-isi { max-width: 100%; overflow-x: hidden; }
+.ks-kontrol, .ks-kiri { min-width: 0; max-width: 100%; }
+.ks-tp > *, .ks-bawah > * { min-width: 0; max-width: 100%; }
+@media (max-width: 960px) { .ks-preset { grid-template-columns: repeat(4, 1fr); } .ks-isi { overflow-x: hidden; } }
