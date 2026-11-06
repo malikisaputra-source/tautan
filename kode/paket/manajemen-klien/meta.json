@@ -1,0 +1,35 @@
+{
+  "slug": "manajemen-klien",
+  "judul": "Manajemen Klien — CRM Freelancer & Agensi",
+  "ringkas": "CRM tanpa server: klien, pipeline kanban, proyek, invoice & penawaran (PDF/WA), follow-up, laporan. Data di browser.",
+  "teknologi": ["HTML", "CSS", "JavaScript", "localStorage", "WhatsApp wa.me"],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+    "Dashboard pendapatan, tagihan, proyek & follow-up",
+    "Profil klien + timeline interaksi",
+    "Pipeline kanban seret-lepas & keyboard",
+    "Proyek dengan progres & checklist tugas",
+    "Invoice & penawaran: PPN, diskon, DP, nomor otomatis",
+    "Cetak A4/PDF, kirim WhatsApp & email",
+    "Kalender pengingat follow-up",
+    "Laporan grafik per bulan & per klien",
+    "Pencarian Ctrl/⌘+K, CSV & backup JSON",
+    "PIN lokal, mode gelap, responsif HP"
+  ],
+  "cara": [
+    "Ekstrak folder lalu buka index.html",
+    "Masuk dengan PIN 1234",
+    "Isi Pengaturan: alamat, rekening, ganti PIN",
+    "Ubah nama & warna di tema.js / tema.css",
+    "Unggah ke GitHub Pages/Netlify bila ingin online"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+    "index.html", "style.css", "app.js", "tema.css", "tema.js", "ikon.svg",
+    "README.md", "LICENSE", "meta.json", "DESIGN.md", "AGENTS.md",
+    ".claude/skills/ubah-manajemen-klien/SKILL.md", "ss.png"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Website RT/RW",
+  "short_name": "RT Kita",
+  "description": "Aplikasi pengurus RT/RW: warga, iuran, kas, pengumuman, surat pengantar",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7f6",
+  "theme_color": "#047857",
+  "lang": "id",
+  "icons": [{ "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

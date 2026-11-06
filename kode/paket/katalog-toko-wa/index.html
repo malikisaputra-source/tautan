@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+/* Mode sebelum render (tanpa kedip): pilihan pengguna (tombol bulan) > TEMA.mode > sistem. */
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'auto';
+  try { var t = localStorage.getItem('katalog-tema'); if (t === 'gelap' || t === 'terang') m = t; } catch (e) {}
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog Toko</title>
+<meta name="description" content="Katalog produk, pesan langsung lewat WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4532a'/%3E%3Cpath d='M9 12h14l-1.5 11h-11z' fill='%23f6f1e7'/%3E%3Cpath d='M12 12a4 4 0 0 1 8 0' stroke='%23f6f1e7' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="kepala">
+  <div class="wadah kepala-isi">
+    <a href="#" class="merek"><span class="merek-ikon">R</span><span><b id="namaToko" data-tema-nama>Rupa Lokal</b><small id="slogan"></small></span></a>
+    <div class="kepala-aksi">
+      <button class="ikon-btn" id="btnTema" aria-label="Ganti mode gelap/terang"><svg viewBox="0 0 24 24"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
+      <button class="ikon-btn keranjang-btn" id="btnKeranjang" aria-label="Buka keranjang"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 12h-11zM9 8a3 3 0 0 1 6 0"/></svg><span class="hitung" id="hitungKeranjang" hidden>0</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wadah">
+  <section class="pembuka">
+    <h1>Belanja santai,<br><em>pesan lewat WhatsApp.</em></h1>
+    <p>Pilih barang, masukkan keranjang, lalu kirim pesanan rapi ke admin. Tanpa daftar akun.</p>
+  </section>
+
+  <div class="saring">
+    <input type="search" id="cari" placeholder="Cari produk…" aria-label="Cari produk">
+    <select id="urut" aria-label="Urutkan">
+      <option value="">Urutan default</option>
+      <option value="murah">Harga terendah</option>
+      <option value="mahal">Harga tertinggi</option>
+      <option value="nama">Nama A–Z</option>
+    </select>
+  </div>
+  <div class="kategori" id="kategori"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="kaki wadah">
+  <p>© <span id="tahun"></span> <span id="namaTokoKaki" data-tema-nama>Rupa Lokal</span> · Pesanan diproses lewat WhatsApp.</p>
+</footer>
+
+<!-- Detail produk -->
+<dialog id="detail" class="modal"><div id="detailIsi"></div></dialog>
+
+<!-- Keranjang -->
+<div class="tirai" id="tirai" hidden></div>
+<aside class="laci" id="laci" aria-label="Keranjang" aria-hidden="true">
+  <header class="laci-kepala"><h2>Keranjang</h2><button class="ikon-btn" id="tutupLaci" aria-label="Tutup">✕</button></header>
+  <div class="laci-isi" id="laciIsi"></div>
+  <form class="laci-kaki" id="formPesan">
+    <div class="ringkas" id="ringkas"></div>
+    <details id="dataPembeli">
+      <summary>Data pengiriman</summary>
+      <label>Nama<input name="nama" required autocomplete="name"></label>
+      <label>Kota / pengiriman<select name="kota" id="pilihKota"></select></label>
+      <label>Alamat lengkap<textarea name="alamat" rows="2" autocomplete="street-address"></textarea></label>
+      <label>Catatan (opsional)<input name="catatan"></label>
+    </details>
+    <button class="tombol-wa" id="btnWa" type="submit"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>Pesan via WhatsApp</button>
+  </form>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="produk.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

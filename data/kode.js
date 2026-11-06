@@ -32,7 +32,25 @@ window.KODE = [
    "Tambah produk atau impor CSV, lalu mulai jualan"
   ],
   "demo": "index.html?demo",
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-kasir-umkm/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "qris.svg"
+  ],
+  "pratinjau": "index.html?demo",
   "gambar": "img/kasir-umkm.png",
+  "dasar": "paket/kasir-umkm/",
   "repo": "https://github.com/malikisaputra-source/kasir-umkm",
   "zip": "https://github.com/malikisaputra-source/kasir-umkm/archive/refs/heads/main.zip"
  },
@@ -61,15 +79,138 @@ window.KODE = [
    "Siap deploy GitHub Pages / Vercel"
   ],
   "cara": [
-   "Ubah nama toko, nomor WA, ongkir di produk.js",
+   "Ubah nama toko di tema.js; nomor WA & ongkir di produk.js",
    "Ganti daftar produk dan gambarnya",
    "Buka index.html untuk mencoba",
    "Unggah ke GitHub Pages atau Vercel"
   ],
   "demo": "index.html",
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-katalog-toko-wa/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "produk.js",
+   "tema.css",
+   "tema.js"
+  ],
+  "pratinjau": "index.html",
   "gambar": "img/katalog-toko-wa.png",
+  "dasar": "paket/katalog-toko-wa/",
   "repo": "https://github.com/malikisaputra-source/katalog-toko-wa",
   "zip": "https://github.com/malikisaputra-source/katalog-toko-wa/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "manajemen-bengkel",
+  "judul": "Manajemen Bengkel Motor & Mobil",
+  "ringkas": "Sistem bengkel tanpa server: antrean kanban + layar TV, work order, stok sparepart, nota A5/58mm, kirim WA, riwayat plat & laporan.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Dashboard hari ini: antrean, pendapatan, servis selesai",
+   "Papan antrean kanban seret-lepas + layar TV",
+   "Work order: kendaraan, keluhan, jasa, sparepart, mekanik",
+   "Stok sparepart, stok minimum & mutasi otomatis",
+   "Nota A5 / thermal 58mm + kirim WhatsApp",
+   "Riwayat per plat & pengingat servis via wa.me",
+   "Laporan jasa vs sparepart & mekanik terproduktif",
+   "Ekspor CSV & backup JSON",
+   "PIN admin/kasir, mode gelap, responsif HP"
+  ],
+  "cara": [
+   "Ekstrak folder lalu buka index.html di browser",
+   "Masuk dengan PIN admin 1234 (kasir 1111)",
+   "Isi alamat & WA bengkel di Pengaturan, ganti PIN",
+   "Tambah sparepart & mekanik, lalu buat work order",
+   "Buka index.html?tv di layar ruang tunggu"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "README.md",
+   "LICENSE",
+   "meta.json",
+   "ss.png",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-manajemen-bengkel/SKILL.md"
+  ],
+  "gambar": "img/manajemen-bengkel.png",
+  "dasar": "paket/manajemen-bengkel/",
+  "repo": "https://github.com/malikisaputra-source/manajemen-bengkel",
+  "zip": "https://github.com/malikisaputra-source/manajemen-bengkel/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "manajemen-klien",
+  "judul": "Manajemen Klien — CRM Freelancer & Agensi",
+  "ringkas": "CRM tanpa server: klien, pipeline kanban, proyek, invoice & penawaran (PDF/WA), follow-up, laporan. Data di browser.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "WhatsApp wa.me"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Dashboard pendapatan, tagihan, proyek & follow-up",
+   "Profil klien + timeline interaksi",
+   "Pipeline kanban seret-lepas & keyboard",
+   "Proyek dengan progres & checklist tugas",
+   "Invoice & penawaran: PPN, diskon, DP, nomor otomatis",
+   "Cetak A4/PDF, kirim WhatsApp & email",
+   "Kalender pengingat follow-up",
+   "Laporan grafik per bulan & per klien",
+   "Pencarian Ctrl/⌘+K, CSV & backup JSON",
+   "PIN lokal, mode gelap, responsif HP"
+  ],
+  "cara": [
+   "Ekstrak folder lalu buka index.html",
+   "Masuk dengan PIN 1234",
+   "Isi Pengaturan: alamat, rekening, ganti PIN",
+   "Ubah nama & warna di tema.js / tema.css",
+   "Unggah ke GitHub Pages/Netlify bila ingin online"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "README.md",
+   "LICENSE",
+   "meta.json",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-manajemen-klien/SKILL.md",
+   "ss.png"
+  ],
+  "gambar": "img/manajemen-klien.png",
+  "dasar": "paket/manajemen-klien/",
+  "repo": "https://github.com/malikisaputra-source/manajemen-klien",
+  "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip"
  },
  {
   "slug": "presensi-gps-gas",
@@ -246,5 +387,64 @@ window.KODE = [
   "gambar": "img/template-video-tutor-remotion.png",
   "repo": "https://github.com/malikisaputra-source/template-video-tutor-remotion",
   "zip": "https://github.com/malikisaputra-source/template-video-tutor-remotion/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "website-rt",
+  "judul": "Website RT/RW: Warga, Iuran, Kas & Surat",
+  "ringkas": "Aplikasi RT/RW tanpa server: data warga & KK, iuran + pengingat WA, kas bergrafik, papan pengumuman, surat pengantar A4.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "PWA",
+   "WhatsApp wa.me"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Halaman publik: pengumuman, agenda, kontak pengurus",
+   "Panel pengurus berkunci PIN (contoh 1234)",
+   "Data warga & KK: cari, status tetap/kontrak, jumlah jiwa",
+   "Iuran per KK: tandai lunas, tunggakan, rekap bulanan",
+   "Pengingat iuran via WhatsApp berformat rapi",
+   "Kas RT: pemasukan, pengeluaran, saldo, grafik SVG",
+   "Surat pengantar A4 dengan kop & nomor otomatis",
+   "Ekspor/impor CSV + cadangan JSON",
+   "Mode gelap, warna & huruf bisa diatur, animasi halus",
+   "Jalan offline (PWA), responsif HP dengan nav bawah"
+  ],
+  "cara": [
+   "Buka index.html di browser",
+   "Klik Pengurus, masukkan PIN 1234",
+   "Ubah identitas RT & PIN di Pengaturan",
+   "Kosongkan data contoh, lalu isi data warga",
+   "Unggah ke GitHub Pages/Netlify agar bisa dipakai di HP"
+  ],
+  "demo": "index.html",
+  "kustom": true,
+  "berkas": [
+   "index.html",
+   "tema.css",
+   "tema.js",
+   "style.css",
+   "data.js",
+   "app.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "README.md",
+   "LICENSE",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-website-rt/SKILL.md",
+   "meta.json",
+   "ss.png"
+  ],
+  "pratinjau": "index.html",
+  "gambar": "img/website-rt.png",
+  "dasar": "paket/website-rt/",
+  "repo": "https://github.com/malikisaputra-source/website-rt",
+  "zip": "https://github.com/malikisaputra-source/website-rt/archive/refs/heads/main.zip"
  }
 ];

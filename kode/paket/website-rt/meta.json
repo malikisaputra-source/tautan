@@ -1,0 +1,31 @@
+{
+  "slug": "website-rt",
+  "judul": "Website RT/RW: Warga, Iuran, Kas & Surat",
+  "ringkas": "Aplikasi RT/RW tanpa server: data warga & KK, iuran + pengingat WA, kas bergrafik, papan pengumuman, surat pengantar A4.",
+  "teknologi": ["HTML", "CSS", "JavaScript", "localStorage", "PWA", "WhatsApp wa.me"],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+    "Halaman publik: pengumuman, agenda, kontak pengurus",
+    "Panel pengurus berkunci PIN (contoh 1234)",
+    "Data warga & KK: cari, status tetap/kontrak, jumlah jiwa",
+    "Iuran per KK: tandai lunas, tunggakan, rekap bulanan",
+    "Pengingat iuran via WhatsApp berformat rapi",
+    "Kas RT: pemasukan, pengeluaran, saldo, grafik SVG",
+    "Surat pengantar A4 dengan kop & nomor otomatis",
+    "Ekspor/impor CSV + cadangan JSON",
+    "Mode gelap, warna & huruf bisa diatur, animasi halus",
+    "Jalan offline (PWA), responsif HP dengan nav bawah"
+  ],
+  "cara": [
+    "Buka index.html di browser",
+    "Klik Pengurus, masukkan PIN 1234",
+    "Ubah identitas RT & PIN di Pengaturan",
+    "Kosongkan data contoh, lalu isi data warga",
+    "Unggah ke GitHub Pages/Netlify agar bisa dipakai di HP"
+  ],
+  "demo": "index.html",
+  "kustom": true,
+  "berkas": ["index.html", "tema.css", "tema.js", "style.css", "data.js", "app.js", "sw.js", "manifest.webmanifest", "ikon.svg", "README.md", "LICENSE", "DESIGN.md", "AGENTS.md", ".claude/skills/ubah-website-rt/SKILL.md", "meta.json", "ss.png"],
+  "pratinjau": "index.html"
+}

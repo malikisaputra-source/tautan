@@ -26,7 +26,7 @@
     b.setAttribute("aria-label", `${d.judul}, ${d.tier === "premium" ? "premium, gratis" : "gratis"}. Lihat detail`);
     b.innerHTML = `${lencana(d)}
       <div class="k-sampul ${d.gambar ? "" : "kosong"}">${d.gambar ? `<img src="${esc(d.gambar)}" alt="" loading="lazy" width="1280" height="800">` : esc(d.kategori)}</div>
-      <div class="k-badan"><h3>${esc(d.judul)}</h3><p>${esc(d.ringkas)}</p>
+      ${d.kustom ? `<span class="k-kustom-l">Bisa dikustom</span>` : ""}<div class="k-badan"><h3>${esc(d.judul)}</h3><p>${esc(d.ringkas)}</p>
       <div class="k-tag">${(d.teknologi || []).slice(0, 4).map((t) => `<span>${esc(t)}</span>`).join("")}</div></div>`;
     b.addEventListener("click", () => buka(d, b));
     return b;
@@ -106,6 +106,11 @@
       try { if (navigator.share) await navigator.share({ title: d.judul, url }); else { await navigator.clipboard.writeText(url); $("#kd-bagi").textContent = "Tautan tersalin"; } } catch (_) {}
     };
     $("#kd-bagi").textContent = "Bagikan";
+    const kb = $("#kd-kustom"); kb.hidden = !d.kustom;
+    kb.onclick = () => window.bukaStudio && window.bukaStudio(d);
+    const ada = (d.berkas || []).some((b) => b.startsWith(".claude/skills/"));
+    $("#kd-skill").hidden = !ada; $("#kd-skill-info").hidden = !ada;
+    $("#kd-skill").onclick = () => window.unduhSkill && window.unduhSkill(d, $("#kd-skill"));
     panel.hidden = false; document.body.style.overflow = "hidden";
     history.replaceState(null, "", `#k/${d.slug}`);
     $(".k-detail-isi").scrollTop = 0; $(".k-tutup").focus();

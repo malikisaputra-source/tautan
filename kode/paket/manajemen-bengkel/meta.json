@@ -1,0 +1,34 @@
+{
+  "slug": "manajemen-bengkel",
+  "judul": "Manajemen Bengkel Motor & Mobil",
+  "ringkas": "Sistem bengkel tanpa server: antrean kanban + layar TV, work order, stok sparepart, nota A5/58mm, kirim WA, riwayat plat & laporan.",
+  "teknologi": ["HTML", "CSS", "JavaScript", "localStorage"],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+    "Dashboard hari ini: antrean, pendapatan, servis selesai",
+    "Papan antrean kanban seret-lepas + layar TV",
+    "Work order: kendaraan, keluhan, jasa, sparepart, mekanik",
+    "Stok sparepart, stok minimum & mutasi otomatis",
+    "Nota A5 / thermal 58mm + kirim WhatsApp",
+    "Riwayat per plat & pengingat servis via wa.me",
+    "Laporan jasa vs sparepart & mekanik terproduktif",
+    "Ekspor CSV & backup JSON",
+    "PIN admin/kasir, mode gelap, responsif HP"
+  ],
+  "cara": [
+    "Ekstrak folder lalu buka index.html di browser",
+    "Masuk dengan PIN admin 1234 (kasir 1111)",
+    "Isi alamat & WA bengkel di Pengaturan, ganti PIN",
+    "Tambah sparepart & mekanik, lalu buat work order",
+    "Buka index.html?tv di layar ruang tunggu"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+    "index.html", "style.css", "app.js", "tema.css", "tema.js", "ikon.svg",
+    "README.md", "LICENSE", "meta.json", "ss.png", "DESIGN.md", "AGENTS.md",
+    ".claude/skills/ubah-manajemen-bengkel/SKILL.md"
+  ]
+}
