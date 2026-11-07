@@ -261,11 +261,11 @@
 (() => {
   const cv = document.getElementById("k-langit"); if (!cv) return;
   const kurang = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const ctx = cv.getContext("2d"); let W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2), bintang = [], jatuh = [], mx = 0, my = 0, t0 = performance.now();
+  const ctx = cv.getContext("2d"); let percik = [], W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2), bintang = [], jatuh = [], mx = 0, my = 0, t0 = performance.now();
   function ukur() {
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.round(W * H / 4200);
-    bintang = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H * .78, z: Math.random(), r: Math.random() * 1.3 + .3,
+    const n = Math.round(W * H / (W < 700 ? 2600 : 3200));
+    bintang = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H * .78, z: Math.random(), r: Math.random() * 1.6 + .45,
       f: Math.random() * 6.28, k: .6 + Math.random() * 2.2, w: Math.random() < .12 }));
   }
   ukur(); addEventListener("resize", ukur);
@@ -273,23 +273,27 @@
   function gambar(now) {
     const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
     for (const b of bintang) {
-      const tw = kurang ? .8 : .45 + .55 * Math.sin(t * b.k + b.f) ** 2;
+      const tw = kurang ? .85 : .3 + .7 * Math.sin(t * b.k + b.f) ** 2;
       const x = b.x - mx * 30 * (b.z + .2), y = b.y - my * 20 * (b.z + .2) + (kurang ? 0 : (t * 4 * b.z) % H * 0);
       const fadeY = Math.max(0, 1 - y / (H * .78));
-      ctx.globalAlpha = tw * (.35 + b.z * .65) * fadeY;
+      ctx.globalAlpha = Math.min(1, tw * (.5 + b.z * .7) * fadeY);
       ctx.fillStyle = b.w ? "#a5f3fc" : "#ffffff";
       ctx.beginPath(); ctx.arc(x, y, b.r * (b.w ? 1.3 : 1), 0, 6.28); ctx.fill();
       if (b.w && tw > .9) { ctx.globalAlpha *= .5; ctx.fillRect(x - 5, y - .35, 10, .7); ctx.fillRect(x - .35, y - 5, .7, 10); }
     }
     if (!kurang) {
-      if (Math.random() < .012 && jatuh.length < 3) jatuh.push({ x: Math.random() * W * .8 + W * .1, y: Math.random() * H * .3, vx: -(5 + Math.random() * 5), vy: 2.2 + Math.random() * 2, h: 1 });
+      if (Math.random() < .035 && jatuh.length < 4) { const kanan = Math.random() < .5; jatuh.push({ x: kanan ? W * (.55 + Math.random() * .45) : W * Math.random() * .45, y: Math.random() * H * .35, vx: (kanan ? -1 : 1) * (7 + Math.random() * 6), vy: 3 + Math.random() * 2.5, h: 1 }); }
       for (const j of jatuh) {
-        j.x += j.vx; j.y += j.vy; j.h -= .012;
+        j.x += j.vx; j.y += j.vy; j.h -= .01;
         const g = ctx.createLinearGradient(j.x, j.y, j.x - j.vx * 14, j.y - j.vy * 14);
         g.addColorStop(0, `rgba(224,250,255,${j.h})`); g.addColorStop(1, "rgba(34,211,238,0)");
-        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(j.x, j.y); ctx.lineTo(j.x - j.vx * 14, j.y - j.vy * 14); ctx.stroke();
+        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(j.x, j.y); ctx.lineTo(j.x - j.vx * 16, j.y - j.vy * 16); ctx.stroke();
+        const kp = ctx.createRadialGradient(j.x, j.y, 0, j.x, j.y, 7); kp.addColorStop(0, `rgba(255,255,255,${j.h})`); kp.addColorStop(1, 'rgba(34,211,238,0)'); ctx.fillStyle = kp; ctx.beginPath(); ctx.arc(j.x, j.y, 7, 0, 6.28); ctx.fill();
       }
-      jatuh = jatuh.filter((j) => j.h > 0 && j.x > -50 && j.y < H);
+      jatuh = jatuh.filter((j) => j.h > 0 && j.x > -80 && j.x < W + 80 && j.y < H);
+      // percikan api roket
+      for (const p of percik) { p.x += p.vx; p.y += p.vy; p.vy += .03; p.h -= .02; ctx.globalAlpha = Math.max(0, p.h); ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill(); }
+      percik = percik.filter((p) => p.h > 0);
     }
     ctx.globalAlpha = 1;
     if (!kurang) requestAnimationFrame(gambar);
@@ -301,14 +305,24 @@
   const asap = roket.querySelector(".k-asap");
   function luncur() {
     const hero = roket.parentElement.getBoundingClientRect();
-    const tl = gsap.timeline({ onComplete: () => gsap.delayedCall(6 + Math.random() * 5, luncur) });
-    tl.set(roket, { x: 0, y: 0, rotate: 18, opacity: 0, scale: .7 })
+    const tl = gsap.timeline();
+    const ke = Math.random() < .5 ? -1 : 1;
+    tl.set(roket, { x: 0, y: 0, rotate: ke * -8, opacity: 0, scale: .6 })
       .set(asap, { height: 0, opacity: 1 })
-      .to(roket, { opacity: 1, duration: .3 })
-      .to(roket, { y: -hero.height * .95, x: -hero.width * .28, rotate: -14, scale: 1.05, duration: 3.2, ease: "power2.in" }, "<")
-      .to(asap, { height: 260, duration: 3.2, ease: "power1.in" }, "<")
-      .to(roket, { opacity: 0, duration: .5 }, "-=.5")
-      .to(asap, { opacity: 0, duration: .8 }, "-=.5");
+      .to(roket, { opacity: 1, scale: 1, duration: .4 })
+      .to(roket, { y: -hero.height * .62, x: ke * hero.width * .08, rotate: ke * 6, duration: 1.6, ease: "power2.in" }, "<")
+      .to(roket, { y: -hero.height * 1.05, x: ke * hero.width * .32, rotate: ke * 28, duration: 1.4, ease: "power1.in" })
+      .to(asap, { height: 340, duration: 3, ease: "power1.in" }, 0)
+      .to(roket, { opacity: 0, duration: .4 }, "-=.4")
+      .to(asap, { opacity: 0, duration: .6 }, "-=.4");
+    const lepas = () => {
+      if (+getComputedStyle(roket).opacity < .1) return;
+      const rr = roket.getBoundingClientRect(), cr = cv.getBoundingClientRect();
+      const x = rr.left + rr.width / 2 - cr.left, y = rr.bottom - cr.top;
+      for (let i = 0; i < 3; i++) percik.push({ x, y, vx: (Math.random() - .5) * 1.6, vy: 1 + Math.random() * 2, r: Math.random() * 2 + .6, h: 1, c: Math.random() < .5 ? "#a5f3fc" : "#ffffff" });
+    };
+    gsap.ticker.add(lepas);
+    tl.eventCallback("onComplete", () => { gsap.ticker.remove(lepas); gsap.delayedCall(4 + Math.random() * 3, luncur); });
   }
-  gsap.delayedCall(1.8, luncur);
+  gsap.delayedCall(.9, luncur);
 })();
