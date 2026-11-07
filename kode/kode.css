@@ -303,3 +303,5 @@
 .ks-kontrol, .ks-kiri { min-width: 0; max-width: 100%; }
 .ks-tp > *, .ks-bawah > * { min-width: 0; max-width: 100%; }
 @media (max-width: 960px) { .ks-preset { grid-template-columns: repeat(4, 1fr); } .ks-isi { overflow-x: hidden; } }
+.k-angka-k { margin: 0; font: 12px var(--mono); color: var(--hijau); }
+.kd-angka { margin: 0 0 6px; font: 13px var(--mono); color: var(--hijau); }

@@ -277,7 +277,7 @@ window.TEMA = { nama: ${JSON.stringify(t.nama)}, mode: "${t.mode}" }; // mode: "
         const r = await fetch(d.dasar + b); if (!r.ok) throw new Error(b);
         zip.file(b.replace(/^\.claude\/skills\//, ""), await r.arrayBuffer());
       }));
-      await buatZip(zip, `skill-ubah-${d.slug}.zip`);
+      await buatZip(zip, `skill-ubah-${d.slug}.zip`); window.catatHitung && window.catatHitung(d.slug, "skill");
       btn.textContent = "Skill terunduh";
     } catch (_) { btn.textContent = "Gagal, coba lagi"; }
     setTimeout(() => { btn.textContent = label; btn.disabled = false; }, 2500);
@@ -300,7 +300,7 @@ window.TEMA = { nama: ${JSON.stringify(t.nama)}, mode: "${t.mode}" }; // mode: "
         else { const r = await fetch(paket.dasar + b); if (!r.ok) throw new Error(b); isi = await r.arrayBuffer(); }
         akar.file(b, isi); n++; st.textContent = `Mengemas ${n}/${daftar.length} berkas…`;
       }));
-      await buatZip(zip, `${paket.slug}-${tema.utama.slice(1)}.zip`);
+      await buatZip(zip, `${paket.slug}-${tema.utama.slice(1)}.zip`); window.catatHitung && window.catatHitung(paket.slug, "zip");
       st.textContent = "Selesai. Ekstrak lalu buka index.html. Jangan lupa follow & share ya!";
       if (!kurang && window.gsap) gsap.fromTo(btn, { scale: .96 }, { scale: 1, duration: .5, ease: "elastic.out(1,.4)" });
     } catch (e) { st.textContent = "Gagal mengemas (" + e.message + "). Coba unduh dari GitHub."; }

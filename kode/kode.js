@@ -11,6 +11,17 @@
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const state = { q: "", tier: "", kat: "" };
+  let aktifSlug = null;
+  const rb = (n) => n >= 1000 ? (n / 1000).toLocaleString("id-ID", { maximumFractionDigits: 1 }) + " rb" : String(n);
+  function teksHitung(h) { return h ? `${rb(h.zip || 0)} diunduh · ${rb(h.lihat || 0)} dilihat${h.skill ? ` · ${rb(h.skill)} skill` : ""}` : ""; }
+  function segarkanHitung() {
+    const H = window.HITUNG || {};
+    document.querySelectorAll("[data-angka]").forEach((e) => { const h = H[e.dataset.angka]; e.hidden = !h; e.textContent = teksHitung(h); });
+    const k = $("#kd-angka"); if (k) { const h = aktifSlug && H[aktifSlug]; k.hidden = !h; k.textContent = teksHitung(h); }
+    const tot = Object.values(H).reduce((a, h) => a + (h.zip || 0), 0);
+    const el = document.getElementById("a-unduh"); if (el && tot) { el.textContent = rb(tot); el.closest("div").hidden = false; }
+  }
+  window.segarkanHitung = segarkanHitung;
 
   // unggulan: premium dulu
   DATA.sort((a, b) => (a.tier === "premium" ? 0 : 1) - (b.tier === "premium" ? 0 : 1));
@@ -27,7 +38,7 @@
     b.innerHTML = `${lencana(d)}
       <div class="k-sampul ${d.gambar ? "" : "kosong"}">${d.gambar ? `<img src="${esc(d.gambar)}" alt="" loading="lazy" width="1280" height="800">` : esc(d.kategori)}</div>
       ${d.kustom ? `<span class="k-kustom-l">Bisa dikustom</span>` : ""}<div class="k-badan"><h3>${esc(d.judul)}</h3><p>${esc(d.ringkas)}</p>
-      <div class="k-tag">${(d.teknologi || []).slice(0, 4).map((t) => `<span>${esc(t)}</span>`).join("")}</div></div>`;
+      <p class="k-angka-k" data-angka="${esc(d.slug)}" hidden></p><div class="k-tag">${(d.teknologi || []).slice(0, 4).map((t) => `<span>${esc(t)}</span>`).join("")}</div></div>`;
     b.addEventListener("click", () => buka(d, b));
     return b;
   }
@@ -106,6 +117,8 @@
       try { if (navigator.share) await navigator.share({ title: d.judul, url }); else { await navigator.clipboard.writeText(url); $("#kd-bagi").textContent = "Tautan tersalin"; } } catch (_) {}
     };
     $("#kd-bagi").textContent = "Bagikan";
+    aktifSlug = d.slug; window.catatHitung && window.catatHitung(d.slug, "lihat"); segarkanHitung();
+    $("#kd-unduh").onclick = () => window.catatHitung && window.catatHitung(d.slug, "zip");
     const kb = $("#kd-kustom"); kb.hidden = !d.kustom;
     kb.onclick = () => window.bukaStudio && window.bukaStudio(d);
     const ada = (d.berkas || []).some((b) => b.startsWith(".claude/skills/"));
@@ -132,7 +145,7 @@
     }
   });
   const m = location.hash.match(/^#k\/(.+)$/);
-  render();
+  render(); window.muatHitung && window.muatHitung();
   if (m) { const d = DATA.find((x) => x.slug === decodeURIComponent(m[1])); if (d) buka(d); }
 
   // gerak
