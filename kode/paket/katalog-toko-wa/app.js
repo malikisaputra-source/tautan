@@ -82,9 +82,8 @@
       tas: '<path d="M96 70l44 70 44-70" stroke="' + a + '" stroke-width="6" fill="none"/><rect x="88" y="120" width="104" height="96" rx="20" fill="' + w + '"/><path d="M88 156h104" stroke="' + a + '" stroke-width="3" opacity=".6"/><rect x="128" y="148" width="24" height="16" rx="3" fill="' + a + '"/>',
       tatakan: '<ellipse cx="140" cy="150" rx="70" ry="70" fill="' + w + '"/><g fill="none" stroke="' + a + '" stroke-width="4" opacity=".7"><circle cx="140" cy="150" r="54"/><circle cx="140" cy="150" r="38"/><circle cx="140" cy="150" r="22"/></g>'
     }[g.bentuk] || '';
-    s += '<rect width="280" height="280" fill="' + (sudut % 2 ? '#e9dfcb' : '#f1e9d8') + '"/>';
-    s += '<circle cx="' + (sudut % 2 ? 220 : 60) + '" cy="60" r="90" fill="' + w + '" opacity=".08"/>';
-    s += '<ellipse cx="140" cy="236" rx="78" ry="10" fill="#000" opacity=".08"/>';
+    // latar transparan: warna kotak gambar diatur CSS (.kartu-gambar dll.) supaya ikut tema & mode gelap
+    s += '<ellipse cx="140" cy="238" rx="74" ry="9" fill="#000" opacity=".13"/><ellipse cx="140" cy="238" rx="46" ry="5" fill="#000" opacity=".1"/>';
     s += '<g transform="rotate(' + (sudut ? (sudut % 2 ? -8 : 6) : 0) + ' 140 150)">' + bentuk + '</g>';
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280">' + s + '</svg>');
   }
@@ -120,12 +119,14 @@
     if (u === 'murah') list.sort(function (a, b) { return a.harga - b.harga; });
     if (u === 'mahal') list.sort(function (a, b) { return b.harga - a.harga; });
     if (u === 'nama') list.sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id'); });
-    $('#grid').innerHTML = list.length ? list.map(function (p) {
-      var habis = p.stok === 0;
-      return '<button class="kartu" data-id="' + esc(p.id) + '"><div class="kartu-gambar"><img src="' + srcGambar(p.gambar[0]) + '" alt="' + esc(p.nama) + '" loading="lazy">' +
-        (habis ? '<span class="label habis">Stok habis</span>' : p.label ? '<span class="label">' + esc(p.label) + '</span>' : '') + '</div>' +
-        '<span class="kat-kecil">' + esc(p.kategori) + '</span><h3>' + esc(p.nama) + '</h3><span class="harga">' + rp(p.harga) + (p.hargaCoret ? ' <s>' + rp(p.hargaCoret) + '</s>' : '') + '</span></button>';
-    }).join('') : '<p class="kosong">Produk tidak ditemukan. Coba kata lain.</p>';
+    $('#jumlahHasil').textContent = list.length + ' produk';
+    $('#grid').innerHTML = list.length ? list.map(function (p, n) {
+      var habis = p.stok === 0, warna = (p.varian || []).filter(function (v) { return v.nama === 'Warna'; })[0];
+      return '<button class="kartu" data-id="' + esc(p.id) + '" style="--i:' + Math.min(n, 12) + '"><div class="kartu-gambar"><img src="' + srcGambar(p.gambar[0]) + '" alt="' + esc(p.nama) + '" loading="lazy">' +
+        (habis ? '<span class="label habis">Stok habis</span>' : p.label ? '<span class="label">' + esc(p.label) + '</span>' : '') +
+        '<span class="kartu-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></div>' +
+        '<span class="kartu-info"><span class="kat-kecil">' + esc(p.kategori) + (warna ? ' · ' + warna.opsi.length + ' warna' : '') + '</span><h3>' + esc(p.nama) + '</h3><span class="harga">' + rp(p.harga) + (p.hargaCoret ? ' <s>' + rp(p.hargaCoret) + '</s>' : '') + '</span></span></button>';
+    }).join('') : '<div class="kosong"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><b>Produk tidak ditemukan</b><span>Coba kata lain atau pilih "Semua".</span></div>';
   }
 
   // ---------- detail ----------
@@ -134,17 +135,17 @@
     (p.varian || []).forEach(function (v) { pilihan[v.nama] = v.opsi[0]; });
     function render() {
       var habis = p.stok === 0;
-      $('#detailIsi').innerHTML = '<button class="ikon-btn tutup-modal" id="tutupDetail" aria-label="Tutup">✕</button><div class="detail">' +
+      $('#detailIsi').innerHTML = '<button class="ikon-btn tutup-modal" id="tutupDetail" aria-label="Tutup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="detail">' +
         '<div class="galeri"><div class="galeri-utama"><img src="' + srcGambar(p.gambar[aktifGbr], aktifGbr) + '" alt="' + esc(p.nama) + '"></div>' +
         (p.gambar.length > 1 ? '<div class="galeri-kecil">' + p.gambar.map(function (g, i) { return '<button data-g="' + i + '" class="' + (i === aktifGbr ? 'aktif' : '') + '" aria-label="Gambar ' + (i + 1) + '"><img src="' + srcGambar(g, i) + '" alt=""></button>'; }).join('') + '</div>' : '') + '</div>' +
         '<div class="info"><span class="kat-kecil redup">' + esc(p.kategori) + '</span><h2>' + esc(p.nama) + '</h2>' +
         '<span class="harga">' + rp(hargaVarian(p, pilihan)) + (p.hargaCoret ? ' <s>' + rp(p.hargaCoret) + '</s>' : '') + '</span><p>' + esc(p.deskripsi) + '</p>' +
         (p.varian || []).map(function (v) {
-          return '<div class="varian"><b>' + esc(v.nama) + '</b><div class="opsi">' + v.opsi.map(function (o) { return '<button data-v="' + esc(v.nama) + '" data-o="' + esc(o) + '" class="' + (pilihan[v.nama] === o ? 'aktif' : '') + '">' + esc(o) + (v.tambah && v.tambah[o] ? ' +' + (v.tambah[o] / 1000) + 'rb' : '') + '</button>'; }).join('') + '</div></div>';
+          return '<div class="varian"><b>' + esc(v.nama) + '</b><div class="opsi">' + v.opsi.map(function (o) { return '<button data-v="' + esc(v.nama) + '" data-o="' + esc(o) + '" class="' + (pilihan[v.nama] === o ? 'aktif' : '') + '">' + esc(o) + (v.tambah && v.tambah[o] ? ' <small>+' + (v.tambah[o] / 1000) + 'rb</small>' : '') + '</button>'; }).join('') + '</div></div>';
         }).join('') +
-        '<span class="stok-info">' + (habis ? 'Stok sedang habis, tanya admin untuk pre-order.' : p.stok <= 10 ? 'Sisa ' + p.stok + ' — jangan sampai kehabisan.' : 'Stok tersedia') + '</span>' +
+        '<span class="stok-info' + (habis ? ' habis' : p.stok <= 10 ? ' tipis' : '') + '"><i></i>' + (habis ? 'Stok sedang habis, tanya admin untuk pre-order.' : p.stok <= 10 ? 'Sisa ' + p.stok + ', jangan sampai kehabisan.' : 'Stok tersedia, siap dikirim') + '</span>' +
         '<div class="beli"><div class="jumlah"><button data-q="-1" aria-label="Kurangi">−</button><span>' + qty + '</span><button data-q="1" aria-label="Tambah">+</button></div>' +
-        '<button class="tombol" id="btnTambah"' + (habis ? ' disabled' : '') + '>Tambah ke keranjang</button></div></div></div>';
+        '<button class="tombol" id="btnTambah"' + (habis ? ' disabled' : '') + '><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.5 12h-11zM9 8a3 3 0 0 1 6 0"/></svg>' + (habis ? 'Stok habis' : 'Tambah · ' + rp(hargaVarian(p, pilihan) * qty)) + '</button></div></div></div>';
     }
     render();
     var d = $('#detail'); if (!d.open) d.showModal();
@@ -180,11 +181,12 @@
   function renderKeranjang() {
     var n = keranjang.reduce(function (s, i) { return s + i.qty; }, 0);
     $('#hitungKeranjang').hidden = !n; $('#hitungKeranjang').textContent = n;
+    $('#laciJumlah').textContent = n ? n + ' barang' : '';
     $('#laciIsi').innerHTML = keranjang.length ? keranjang.map(function (i, k) {
       var p = cari(i.id), g = p ? p.gambar[0] : { bentuk: 'tote' };
-      return '<div class="item"><img src="' + srcGambar(g) + '" alt=""><div><b>' + esc(i.nama) + '</b><small>' + esc(i.label || '') + (i.label ? ' · ' : '') + rp(i.harga) + '</small><br><button class="hapus" data-hapus="' + k + '">Hapus</button></div>' +
+      return '<div class="item" style="--i:' + k + '"><span class="item-gambar"><img src="' + srcGambar(g) + '" alt=""></span><div><b>' + esc(i.nama) + '</b><small>' + esc(i.label || '') + (i.label ? ' · ' : '') + rp(i.harga) + '</small><br><button class="hapus" data-hapus="' + k + '">Hapus</button></div>' +
         '<div class="jumlah"><button data-k="' + k + '" data-d="-1" aria-label="Kurangi">−</button><span>' + i.qty + '</span><button data-k="' + k + '" data-d="1" aria-label="Tambah">+</button></div></div>';
-    }).join('') : '<div class="laci-kosong">Keranjang masih kosong.<br>Yuk pilih barang dulu.</div>';
+    }).join('') : '<div class="laci-kosong"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.5 12h-11zM9 8a3 3 0 0 1 6 0"/></svg><b>Keranjang masih kosong</b><span>Yuk pilih barang dulu.</span></div>';
     var t = hitungTotal(keranjang, kotaTerpilih(), TOKO);
     var sisa = TOKO.gratisOngkirMin - t.subtotal;
     $('#ringkas').innerHTML = '<div><span>Subtotal</span><span>' + rp(t.subtotal) + '</span></div>' +
@@ -206,6 +208,14 @@
     $('#pilihKota').innerHTML = '<option value="">— pilih —</option>' + TOKO.ongkir.map(function (o, i) { return '<option value="' + i + '">' + esc(o.kota) + (o.biaya ? ' (' + rp(o.biaya) + ')' : '') + '</option>'; }).join('');
     var pb = simpanan.get('katalog-pembeli', {}); var f = $('#formPesan');
     ['nama', 'alamat', 'catatan', 'kota'].forEach(function (k) { if (pb[k] != null) f.elements[k].value = pb[k]; });
+    var unggul = PRODUK.filter(function (p) { return p.label && p.stok !== 0; })[0] || PRODUK[0];
+    if (unggul) {
+      $('#sorotan').innerHTML = '<button class="sorotan-kartu" data-id="' + esc(unggul.id) + '"><span class="sorotan-gambar"><img src="' + srcGambar(unggul.gambar[0]) + '" alt="' + esc(unggul.nama) + '"></span>' +
+        '<span class="sorotan-info"><small>' + esc(unggul.label || 'Pilihan minggu ini') + '</small><b>' + esc(unggul.nama) + '</b><span class="harga">' + rp(unggul.harga) + (unggul.hargaCoret ? ' <s>' + rp(unggul.hargaCoret) + '</s>' : '') + '</span></span>' +
+        '<span class="sorotan-panah" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></button>';
+      $('#sorotan').onclick = function () { bukaDetail(unggul); };
+    }
+    $('#jumlahProduk').textContent = PRODUK.length;
     renderKategori(); renderGrid(); renderKeranjang();
     if (/[?&]keranjang\b/.test(location.search)) { if (!keranjang.length) { tambah(PRODUK[0], { Ukuran: 'M', Warna: 'Hitam' }, 2); tambah(PRODUK[2], { Warna: 'Terakota' }, 1); } bukaLaci(true); }
   }
@@ -269,9 +279,9 @@
   var PETA_BAGIAN = {
     nav: '.kepala',
     latar: 'main, .kaki',
-    panel: '.kartu, .kartu-gambar, .modal, .laci, .saring input, .saring select, .ikon-btn',
-    utama: '.tombol, .merek-ikon, .pembuka em, .kat.aktif',
-    aksen: '.label, .hitung',
+    panel: '.kartu, .kartu-gambar, .sorotan-kartu, .modal, .laci, .saring input, .saring select, .ikon-btn',
+    utama: '.tombol, .merek-ikon, .pembuka em, .kat.aktif, .kartu-plus, .keranjang-btn',
+    aksen: '.label, .hitung, .sorotan-info small, .pembuka-titik',
     teks: 'h1, h2, h3, .pembuka p, .harga'
   };
   var NAMA_BAGIAN = { nav: 'Navigasi', latar: 'Latar', panel: 'Panel', utama: 'Warna utama', aksen: 'Aksen', teks: 'Teks' };
@@ -301,6 +311,7 @@
     var st = document.documentElement.style;
     st.setProperty('--tema-nav-teks', teksUntuk('--nav'));
     st.setProperty('--tema-utama-teks', teksUntuk('--utama'));
+    st.setProperty('--tema-tombol-teks', teksUntuk('--tombol'));
   }
   function terapkanBagian(bg) {
     var st = document.documentElement.style;

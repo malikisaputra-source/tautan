@@ -69,7 +69,7 @@ Tombol bulan di pojok kanan atas tetap bisa dipakai pengunjung; pilihannya disim
 Warna per bagian: `tema.css` juga punya `--tema-latar` (latar halaman), `--tema-panel` (kartu/panel/form), `--tema-nav` (sidebar/header/nav bawah), `--tema-teks` (teks utama). Mode gelap memakai palet gelap paket kecuali customizer mengirim nilai bagian. Warna teks di atas nav & tombol utama dihitung otomatis (terang/gelap) dari luminansi.
 
 ## Ubah brand lainnya
-- Huruf judul memakai font serif bawaan sistem (`--serif` di `style.css`); ganti sesukamu.
+- Semua teks memakai `--tema-font` (bawaan DM Sans). Tombol memakai `--tema-utama` (bawaan hitam) dan otomatis dibalik terang di mode gelap. Arah desain lengkap ada di `DESIGN.md`.
 - Teks pembuka ("Belanja santai…") ada di `index.html`.
 - Format pesan WhatsApp bisa diubah di fungsi `buatPesan` dalam `app.js`.
 
@@ -78,6 +78,12 @@ Paket ini membawa Agent Skill di `.claude/skills/ubah-katalog-toko-wa/SKILL.md` 
 
 - **Claude Code / Claude Desktop**: buka folder paket ini; skill di `.claude/skills` terbaca otomatis. Tinggal minta, misal "tambah filter rentang harga".
 - **claude.ai**: unduh ZIP skill (tombol **Unduh Skill** di [malikisaputra.biz.id/kode](https://malikisaputra.biz.id/kode)), lalu di claude.ai buka **Customize › Skills › tombol "+" › Create skill › Upload a skill** dan pilih ZIP itu (folder skill sebagai akar ZIP). Syarat: **Code execution and file creation** aktif di **Settings › Capabilities** (paket Free/Pro/Max); di Team/Enterprise diatur oleh Owner. Sumber: support.claude.com/en/articles/12512180 (dicek 6 Nov 2026).
+
+
+## Mau hasil lebih maksimal?
+Pasang skill desain berikut di Claude Code sebelum minta perubahan tampilan:
+- impeccable — https://github.com/pbakaus/impeccable (Apache-2.0, dicek 6 Nov 2026)
+- ui-ux-pro-max — https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT menurut GitHub API, dicek 6 Nov 2026)
 
 ## Lisensi
 MIT — bebas dipakai, diubah, dan dipakai untuk klien, asal menyertakan berkas LICENSE.

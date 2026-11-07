@@ -9,11 +9,11 @@ Situs katalog statis: HTML + CSS + JavaScript murni, keranjang di localStorage, 
 - `index.html` — kerangka: header (`.merek`, tombol mode `#btnTema`, `#btnKeranjang`), pembuka, `.saring` (cari & urut), `#kategori`, `#grid`, kaki, `<dialog id="detail">`, laci keranjang `#laci` + `#formPesan` (data pengiriman), `#toast`. Memuat `tema.js` → skrip mode → `tema.css` paling awal.
 - `tema.css` / `tema.js` — token tema (lihat bawah). Jangan ubah formatnya.
 - `produk.js` — `window.TOKO` (nama dari `TEMA.nama`, slogan, `wa`, `mataUang`, `ongkir[]`, `gratisOngkirMin`, `sheetCSV`) dan `window.PRODUK` (id, nama, kategori, harga, hargaCoret, label, stok, deskripsi, varian[{nama, opsi[], tambah{}}], gambar[] berupa URL atau ilustrasi {bentuk,warna,aksen}).
-- `style.css` — `:root` variabel turunan (`--utama`, `--aksen` = warna brand, `--aksen-tua`, `--aksen-teks`, `--aksen2` = tema-aksen, `--latar`, `--kartu`, `--garis`, `--kartu-gambar`, `--radius`, `--r-besar`, `--sans`, `--serif`, `--wa`), `[data-mode=gelap]`, komponen, responsif ≤760px.
+- `style.css` — `:root` variabel turunan (`--utama`, `--aksen` = warna brand, `--aksen-tua`, `--aksen-teks`, `--aksen2` = tema-aksen, `--latar`, `--kartu`, `--garis`, `--tombol` (warna tombol; dibalik terang di mode gelap), `--tombol-teks`, `--kartu-gambar`/`--kartu-gambar-2` (gradasi sage dari aksen), `--radius`, `--r-besar`, `--sans`, `--wa`), `[data-mode=gelap]`, komponen, responsif ≤760px.
 - `app.js` — bagian "logika murni" (`hargaVarian`, `hitungTotal`, `buatPesan`, `linkWA`, `parseCSV`, `produkDariCSV`, `ilustrasi`; diekspor ke Node untuk uji), lalu UI: `renderKategori`, `renderGrid`, `bukaDetail`, `tambah`, `renderKeranjang`, `bukaLaci`, `mulai`, tombol mode (localStorage `katalog-tema`), keranjang (localStorage `katalog-keranjang`), `terapkanTema()` + listener `message` `{tipe:'tema'}`.
 
 ## Token tema
-`tema.css`: `--tema-utama` (brand: tombol, judul miring, ikon merek), `--tema-aksen` (label produk, angka keranjang), `--tema-radius`, `--tema-font` (huruf badan; judul tetap serif). `tema.js`: `TEMA.nama` (= `TOKO.nama`) dan `TEMA.mode`. Warna ilustrasi produk di `produk.js` adalah warna barang, bukan warna brand.
+`tema.css`: `--tema-utama` (tombol pil, tombol + kartu, chip aktif, ikon merek; bawaan hitam), `--tema-aksen` (warna kotak foto sage, titik label, angka keranjang), `--tema-radius`, `--tema-font` (semua teks). Ilustrasi produk berlatar transparan; kotaknya diwarnai CSS. `--tema-tombol-teks` diisi JS (`hitungTeksBagian`). `tema.js`: `TEMA.nama` (= `TOKO.nama`) dan `TEMA.mode`. Warna ilustrasi produk di `produk.js` adalah warna barang, bukan warna brand.
 
 Variabel bagian: `--tema-latar`→`--latar`, `--tema-panel`→`--kartu`, `--tema-nav`→`--nav`, `--tema-teks`→`--teks`; `--tema-nav-teks` & `--tema-utama-teks` diisi JS (`hitungTeksBagian`). Elemen ditandai `data-bagian` (nav/latar/panel/utama/aksen/teks) lewat `PETA_BAGIAN` di app.js — elemen baru: tambahkan selektornya di sana. Pesan customizer: `{tipe:'tema', bagian:{…}}`, `{tipe:'sorot', bagian}`, `{tipe:'mode-pilih', aktif}` → app mengirim `{tipe:'bagian-dipilih', bagian}` ke parent.
 
@@ -39,3 +39,6 @@ Variabel bagian: `--tema-latar`→`--latar`, `--tema-panel`→`--kartu`, `--tema
 4. **"Tambah kolom berat untuk ongkir"** → field `berat` di PRODUK + `produkDariCSV`, hitung di `hitungTotal`, tampilkan di ringkasan.
 5. **"Ganti nama toko dan nomor WA"** → `nama` di `tema.js`, `wa` di `produk.js`.
 6. **"Tambah bagian testimoni"** → section baru setelah `#grid`, kartu memakai `--kartu`, `--garis`, `--radius`.
+
+## Desain
+Arah visual, token, komponen, dan aturan motion ada di `DESIGN.md` (baca sebelum mengubah tampilan). WAJIB menjaga token tema (warna hanya turunan `--tema-*`), aksesibilitas (label, fokus terlihat, kontras AA terang & gelap, target sentuh ≥44px, `prefers-reduced-motion`), dan responsif (cek 390px & 1280px, tanpa geser horizontal).

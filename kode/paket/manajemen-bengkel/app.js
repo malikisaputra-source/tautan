@@ -306,6 +306,57 @@
   function bukaMenu() { $('#samping').classList.add('buka'); $('#tirai').hidden = false; $('#btnMenu').setAttribute('aria-expanded', 'true'); }
   function tutupMenu() { $('#samping').classList.remove('buka'); $('#tirai').hidden = true; $('#btnMenu').setAttribute('aria-expanded', 'false'); }
 
+
+  /* ---------- Gambar garis kendaraan (SVG buatan sendiri) ---------- */
+  var BENTUK = {
+    mobil: {
+      roda: [[100, 118], [300, 118]], rRoda: 28,
+      garis: ['M24 118Q16 118 16 108L16 94Q18 82 36 78L106 70 150 40Q158 34 172 34L262 34Q278 34 290 44L324 70 362 76Q384 80 386 98L386 110Q386 118 378 118L336 118A36 36 0 0 0 264 118L136 118A36 36 0 0 0 64 118Z',
+        'M210 72V112M178 84H192M262 84H276M20 88 46 84M18 101H34M372 82 384 90M128 68 118 64'],
+      kaca: ['M120 70 154 44Q160 40 168 40L206 40 206 70Z', 'M214 40 262 40Q274 40 282 48L306 70 214 70Z'],
+      tipis: ['M40 97 360 95'],
+      zona: { mesin: [66, 90, 'Mesin', 16], rem: [100, 118, 'Rem depan', 35], ban: [300, 118, 'Ban', 35], listrik: [40, 100, 'Kelistrikan', 11], cvt: [200, 110, 'Transmisi', 15] }
+    },
+    motor: {
+      roda: [[96, 118], [300, 118]], rRoda: 30,
+      garis: ['M130 40L152 38Q162 62 166 100L214 100Q218 74 236 68L334 64Q358 64 368 74Q364 86 346 92L340 92A42 42 0 0 0 260 104L218 112 168 112Q146 112 138 104Q118 84 122 58Z',
+        'M236 66Q248 52 290 54L336 61M96 118 126 60M72 98Q96 78 120 96M134 38 126 26M116 26 146 22M360 70 368 77',
+        'M236 108 296 104Q306 110 300 120L244 122Q234 118 236 108Z'],
+      kaca: ['M122 58 136 56 134 66 123 68Z'],
+      tipis: ['M172 106H210'],
+      zona: { mesin: [226, 104, 'Mesin', 13], rem: [96, 118, 'Rem depan', 37], ban: [300, 118, 'Ban belakang', 37], listrik: [130, 60, 'Kelistrikan', 11], cvt: [270, 113, 'CVT', 15] }
+    }
+  };
+  function zonaDari(w) {
+    var t = (w.keluhan + ' ' + w.jasa.map(function (j) { return j.nama; }).join(' ') + ' ' + w.part.map(function (p) { return p.nama; }).join(' ')).toLowerCase(), z = [];
+    if (/rem/.test(t)) z.push('rem');
+    if (/\bban\b/.test(t)) z.push('ban');
+    if (/cvt|v-belt|roller|getar|tarikan|transmisi|kopling/.test(t)) z.push('cvt');
+    if (/listrik|aki|starter|lampu/.test(t)) z.push('listrik');
+    if (/oli|mesin|tune|brebet|servis|busi|filter/.test(t)) z.push('mesin');
+    return (z.length ? z : ['mesin']).slice(0, 3);
+  }
+  function gambarKendaraan(jenis, zona, label) {
+    var b = BENTUK[jenis === 'mobil' ? 'mobil' : 'motor'], h = '', pl = ' pathLength="1"';
+    b.kaca.forEach(function (d) { h += '<path class="garis kaca"' + pl + ' d="' + d + '"/>'; });
+    b.garis.forEach(function (d) { h += '<path class="garis"' + pl + ' d="' + d + '"/>'; });
+    b.tipis.forEach(function (d) { h += '<path class="garis tipis"' + pl + ' d="' + d + '"/>'; });
+    b.roda.forEach(function (r) {
+      h += '<circle class="garis roda"' + pl + ' cx="' + r[0] + '" cy="' + r[1] + '" r="' + b.rRoda + '"/><circle class="garis tipis"' + pl + ' cx="' + r[0] + '" cy="' + r[1] + '" r="' + (b.rRoda - 10) + '"/><circle class="garis roda"' + pl + ' cx="' + r[0] + '" cy="' + r[1] + '" r="4"/>';
+    });
+    var ka = b.roda[0][0], kb = b.roda[1][0];
+    h = '<path class="tanah" d="M6 150H394"/><path class="ukur" d="M' + ka + ' 156V164M' + kb + ' 156V164M' + ka + ' 160H' + (ka + kb) / 2 + 'M' + kb + ' 160H' + (ka + kb) / 2 + '"/><text class="ukur-teks" x="' + (ka + kb) / 2 + '" y="157" text-anchor="middle">' + (jenis === 'mobil' ? 'WHEELBASE 2.525' : 'WHEELBASE 1.280') + '</text>' + h;
+    (zona || []).forEach(function (k, i) {
+      var z = b.zona[k]; if (!z) return;
+      var ly = 10 + i * 20, kanan = z[0] > 250, lx = kanan ? z[0] - 16 : z[0] + 16;
+      h += '<g class="zona" style="--i:' + i + '"><circle class="zona-cincin" cx="' + z[0] + '" cy="' + z[1] + '" r="' + z[3] + '"/><circle class="zona-denyut" cx="' + z[0] + '" cy="' + z[1] + '" r="' + z[3] + '"/>' +
+        '<path class="zona-garis" d="M' + z[0] + ' ' + (z[1] - z[3]) + 'V' + ly + 'H' + lx + '"/><circle class="zona-titik" cx="' + z[0] + '" cy="' + z[1] + '" r="4"/>' +
+        '<text class="zona-teks" x="' + (kanan ? lx - 4 : lx + 4) + '" y="' + (ly + 4) + '" text-anchor="' + (kanan ? 'end' : 'start') + '">' + esc(z[2]) + '</text></g>';
+    });
+    return '<svg class="gambar-kendaraan" viewBox="0 -4 400 172" ' + (label ? 'role="img" aria-label="' + esc(label) + '"' : 'aria-hidden="true"') + '>' + h + '</svg>';
+  }
+  function jenisDari(plat) { var k = cariKendaraan(plat); return k && k.jenis === 'mobil' ? 'mobil' : 'motor'; }
+
   /* ---------- Halaman ---------- */
   var RENDER = {};
 
@@ -337,6 +388,7 @@
       stat('cek', 'hijau', selesaiHari, 'Servis selesai hari ini', 'Siap/sudah diambil') +
       stat('peringatan', menipis.length ? 'merah' : 'hijau', menipis.length, 'Stok menipis', menipis.length ? 'Segera belanja' : 'Semua aman') +
       '</div>' +
+      '<section data-bagian="panel" class="kartu bay" id="bay"></section>' +
       '<div class="grid grid-3-1" style="margin-top:16px">' +
       '<section data-bagian="panel" class="kartu"><div class="kartu-kepala"><h3>Pendapatan 7 hari</h3><div class="legenda"><span><i style="background:var(--grafik-1)"></i>Jasa</span><span><i style="background:var(--tema-aksen)"></i>Sparepart</span></div></div>' +
       '<div class="batang" data-bagian="aksen" role="img" aria-label="Grafik pendapatan 7 hari terakhir">' + hari.map(function (x, i) {
@@ -353,7 +405,31 @@
       (ing.length ? '<ul class="daftar muncul">' + ing.map(function (w) { var lewat = w.servisBerikut.tgl < Date.now(); return '<li><span class="statistik"><span class="ikon aksen">' + ikon('lonceng') + '</span></span><div class="tumbuh"><b>' + esc(cariPelanggan(w.pelangganId).nama) + ' · ' + esc(w.plat) + '</b><span class="kecil ' + (lewat ? '' : 'redup') + '">' + (lewat ? 'Lewat jadwal ' : 'Jadwal ') + tgl(w.servisBerikut.tgl) + ' / ' + w.servisBerikut.km.toLocaleString('id-ID') + ' km</span></div><button class="tombol wa kecil" data-ingat="' + esc(w.id) + '">' + ikon('wa') + 'Ingatkan</button></li>'; }).join('') + '</ul>' : kosong('lonceng', 'Belum ada yang jatuh tempo')) +
       '</section></div>';
     $$('[data-ingat]', el).forEach(function (b) { b.onclick = function () { kirimPengingat(D.wo.find(function (w) { return w.id === b.dataset.ingat; })); }; });
+    gambarBay($('#bay', el), dikerjakan.concat(menunggu));
   };
+  var bayPilih = null;
+  function gambarBay(el, daftar) {
+    if (!el) return;
+    if (!daftar.length) { el.innerHTML = '<div class="bay-gambar"><div class="bay-kepala"><h3>Bay servis</h3></div><div class="bay-kanvas">' + gambarKendaraan('mobil', []) + '</div></div><div class="bay-info">' + kosong('cek', 'Semua bay kosong. Buat work order baru untuk kendaraan yang datang.') + '</div>'; return; }
+    var w = daftar.find(function (x) { return x.id === bayPilih; }) || daftar[0]; bayPilih = w.id;
+    var k = cariKendaraan(w.plat) || {}, jenis = jenisDari(w.plat), m = cariMekanik(w.mekanikId), zona = zonaDari(w);
+    var urut = ['menunggu', 'dikerjakan', 'selesai', 'diambil'], kini = urut.indexOf(w.status);
+    var area = zona.map(function (z) { return BENTUK[jenis].zona[z][2]; }).join(', ');
+    var lg = [['Antre', jamSaja(w.t)], ['Dikerjakan', w.status === 'dikerjakan' ? 'est. ' + w.estimasi : kini > 1 ? 'beres' : '—'], ['Selesai', w.tSelesai ? jamSaja(w.tSelesai) : '—'], ['Diambil', w.tAmbil ? jamSaja(w.tAmbil) : '—']];
+    el.innerHTML = '<div class="bay-gambar"><div class="bay-kepala"><h3>Bay servis</h3><div class="bay-pilih" role="group" aria-label="Pilih kendaraan">' + daftar.slice(0, 5).map(function (x) {
+        return '<button type="button" data-bay="' + x.id + '" aria-pressed="' + (x.id === w.id) + '">' + ikon(jenisDari(x.plat)) + esc(x.plat) + '</button>';
+      }).join('') + '</div></div>' +
+      '<div class="bay-kanvas">' + gambarKendaraan(jenis, zona, 'Gambar ' + jenis + ' ' + kendaraanLabel(w.plat) + ', area dikerjakan: ' + area) + '</div>' +
+      '<div class="bay-catatan"><div><span class="label-teknis">Kendaraan</span><b>' + esc(kendaraanLabel(w.plat)) + (k.tahun ? ' · ' + esc(k.tahun) : '') + '</b></div><div><span class="label-teknis">Odometer</span><b class="angka">' + (w.km ? (+w.km).toLocaleString('id-ID') + ' km' : '—') + '</b></div><div><span class="label-teknis">Area</span><b>' + esc(area) + '</b></div></div></div>' +
+      '<div class="bay-info"><div class="bay-info-atas"><div><span class="plat">' + esc(w.plat) + '</span><h4>' + esc(cariPelanggan(w.pelangganId).nama) + '</h4><span class="label-teknis">' + esc(w.no) + '</span></div><span class="lencana ' + w.status + '">' + STATUS[kini].nama + '</span></div>' +
+      '<ol class="langkah" aria-label="Tahap servis">' + lg.map(function (x, i) { return '<li class="' + (i < kini ? 'lewat' : i === kini ? 'kini' : '') + '" style="--i:' + i + '"' + (i === kini ? ' aria-current="step"' : '') + '><span class="bulat">' + (i < kini ? ikon('cek') : '') + '</span><span>' + x[0] + '<small>' + esc(x[1]) + '</small></span></li>'; }).join('') + '</ol>' +
+      '<p class="bay-keluhan">' + esc(w.keluhan || '-') + '</p>' +
+      '<div class="data-mini"><div><span class="label-teknis">Mekanik</span><b>' + esc(m.nama) + '</b></div><div><span class="label-teknis">Jasa</span><b>' + rp(totalJasa(w)) + '</b></div><div><span class="label-teknis">Total</span><b>' + rp(totalWo(w)) + '</b></div></div>' +
+      '<div class="bay-aksi"><button type="button" class="tombol" id="bayBuka">' + ikon('dok') + 'Buka WO</button>' + (kini < 2 ? '<button type="button" data-bagian="utama" class="tombol utama" id="bayLanjut">' + ikon(kini === 0 ? 'kanan' : 'cek') + (kini === 0 ? 'Mulai kerjakan' : 'Tandai selesai') + '</button>' : '') + '</div></div>';
+    $$('[data-bay]', el).forEach(function (b) { b.onclick = function () { bayPilih = b.dataset.bay; gambarBay(el, daftar); var f = $('[data-bay="' + bayPilih + '"]', el); if (f) f.focus(); }; });
+    $('#bayBuka', el).onclick = function () { formWo(w); };
+    if ($('#bayLanjut', el)) $('#bayLanjut', el).onclick = function () { pindahStatus(w, 1); };
+  }
   function stat(ik, warna, nilai, label, sub) { return '<section data-bagian="panel" class="kartu statistik"><span class="ikon ' + warna + '">' + ikon(ik) + '</span><span class="nilai">' + nilai + '</span><span class="label">' + label + '</span><span class="kecil redup">' + sub + '</span></section>'; }
   function kosong(ik, t) { return '<div class="kosong">' + ikon(ik) + '<p>' + t + '</p></div>'; }
   function kendaraanLabel(plat) { var k = cariKendaraan(plat); return k ? k.merk + ' ' + k.model : plat; }
@@ -364,8 +440,8 @@
     el.innerHTML = '<div class="alat"><p class="redup kecil" style="flex:1">Seret kartu antar kolom, atau pakai tombol panah di kartu. Kolom <b>Diambil</b> hanya menampilkan hari ini.</p><button class="tombol" id="tvBuka">' + ikon('tv') + 'Mode TV</button></div>' +
       '<div class="kanban">' + STATUS.map(function (s) {
         var items = D.wo.filter(function (w) { return w.status === s.id && (s.id !== 'diambil' || w.tAmbil >= h0); }).sort(function (a, b) { return a.t - b.t; });
-        return '<section class="kolom" data-status="' + s.id + '" aria-label="' + s.nama + '"><header class="kolom-kepala"><span class="titik" style="background:' + s.warna + '"></span>' + s.nama + '<span class="lencana">' + items.length + '</span></header><div class="kolom-isi">' +
-          (items.length ? items.map(tiket).join('') : '<p class="kosong kecil">Kosong</p>') + '</div></section>';
+        return '<section class="kolom" data-status="' + s.id + '" style="--w:' + s.warna + '" aria-label="' + s.nama + '"><header class="kolom-kepala"><span class="titik" style="background:' + s.warna + '"></span>' + s.nama + '<span class="lencana">' + items.length + '</span></header><div class="kolom-isi">' +
+          (items.length ? items.map(tiket).join('') : '<p class="kosong">Kosong</p>') + '</div></section>';
       }).join('') + '</div>';
     $('#tvBuka', el).onclick = bukaTv;
     $$('.tiket', el).forEach(function (t) {
@@ -391,9 +467,11 @@
   };
   function tiket(w) {
     var i = STATUS.findIndex(function (s) { return s.id === w.status; }), m = cariMekanik(w.mekanikId);
-    return '<article class="tiket" draggable="true" tabindex="0" data-id="' + w.id + '" aria-label="' + esc(w.plat + ', ' + kendaraanLabel(w.plat) + ', status ' + STATUS[i].nama) + '">' +
-      '<div class="tiket-atas"><span class="plat">' + esc(w.plat) + '</span><span class="kecil redup angka">' + jamSaja(w.t) + '</span></div>' +
-      '<h4>' + esc(kendaraanLabel(w.plat)) + ' · ' + esc(cariPelanggan(w.pelangganId).nama) + '</h4><p>' + esc(w.keluhan) + '</p>' +
+    var js = w.jasa.filter(function (j) { return j.nama; }).slice(0, 2);
+    return '<article class="tiket" draggable="true" tabindex="0" data-id="' + w.id + '" style="--w:' + STATUS[i].warna + '" aria-label="' + esc(w.plat + ', ' + kendaraanLabel(w.plat) + ', status ' + STATUS[i].nama) + '">' +
+      '<div class="tiket-atas"><span class="tiket-ikon" aria-hidden="true">' + ikon(jenisDari(w.plat)) + '</span><div class="tiket-id"><h4>' + esc(kendaraanLabel(w.plat)) + '</h4><span class="kecil redup">' + esc(cariPelanggan(w.pelangganId).nama) + '</span></div><span class="tiket-jam angka">' + jamSaja(w.t) + '</span></div>' +
+      '<div class="tiket-plat"><span class="plat">' + esc(w.plat) + '</span><span class="label-teknis">' + esc(w.no) + '</span></div><p>' + esc(w.keluhan) + '</p>' +
+      '<ul class="tiket-jasa">' + js.map(function (j) { return '<li><span>' + esc(j.nama) + '</span><span>' + ribu(j.harga) + '</span></li>'; }).join('') + (w.part.length ? '<li><span>' + w.part.length + ' sparepart</span><span>' + ribu(totalPart(w)) + '</span></li>' : '') + '<li class="total"><span>Total</span><span>' + rp(totalWo(w)) + '</span></li></ul>' +
       '<div class="tiket-bawah"><span class="isi-kiri"><span class="avatar" aria-hidden="true">' + inisial(m.nama) + '</span><span>' + esc(m.nama) + '</span></span>' +
       (w.status === 'selesai' || w.status === 'diambil' ? '<button class="ikon-btn kecil" data-nota="1" aria-label="Nota ' + esc(w.no) + '">' + ikon('cetak') + '</button>' : '') +
       (i > 0 ? '<button class="ikon-btn kecil" data-geser="-1" aria-label="Pindah ke ' + STATUS[i - 1].nama + '">' + ikon('kiri') + '</button>' : '') +
@@ -661,6 +739,7 @@
       var p = cariPelanggan(k.pelangganId), daftar = D.wo.filter(function (w) { return w.plat === k.plat; }).sort(function (a, b) { return b.t - a.t; });
       var total = daftar.reduce(function (s, w) { return s + totalWo(w); }, 0), akhir = daftar.find(function (w) { return w.servisBerikut; });
       h.innerHTML = '<div class="grid grid-3-1"><section data-bagian="panel" class="kartu"><div class="kartu-kepala"><div><span class="plat" style="font-size:18px">' + esc(k.plat) + '</span><h3 style="margin-top:8px">' + esc(k.merk + ' ' + k.model) + ' ' + esc(k.tahun || '') + '</h3><p class="redup kecil">' + esc(p.nama) + ' · ' + esc(p.hp) + '</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="tombol" id="kembaliPlat">' + ikon('kiri') + 'Semua</button><button data-bagian="utama" class="tombol utama" id="woPlat">' + ikon('plus') + 'Servis baru</button></div></div>' +
+        '<div class="kendaraan-gambar">' + gambarKendaraan(k.jenis, daftar[0] ? zonaDari(daftar[0]) : [], 'Gambar ' + k.jenis + ' ' + k.merk + ' ' + k.model) + '</div>' +
         '<h4 style="margin:6px 0 10px">Riwayat servis (' + daftar.length + ')</h4><ul class="daftar muncul">' + daftar.map(function (w) { return '<li style="cursor:pointer" data-wo="' + w.id + '" tabindex="0" role="button"><span class="lencana ' + w.status + '">' + STATUS.find(function (s) { return s.id === w.status; }).nama + '</span><div class="tumbuh"><b>' + esc(w.jasa.map(function (j) { return j.nama; }).join(', ') || w.keluhan) + '</b><span class="kecil redup">' + tgl(w.t) + ' · ' + (w.km ? w.km.toLocaleString('id-ID') + ' km · ' : '') + esc(cariMekanik(w.mekanikId).nama) + (w.part.length ? ' · ' + esc(w.part.map(function (x) { return x.nama; }).join(', ')) : '') + '</span></div><b class="angka">' + rp(totalWo(w)) + '</b></li>'; }).join('') + '</ul></section>' +
         '<div class="tumpuk"><section data-bagian="panel" class="kartu statistik"><span class="ikon">' + ikon('uang') + '</span><span class="nilai">' + rp(total) + '</span><span class="label">Total belanja servis</span></section>' +
         '<section data-bagian="panel" class="kartu"><h3 style="margin-bottom:10px">Servis berikutnya</h3>' + (akhir ? '<p><b>' + tgl(akhir.servisBerikut.tgl) + '</b> atau <b>' + akhir.servisBerikut.km.toLocaleString('id-ID') + ' km</b></p><p class="kecil ' + (akhir.servisBerikut.tgl < Date.now() ? '' : 'redup') + '" style="margin:4px 0 12px">' + (akhir.servisBerikut.tgl < Date.now() ? 'Sudah lewat jadwal' : 'Sesuai interval ' + D.pengaturan.intervalHari + ' hari / ' + D.pengaturan.intervalKm + ' km') + '</p><button class="tombol wa blok" id="ingatPlat">' + ikon('wa') + 'Kirim pengingat WA</button>' : '<p class="redup">Belum ada servis selesai.</p>') + '</section></div></div>';
@@ -766,6 +845,8 @@
 
   /* ---------- Mulai ---------- */
   muat(); isiNama(); teksAtas();
+  $('#pinGambar').innerHTML = gambarKendaraan('mobil', ['mesin', 'rem']);
+  $('#pinTanggal').textContent = new Date().toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
   $('#tanggalHari').textContent = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
   $('#btnMode').onclick = function () { setMode(document.documentElement.dataset.mode === 'gelap' ? 'terang' : 'gelap', 1); if (halaman === 'pengaturan') RENDER.pengaturan($('#isi')); };
   $('#btnWoBaru').onclick = function () { formWo(); };

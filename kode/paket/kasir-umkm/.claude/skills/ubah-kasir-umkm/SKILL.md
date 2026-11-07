@@ -20,7 +20,7 @@ Aplikasi kasir PWA statis: HTML + CSS + JavaScript murni, data di localStorage, 
 - `manifest.webmanifest`, `ikon.svg`, `qris.svg` (contoh QRIS) — PWA & gambar.
 
 ## Token tema
-`tema.css`: `--tema-utama`, `--tema-aksen`, `--tema-radius`, `--tema-font`. `tema.js`: `window.TEMA = { nama, mode }`. Nama toko bawaan = `TEMA.nama` selama `D.toko.namaDariTema` bernilai true (jadi false saat pengguna mengganti nama di menu Atur). Warna thumbnail produk (`WARNA` di app.js) juga campuran utama/aksen.
+`tema.css`: `--tema-utama`, `--tema-aksen`, `--tema-radius`, `--tema-font`. `tema.js`: `window.TEMA = { nama, mode }`. Nama toko bawaan = `TEMA.nama` selama `D.toko.namaDariTema` bernilai true (jadi false saat pengguna mengganti nama di menu Atur). Ilustrasi produk (`ILUS` + `jenisIlus()` + `ilustrasi()` di app.js) dipilih dari kata di nama/kategori; latar kotaknya `--nada0..3` (campuran utama/aksen) di style.css. Untuk produk jenis baru: tambah gambar SVG di `ILUS` dan aturan kata di `jenisIlus()`.
 
 Variabel bagian: `--tema-latar`→`--latar`, `--tema-panel`→`--kartu`, `--tema-nav`→`--nav`, `--tema-teks`→`--teks`; `--tema-nav-teks` & `--tema-utama-teks` diisi JS (`hitungTeksBagian`). Elemen ditandai `data-bagian` (nav/latar/panel/utama/aksen/teks) lewat `PETA_BAGIAN` di app.js — elemen baru: tambahkan selektornya di sana. Pesan customizer: `{tipe:'tema', bagian:{…}}`, `{tipe:'sorot', bagian}`, `{tipe:'mode-pilih', aktif}` → app mengirim `{tipe:'bagian-dipilih', bagian}` ke parent.
 
@@ -46,3 +46,6 @@ Variabel bagian: `--tema-latar`→`--latar`, `--tema-panel`→`--kartu`, `--tema
 4. **"Tampilkan NPWP/alamat di struk"** → field baru di `#formToko`, kunci di daftar profil, cetak di `cetak()`.
 5. **"Tambah halaman Pengeluaran"** → menu `data-hal="pengeluaran"`, section baru, data `D.pengeluaran = []` + migrasi, form tambah, ekspor CSV, kurangi di laporan laba.
 6. **"Pakai mode gelap"** → `mode: "gelap"` (atau `"auto"`) di `tema.js`.
+
+## Desain
+Arah visual, token, komponen, dan aturan motion ada di `DESIGN.md` (baca sebelum mengubah tampilan). WAJIB menjaga token tema (warna hanya turunan `--tema-*`), aksesibilitas (label, fokus terlihat, kontras AA terang & gelap, target sentuh ≥44px, `prefers-reduced-motion`), dan responsif (cek 390px & 1280px, tanpa geser horizontal).

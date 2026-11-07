@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Katalog Toko</title>
 <meta name="description" content="Katalog produk, pesan langsung lewat WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4532a'/%3E%3Cpath d='M9 12h14l-1.5 11h-11z' fill='%23f6f1e7'/%3E%3Cpath d='M12 12a4 4 0 0 1 8 0' stroke='%23f6f1e7' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231b1d1a'/%3E%3Cpath d='M9 12h14l-1.5 11h-11z' fill='%23f6f1e7'/%3E%3Cpath d='M12 12a4 4 0 0 1 8 0' stroke='%23f6f1e7' stroke-width='2' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
@@ -28,19 +28,25 @@
     <a href="#" class="merek"><span class="merek-ikon">R</span><span><b id="namaToko" data-tema-nama>Rupa Lokal</b><small id="slogan"></small></span></a>
     <div class="kepala-aksi">
       <button class="ikon-btn" id="btnTema" aria-label="Ganti mode gelap/terang"><svg viewBox="0 0 24 24"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
-      <button class="ikon-btn keranjang-btn" id="btnKeranjang" aria-label="Buka keranjang"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 12h-11zM9 8a3 3 0 0 1 6 0"/></svg><span class="hitung" id="hitungKeranjang" hidden>0</span></button>
+      <button class="keranjang-btn" id="btnKeranjang" aria-label="Buka keranjang"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 12h-11zM9 8a3 3 0 0 1 6 0"/></svg><span class="keranjang-teks">Keranjang</span><span class="hitung" id="hitungKeranjang" hidden>0</span></button>
     </div>
   </div>
 </header>
 
 <main class="wadah">
   <section class="pembuka">
-    <h1>Belanja santai,<br><em>pesan lewat WhatsApp.</em></h1>
-    <p>Pilih barang, masukkan keranjang, lalu kirim pesanan rapi ke admin. Tanpa daftar akun.</p>
+    <div class="pembuka-teks">
+      <span class="pembuka-label"><i class="pembuka-titik"></i><span><span id="jumlahProduk">0</span> produk siap kirim</span></span>
+      <h1>Belanja santai,<br><em>pesan lewat WhatsApp.</em></h1>
+      <p>Pilih barang, masukkan keranjang, lalu kirim pesanan rapi ke admin. Tanpa daftar akun.</p>
+      <ol class="langkah" aria-label="Cara pesan"><li><b>1</b>Pilih barang</li><li><b>2</b>Isi alamat</li><li><b>3</b>Kirim ke WA</li></ol>
+    </div>
+    <div class="sorotan" id="sorotan"></div>
   </section>
 
+  <div class="judul-daftar"><h2>Semua produk</h2><span class="redup" id="jumlahHasil"></span></div>
   <div class="saring">
-    <input type="search" id="cari" placeholder="Cari produk…" aria-label="Cari produk">
+    <label class="cari"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="cari" placeholder="Cari produk…" aria-label="Cari produk"></label>
     <select id="urut" aria-label="Urutkan">
       <option value="">Urutan default</option>
       <option value="murah">Harga terendah</option>
@@ -62,7 +68,7 @@
 <!-- Keranjang -->
 <div class="tirai" id="tirai" hidden></div>
 <aside class="laci" id="laci" aria-label="Keranjang" aria-hidden="true">
-  <header class="laci-kepala"><h2>Keranjang</h2><button class="ikon-btn" id="tutupLaci" aria-label="Tutup">✕</button></header>
+  <header class="laci-kepala"><div><h2>Keranjang</h2><span class="redup" id="laciJumlah"></span></div><button class="ikon-btn" id="tutupLaci" aria-label="Tutup keranjang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
   <div class="laci-isi" id="laciIsi"></div>
   <form class="laci-kaki" id="formPesan">
     <div class="ringkas" id="ringkas"></div>
@@ -73,7 +79,7 @@
       <label>Alamat lengkap<textarea name="alamat" rows="2" autocomplete="street-address"></textarea></label>
       <label>Catatan (opsional)<input name="catatan"></label>
     </details>
-    <button class="tombol-wa" id="btnWa" type="submit"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>Pesan via WhatsApp</button>
+    <button class="tombol-wa" id="btnWa" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9.5 9.5c0 2.5 2.5 5 5 5l1-1.5-2-1-1 .8a3.5 3.5 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>Pesan via WhatsApp</button>
   </form>
 </aside>
 <div class="toast" id="toast" role="status"></div>

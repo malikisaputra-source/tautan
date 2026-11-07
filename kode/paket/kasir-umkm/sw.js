@@ -1,5 +1,5 @@
 /* Service worker: simpan semua berkas agar aplikasi jalan tanpa internet. */
-var CACHE = 'kasir-umkm-v2';
+var CACHE = 'kasir-umkm-v3';
 var BERKAS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './ikon.svg', './qris.svg', './tema.css', './tema.js'];
 
 self.addEventListener('install', function (e) {

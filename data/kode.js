@@ -1,5 +1,203 @@
 window.KODE = [
  {
+  "slug": "belanja-keluarga",
+  "judul": "Anggaran Belanja Keluarga",
+  "ringkas": "Atur uang bulanan keluarga pakai amplop per kategori, catat belanja cepat, peringatan amplop hampir habis, dan target tabungan.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Kartu sisa uang bulan ini + aman dipakai per hari sampai gajian",
+   "Amplop per kategori dengan cincin & batang progres",
+   "Peringatan amplop hampir habis (≥80%) dan lewat batas",
+   "Catat belanja cepat: tombol 10rb/25rb/50rb/100rb",
+   "Geser sisa batas antar amplop tanpa mengubah pemasukan",
+   "Ringkasan mingguan & bulanan dengan grafik per hari",
+   "Riwayat dengan cari, saring, ubah & urungkan hapus",
+   "Target tabungan dengan setoran & saran per bulan",
+   "Ekspor CSV, backup & pulihkan JSON",
+   "Mode terang/gelap, rapi di HP dan laptop"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html di browser HP atau laptop",
+   "Buka menu Atur: isi pemasukan & tanggal gajian",
+   "Sesuaikan amplop dan batasnya, atau hapus data contoh",
+   "Catat tiap belanja, unduh backup JSON secara rutin"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "2026-11-16",
+  "gambar": "img/belanja-keluarga.png",
+  "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
+  "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "catatan-ojol",
+  "judul": "Catatan Ojol",
+  "ringkas": "Catat order Gojek/Grab/Maxim & pengeluaran, lihat untung bersih harian, mingguan, per km, dan jam paling cuan. Jalan di HP.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Catat order: aplikasi, tarif, potongan %, tip, km",
+   "Tombol order cepat sekali tap",
+   "Pengeluaran: bensin, parkir, makan, servis, cicilan HP",
+   "Untung bersih hari ini + cincin progres target",
+   "Untung bersih per kilometer, per aplikasi",
+   "Grafik mingguan + rincian ala slip gaji",
+   "Jam paling cuan + peta panas hari × jam",
+   "Ekspor CSV (Excel) & backup/pulihkan JSON",
+   "Mode gelap pekat, nyaman dilihat di jalan"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak",
+   "Buka index.html di browser HP/laptop (atau unggah ke GitHub Pages)",
+   "Atur target harian & potongan tiap aplikasi di menu Atur",
+   "Tekan \"Mulai dari nol\" untuk menghapus data contoh",
+   "Tekan Order selesai tiap habis antar, backup tiap minggu"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "kunci": "2026-11-16",
+  "gambar": "img/catatan-ojol.png",
+  "repo": "https://github.com/malikisaputra-source/catatan-ojol",
+  "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "iuran-kas-rt",
+  "judul": "Iuran & Kas RT (ringkas, untuk bendahara)",
+  "ringkas": "Satu layar untuk bendahara RT: ketuk nama untuk lunas, saldo kas besar, pesan WA pengingat, laporan bulanan, ekspor CSV.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "WhatsApp wa.me"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Tab bulan + pindah tahun, titik status tiap bulan",
+   "Daftar KK per blok: ketuk untuk lunas, bisa diurungkan",
+   "Saldo kas besar + cincin progres KK lunas",
+   "Pesan WA pengingat per warga (bisa diedit)",
+   "Rekap belum bayar untuk grup WA, sekali salin",
+   "Catat pemasukan & pengeluaran kas",
+   "Laporan bulanan siap salin, bagikan, atau cetak",
+   "Ekspor CSV, backup & pulihkan JSON",
+   "Mode gelap, animasi halus, rapi di HP"
+  ],
+  "cara": [
+   "Buka index.html di browser HP atau laptop",
+   "Klik ikon pengaturan: isi iuran, batas, cara bayar",
+   "Kosongkan data contoh, tambah warga lewat + Warga",
+   "Ketuk nama warga yang sudah bayar",
+   "Salin rekap ke grup WA, rutin Backup JSON"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "2026-11-16",
+  "gambar": "img/iuran-kas-rt.png",
+  "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
+  "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kalender-kerja",
+  "judul": "Kalender Kerja Harian",
+  "ringkas": "Jadwal harian berjam dengan blok warna, tampilan minggu, seret-lepas, pengingat notifikasi, ekspor ke Google/Apple Calendar.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "Notification API",
+   "Service Worker",
+   "iCalendar (.ics)",
+   "PWA"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "prompt": "jadwal",
+  "fitur": [
+   "Garis waktu harian per jam + garis merah jam sekarang",
+   "Blok berwarna per kategori: Kerja, Rapat, Pribadi, Istirahat",
+   "Tampilan minggu, pindah hari dengan strip tanggal",
+   "Seret untuk pindah jam/hari, tarik bawah untuk ubah lama",
+   "Kartu Sekarang & Berikutnya dengan hitung mundur",
+   "Pengingat notifikasi browser (service worker) + cadangan di layar",
+   "Tugas berulang: harian, hari kerja, mingguan",
+   "+ Google Calendar & unduh .ics per acara atau semua",
+   "Ekspor CSV & backup/pulihkan JSON",
+   "PWA offline, mode gelap, rapi di HP"
+  ],
+  "cara": [
+   "Ekstrak folder lalu buka index.html",
+   "Hapus jadwal contoh di Pengaturan & data",
+   "Tambah jadwal, pilih jam, lama, kategori, ingatkan",
+   "Klik Izinkan notifikasi agar diingatkan",
+   "Unggah ke GitHub Pages agar bisa dipasang di HP"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "kunci": "2026-11-16",
+  "gambar": "img/kalender-kerja.png",
+  "repo": "https://github.com/malikisaputra-source/kalender-kerja",
+  "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kas-warung",
+  "judul": "Kas Warung",
+  "ringkas": "Buku kas harian super cepat untuk warung: numpad besar, untung hari ini langsung kelihatan, kasbon pelanggan, laporan + grafik.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Catat uang masuk/keluar pakai numpad besar",
+   "Tombol cepat +2rb, +5rb, +10rb, +50rb",
+   "Untung hari ini besar: hijau untung, merah rugi",
+   "Kas awal, kas akhir & tutup kas hitung laci",
+   "Kasbon pelanggan: tambah utang & cicilan",
+   "Laporan mingguan/bulanan + grafik untung-rugi",
+   "Barang terlaris otomatis",
+   "Ekspor CSV, salin ke Google Sheets, backup JSON",
+   "Mode gelap, rapi di HP & laptop"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html di browser HP atau laptop",
+   "Lihat data contoh, lalu Data › Hapus semua data",
+   "Isi kas awal dan mulai catat penjualan",
+   "Backup JSON rutin supaya data aman"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "2026-11-16",
+  "gambar": "img/kas-warung.png",
+  "repo": "https://github.com/malikisaputra-source/kas-warung",
+  "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "kasir-umkm",
   "judul": "Kasir UMKM Offline",
   "ringkas": "Aplikasi kasir PWA untuk warung & kafe: stok, varian harga, diskon, QRIS, struk 58mm, laporan. Jalan tanpa internet.",
@@ -37,6 +235,7 @@ window.KODE = [
    "LICENSE",
    "README.md",
    "AGENTS.md",
+   "DESIGN.md",
    ".claude/skills/ubah-kasir-umkm/SKILL.md",
    "index.html",
    "style.css",
@@ -90,6 +289,7 @@ window.KODE = [
    "LICENSE",
    "README.md",
    "AGENTS.md",
+   "DESIGN.md",
    ".claude/skills/ubah-katalog-toko-wa/SKILL.md",
    "index.html",
    "style.css",

@@ -31,8 +31,18 @@
       ? `<span class="k-lencana premium"><s>Premium</s>Gratis</span>`
       : `<span class="k-lencana gratis">Gratis</span>`;
   }
+  const terkunci = (d) => d.kunci && new Date() < new Date(d.kunci + "T00:00:00+07:00");
+  const tglKunci = (d) => new Date(d.kunci + "T00:00:00+07:00").toLocaleDateString("id-ID", { day: "numeric", month: "short" });
   function kartu(d) {
     const b = el("button", "k-kartu");
+    if (terkunci(d)) {
+      b.classList.add("terkunci"); b.disabled = true; b.setAttribute("aria-disabled", "true");
+      b.setAttribute("aria-label", `${d.judul}, dibuka ${tglKunci(d)}`);
+      b.innerHTML = `<span class="k-lencana kunci">Dibuka ${tglKunci(d)}</span>
+      <div class="k-sampul ${d.gambar ? "" : "kosong"}">${d.gambar ? `<img src="${esc(d.gambar)}" alt="" loading="lazy" width="1280" height="800">` : ""}<span class="k-gembok" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+      <div class="k-badan"><h3>${esc(d.judul)}</h3><p>${esc(d.ringkas)}</p><p class="k-angka-k">Segera dibuka · ${tglKunci(d)}</p></div>`;
+      return b;
+    }
     b.type = "button";
     b.setAttribute("aria-label", `${d.judul}, ${d.tier === "premium" ? "premium, gratis" : "gratis"}. Lihat detail`);
     b.innerHTML = `${lencana(d)}
@@ -48,7 +58,7 @@
   $("#a-premium").textContent = DATA.filter((d) => d.tier === "premium").length;
   $("#k-jumlah-pil").textContent = `${DATA.length} source code`;
   const ung = $("#k-unggulan");
-  DATA.slice(0, 3).forEach((d) => ung.append(kartu(d)));
+  DATA.filter((d) => !terkunci(d)).slice(0, 3).forEach((d) => ung.append(kartu(d)));
   const pop = $("#k-populer");
   ["kasir", "presensi", "sekolah", "WhatsApp", "video"].forEach((t) => {
     const b = el("button", null, esc(t)); b.type = "button";
@@ -150,7 +160,7 @@
   });
   const m = location.hash.match(/^#k\/(.+)$/);
   render(); window.muatHitung && window.muatHitung();
-  if (m) { const d = DATA.find((x) => x.slug === decodeURIComponent(m[1])); if (d) buka(d); }
+  if (m) { const d = DATA.find((x) => x.slug === decodeURIComponent(m[1])); if (d && !terkunci(d)) buka(d); }
 
   // gerak
   if (window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches) {

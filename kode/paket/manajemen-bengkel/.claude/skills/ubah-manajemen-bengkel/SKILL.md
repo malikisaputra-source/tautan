@@ -25,6 +25,7 @@ Di `app.js`:
 - `formWo`, `formPart`, `formOrang` — form; `terapkanStok()` mutasi stok otomatis.
 - `htmlNota()` — nota A5 & thermal; `teksWa()`, `kirimPengingat()` — pesan wa.me.
 - `eksporWo()`, `unduhCsv()` — CSV; backup/pulihkan di `RENDER.pengaturan`.
+- `gambarKendaraan(jenis, zona, label)`, `BENTUK`, `zonaDari(w)` — gambar garis mobil/motor SVG + anotasi area servis; `gambarBay()` — kartu Bay servis di dashboard.
 - `terapkan()`, `terapkanBagian()`, `teksAtas()`, `sorot()` — kontrak customizer.
 
 ## Cara menambah

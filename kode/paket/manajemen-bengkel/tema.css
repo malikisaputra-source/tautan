@@ -1,11 +1,11 @@
 /* TEMA — diubah otomatis oleh customizer Maliki Studio */
 :root {
-  --tema-utama: #1e293b;    /* warna brand utama (tombol, tautan, sorotan) */
-  --tema-aksen: #dc2626;    /* warna aksen kedua (badge, grafik, highlight) */
-  --tema-radius: 12px;      /* sudut kartu/tombol */
+  --tema-utama: #1e40af;    /* warna brand utama (tombol, tautan, sorotan) */
+  --tema-aksen: #ea580c;    /* warna aksen kedua (badge, grafik, highlight) */
+  --tema-radius: 14px;      /* sudut kartu/tombol */
   --tema-font: "Space Grotesk", system-ui, sans-serif;
-  --tema-latar: #f6f7f9;   /* latar halaman */
+  --tema-latar: #eef2f7;   /* latar halaman */
   --tema-panel: #ffffff;   /* kartu/panel/form */
-  --tema-nav: #0f172a;     /* sidebar/header/nav bawah */
-  --tema-teks: #0f172a;    /* teks utama */
+  --tema-nav: #ffffff;     /* sidebar/header/nav bawah */
+  --tema-teks: #0f1a2e;    /* teks utama */
 }

@@ -243,7 +243,7 @@
     var fu = D.pengingat.filter(function (p) { return !p.selesai && p.tgl <= HARI_INI; }).sort(function (a, b) { return a.tgl < b.tgl ? -1 : 1; });
     var pipa = D.deal.filter(function (d) { return ["lead", "penawaran", "negosiasi"].indexOf(d.tahap) >= 0; }).reduce(function (s, d) { return s + d.nilai; }, 0);
     var jam = now.getHours(), sapa = jam < 11 ? "Selamat pagi" : jam < 15 ? "Selamat siang" : jam < 18 ? "Selamat sore" : "Selamat malam";
-    return '<div class="hal-kepala"><div><h1>' + sapa + ' 👋</h1><p>' + now.getDate() + " " + BULAN_P[now.getMonth()] + " " + now.getFullYear() + ' · ringkasan <span data-tema-nama></span></p></div>' +
+    return '<div class="hal-kepala"><div><span class="sapa-tgl"><i></i>' + now.getDate() + " " + BULAN_P[now.getMonth()] + " " + now.getFullYear() + '</span><h1>' + sapa + ', <b data-tema-nama></b></h1><p>' + (fu.length ? fu.length + " follow-up menunggu hari ini" : "Tidak ada follow-up tertunda") + (telat ? " · " + telat + " invoice lewat jatuh tempo" : "") + '</p></div>' +
       '<div class="aksi"><a class="btn-garis" href="#laporan">' + ikon("chart") + 'Laporan</a><button class="btn" data-baru="invoice">' + ikon("plus") + 'Invoice baru</button></div></div>' +
       '<div class="stat-grid bertahap">' +
       '<div class="kartu stat sorot"><div class="label"><i>' + ikon("chart") + '</i>Pendapatan bulan ini</div><div class="nilai angka">' + rp(pend) + '</div><div class="ket">' + (pendLalu ? (naik >= 0 ? "▲ " : "▼ ") + Math.abs(naik) + "% dari bulan lalu" : "bulan lalu belum ada data") + "</div></div>" +
@@ -255,7 +255,7 @@
       '<div class="grid-2 bertahap"><section class="kartu"><h2>Proyek berjalan <a href="#proyek">Semua proyek</a></h2><ul class="daftar">' +
       (aktif.length ? aktif.map(function (p) { var pr = progres(p); return '<li><div class="isi"><b>' + esc(p.nama) + "</b><small>" + esc(klienById(p.klienId).nama) + " · tenggat " + relatif(p.tenggat) + '</small><div class="bar" style="margin-top:8px"><i data-w="' + pr + '"></i></div></div><b class="angka">' + pr + "%</b></li>"; }).join("") : '<li class="kosong">Belum ada proyek aktif</li>') +
       '</ul></section><section class="kartu"><h2>Invoice belum dibayar <a href="#invoice">Semua invoice</a></h2><ul class="daftar">' +
-      (belum.length ? belum.map(function (d) { return '<li><div class="isi"><b>' + esc(klienById(d.klienId).nama) + "</b><small>" + esc(d.nomor) + " · jatuh tempo " + tgl(d.jatuhTempo) + "</small></div>" + chipStatus(statusDok(d)) + '<b class="angka">' + rpPendek(hitung(d).sisa) + "</b></li>"; }).join("") : '<li class="kosong">Semua invoice lunas 🎉</li>') + "</ul></section></div>";
+      (belum.length ? belum.map(function (d) { return '<li><div class="isi"><b>' + esc(klienById(d.klienId).nama) + "</b><small>" + esc(d.nomor) + " · jatuh tempo " + tgl(d.jatuhTempo) + "</small></div>" + chipStatus(statusDok(d)) + '<b class="angka">' + rpPendek(hitung(d).sisa) + "</b></li>"; }).join("") : '<li class="kosong">Semua invoice lunas</li>') + "</ul></section></div>";
   };
   function daftarFU(list) {
     if (!list.length) return '<div class="kosong">' + ikon("check") + "<p>Tidak ada follow-up tertunda.</p></div>";
@@ -381,7 +381,7 @@
     var t = TAHAP.find(function (x) { return x.id === tahap; });
     var k = D.klien.find(function (x) { return x.id === d.klienId; });
     if (k) k.timeline.push({ id: uid(), tgl: HARI_INI, jenis: "catatan", judul: "Deal “" + d.judul + "” pindah ke " + t.nama, teks: "" });
-    simpan(); render(true); toast("Dipindah ke " + t.nama + (tahap === "deal" ? " 🎉" : ""));
+    simpan(); render(true); toast("Dipindah ke " + t.nama);
     var el = $('[data-deal="' + id + '"]'); if (el) el.focus();
   }
   PASANG.pipeline = function () {
@@ -447,7 +447,7 @@
         var a = c.dataset.tugas.split("|"), p = D.proyek.find(function (x) { return x.id === a[0]; }), t = p.tugas.find(function (x) { return x.id === a[1]; });
         t.ok = c.checked; simpan();
         var kartu = c.closest(".proyek"), pr = progres(p); $(".bar > i", kartu).style.width = pr + "%"; $(".meta-baris b", kartu).textContent = pr + "%";
-        if (pr === 100 && c.checked) toast("Semua tugas beres! Tandai proyek selesai? 🎉");
+        if (pr === 100 && c.checked) toast("Semua tugas beres! Tandai proyek selesai?");
       };
     });
     $$(".tambah-tugas").forEach(function (f) { f.onsubmit = function (e) { e.preventDefault(); var v = f.t.value.trim(); if (!v) return; D.proyek.find(function (x) { return x.id === f.dataset.p; }).tugas.push({ id: uid(), teks: v, ok: false }); simpan(); render(true); var nf = $('.tambah-tugas[data-p="' + f.dataset.p + '"] input'); if (nf) nf.focus(); }; });

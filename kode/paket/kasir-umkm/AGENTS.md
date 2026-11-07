@@ -7,3 +7,4 @@ Panduan lengkap: `.claude/skills/ubah-kasir-umkm/SKILL.md` (baca dulu sebelum me
 - Halaman: `.nav[data-hal]` + `section#hal-…` + `buka()`. Ekspor/impor CSV di `eksporProdukCSV`/`imporProdukCSV`.
 - Berkas baru → `sw.js` (`BERKAS`, naikkan `CACHE`) dan `meta.json` (`berkas`).
 - Uji di HP & desktop, terang & gelap, konsol bersih; jaga label, kontras, fokus, `prefers-reduced-motion`.
+- Desain: baca `DESIGN.md` (token, komponen, motion). Jaga token tema, aksesibilitas (AA, fokus, ≥44px, reduced-motion) dan responsif 390px–1280px.

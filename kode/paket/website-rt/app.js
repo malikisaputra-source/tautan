@@ -136,9 +136,9 @@
   // Tandai bagian untuk customizer (sorot & tap-untuk-pilih).
   function tandaiBagian(root) {
     root = root || document;
-    $$('.kartu,.tabel-wadah,.anggota-baris', root).forEach(function (el) { el.setAttribute('data-bagian', 'panel'); });
+    $$('.kartu,.tabel-wadah,.anggota-baris,.langkah,.sapa-kartu', root).forEach(function (el) { el.setAttribute('data-bagian', 'panel'); });
     $$('.btn:not(.btn-garis):not(.btn-hapus):not(.btn-wa),.chip[aria-pressed="true"],.merek-logo,.pahlawan', root).forEach(function (el) { el.setAttribute('data-bagian', 'utama'); });
-    $$('.lencana,.grafik,.tgl-blok,.batang,.cincin', root).forEach(function (el) { el.setAttribute('data-bagian', 'aksen'); });
+    $$('.lencana,.grafik,.tgl-blok,.batang,.cincin,.hitung-mundur', root).forEach(function (el) { el.setAttribute('data-bagian', 'aksen'); });
     $$('h1,h2,h3,p', root).forEach(function (el) { if (!el.closest('.pahlawan')) el.setAttribute('data-bagian', 'teks'); });
   }
   var NAMA_BAGIAN = { nav: 'Navigasi', latar: 'Latar', panel: 'Panel', utama: 'Warna utama', aksen: 'Aksen', teks: 'Teks' };
@@ -258,23 +258,59 @@
       '<div class="baris-aksi" style="margin-top:12px"><button class="btn btn-garis btn-kecil" data-bagikan="' + i.id + '">' + ik('bagikan') + 'Bagikan ke WA</button>' +
       (aksiPengurus ? '<button class="btn btn-garis btn-kecil" data-ubah-info="' + i.id + '">' + ik('sunting') + 'Ubah</button><button class="btn btn-hapus btn-kecil" data-hapus-info="' + i.id + '">Hapus</button>' : '') + '</div></div></article>';
   }
+  // Ilustrasi lingkungan (SVG orisinal, warna dari token lewat kelas .il-*)
+  function ilustrasiKampung() {
+    var rumah = function (x, w, h, kelas, atap) {
+      var y = 200 - h;
+      return '<g class="il-rumah ' + kelas + '"><rect class="dinding" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3"/>' +
+        '<path class="atap ' + (atap || '') + '" d="M' + (x - 8) + ' ' + (y + 2) + ' L' + (x + w / 2) + ' ' + (y - w * 0.42) + ' L' + (x + w + 8) + ' ' + (y + 2) + 'Z"/>' +
+        '<rect class="pintu" x="' + (x + w / 2 - 9) + '" y="' + (200 - 30) + '" width="18" height="30" rx="9"/>' +
+        '<rect class="jendela" x="' + (x + 10) + '" y="' + (y + 14) + '" width="16" height="14" rx="3"/><rect class="jendela" x="' + (x + w - 26) + '" y="' + (y + 14) + '" width="16" height="14" rx="3"/></g>';
+    };
+    var pohon = function (x, s, d) { return '<g class="il-pohon" style="--d:' + d + 's;transform-origin:' + x + 'px 200px"><rect class="batang-p" x="' + (x - 3) + '" y="' + (200 - 26 * s) + '" width="6" height="' + 26 * s + '" rx="3"/><circle class="daun" cx="' + x + '" cy="' + (200 - 40 * s) + '" r="' + 20 * s + '"/><circle class="daun-2" cx="' + (x + 9 * s) + '" cy="' + (200 - 46 * s) + '" r="' + 11 * s + '"/></g>'; };
+    var orang = function (x, kelas, lambai) {
+      return '<g class="il-orang ' + kelas + '"><circle class="kepala" cx="' + x + '" cy="160" r="8"/><path class="badan" d="M' + (x - 11) + ' 200 v-20 a11 11 0 0 1 22 0 v20z"/>' +
+        (lambai ? '<path class="lengan lambai" style="transform-origin:' + (x + 9) + 'px 178px" d="M' + (x + 9) + ' 178 l12 -16" />' : '<path class="lengan" d="M' + (x - 9) + ' 180 l-6 12"/>') + '</g>';
+    };
+    var bendera = ''; for (var i = 0; i < 9; i++) { var bx = 30 + i * 46; bendera += '<path class="umbul ' + (i % 2 ? 'putih' : 'merah') + '" style="--i:' + i + '" d="M' + bx + ' ' + (34 + Math.sin(i / 1.4) * 6) + ' l10 16 l10 -16z"/>'; }
+    return '<svg class="ilustrasi" viewBox="0 0 440 224" role="img" aria-label="Ilustrasi rumah-rumah warga, pepohonan, dan dua tetangga saling menyapa">' +
+      '<circle class="il-matahari" cx="372" cy="58" r="26"/>' +
+      '<g class="il-awan"><path d="M70 82a14 14 0 0 1 26-6 11 11 0 0 1 18 9H62a8 8 0 0 1 8-3z"/></g><g class="il-awan dua"><path d="M250 64a12 12 0 0 1 22-5 9 9 0 0 1 15 8h-44a7 7 0 0 1 7-3z"/></g>' +
+      '<path class="il-tali" d="M20 30 Q220 70 430 30"/>' + bendera +
+      '<path class="il-bukit" d="M0 200 C80 150 160 160 230 176 S380 150 440 168 V224 H0z"/>' +
+      pohon(28, 1.1, 0) + rumah(56, 92, 74, 'r1') + rumah(170, 76, 92, 'r2', 'tua') + pohon(268, .9, .6) + rumah(290, 98, 66, 'r3') + pohon(414, 1.2, 1.1) +
+      orang(150, 'o1', true) + orang(264, 'o2', true) +
+      '<rect class="il-jalan" x="0" y="200" width="440" height="24"/><path class="il-marka" d="M10 213h420"/></svg>';
+  }
   function halPublik() {
     var ag = infoDatang(), dekat = ag[0], peng = pengumumanUrut();
     var mundur = '';
-    if (dekat) { var sel = Math.round((new Date(dekat.tgl + 'T00:00') - new Date(hariIni() + 'T00:00')) / 864e5); mundur = '<div class="hitung-mundur"><span class="titik"></span>' + (sel === 0 ? 'Hari ini' : sel === 1 ? 'Besok' : sel + ' hari lagi') + ': ' + e(dekat.judul) + '</div>'; }
+    if (dekat) { var sel = Math.round((new Date(dekat.tgl + 'T00:00') - new Date(hariIni() + 'T00:00')) / 864e5); mundur = '<div class="hitung-mundur"><span class="titik"></span><b>' + (sel === 0 ? 'Hari ini' : sel === 1 ? 'Besok' : sel + ' hari lagi') + '</b>' + e(dekat.judul) + '</div>'; }
+    var sek = D.pengurus.filter(function (p) { return /sekretaris/i.test(p.jabatan) && p.wa; })[0] || D.pengurus.filter(function (p) { return p.wa; })[0];
+    var langkah = [
+      { w: 'hijau', ik: 'info', j: 'Baca kabar terbaru', d: peng.length + ' pengumuman di papan warga', a: '#pengumuman', t: 'Buka papan' },
+      { w: 'kuning', ik: 'kalender', j: 'Ikut kegiatan', d: ag.length ? ag.length + ' agenda menunggu kehadiran Anda' : 'Belum ada agenda baru', a: '#agenda', t: 'Lihat agenda' },
+      { w: 'ungu', ik: 'surat', j: 'Urus surat pengantar', d: 'Kirim nama & keperluan ke Sekretaris', a: sek ? waLink(sek.wa, 'Assalamualaikum ' + sek.jabatan + ' ' + namaRT() + ', saya ingin minta surat pengantar untuk keperluan: ') : '#kontak', t: 'Minta via WA', luar: !!sek },
+      { w: 'oranye', ik: 'iuran', j: 'Bayar iuran bulanan', d: rp(D.pengaturan.iuran) + ' per KK tiap bulan, tunai atau transfer', a: '#kontak', t: 'Hubungi Bendahara' }
+    ];
     return '<section class="pahlawan">' +
-      '<svg class="atap" viewBox="0 0 120 64" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2"><path d="M4 64V34L24 18l20 16v30M44 64V28L68 8l24 20v36M92 64V38l12-10 12 10v26"/><path d="M18 64V48h12v16M62 64V44h12v20M100 64v-12h8v12"/></svg>' +
-      '<small>' + e(namaRT()) + ' · Kel. ' + e(D.pengaturan.kelurahan) + '</small>' +
-      '<h1>Kabar warga, satu papan untuk semua.</h1>' +
-      '<p>Pengumuman, jadwal kegiatan, dan kontak pengurus <span data-tema-nama>' + e(namaUsaha()) + '</span>. Butuh surat pengantar? Hubungi Sekretaris lewat WhatsApp.</p>' + mundur +
-      '<div class="baris-aksi"><a class="btn" href="#pengumuman">' + ik('info') + 'Lihat pengumuman</a><a class="btn btn-garis" href="#kontak">' + ik('wa') + 'Kontak pengurus</a></div></section>' +
-      '<div class="grid grid-2" style="align-items:start">' +
-      '<section aria-labelledby="pengumuman"><h2 id="pengumuman" class="judul-bagian" style="font-size:20px;margin-bottom:14px">Pengumuman</h2><div class="tumpuk stagger">' + (peng.length ? peng.map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada pengumuman.', 'info')) + '</div></section>' +
-      '<div class="tumpuk"><section aria-labelledby="agenda"><h2 id="agenda" style="font-size:20px;margin-bottom:14px">Agenda terdekat</h2><div class="tumpuk stagger">' + (ag.length ? ag.slice(0, 4).map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada agenda.', 'kalender')) + '</div></section>' +
+      '<div class="pahlawan-teks"><small>' + e(namaRT()) + ' · Kel. ' + e(D.pengaturan.kelurahan) + '</small>' +
+      '<h1>Lingkungan yang guyub dimulai dari <em>satu sapaan.</em></h1>' +
+      '<p>Pengumuman, jadwal kegiatan, dan kontak pengurus <span data-tema-nama>' + e(namaUsaha()) + '</span>, semuanya di satu papan.</p>' + mundur +
+      '<div class="baris-aksi"><a class="btn" href="#pengumuman">' + ik('info') + 'Lihat pengumuman</a><a class="btn btn-garis" href="#kontak">' + ik('wa') + 'Kontak pengurus</a></div></div>' +
+      '<div class="pahlawan-gambar">' + ilustrasiKampung() + '</div></section>' +
+      '<section class="langkah-wadah" aria-labelledby="judulLangkah"><div class="judul-baris"><h2 id="judulLangkah">Yang bisa Anda lakukan</h2><span class="judul-sub">4 hal penting untuk warga</span></div>' +
+      '<ol class="langkah-grid stagger">' + langkah.map(function (l, i) {
+        return '<li class="langkah p-' + l.w + '"><span class="langkah-no">0' + (i + 1) + '</span><span class="langkah-ikon">' + ik(l.ik) + '</span><h3>' + l.j + '</h3><p>' + l.d + '</p>' +
+          '<a class="langkah-cta" href="' + l.a + '"' + (l.luar ? ' target="_blank" rel="noopener"' : '') + '>' + l.t + ik('kanan') + '</a></li>';
+      }).join('') + '</ol></section>' +
+      '<div class="publik-grid">' +
+      '<section aria-labelledby="pengumuman"><div class="judul-baris"><h2 id="pengumuman">Papan pengumuman</h2><span class="judul-sub">' + peng.length + ' kabar</span></div><div class="tumpuk stagger">' + (peng.length ? peng.map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada pengumuman.', 'info')) + '</div></section>' +
+      '<div class="tumpuk"><section aria-labelledby="agenda"><div class="judul-baris"><h2 id="agenda">Agenda terdekat</h2></div><div class="tumpuk stagger">' + (ag.length ? ag.slice(0, 4).map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada agenda.', 'kalender')) + '</div></section>' +
       '<section class="kartu" aria-labelledby="kontak"><h2 id="kontak">Kontak pengurus</h2><ul class="daftar stagger">' + D.pengurus.map(function (p) {
         return '<li class="pengurus-kartu"><span class="avatar">' + e(inisial(p.nama)) + '</span><div class="utama-baris"><b>' + e(p.nama) + '</b><small>' + e(p.jabatan) + '</small></div>' + (p.wa ? '<a class="btn btn-wa btn-kecil" target="_blank" rel="noopener" href="' + waLink(p.wa, 'Assalamualaikum ' + p.jabatan + ' ' + namaRT() + ', saya warga ingin bertanya…') + '" aria-label="Chat WhatsApp ' + e(p.nama) + '">' + ik('wa') + 'Chat</a>' : '') + '</li>';
       }).join('') + '</ul><p style="color:var(--redup);font-size:13px;margin:12px 0 0">Sekretariat: ' + e(D.pengaturan.alamat) + '</p></section>' +
-      '<section class="kartu"><h2>Warga kita</h2><div class="grid" style="grid-template-columns:1fr 1fr"><div class="stat"><div class="label">Kepala keluarga</div><div class="nilai" data-hitung="' + D.kk.length + '">0</div></div><div class="stat"><div class="label">Jiwa</div><div class="nilai" data-hitung="' + jiwaTotal() + '">0</div></div></div></section>' +
+      '<section class="kartu warga-kita"><h2>Warga kita</h2><div class="grid" style="grid-template-columns:1fr 1fr"><div class="stat p-hijau"><div class="label">Kepala keluarga</div><div class="nilai" data-hitung="' + D.kk.length + '">0</div></div><div class="stat p-kuning"><div class="label">Jiwa</div><div class="nilai" data-hitung="' + jiwaTotal() + '">0</div></div></div></section>' +
       '</div></div>';
   }
 
@@ -288,12 +324,12 @@
     var nunggak = D.kk.map(function (k) { return { k: k, t: tunggakan(k) }; }).filter(function (x) { return x.t.length; }).sort(function (a, c) { return c.t.length - a.t.length; });
     var jam = new Date().getHours(), sapa = jam < 11 ? 'Selamat pagi' : jam < 15 ? 'Selamat siang' : jam < 18 ? 'Selamat sore' : 'Selamat malam';
     var ag = infoDatang().slice(0, 3);
-    return kepalaHal(sapa + ', Pengurus', tglHari(hariIni()) + ' · ' + e(namaRT()), '<a class="btn" href="#/panel/warga/baru">' + ik('tambah') + 'Tambah KK</a>') +
+    return '<section class="sapa-kartu"><div><small>' + tglHari(hariIni()) + ' · ' + e(namaRT()) + '</small><h1>' + sapa + ', Pengurus</h1><p>' + (nunggak.length ? nunggak.length + ' KK perlu diingatkan iurannya' : 'Semua iuran lancar') + (ag.length ? ' · agenda berikutnya: ' + e(ag[0].judul) : '') + '.</p></div><div class="baris-aksi"><a class="btn" href="#/panel/warga/baru">' + ik('tambah') + 'Tambah KK</a><a class="btn btn-garis" href="#/panel/info/baru">' + ik('info') + 'Umumkan</a></div></section>' +
       '<div class="grid grid-4 stagger" style="margin-bottom:16px">' +
-      '<div class="kartu stat"><div class="label"><i>' + ik('warga') + '</i>Kepala keluarga</div><div class="nilai" data-hitung="' + D.kk.length + '">0</div><div class="sub">' + tetap + ' tetap · ' + (D.kk.length - tetap) + ' kontrak</div></div>' +
-      '<div class="kartu stat"><div class="label"><i>' + ik('jiwa') + '</i>Jumlah jiwa</div><div class="nilai" data-hitung="' + (l + p) + '">0</div><div class="sub">' + l + ' laki-laki · ' + p + ' perempuan</div></div>' +
-      '<div class="kartu stat"><div class="label"><i class="aksen">' + ik('iuran') + '</i>Iuran ' + BULAN[new Date().getMonth()] + '</div><div class="nilai">' + pers + '%</div><div class="batang" role="progressbar" aria-label="Persentase KK lunas" aria-valuenow="' + pers + '" aria-valuemin="0" aria-valuemax="100"><span style="width:' + pers + '%"></span></div><div class="sub" style="margin-top:6px">' + lunas + ' dari ' + D.kk.length + ' KK lunas</div></div>' +
-      '<div class="kartu stat"><div class="label"><i>' + ik('dompet') + '</i>Saldo kas</div><div class="nilai" data-rp data-hitung="' + saldo() + '">0</div><div class="sub"><span class="masuk">+' + rpPendek(km.masuk) + '</span> · <span class="keluar">−' + rpPendek(km.keluar) + '</span> bulan ini</div></div></div>' +
+      '<div class="kartu stat p-hijau"><div class="label"><i>' + ik('warga') + '</i>Kepala keluarga</div><div class="nilai" data-hitung="' + D.kk.length + '">0</div><div class="sub">' + tetap + ' tetap · ' + (D.kk.length - tetap) + ' kontrak</div></div>' +
+      '<div class="kartu stat p-kuning"><div class="label"><i>' + ik('jiwa') + '</i>Jumlah jiwa</div><div class="nilai" data-hitung="' + (l + p) + '">0</div><div class="sub">' + l + ' laki-laki · ' + p + ' perempuan</div></div>' +
+      '<div class="kartu stat p-oranye"><div class="label"><i class="aksen">' + ik('iuran') + '</i>Iuran ' + BULAN[new Date().getMonth()] + '</div><div class="nilai">' + pers + '%</div><div class="batang" role="progressbar" aria-label="Persentase KK lunas" aria-valuenow="' + pers + '" aria-valuemin="0" aria-valuemax="100"><span style="width:' + pers + '%"></span></div><div class="sub" style="margin-top:6px">' + lunas + ' dari ' + D.kk.length + ' KK lunas</div></div>' +
+      '<div class="kartu stat p-ungu"><div class="label"><i>' + ik('dompet') + '</i>Saldo kas</div><div class="nilai" data-rp data-hitung="' + saldo() + '">0</div><div class="sub"><span class="masuk">+' + rpPendek(km.masuk) + '</span> · <span class="keluar">−' + rpPendek(km.keluar) + '</span> bulan ini</div></div></div>' +
       '<div class="grid grid-2" style="align-items:start">' +
       '<section class="kartu"><h2>Kas 6 bulan terakhir <a class="btn btn-garis btn-kecil" href="#/panel/kas">Detail</a></h2>' + grafikKas(6) + '</section>' +
       '<section class="kartu"><h2>Perlu diingatkan <span class="lencana bahaya">' + nunggak.length + ' KK</span></h2>' + (nunggak.length ? '<ul class="daftar stagger">' + nunggak.slice(0, 5).map(function (x) {
@@ -535,7 +571,7 @@
 
   // --- Info (pengumuman & agenda)
   HAL.info = function () {
-    var peng = pengumumanUrut(), ag = D.info.filter(function (i) { return i.jenis === 'agenda'; }).sort(function (a, b) { return b.tgl.localeCompare(a.tgl); });
+    var peng = pengumumanUrut(), ag = D.info.filter(function (i) { return i.jenis === 'agenda'; }).sort(function (a, b) { var h = hariIni(), ka = a.tgl + (a.jam || ''), kb = b.tgl + (b.jam || ''), la = a.tgl < h, lb = b.tgl < h; return la !== lb ? (la ? 1 : -1) : la ? kb.localeCompare(ka) : ka.localeCompare(kb); });
     return kepalaHal('Pengumuman & agenda', 'Tampil di halaman publik warga', '<a class="btn btn-garis" href="#/" target="_blank" rel="noopener">Lihat halaman publik</a><button class="btn" data-info-baru>' + ik('tambah') + 'Buat baru</button>') +
       '<div class="grid grid-2" style="align-items:start"><section><h2 style="font-size:18px;margin-bottom:12px">Pengumuman</h2><div class="tumpuk stagger">' + (peng.length ? peng.map(function (i) { return kartuInfo(i, true); }).join('') : kosong('Belum ada pengumuman.', 'info')) + '</div></section>' +
       '<section><h2 style="font-size:18px;margin-bottom:12px">Agenda</h2><div class="tumpuk stagger">' + (ag.length ? ag.map(function (i) { return kartuInfo(i, true); }).join('') : kosong('Belum ada agenda.', 'kalender')) + '</div></section></div>';
@@ -686,7 +722,7 @@
     function bacaT() { return { nama: fT.nama.value.trim() || TEMA.nama, utama: fT.utama.value, aksen: fT.aksen.value, font: fT.font.value, mode: fT.mode.value, radius: fT.radius.value }; }
     fT.addEventListener('input', function () { $('#oRadius').textContent = fT.radius.value + 'px'; terapkan(bacaT()); });
     fT.addEventListener('submit', function (ev) { ev.preventDefault(); tampilan = bacaT(); try { localStorage.setItem(KUNCI_TAMPILAN, JSON.stringify(tampilan)); } catch (x) {} toast('Tampilan disimpan'); });
-    $('#resetTampilan').addEventListener('click', function () { try { localStorage.removeItem(KUNCI_TAMPILAN); } catch (x) {} tampilan = {}; document.documentElement.removeAttribute('style'); terapkan({ mode: TEMA.mode, nama: TEMA.nama, font: 'Inter' }); render(); toast('Tampilan kembali ke bawaan'); });
+    $('#resetTampilan').addEventListener('click', function () { try { localStorage.removeItem(KUNCI_TAMPILAN); } catch (x) {} tampilan = {}; document.documentElement.removeAttribute('style'); terapkan({ mode: TEMA.mode, nama: TEMA.nama, font: 'Nunito' }); render(); toast('Tampilan kembali ke bawaan'); });
 
     $('#fPin').addEventListener('submit', function (ev) {
       ev.preventDefault(); var l = $('#pinLama').value, b = $('#pinBaru').value;

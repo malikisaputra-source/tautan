@@ -58,6 +58,7 @@ kasir-umkm/
 ├── style.css             # tampilan + gaya struk cetak
 ├── app.js                # semua logika aplikasi
 ├── tema.css, tema.js     # warna, sudut, huruf, nama usaha, mode
+├── DESIGN.md             # arah desain, token, komponen, motion
 ├── AGENTS.md, .claude/   # panduan untuk AI (Claude, Cursor, Copilot)
 ├── sw.js                 # service worker (offline)
 ├── manifest.webmanifest  # info PWA
@@ -68,10 +69,10 @@ kasir-umkm/
 
 ## Ganti warna & nama
 Semua warna, sudut, huruf, dan nama usaha diatur di dua berkas kecil (juga yang diubah otomatis oleh customizer di malikisaputra.biz.id/kode):
-- `tema.css`: `--tema-utama` (tombol, sorotan), `--tema-aksen` (grafik, produk terlaris, thumbnail), `--tema-radius` (sudut), `--tema-font` (huruf Google Fonts: Plus Jakarta Sans, Inter, Poppins, DM Sans, Space Grotesk, Nunito — ganti juga `href` pada `<link id="fontTema">` di `index.html`).
+- `tema.css`: `--tema-utama` (tombol, sorotan), `--tema-aksen` (menu aktif, uang cepat, kembalian, nada kotak ilustrasi), `--tema-radius` (sudut), `--tema-font` (huruf Google Fonts: Plus Jakarta Sans, Inter, Poppins, DM Sans, Space Grotesk, Nunito — ganti juga `href` pada `<link id="fontTema">` di `index.html`).
 - `tema.js`: `nama` (nama usaha di layar; dipakai sebagai nama toko bawaan selama belum diganti lewat menu **Atur**) dan `mode`: `"terang"`, `"gelap"`, atau `"auto"` (ikut setelan HP).
 
-Warna lain (versi muda/tua, latar, garis, mode gelap) diturunkan otomatis dengan `color-mix()` di `style.css`. Teks di atas warna utama selalu putih, jadi pilih warna utama yang cukup gelap (setara teal-700 / ungu-600) agar tetap terbaca.
+Warna lain (versi muda/tua, latar, garis, mode gelap) diturunkan otomatis dengan `color-mix()` di `style.css`. Teks di atas warna utama dihitung otomatis (putih/gelap) dari terang-gelapnya warna, tapi warna utama yang cukup gelap (setara teal-700 / ungu-600) paling enak dibaca. Arah desain lengkap ada di `DESIGN.md`.
 
 Warna per bagian: `tema.css` juga punya `--tema-latar` (latar halaman), `--tema-panel` (kartu/panel/form), `--tema-nav` (sidebar/header/nav bawah), `--tema-teks` (teks utama). Mode gelap memakai palet gelap paket kecuali customizer mengirim nilai bagian. Warna teks di atas nav & tombol utama dihitung otomatis (terang/gelap) dari luminansi.
 
@@ -85,6 +86,11 @@ Paket ini membawa Agent Skill di `.claude/skills/ubah-kasir-umkm/SKILL.md` (peta
 
 - **Claude Code / Claude Desktop**: buka folder paket ini; skill di `.claude/skills` terbaca otomatis. Tinggal minta, misal "tambah field barcode di produk".
 - **claude.ai**: unduh ZIP skill (tombol **Unduh Skill** di [malikisaputra.biz.id/kode](https://malikisaputra.biz.id/kode)), lalu di claude.ai buka **Customize › Skills › tombol "+" › Create skill › Upload a skill** dan pilih ZIP itu (folder skill sebagai akar ZIP). Syarat: **Code execution and file creation** aktif di **Settings › Capabilities** (paket Free/Pro/Max); di Team/Enterprise diatur oleh Owner. Sumber: support.claude.com/en/articles/12512180 (dicek 6 Nov 2026).
+
+## Mau hasil lebih maksimal?
+Pasang skill desain berikut di Claude Code sebelum minta perubahan tampilan:
+- impeccable — https://github.com/pbakaus/impeccable (Apache-2.0, dicek 6 Nov 2026)
+- ui-ux-pro-max — https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT menurut GitHub API, dicek 6 Nov 2026)
 
 ## Catatan penting
 - Data tersimpan di browser perangkat (localStorage). Menghapus data situs/browser = data hilang. **Rajin backup JSON** (misal tiap minggu) dan simpan di Google Drive.
