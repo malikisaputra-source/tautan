@@ -458,3 +458,6 @@ html.lenis, html.lenis body { height: auto; }
   .k-hero .k-cakrawala { -webkit-mask: linear-gradient(#000 0 88%, transparent 100%); mask: linear-gradient(#000 0 88%, transparent 100%); }
 }
 @media (min-width: 861px) and (max-width: 1100px) { .k-hero .k-busur { width: 2000px; } }
+/* roket muncul dari BALIK planet */
+.k-hero .k-busur { z-index: 2; }
+.k-hero .k-roket { z-index: 1; }
