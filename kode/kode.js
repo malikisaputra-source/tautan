@@ -227,7 +227,7 @@
     gsap.to(".k-hero .k-sinar", { opacity: .72, scale: 1.06, duration: 3.6, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 2 });
     const gx = gsap.quickTo(hero, "--gx", { duration: 1.4, ease: "power3.out" });
     if (matchMedia("(pointer: fine)").matches) hero.addEventListener("pointermove", (e) => gx(((e.clientX / innerWidth) - .5) * 30));
-    gsap.to(".k-hero .k-busur, .k-hero .k-sinar", { yPercent: 14, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+    gsap.to(".k-hero .k-busur, .k-hero .k-sinar", { y: -60, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
     gsap.to(".k-hero-isi", { y: -60, opacity: .2, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
     // bento masuk berirama
     ScrollTrigger.batch(".k-bento .k-kartu", {
