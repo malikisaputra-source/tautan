@@ -461,3 +461,8 @@ html.lenis, html.lenis body { height: auto; }
 /* roket muncul dari BALIK planet */
 .k-hero .k-busur { z-index: 2; }
 .k-hero .k-roket { z-index: 1; }
+/* desktop: puncak lengkung di bawah baris angka, tidak menimpa teks */
+@media (min-width: 861px) {
+  .k-hero { padding-bottom: clamp(260px, 38vh, 380px); }
+  .k-hero .k-busur, .k-hero .k-sinar { top: 84%; }
+}
