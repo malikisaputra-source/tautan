@@ -452,3 +452,8 @@ html.lenis, html.lenis body { height: auto; }
 
 /* layar sangat sempit: nav cukup logo + Follow */
 @media (max-width: 360px) { .atas nav a:not(.tombol) { display: none !important; } .atas .tombol.kecil { padding: 0 14px; } }
+/* beranda: hujan kode menggantikan lengkung (beda dari /kode) */
+.hal-beranda .b-busur, .hal-beranda .b-sinar { display: none !important; }
+.b-pendar { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 50% at 70% 35%, rgba(34,211,238,.10), transparent 70%), radial-gradient(50% 45% at 20% 70%, rgba(129,140,248,.08), transparent 70%); }
+.hal-beranda .b-hero .b-cakrawala { -webkit-mask: linear-gradient(#000 0 80%, transparent); mask: linear-gradient(#000 0 80%, transparent); }

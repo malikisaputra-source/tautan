@@ -209,53 +209,63 @@ if (gerakOk && matchMedia("(pointer: fine)").matches) {
   addEventListener("pointermove", (e) => { kx(e.clientX); ky(e.clientY); }, { passive: true });
 }
 
-/* langit: bintang berkelip + bintang jatuh (senada /kode) */
+/* latar hero: hujan kode prompt ala terminal (ciri khas beranda, beda dari /kode) */
 (() => {
   const cv = $("#b-langit"); if (!cv) return;
   const ctx = cv.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 2);
-  let W = 0, H = 0, bintang = [], jatuh = [], mx = 0, my = 0, jalan = true;
-  const t0 = performance.now();
+  const BARIS = [
+    "peran: kamu adalah asisten admin UMKM", "tugas: rapikan pesanan WA jadi tabel", "konteks: toko kue, 30 pesanan/hari",
+    "format: tabel | nama | menu | total", "batasan: jangan ubah nominal", "/laporan --mingguan", "skill: ubah-kasir-umkm",
+    "[CEK] stok minimum < 5", "excel: =SUMIF(B:B;\"lunas\";C:C)", "agent.jalankan(\"balas_komentar\")", "caption: hook 1 kalimat + CTA",
+    "jadwal: 07.00 kirim rekap ke WA", "prompt.isi({nama_toko})", "peran: guru ngaji yang sabar", "konteks: {{DATA_WARGA}}",
+    "> claude --skill kas-warung", "tugas: cari lowongan sesuai CV", "format: poin singkat, bahasa santai",
+  ];
+  let W = 0, H = 0, kolom = [], jalan = true, mx = 0, my = 0, ukuranHuruf = 13;
   function ukur() {
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    bintang = Array.from({ length: Math.round(W * H / (W < 700 ? 2800 : 3400)) }, () => ({ x: Math.random() * W, y: Math.random() * H * .8, z: Math.random(), r: Math.random() * 1.4 + .4, f: Math.random() * 6.28, k: .6 + Math.random() * 2, w: Math.random() < .12 }));
+    ukuranHuruf = W < 700 ? 11 : 13;
+    const lebarKol = W < 700 ? 190 : 260, n = Math.max(2, Math.floor(W / lebarKol));
+    kolom = Array.from({ length: n }, (_, i) => ({
+      x: i * (W / n) + 12 + Math.random() * 30, y: Math.random() * H, v: .18 + Math.random() * .35, z: .35 + Math.random() * .65,
+      teks: BARIS[(Math.random() * BARIS.length) | 0], ketik: 0, jeda: Math.random() * 120,
+    }));
   }
-  function gambar(now) {
-    const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
-    for (const b of bintang) {
-      const tw = gerakOk ? .3 + .7 * Math.sin(t * b.k + b.f) ** 2 : .8;
-      const x = b.x - mx * 30 * (b.z + .2), y = b.y - my * 20 * (b.z + .2);
-      ctx.globalAlpha = Math.min(1, tw * (.45 + b.z * .6) * Math.max(0, 1 - y / (H * .8)));
-      ctx.fillStyle = b.w ? "#a5f3fc" : "#fff"; ctx.beginPath(); ctx.arc(x, y, b.r, 0, 6.28); ctx.fill();
-    }
-    if (gerakOk) {
-      if (Math.random() < .005 && jatuh.length < 2) jatuh.push({ x: W * (.3 + Math.random() * .7), y: Math.random() * H * .3, vx: -(7 + Math.random() * 5), vy: 3 + Math.random() * 2, h: 1 });
-      for (const j of jatuh) {
-        j.x += j.vx; j.y += j.vy; j.h -= .012;
-        const g = ctx.createLinearGradient(j.x, j.y, j.x - j.vx * 14, j.y - j.vy * 14);
-        g.addColorStop(0, `rgba(224,250,255,${j.h})`); g.addColorStop(1, "rgba(34,211,238,0)");
-        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(j.x, j.y); ctx.lineTo(j.x - j.vx * 14, j.y - j.vy * 14); ctx.stroke();
+  function gambar() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = `${ukuranHuruf}px "JetBrains Mono", ui-monospace, monospace`;
+    const tinggiBaris = ukuranHuruf * 1.9;
+    for (const k of kolom) {
+      if (gerakOk) { k.y += k.v; if (k.jeda > 0) k.jeda--; else if (k.ketik < k.teks.length) k.ketik += .45; }
+      if (k.y > H + 40) { k.y = -tinggiBaris * 6; k.teks = BARIS[(Math.random() * BARIS.length) | 0]; k.ketik = 0; k.jeda = 30 + Math.random() * 90; }
+      const ox = -mx * 18 * k.z, oy = -my * 12 * k.z;
+      // 5 baris "jejak" redup di atas baris yang sedang diketik
+      for (let i = 5; i >= 1; i--) {
+        const y = k.y - i * tinggiBaris + oy; if (y < -20 || y > H) continue;
+        const t = BARIS[(BARIS.indexOf(k.teks) + i * 3) % BARIS.length];
+        ctx.globalAlpha = (.09 + .05 * (5 - i)) * k.z * pudar(y);
+        ctx.fillStyle = "#8590aa"; ctx.fillText(t, k.x + ox, y);
       }
-      jatuh = jatuh.filter((j) => j.h > 0 && j.x > -80 && j.y < H);
-      if (jalan) requestAnimationFrame(gambar);
+      const y = k.y + oy, tampil = k.teks.slice(0, Math.floor(gerakOk ? k.ketik : k.teks.length));
+      const titik = tampil.indexOf(":");
+      ctx.globalAlpha = .75 * k.z * pudar(y);
+      if (titik > 0) {
+        ctx.fillStyle = "#22d3ee"; ctx.fillText(tampil.slice(0, titik + 1), k.x + ox, y);
+        ctx.fillStyle = "#cbd5e1"; ctx.fillText(tampil.slice(titik + 1), k.x + ox + ctx.measureText(tampil.slice(0, titik + 1)).width, y);
+      } else { ctx.fillStyle = "#cbd5e1"; ctx.fillText(tampil, k.x + ox, y); }
+      if (gerakOk && Math.floor(performance.now() / 500) % 2 === 0) {
+        ctx.fillStyle = "#22d3ee"; ctx.globalAlpha = .7 * k.z * pudar(y);
+        ctx.fillRect(k.x + ox + ctx.measureText(tampil).width + 3, y - ukuranHuruf + 2, ukuranHuruf * .55, ukuranHuruf);
+      }
     }
     ctx.globalAlpha = 1;
+    if (gerakOk && jalan) requestAnimationFrame(gambar);
   }
+  const pudar = (y) => Math.max(0, Math.min(1, y / 80, (H - y) / 160));
   ukur(); addEventListener("resize", ukur);
+  if (document.fonts) document.fonts.ready.then(() => requestAnimationFrame(gambar));
   addEventListener("pointermove", (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
   if ("IntersectionObserver" in window && gerakOk) new IntersectionObserver(([en]) => { const lama = jalan; jalan = en.isIntersecting; if (jalan && !lama) requestAnimationFrame(gambar); }).observe(cv);
   requestAnimationFrame(gambar);
-})();
-
-/* lengkung cakrawala: puncaknya dihitung relatif konten hero (tidak menimpa teks/tombol) */
-(() => {
-  const hero = $(".b-hero"); if (!hero) return;
-  const el = [hero.querySelector(".b-busur"), hero.querySelector(".b-sinar")];
-  function atur() {
-    const ref = innerWidth < 900 ? hero.querySelector(".b-potret") : hero.querySelector(".b-hero-isi");
-    const top = ref.getBoundingClientRect().bottom - hero.getBoundingClientRect().top + (innerWidth < 900 ? 36 : 56);
-    el.forEach((e) => e && e.style.setProperty("top", top + "px"));
-  }
-  addEventListener("load", atur); addEventListener("resize", atur); document.fonts && document.fonts.ready.then(atur); atur(); setTimeout(atur, 1500);
 })();
 
 if (gerakOk) {
