@@ -11,27 +11,32 @@ const SERI = {
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const gerakOk = !matchMedia("(prefers-reduced-motion: reduce)").matches && window.gsap;
+let lenis = null;
+function geserKe(sel) { const el = $(sel); if (!el) return; if (lenis) lenis.scrollTo(el, { offset: -70 }); else el.scrollIntoView({ behavior: gerakOk ? "smooth" : "auto" }); }
 
 /* ---------- kartu seri ---------- */
 const jumlahPer = DATA.reduce((a, p) => ((a[p.seri] = (a[p.seri] || 0) + 1), a), {});
 const urutanSeri = Object.keys(SERI).filter((k) => jumlahPer[k]);
-$("#kartu-seri").innerHTML = urutanSeri.map((k) => `
-  <button class="seri-kartu" type="button" data-seri="${k}" style="--w:${SERI[k].warna}">
-    <span class="kode">./${SERI[k].kode}</span>
-    <h3>${SERI[k].nama}</h3>
-    <p>${SERI[k].isi}</p>
-    <span class="hitung"><span>${jumlahPer[k]} prompt</span><span aria-hidden="true">→</span></span>
-  </button>`).join("");
+$("#kartu-seri").innerHTML = urutanSeri.map((k, i) => `
+  <li><button class="seri-baris" type="button" data-seri="${k}" style="--w:${SERI[k].warna}">
+    <span class="no" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+    <span class="isi"><span class="kode">./${SERI[k].kode}</span><span class="nama">${SERI[k].nama}</span><span class="ket">${SERI[k].isi}</span></span>
+    <span class="hitung">${jumlahPer[k]} prompt <span aria-hidden="true">→</span></span>
+  </button></li>`).join("");
 $("#kartu-seri").addEventListener("click", (e) => {
   const b = e.target.closest("[data-seri]"); if (!b) return;
-  pilihSeri(b.dataset.seri); $("#perpustakaan").scrollIntoView({ behavior: gerakOk ? "smooth" : "auto" });
+  pilihSeri(b.dataset.seri); geserKe("#perpustakaan");
 });
 
 /* ---------- perpustakaan ---------- */
-let seriAktif = "semua", kataCari = "";
-$("#chip").innerHTML = [`<button type="button" data-seri="semua" aria-pressed="true">semua</button>`]
-  .concat(urutanSeri.map((k) => `<button type="button" data-seri="${k}" aria-pressed="false">${SERI[k].kode.replace("kelas/", "")}</button>`)).join("");
+let seriAktif = "semua", kataCari = "", semuaTampil = false;
+$("#chip").innerHTML = [`<button type="button" data-seri="semua" aria-pressed="true" style="--w:var(--aksen)"><i aria-hidden="true"></i><span>semua</span><small>${DATA.length}</small></button>`]
+  .concat(urutanSeri.map((k) => `<button type="button" data-seri="${k}" aria-pressed="false" style="--w:${SERI[k].warna}"><i aria-hidden="true"></i><span>${SERI[k].nama}</span><small>${jumlahPer[k]}</small></button>`)).join("");
 $("#chip").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) pilihSeri(b.dataset.seri); });
+addEventListener("keydown", (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (!$("#detail").hidden) return; geserKe("#perpustakaan"); setTimeout(() => $("#cari").focus({ preventScroll: true }), 350); }
+  else if (e.key === "/" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName) && $("#detail").hidden) { e.preventDefault(); $("#cari").focus(); }
+});
 $("#cari").addEventListener("input", (e) => { kataCari = e.target.value.trim().toLowerCase(); tampilkan(); });
 
 function pilihSeri(k) {
@@ -43,17 +48,19 @@ function pilihSeri(k) {
 function tampilkan() {
   const hasil = DATA.filter((p) => (seriAktif === "semua" || p.seri === seriAktif) &&
     (!kataCari || (p.judul + " " + p.label + " " + p.prompt + " " + p.namaSeri).toLowerCase().includes(kataCari)));
-  $("#daftar-prompt").innerHTML = hasil.map((p) => `
+  const batas = !semuaTampil && innerWidth < 861 && hasil.length > 8 ? 8 : hasil.length;
+  $("#daftar-prompt").innerHTML = hasil.slice(0, batas).map((p) => `
     <li><button type="button" data-id="${p.id}" style="--w:${SERI[p.seri].warna}">
       <span class="tag">${esc(p.id)}</span>
       <span class="judul">${esc(p.judul)}<small>${esc(p.label)}</small></span>
       <span class="buka" aria-hidden="true">buka →</span>
-    </button></li>`).join("");
+      <span class="pratinjau" aria-hidden="true">${p.prompt.split("\n").filter((b) => b.trim()).slice(0, 2).map((b, i) => `<span><i>${i + 1}</i>${esc(b.slice(0, 90))}</span>`).join("")}</span>
+    </button></li>`).join("") + (batas < hasil.length ? `<li class="b-lagi"><button type="button" data-lagi>Tampilkan ${hasil.length - batas} prompt lagi ↓</button></li>` : "");
   $("#kosong").hidden = hasil.length > 0;
   $("#jumlah").textContent = hasil.length;
-  if (gerakOk) gsap.from("#daftar-prompt li", { opacity: 0, x: -12, duration: .35, stagger: .025, ease: "power2.out", overwrite: true });
+  if (gerakOk && hasil.length) gsap.from("#daftar-prompt li", { opacity: 0, x: -12, duration: .35, stagger: .025, ease: "power2.out", overwrite: true });
 }
-$("#daftar-prompt").addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (b) location.hash = "p/" + b.dataset.id; });
+$("#daftar-prompt").addEventListener("click", (e) => { if (e.target.closest("[data-lagi]")) { semuaTampil = true; const n = $("#daftar-prompt").children.length - 1; tampilkan(); $("#daftar-prompt").children[n]?.querySelector("button")?.focus(); return; } const b = e.target.closest("[data-id]"); if (b) location.hash = "p/" + b.dataset.id; });
 tampilkan();
 
 /* ---------- panel detail ---------- */
@@ -65,18 +72,27 @@ const CARA = {
   tutor:   ["Buka claude.ai dan mulai chat baru.", "Salin prompt, ganti bagian yang ditandai oranye.", "Kalau hasilnya berupa aplikasi/artifact, langsung coba dan minta revisi dengan bahasa biasa."],
   balas:   ["Salin teksnya, sesuaikan contoh dengan usahamu.", "Tempel di AI yang kamu pakai.", "Masih bingung? Balas di komentar video, nanti bisa jadi episode berikutnya."],
 };
-function warnai(teks) { // nomori baris, sorot [placeholder] / {{PLACEHOLDER}} / <tag>
+function warnai(teks, isi = []) { // nomori baris, sorot [placeholder] / {{PLACEHOLDER}} / <tag>
   return teks.split("\n").map((b) => {
     let h = esc(b)
       .replace(/\{\{[^}]+\}\}|\[[^\]\n]{2,40}\]/g, (m) => `<mark>${m}</mark>`)
       .replace(/&lt;\/?[a-z_]+&gt;/g, (m) => `<span class="tg">${m}</span>`);
+    isi.forEach((v) => { const ev = esc(v); if (ev.length > 1) h = h.split(ev).join(`<ins>${ev}</ins>`); });
     return `<span class="b">${h || " "}</span>`;
   }).join("");
 }
 function placeholder(teks) {
   return [...new Set((teks.match(/\{\{[^}]+\}\}|\[[^\]\n]{2,40}\]/g) || []).filter((m) => !/^\[(CEK|CEK MANUAL)\]$/.test(m)))].slice(0, 12);
 }
-let fokusSebelum = null;
+let fokusSebelum = null, isian = {};
+function terisi(t) { for (const [k, v] of Object.entries(isian)) if (v) t = t.split(k).join(v); return t; }
+$("#detail-ganti").addEventListener("input", (e) => {
+  const inp = e.target.closest("input[data-ph]"); if (!inp) return;
+  isian[inp.dataset.ph] = inp.value.trim();
+  const p = DATA.find((x) => "#p/" + x.id === location.hash); if (!p) return;
+  $("#detail-prompt").innerHTML = warnai(terisi(p.prompt), Object.values(isian).filter(Boolean));
+  $("#salin").textContent = "Salin prompt"; $("#salin").classList.remove("ok");
+});
 function bukaDetail(id) {
   const p = DATA.find((x) => x.id === id); if (!p) return;
   const s = SERI[p.seri];
@@ -89,10 +105,12 @@ function bukaDetail(id) {
   $("#detail-prompt").innerHTML = warnai(p.prompt);
   const ph = placeholder(p.prompt);
   $("#detail-ganti-blok").hidden = !ph.length;
-  $("#detail-ganti").innerHTML = ph.map((m) => `<li><code>${esc(m)}</code> → isi dengan datamu sendiri</li>`).join("");
+  isian = {};
+  $("#detail-ganti").innerHTML = ph.map((m, i) => `<li><label for="isi-${i}"><code>${esc(m)}</code></label><input id="isi-${i}" type="text" data-ph="${esc(m)}" placeholder="isi dengan datamu sendiri" autocomplete="off"></li>`).join("");
   $("#detail-cara").innerHTML = CARA[p.seri].map((c) => `<li>${esc(c)}</li>`).join("");
-  $("#detail-tentang-blok").hidden = !p.tentang.length && !p.halaman;
-  $("#detail-tentang").innerHTML = p.tentang.map((t) => `<p>${esc(t)}</p>`).join("") +
+  const tentang = p.tentang || [];
+  $("#detail-tentang-blok").hidden = !tentang.length && !p.halaman;
+  $("#detail-tentang").innerHTML = tentang.map((t) => `<p>${esc(t)}</p>`).join("") +
     (p.halaman ? `<p><a class="tautan-garis" href="${p.halaman}">Buka halaman prompt versi lengkap ↗</a></p>` : "");
   $("#salin").textContent = "Salin prompt"; $("#salin").classList.remove("ok");
   fokusSebelum = document.activeElement;
@@ -135,7 +153,7 @@ async function salinTeks(t) {
 }
 $("#salin").addEventListener("click", async () => {
   const p = DATA.find((x) => "#p/" + x.id === location.hash); if (!p) return;
-  if (await salinTeks(p.prompt)) { $("#salin").textContent = "Tersalin ✓"; $("#salin").classList.add("ok"); toast("Prompt tersalin. Tinggal tempel di Claude."); }
+  if (await salinTeks(terisi(p.prompt))) { $("#salin").textContent = "Tersalin ✓"; $("#salin").classList.add("ok"); toast("Prompt tersalin. Tinggal tempel di Claude."); }
 });
 $("#bagikan").addEventListener("click", async () => {
   const url = location.href;
@@ -162,13 +180,91 @@ function ketik(el) {
 }
 ketik($(".ketik"));
 
+/* judul bagian dipecah per kata (aria-label menjaga teks utuh untuk pembaca layar) */
+document.querySelectorAll("[data-pecah]").forEach((h) => {
+  h.setAttribute("aria-label", h.textContent.trim().replace(/\s+/g, " "));
+  const pecah = (node, kelas) => node.textContent.trim().split(/\s+/).map((w) => `<span class="kp" aria-hidden="true"><span${kelas ? ` class="${kelas}"` : ""}>${esc(w)}</span></span>`).join(" ");
+  h.innerHTML = [...h.childNodes].map((n) => n.nodeType === 3 ? (n.textContent.trim() ? pecah(n) : "") : pecah(n, n.className)).join(" ");
+});
+
+if (gerakOk && window.Lenis) {
+  lenis = new Lenis({ duration: 1.1, easing: (t) => 1 - Math.pow(2, -10 * t) });
+  lenis.on("scroll", () => window.ScrollTrigger && ScrollTrigger.update());
+  gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+  new MutationObserver(() => ($("#detail").hidden ? lenis.start() : lenis.stop())).observe($("#detail"), { attributes: true, attributeFilter: ["hidden"] });
+  document.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => {
+    const h = a.getAttribute("href"); if (h.length < 2 || h.startsWith("#p/")) { if (h === "#") { e.preventDefault(); lenis.scrollTo(0); } return; }
+    if ($(h)) { e.preventDefault(); geserKe(h); history.replaceState(null, "", h); }
+  }));
+}
+if (gerakOk && matchMedia("(pointer: fine)").matches) {
+  // tombol magnet
+  document.querySelectorAll(".magnet").forEach((b) => {
+    b.addEventListener("pointermove", (e) => { const r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width / 2) * .25, y: (e.clientY - r.top - r.height / 2) * .35, duration: .4, ease: "power3.out" }); });
+    b.addEventListener("pointerleave", () => gsap.to(b, { x: 0, y: 0, duration: .7, ease: "elastic.out(1, .4)" }));
+  });
+  // kursor bercahaya
+  const k = $(".b-kursor"); k.classList.add("aktif");
+  const kx = gsap.quickTo(k, "x", { duration: .6, ease: "power3" }), ky = gsap.quickTo(k, "y", { duration: .6, ease: "power3" });
+  addEventListener("pointermove", (e) => { kx(e.clientX); ky(e.clientY); }, { passive: true });
+}
+
+/* langit: bintang berkelip + bintang jatuh (senada /kode) */
+(() => {
+  const cv = $("#b-langit"); if (!cv) return;
+  const ctx = cv.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 2);
+  let W = 0, H = 0, bintang = [], jatuh = [], mx = 0, my = 0, jalan = true;
+  const t0 = performance.now();
+  function ukur() {
+    const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    bintang = Array.from({ length: Math.round(W * H / (W < 700 ? 2800 : 3400)) }, () => ({ x: Math.random() * W, y: Math.random() * H * .8, z: Math.random(), r: Math.random() * 1.4 + .4, f: Math.random() * 6.28, k: .6 + Math.random() * 2, w: Math.random() < .12 }));
+  }
+  function gambar(now) {
+    const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
+    for (const b of bintang) {
+      const tw = gerakOk ? .3 + .7 * Math.sin(t * b.k + b.f) ** 2 : .8;
+      const x = b.x - mx * 30 * (b.z + .2), y = b.y - my * 20 * (b.z + .2);
+      ctx.globalAlpha = Math.min(1, tw * (.45 + b.z * .6) * Math.max(0, 1 - y / (H * .8)));
+      ctx.fillStyle = b.w ? "#a5f3fc" : "#fff"; ctx.beginPath(); ctx.arc(x, y, b.r, 0, 6.28); ctx.fill();
+    }
+    if (gerakOk) {
+      if (Math.random() < .005 && jatuh.length < 2) jatuh.push({ x: W * (.3 + Math.random() * .7), y: Math.random() * H * .3, vx: -(7 + Math.random() * 5), vy: 3 + Math.random() * 2, h: 1 });
+      for (const j of jatuh) {
+        j.x += j.vx; j.y += j.vy; j.h -= .012;
+        const g = ctx.createLinearGradient(j.x, j.y, j.x - j.vx * 14, j.y - j.vy * 14);
+        g.addColorStop(0, `rgba(224,250,255,${j.h})`); g.addColorStop(1, "rgba(34,211,238,0)");
+        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(j.x, j.y); ctx.lineTo(j.x - j.vx * 14, j.y - j.vy * 14); ctx.stroke();
+      }
+      jatuh = jatuh.filter((j) => j.h > 0 && j.x > -80 && j.y < H);
+      if (jalan) requestAnimationFrame(gambar);
+    }
+    ctx.globalAlpha = 1;
+  }
+  ukur(); addEventListener("resize", ukur);
+  addEventListener("pointermove", (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  if ("IntersectionObserver" in window && gerakOk) new IntersectionObserver(([en]) => { const lama = jalan; jalan = en.isIntersecting; if (jalan && !lama) requestAnimationFrame(gambar); }).observe(cv);
+  requestAnimationFrame(gambar);
+})();
+
+/* lengkung cakrawala: puncaknya dihitung relatif konten hero (tidak menimpa teks/tombol) */
+(() => {
+  const hero = $(".b-hero"); if (!hero) return;
+  const el = [hero.querySelector(".b-busur"), hero.querySelector(".b-sinar")];
+  function atur() {
+    const ref = innerWidth < 900 ? hero.querySelector(".b-potret") : hero.querySelector(".b-hero-isi");
+    const top = ref.getBoundingClientRect().bottom - hero.getBoundingClientRect().top + (innerWidth < 900 ? 36 : 56);
+    el.forEach((e) => e && e.style.setProperty("top", top + "px"));
+  }
+  addEventListener("load", atur); addEventListener("resize", atur); document.fonts && document.fonts.ready.then(atur); atur(); setTimeout(atur, 1500);
+})();
+
 if (gerakOk) {
   gsap.registerPlugin(ScrollTrigger);
 
   // hero: kata naik dari bawah garis
   $(".judul-besar").classList.add("klip");
   gsap.from(".judul-besar .kata", { yPercent: 110, rotate: 4, duration: 1, ease: "expo.out", stagger: .06, delay: .15, onComplete: () => $(".judul-besar").classList.remove("klip") });
-  gsap.from(".hero .sub, .hero .aksi", { opacity: 0, y: 24, duration: .9, ease: "power3.out", stagger: .12, delay: .8 });
+  gsap.from(".b-hero .sub, .b-hero .aksi", { opacity: 0, y: 24, duration: .9, ease: "power3.out", stagger: .12, delay: .8 });
 
   // kata melayang: posisi acak, mengapung, dan menjauh dari kursor
   const melayang = [...document.querySelectorAll(".kata-melayang span")];
@@ -179,12 +275,15 @@ if (gerakOk) {
     gsap.to(el, { opacity: .9, duration: 1.2, delay: 1 + i * .08 });
     gsap.to(el, { y: "random(-24, 24)", x: "random(-18, 18)", duration: "random(3, 6)", repeat: -1, yoyo: true, ease: "sine.inOut" });
   });
-  $(".hero").addEventListener("pointermove", (e) => {
+  $(".b-hero").addEventListener("pointermove", (e) => {
     const r = e.currentTarget.getBoundingClientRect();
     const mx = (e.clientX - r.left) / r.width - .5, my = (e.clientY - r.top) / r.height - .5;
     gsap.to(".kata-melayang", { x: mx * -40, y: my * -30, duration: 1, ease: "power3.out" });
   });
-  gsap.to(".hero-isi", { yPercent: -10, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".b-hero-teks", { y: -60, ease: "none", scrollTrigger: { trigger: ".b-hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".b-potret-bingkai img", { yPercent: 8, scale: 1.08, ease: "none", scrollTrigger: { trigger: ".b-hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.from(".b-potret", { opacity: 0, duration: 1.4, ease: "power2.out", delay: .3 });
+  gsap.from(".b-potret-warna", { opacity: 0, duration: 2, ease: "power2.out", delay: .6 });
 
   // pernyataan: huruf teracak lalu terbuka saat digulir
   const dek = $(".dekripsi"), asli = dek.dataset.teks, ACAK = "!<>-_\\/[]{}=+*^?#01";
@@ -207,17 +306,17 @@ if (gerakOk) {
   // angka hitung naik
   document.querySelectorAll("[data-hitung]").forEach((el) => {
     const o = { v: 0 };
-    gsap.to(o, { v: +el.dataset.akhir, duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: ".angka", start: "top 80%" }, onUpdate: () => (el.textContent = Math.round(o.v)) });
+    gsap.to(o, { v: +el.dataset.akhir, duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%" }, onUpdate: () => (el.textContent = Math.round(o.v)) });
   });
-  gsap.from(".angka .sel", { opacity: 0, y: 30, duration: .7, stagger: .1, ease: "power3.out", scrollTrigger: { trigger: ".angka", start: "top 85%" } });
 
   // judul bagian & kartu
-  document.querySelectorAll(".judul-bagian").forEach((h) => gsap.from(h, { opacity: 0, y: 50, duration: 1, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 85%" } }));
+  document.querySelectorAll(".judul-bagian:not([data-pecah])").forEach((h) => gsap.from(h, { opacity: 0, y: 50, duration: 1, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 85%" } }));
+  document.querySelectorAll("[data-pecah]").forEach((h) => gsap.from(h.querySelectorAll(".kp > span"), { yPercent: 110, duration: 1, ease: "expo.out", stagger: .05, scrollTrigger: { trigger: h, start: "top 85%" } }));
   document.querySelectorAll(".eyebrow").forEach((h) => gsap.from(h, { opacity: 0, x: -16, duration: .6, scrollTrigger: { trigger: h, start: "top 90%" } }));
-  gsap.from(".seri-kartu", { opacity: 0, y: 60, rotateX: -12, transformOrigin: "top", duration: .9, stagger: .08, ease: "expo.out", scrollTrigger: { trigger: "#kartu-seri", start: "top 80%" } });
+  gsap.from(".seri-baris", { opacity: 0, y: 40, duration: .9, stagger: .07, ease: "expo.out", scrollTrigger: { trigger: "#kartu-seri", start: "top 82%" } });
   gsap.from(".terminal", { opacity: 0, y: 80, scale: .96, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: ".terminal", start: "top 85%" } });
   gsap.from(".karya", { opacity: 0, y: 50, duration: .9, stagger: .1, ease: "expo.out", scrollTrigger: { trigger: ".galeri", start: "top 85%" } });
-  gsap.from(".tentang img", { opacity: 0, scale: .8, rotate: -6, duration: 1, ease: "back.out(1.6)", scrollTrigger: { trigger: ".tentang", start: "top 80%" } });
+  gsap.from(".b-bento .b-sel", { opacity: 0, y: 40, duration: .9, stagger: .08, ease: "expo.out", scrollTrigger: { trigger: ".b-bento", start: "top 82%" } });
   gsap.from(".daftar-tautan a", { opacity: 0, y: 20, duration: .5, stagger: .04, scrollTrigger: { trigger: ".daftar-tautan", start: "top 90%" } });
 
   // langkah: garis oranye terisi berurutan
@@ -228,7 +327,7 @@ if (gerakOk) {
   gsap.from(".ajakan-besar", { opacity: 0, y: 60, scale: .95, duration: 1, ease: "expo.out", scrollTrigger: { trigger: ".kaki", start: "top 85%" } });
 
   // kartu seri ikut miring mengikuti kursor
-  document.querySelectorAll(".seri-kartu, .karya").forEach((k) => {
+  document.querySelectorAll(".karya").forEach((k) => {
     k.addEventListener("pointermove", (e) => {
       if (e.pointerType !== "mouse") return;
       const r = k.getBoundingClientRect();

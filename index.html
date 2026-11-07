@@ -14,41 +14,53 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=202611071121">
 </head>
-<body>
+<body class="hal-beranda">
 <a class="lewati" href="#perpustakaan">Langsung ke prompt</a>
+<div class="b-kursor" aria-hidden="true"></div>
 
 <header class="atas">
   <a class="logo" href="#" aria-label="Maliki Studio, ke atas">Maliki <span>Studio</span></a>
   <nav aria-label="Navigasi utama">
     <a href="#seri">Seri</a>
     <a href="#perpustakaan">Prompt</a>
-    <a href="kode/">Source Code</a>
+    <a class="nav-kode" href="kode/">Source Code</a>
     <a href="#bikinin">Bikinin Dong</a>
-    <a class="tombol kecil" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
+    <a class="tombol kecil magnet" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
   </nav>
 </header>
 
 <main>
-<!-- HERO -->
-<section class="hero" aria-labelledby="judul-hero">
+<!-- HERO: editorial + potret + cakrawala -->
+<section class="b-hero" aria-labelledby="judul-hero">
+  <div class="b-cakrawala" aria-hidden="true"><canvas class="b-langit" id="b-langit"></canvas><div class="b-sinar"></div><div class="b-busur"></div></div>
   <div class="kata-melayang" aria-hidden="true">
     <span>peran</span><span>tugas</span><span>konteks</span><span>format</span><span>batasan</span>
     <span>skill</span><span>agent</span><span>/laporan</span><span>[CEK]</span><span>excel</span><span>jadwal</span><span>caption</span>
   </div>
-  <div class="hero-isi">
-    <p class="eyebrow"><span class="titik"></span><span class="ketik" data-teks="// prompt dari video, bukan template seribu prompt"></span></p>
-    <h1 id="judul-hero" class="judul-besar">
-      <span class="baris"><span class="kata">Yang</span> <span class="kata">kamu</span> <span class="kata">lihat</span> <span class="kata">di</span> <span class="kata">video,</span></span>
-      <span class="baris"><span class="kata">promptnya</span> <span class="kata">ada</span> <span class="kata aksen">di</span> <span class="kata aksen">sini.</span></span>
-      <span class="baris"><span class="kata aksen2">Gratis.</span> <span class="kata">Lengkap.</span></span>
-    </h1>
-    <p class="sub">Semua prompt dari seri TikTok &amp; Reels aku: tinggal salin, ganti yang di [kurung], jalankan. Lengkap sama cara pakainya.</p>
-    <div class="aksi">
-      <a class="tombol" href="#perpustakaan">Ambil prompt <span aria-hidden="true">→</span></a>
-      <a class="tautan-garis" href="kode/">Source code gratis</a>
+  <div class="b-hero-isi">
+    <div class="b-hero-teks">
+      <p class="eyebrow"><span class="titik"></span><span class="ketik" data-teks="// prompt dari video, bukan template seribu prompt"></span></p>
+      <h1 id="judul-hero" class="judul-besar">
+        <span class="baris"><span class="kata">Yang</span> <span class="kata">kamu</span> <span class="kata">lihat</span> <span class="kata">di</span> <span class="kata">video,</span></span>
+        <span class="baris"><span class="kata">promptnya</span> <span class="kata">ada</span> <span class="kata aksen">di</span> <span class="kata aksen">sini.</span></span>
+        <span class="baris"><span class="kata aksen2">Gratis.</span> <span class="kata">Lengkap.</span></span>
+      </h1>
+      <p class="sub">Semua prompt dari seri TikTok &amp; Reels aku: tinggal salin, ganti yang di [kurung], jalankan. Lengkap sama cara pakainya.</p>
+      <div class="aksi">
+        <a class="tombol magnet" href="#perpustakaan">Ambil prompt <span aria-hidden="true">→</span></a>
+        <a class="tautan-garis" href="kode/">Source code gratis</a>
+      </div>
     </div>
+    <figure class="b-potret">
+      <div class="b-potret-bingkai">
+        <img src="foto.jpg" alt="Foto Maliki Saputra" width="240" height="240" fetchpriority="high">
+        <span class="b-potret-warna" aria-hidden="true"></span>
+        <span class="b-potret-garis" aria-hidden="true"></span>
+      </div>
+      <figcaption><span class="b-potret-kode">maliki.saputra</span><span>kreator · <b data-hitung="prompt">0</b> prompt</span></figcaption>
+    </figure>
   </div>
   <div class="gulir" aria-hidden="true"><span>GULIR</span><i></i></div>
 </section>
@@ -60,47 +72,47 @@
   <p class="status-dekripsi" aria-hidden="true">MEMBUKA <b>0%</b></p>
 </section>
 
-<!-- ANGKA -->
-<section class="angka" aria-label="Studio dalam angka">
-  <div class="sel"><b data-hitung="prompt">0</b><span>prompt siap salin</span></div>
-  <div class="sel"><b data-hitung="seri">0</b><span>seri belajar</span></div>
-  <div class="sel"><b data-hitung="3">0</b><span>website gratis lewat Bikinin Dong</span></div>
-  <div class="sel"><b>Rp<span data-hitung="0">0</span></b><span>biaya untuk kamu</span></div>
-</section>
-
-<!-- SERI -->
-<section id="seri" class="seri" aria-labelledby="judul-seri">
+<!-- SERI: daftar bernomor -->
+<section id="seri" class="b-seri" aria-labelledby="judul-seri">
   <p class="eyebrow">// seri</p>
-  <h2 id="judul-seri" class="judul-bagian">Pilih jalurmu.<br><span class="redup">Tiap seri, langkahnya urut.</span></h2>
-  <div class="kartu-seri" id="kartu-seri"></div>
+  <h2 id="judul-seri" class="judul-bagian" data-pecah>Pilih jalurmu. <span class="redup">Tiap seri, langkahnya urut.</span></h2>
+  <ol class="b-daftar-seri" id="kartu-seri"></ol>
 </section>
 
-<!-- PERPUSTAKAAN -->
-<section id="perpustakaan" class="perpustakaan" aria-labelledby="judul-pustaka">
+<!-- PERPUSTAKAAN: ruang kerja ala IDE -->
+<section id="perpustakaan" class="b-pustaka" aria-labelledby="judul-pustaka">
   <p class="eyebrow">// perpustakaan prompt</p>
-  <h2 id="judul-pustaka" class="judul-bagian">Semua prompt.<br><span class="redup">Satu tempat.</span></h2>
+  <h2 id="judul-pustaka" class="judul-bagian" data-pecah>Semua prompt. <span class="redup">Satu tempat.</span></h2>
 
-  <div class="terminal">
+  <div class="terminal b-ide">
     <div class="terminal-atas" aria-hidden="true"><i></i><i></i><i></i><span>prompts — maliki studio</span></div>
-    <div class="terminal-alat">
-      <label class="cari">
-        <span class="sr">Cari prompt</span>
-        <span class="tanda" aria-hidden="true">$ grep</span>
-        <input id="cari" type="search" placeholder="cari: caption, excel, CV, kasbon…" autocomplete="off">
-      </label>
-      <div class="chip" id="chip" role="group" aria-label="Saring per seri"></div>
+    <div class="b-ide-badan">
+      <aside class="b-ide-sisi" aria-label="Seri">
+        <p class="b-ide-judul">explorer</p>
+        <div class="b-ide-seri" id="chip" role="group" aria-label="Saring per seri"></div>
+      </aside>
+      <div class="b-ide-utama">
+        <div class="terminal-alat">
+          <label class="cari">
+            <span class="sr">Cari prompt</span>
+            <span class="tanda" aria-hidden="true">$ grep</span>
+            <input id="cari" type="search" placeholder="cari: caption, excel, CV, kasbon…" autocomplete="off" aria-keyshortcuts="Meta+K Control+K">
+            <kbd class="b-kbd" aria-hidden="true">⌘K</kbd>
+          </label>
+        </div>
+        <p class="perintah" aria-hidden="true">$ ls prompts/ <span id="perintah-seri">--semua</span></p>
+        <ul class="daftar-prompt b-daftar" id="daftar-prompt" data-lenis-prevent aria-live="polite"></ul>
+        <p class="kosong" id="kosong" hidden>Nggak ketemu. Coba kata lain, atau komen di TikTok minta dibikinin.</p>
+      </div>
     </div>
-    <p class="perintah" aria-hidden="true">$ ls prompts/ <span id="perintah-seri">--semua</span></p>
-    <ul class="daftar-prompt" id="daftar-prompt" aria-live="polite"></ul>
-    <p class="kosong" id="kosong" hidden>Nggak ketemu. Coba kata lain, atau komen di TikTok minta dibikinin.</p>
-    <p class="kaki-terminal" aria-hidden="true"><span id="jumlah">0</span> prompt · diperbarui tiap ada episode baru</p>
+    <p class="kaki-terminal" aria-hidden="true"><span class="b-cabang">● main</span> <span id="jumlah">0</span> prompt · diperbarui tiap ada episode baru</p>
   </div>
 </section>
 
 <!-- CARA PAKAI -->
 <section class="cara" aria-labelledby="judul-cara">
   <p class="eyebrow">// cara pakai</p>
-  <h2 id="judul-cara" class="judul-bagian">Tiga langkah.<br><span class="redup">Nggak perlu jago.</span></h2>
+  <h2 id="judul-cara" class="judul-bagian" data-pecah>Tiga langkah. <span class="redup">Nggak perlu jago.</span></h2>
   <ol class="langkah">
     <li><b>01</b><h3>Salin</h3><p>Buka prompt, tekan tombol Salin. Nggak perlu blok teks manual.</p></li>
     <li><b>02</b><h3>Ganti</h3><p>Ubah yang di [kurung] atau {{KURUNG}} jadi data usahamu sendiri.</p></li>
@@ -120,19 +132,27 @@
   </div>
 </section>
 
-<!-- TENTANG -->
-<section class="tentang" aria-labelledby="judul-tentang">
-  <img src="foto.jpg" alt="Foto Maliki Saputra" width="160" height="160" loading="lazy">
-  <div>
-    <p class="eyebrow">// di balik studio</p>
-    <h2 id="judul-tentang" class="judul-bagian kecil">Maliki Saputra</h2>
-    <p>Tiap hari satu cara pakai AI buat kerja &amp; usaha. Founder Leads Indonesia &amp; gerakan #SemuaBisaBelajar. Semua video dibuat bareng Claude, narasinya suara AI (klon suaraku).</p>
-    <div class="sosial">
-      <a href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.youtube.com/channel/UCxmcYxlxd07Iq260R3hND1A" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.linkedin.com/in/malikifsaputra" target="_blank" rel="noopener">LinkedIn</a>
+<!-- TENTANG: bento dengan angka -->
+<section class="b-tentang" aria-labelledby="judul-tentang">
+  <p class="eyebrow">// di balik studio</p>
+  <div class="b-bento">
+    <div class="b-sel b-sel-bio">
+      <img src="foto.jpg" alt="Foto Maliki Saputra" width="240" height="240" loading="lazy">
+      <div>
+        <h2 id="judul-tentang" class="judul-bagian kecil">Maliki Saputra</h2>
+        <p>Tiap hari satu cara pakai AI buat kerja &amp; usaha. Founder Leads Indonesia &amp; gerakan #SemuaBisaBelajar. Semua video dibuat bareng Claude, narasinya suara AI (klon suaraku).</p>
+        <div class="sosial">
+          <a href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.instagram.com/malikisaputra/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/channel/UCxmcYxlxd07Iq260R3hND1A" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.linkedin.com/in/malikifsaputra" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
     </div>
+    <div class="b-sel b-angka"><b data-hitung="prompt">0</b><span>prompt siap salin</span></div>
+    <div class="b-sel b-angka"><b data-hitung="seri">0</b><span>seri belajar</span></div>
+    <div class="b-sel b-angka"><b data-hitung="3">0</b><span>website gratis lewat Bikinin Dong</span></div>
+    <div class="b-sel b-angka"><b>Rp<span data-hitung="0">0</span></b><span>biaya untuk kamu</span></div>
   </div>
 </section>
 
@@ -150,15 +170,17 @@
 </section>
 </main>
 
-<footer class="kaki">
+<footer class="kaki b-kaki">
+  <div class="b-cakrawala bawah" aria-hidden="true"><div class="b-sinar"></div><div class="b-busur"></div></div>
   <p class="ajakan-besar">Belum paham? <span class="aksen">Komen aja.</span></p>
   <p>Share ke temanmu yang butuh, repost, dan follow biar nggak ketinggalan episode berikutnya.</p>
+  <p><a class="tombol magnet" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Komen di TikTok <span aria-hidden="true">↗</span></a></p>
   <p class="kecil">© 2026 Maliki Studio · malikisaputra.biz.id</p>
 </footer>
 
 <!-- DETAIL PROMPT -->
 <div class="lapis" id="lapis" hidden></div>
-<aside class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-judul" hidden>
+<aside class="detail" id="detail" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="detail-judul" hidden>
   <div class="detail-atas">
     <span class="lencana" id="detail-seri"></span>
     <button class="tutup" id="tutup" type="button" aria-label="Tutup">✕</button>
@@ -171,7 +193,8 @@
   </div>
   <div class="detail-blok" id="detail-ganti-blok">
     <h3>Yang perlu kamu ganti</h3>
-    <ul id="detail-ganti"></ul>
+    <p class="b-isi-ket">Isi di sini, prompt di atas langsung ikut berubah. Tombol Salin menyalin versi yang sudah kamu isi.</p>
+    <ul id="detail-ganti" class="b-isi"></ul>
   </div>
   <div class="detail-blok">
     <h3>Cara pakai</h3>
@@ -188,9 +211,10 @@
 </aside>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="data/prompt.js"></script>
+<script src="data/prompt.js?v=202611071121"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js?v=202611071121"></script>
 </body>
 </html>
