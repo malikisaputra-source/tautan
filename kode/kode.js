@@ -118,12 +118,16 @@
     };
     $("#kd-bagi").textContent = "Bagikan";
     aktifSlug = d.slug; window.catatHitung && window.catatHitung(d.slug, "lihat"); segarkanHitung();
-    $("#kd-unduh").onclick = () => window.catatHitung && window.catatHitung(d.slug, "zip");
+    $("#kd-unduh").onclick = (e) => {
+      const jalan = () => { window.catatHitung && window.catatHitung(d.slug, "zip"); location.href = d.zip; };
+      if (window.gerbangFollow) { e.preventDefault(); window.gerbangFollow(d.slug, jalan); }
+      else window.catatHitung && window.catatHitung(d.slug, "zip");
+    };
     const kb = $("#kd-kustom"); kb.hidden = !d.kustom;
     kb.onclick = () => window.bukaStudio && window.bukaStudio(d);
     const ada = (d.berkas || []).some((b) => b.startsWith(".claude/skills/"));
     $("#kd-skill").hidden = !ada; $("#kd-skill-info").hidden = !ada;
-    $("#kd-skill").onclick = () => window.unduhSkill && window.unduhSkill(d, $("#kd-skill"));
+    $("#kd-skill").onclick = () => { const f = () => window.unduhSkill && window.unduhSkill(d, $("#kd-skill")); window.gerbangFollow ? window.gerbangFollow(d.slug, f) : f(); };
     panel.hidden = false; document.body.style.overflow = "hidden";
     history.replaceState(null, "", `#k/${d.slug}`);
     $(".k-detail-isi").scrollTop = 0; $(".k-tutup").focus();

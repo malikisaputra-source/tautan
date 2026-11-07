@@ -253,6 +253,7 @@ window.TEMA = { nama: ${JSON.stringify(t.nama)}, mode: "${t.mode}" }; // mode: "
   studio.addEventListener("click", (e) => { if (e.target.closest("[data-tutup-studio]")) tutup(); });
   document.addEventListener("keydown", (e) => {
     if (studio.hidden) return;
+    const g = document.querySelector(".g-latar"); if (g && !g.hidden) return;
     if (e.key === "Escape") { e.stopImmediatePropagation(); if (pilihMode) setPilih(false); else tutup(); }
     if (e.key === "Tab") {
       const f = $$("button,input,select,iframe", studio).filter((x) => x.offsetParent && !x.disabled && x.tabIndex !== -1);
@@ -284,7 +285,8 @@ window.TEMA = { nama: ${JSON.stringify(t.nama)}, mode: "${t.mode}" }; // mode: "
   };
 
   // ---------- unduh paket dengan tema tertanam ----------
-  $("#ks-unduh").addEventListener("click", async () => {
+  $("#ks-unduh").addEventListener("click", () => window.gerbangFollow ? window.gerbangFollow(paket.slug, unduhPaket) : unduhPaket());
+  async function unduhPaket() {
     const st = $("#ks-status"), btn = $("#ks-unduh");
     if (!window.JSZip) { st.textContent = "Pembuat ZIP belum termuat, coba lagi sebentar."; return; }
     btn.disabled = true; st.textContent = "Menyiapkan berkas…";
@@ -305,5 +307,5 @@ window.TEMA = { nama: ${JSON.stringify(t.nama)}, mode: "${t.mode}" }; // mode: "
       if (!kurang && window.gsap) gsap.fromTo(btn, { scale: .96 }, { scale: 1, duration: .5, ease: "elastic.out(1,.4)" });
     } catch (e) { st.textContent = "Gagal mengemas (" + e.message + "). Coba unduh dari GitHub."; }
     btn.disabled = false;
-  });
+  }
 })();

@@ -305,3 +305,27 @@
 @media (max-width: 960px) { .ks-preset { grid-template-columns: repeat(4, 1fr); } .ks-isi { overflow-x: hidden; } }
 .k-angka-k { margin: 0; font: 12px var(--mono); color: var(--hijau); }
 .kd-angka { margin: 0 0 6px; font: 13px var(--mono); color: var(--hijau); }
+
+/* ===== Gerbang follow ===== */
+.g-latar { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 16px; background: rgba(3,5,10,.72); backdrop-filter: blur(6px); }
+.g-latar[hidden] { display: none !important; }
+.g-kotak { position: relative; width: min(440px, 100%); padding: 26px 22px 20px; border-radius: 20px; background: var(--bg2); border: 1px solid var(--garis2); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.g-tutup { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--garis2); background: var(--panel); color: var(--teks); cursor: pointer; }
+.g-eyebrow { margin: 0 0 6px; font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--aksen); }
+.g-kotak h2 { margin: 0 44px 8px 0; font-size: 22px; line-height: 1.25; letter-spacing: -.01em; }
+.g-ket { margin: 0 0 18px; color: var(--redup); font-size: 14.5px; }
+.g-daftar { display: grid; gap: 10px; margin-bottom: 16px; }
+.g-akun { display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 14px; border-radius: 14px; border: 1px solid var(--garis2); background: var(--panel); text-decoration: none; color: var(--teks); transition: border-color .25s, background .25s, transform .2s; }
+.g-akun:hover { transform: translateY(-1px); border-color: var(--aksen); }
+.g-akun.ok { border-color: var(--hijau); background: color-mix(in srgb, var(--hijau) 12%, var(--panel)); }
+.g-ikon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; font: 700 13px var(--mono); color: #fff; flex: none; }
+.g-tt { background: #111; box-shadow: inset 2px 0 0 #25f4ee, inset -2px 0 0 #fe2c55; }
+.g-ig { background: linear-gradient(135deg, #f58529, #dd2a7b 50%, #8134af); }
+.g-teks { flex: 1; display: grid; }
+.g-teks small { color: var(--redup); font-size: 12.5px; }
+.g-status { font: 600 12.5px var(--mono); color: var(--redup); }
+.g-akun.ok .g-status { color: var(--hijau); }
+.g-unduh { width: 100%; justify-content: center; min-height: 52px; }
+.g-unduh:disabled { opacity: .5; cursor: not-allowed; filter: grayscale(.4); }
+.g-kecil { margin: 12px 0 0; text-align: center; color: var(--redup); font-size: 12.5px; }
+@media (prefers-reduced-motion: reduce) { .g-akun { transition: none; } }
