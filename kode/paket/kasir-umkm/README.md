@@ -102,3 +102,8 @@ MIT — bebas dipakai, diubah, dan dijual ulang, asal mencantumkan berkas LICENS
 
 ---
 Dibuat oleh **Maliki Studio** — [malikisaputra.biz.id](https://malikisaputra.biz.id), follow TikTok/IG **@malikisaputra**
+
+---
+
+<!-- kredit-maliki -->
+**Kredit:** Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Kredit di footer & kepala berkas wajib dipertahankan (lihat LICENSE).

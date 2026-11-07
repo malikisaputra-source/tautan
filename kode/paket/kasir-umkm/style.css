@@ -1,3 +1,4 @@
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
 /* Kasir UMKM — tampilan "POS tablet terang" (lihat DESIGN.md).
    Warna & brand diatur di tema.css (--tema-utama, --tema-aksen, --tema-radius, --tema-font + variabel bagian).
    Semua warna lain diturunkan dari dua warna itu lewat color-mix. Teks di atas --tema-utama dihitung otomatis

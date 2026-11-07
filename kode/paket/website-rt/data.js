@@ -1,3 +1,4 @@
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
 /* Data contoh RT 05 / RW 02 Kelurahan Contoh.
    Semua nama, NIK, No. KK, dan nomor HP di sini FIKTIF. Dibuat relatif ke bulan berjalan
    supaya iuran & kas selalu terlihat "hidup" saat dicoba. */

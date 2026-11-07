@@ -1,3 +1,4 @@
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
 /* Website RT/RW — aplikasi statis (tanpa server). Data di localStorage perangkat ini.
    Susunan: 1) utilitas  2) data & simpan  3) tema  4) router & kerangka  5) halaman publik
             6) halaman pengurus (ringkas, warga, iuran, kas, info, surat, pengaturan)  7) modal/toast  8) CSV/JSON  9) mulai */

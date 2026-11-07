@@ -1,3 +1,4 @@
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
 /* Manajemen Bengkel — Maliki Studio (malikisaputra.biz.id). Tanpa server: semua data di localStorage. */
 (function () {
   'use strict';

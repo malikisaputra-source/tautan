@@ -63,3 +63,8 @@ MIT — © 2026 Maliki Saputra. Lihat `LICENSE`.
 
 ---
 Dibuat oleh **Maliki Studio** — malikisaputra.biz.id, follow TikTok/IG **@malikisaputra**
+
+---
+
+<!-- kredit-maliki -->
+**Kredit:** Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Kredit di footer & kepala berkas wajib dipertahankan (lihat LICENSE).

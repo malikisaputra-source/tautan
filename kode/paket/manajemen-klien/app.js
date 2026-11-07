@@ -1,3 +1,4 @@
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
 /* Manajemen Klien — CRM freelancer & agensi tanpa server.
    Semua data disimpan di localStorage (kunci "crm_data"). Dibuat oleh Maliki Studio. */
 (function () {
