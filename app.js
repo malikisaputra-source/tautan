@@ -184,7 +184,7 @@ if (gerakOk) {
     const mx = (e.clientX - r.left) / r.width - .5, my = (e.clientY - r.top) / r.height - .5;
     gsap.to(".kata-melayang", { x: mx * -40, y: my * -30, duration: 1, ease: "power3.out" });
   });
-  gsap.to(".hero-isi", { yPercent: -18, opacity: .2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".hero-isi", { yPercent: -10, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
   // pernyataan: huruf teracak lalu terbuka saat digulir
   const dek = $(".dekripsi"), asli = dek.dataset.teks, ACAK = "!<>-_\\/[]{}=+*^?#01";
