@@ -31,7 +31,7 @@
       ? `<span class="k-lencana premium"><s>Premium</s>Gratis</span>`
       : `<span class="k-lencana gratis">Gratis</span>`;
   }
-  const terkunci = (d) => d.kunci && new Date() < new Date(d.kunci + "T00:00:00+07:00");
+  const terkunci = (d) => !!d.kunci; // dibuka manual: hapus "kunci" di meta.json lalu deploy
   const tglKunci = (d) => new Date(d.kunci + "T00:00:00+07:00").toLocaleDateString("id-ID", { day: "numeric", month: "short" });
   function kartu(d) {
     const b = el("button", "k-kartu");
