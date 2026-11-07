@@ -282,7 +282,7 @@
       if (b.w && tw > .9) { ctx.globalAlpha *= .5; ctx.fillRect(x - 5, y - .35, 10, .7); ctx.fillRect(x - .35, y - 5, .7, 10); }
     }
     if (!kurang) {
-      if (Math.random() < .035 && jatuh.length < 4) { const kanan = Math.random() < .5; jatuh.push({ x: kanan ? W * (.55 + Math.random() * .45) : W * Math.random() * .45, y: Math.random() * H * .35, vx: (kanan ? -1 : 1) * (7 + Math.random() * 6), vy: 3 + Math.random() * 2.5, h: 1 }); }
+      if (Math.random() < .007 && jatuh.length < 2) { const kanan = Math.random() < .5; jatuh.push({ x: kanan ? W * (.55 + Math.random() * .45) : W * Math.random() * .45, y: Math.random() * H * .35, vx: (kanan ? -1 : 1) * (7 + Math.random() * 6), vy: 3 + Math.random() * 2.5, h: 1 }); }
       for (const j of jatuh) {
         j.x += j.vx; j.y += j.vy; j.h -= .01;
         const g = ctx.createLinearGradient(j.x, j.y, j.x - j.vx * 14, j.y - j.vy * 14);
@@ -292,7 +292,7 @@
       }
       jatuh = jatuh.filter((j) => j.h > 0 && j.x > -80 && j.x < W + 80 && j.y < H);
       // percikan api roket
-      for (const p of percik) { p.x += p.vx; p.y += p.vy; p.vy += .03; p.h -= .02; ctx.globalAlpha = Math.max(0, p.h); ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill(); }
+      for (const p of percik) { p.x += p.vx; p.y += p.vy; p.vx *= .97; p.vy *= .97; p.h -= .025; ctx.globalAlpha = Math.max(0, p.h); ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill(); }
       percik = percik.filter((p) => p.h > 0);
     }
     ctx.globalAlpha = 1;
@@ -317,9 +317,16 @@
       .to(asap, { opacity: 0, duration: .6 }, "-=.4");
     const lepas = () => {
       if (+getComputedStyle(roket).opacity < .1) return;
+      // nosel mengikuti rotasi roket: pusat elemen + vektor (0, setengah tinggi) yang diputar
       const rr = roket.getBoundingClientRect(), cr = cv.getBoundingClientRect();
-      const x = rr.left + rr.width / 2 - cr.left, y = rr.bottom - cr.top;
-      for (let i = 0; i < 3; i++) percik.push({ x, y, vx: (Math.random() - .5) * 1.6, vy: 1 + Math.random() * 2, r: Math.random() * 2 + .6, h: 1, c: Math.random() < .5 ? "#a5f3fc" : "#ffffff" });
+      const sv = roket.querySelector("svg"), hs = sv.getBoundingClientRect ? sv.clientHeight * (+gsap.getProperty(roket, "scale") || 1) : 60;
+      const a = (+gsap.getProperty(roket, "rotation") || 0) * Math.PI / 180;
+      const cx = rr.left + rr.width / 2 - cr.left, cy = rr.top + rr.height / 2 - cr.top;
+      const ox = -Math.sin(a) * hs * .42, oy = Math.cos(a) * hs * .42; // arah "ke bawah" roket
+      for (let i = 0; i < 3; i++) {
+        const v = 1.2 + Math.random() * 2, sebar = (Math.random() - .5) * .9;
+        percik.push({ x: cx + ox, y: cy + oy, vx: -Math.sin(a) * v + Math.cos(a) * sebar, vy: Math.cos(a) * v + Math.sin(a) * sebar, r: Math.random() * 2 + .6, h: 1, c: Math.random() < .5 ? "#a5f3fc" : "#ffffff" });
+      }
     };
     gsap.ticker.add(lepas);
     tl.eventCallback("onComplete", () => { gsap.ticker.remove(lepas); gsap.delayedCall(4 + Math.random() * 3, luncur); });
