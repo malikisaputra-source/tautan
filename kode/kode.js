@@ -218,7 +218,7 @@
       }));
     }
     const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-    tl.from(".k-hero .k-busur", { yPercent: 18, opacity: 0, duration: 2.2 })
+    tl.from(".k-hero .k-busur", { opacity: 0, duration: 2.2 })
       .from(".k-hero .k-sinar", { opacity: 0, scale: .7, duration: 2.4 }, 0)
       .from(".k-pil", { y: 12, opacity: 0, duration: .9 }, .3)
       .from(".k-judul .kata > span", { yPercent: 110, rotate: 4, duration: 1.2, stagger: .055 }, .35)
