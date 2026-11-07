@@ -449,3 +449,6 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 900px) { .b-potret figcaption { margin-top: -30px; padding: 0 14px; font-size: 12px; } }
 .seri-baris .no { color: #5b6788; }
 .b-daftar .pratinjau i { color: #6b7694; }
+
+/* layar sangat sempit: nav cukup logo + Follow */
+@media (max-width: 360px) { .atas nav a:not(.tombol) { display: none !important; } .atas .tombol.kecil { padding: 0 14px; } }
