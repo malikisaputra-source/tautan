@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
 <link rel="icon" href="../ikon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../ikon-180.png">
-<meta name="theme-color" content="#05070d">
+<meta name="theme-color" content="#020308">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -19,85 +19,81 @@
 </head>
 <body class="hal-kode">
 <a class="lewati" href="#katalog">Langsung ke katalog</a>
+<div class="k-kursor" aria-hidden="true"></div>
 
 <header class="atas">
   <a class="logo" href="../" aria-label="Maliki Studio, ke beranda">Maliki <span>Studio</span></a>
   <nav aria-label="Navigasi utama">
     <a href="../#perpustakaan">Prompt</a>
     <a href="./" aria-current="page">Source Code</a>
-    <a href="#kategori">Kategori</a>
     <a class="tombol kecil" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
   </nav>
 </header>
 
 <main>
 <section class="k-hero" aria-labelledby="k-judul">
-  <div class="k-hero-kiri">
-    <p class="k-pil"><span class="titik"></span><span id="k-jumlah-pil">source code</span> · gratis semua</p>
-    <h1 id="k-judul" class="k-judul">
-      <span class="baris">Source code siap pakai</span>
-      <span class="baris">buat <span class="aksen">bisnis</span>, <span class="aksen2">klien</span>,</span>
-      <span class="baris">dan <span class="oranye">kontenmu</span>.</span>
-    </h1>
-    <p class="sub">Template website, aplikasi, sampai template video. Lengkap dengan panduan pasang. Yang <b>premium</b> pun aku kasih <b>gratis</b> buat kamu.</p>
+  <div class="k-cakrawala" aria-hidden="true"><div class="k-sinar"></div><div class="k-busur"></div><div class="k-bintik"></div></div>
+  <div class="k-hero-isi">
+    <p class="k-pil"><span class="titik"></span><span id="k-jumlah-pil">source code</span></p>
+    <h1 id="k-judul" class="k-judul" data-pecah>Source code yang siap tampil di depan klienmu.</h1>
+    <p class="sub">Template website, aplikasi, sampai template video, lengkap dengan panduan pasang. Yang premium pun gratis buat kamu.</p>
+    <div class="k-hero-aksi">
+      <a class="tombol magnet" href="#katalog"><span>Masuk showroom</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      <a class="tombol garis magnet" href="#k-usul">Request aplikasi</a>
+    </div>
+    <p class="k-ringkas"><span><b id="a-total">0</b> source code</span><span><b id="a-premium">0</b> premium gratis</span><span data-wadah hidden><b id="a-unduh">0</b> unduhan</span><span><b>Rp0</b> selamanya</span></p>
+  </div>
+</section>
+
+<section class="k-showroom" id="katalog" aria-labelledby="k-kat2-j">
+  <div class="k-showroom-kepala">
+    <h2 id="k-kat2-j">Showroom</h2>
+    <p>Klik paket untuk lihat fitur, unduh ZIP, atau ubah warnanya langsung.</p>
+  </div>
+  <div class="k-bar" id="kategori">
     <label class="k-cari">
       <span class="sr">Cari source code</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="k-q" type="search" placeholder="Cari: kasir, presensi, sekolah, video…" autocomplete="off">
-      <kbd>/</kbd>
+      <input id="k-q" type="search" placeholder="Cari kasir, sekolah, video…" autocomplete="off">
+      <kbd id="k-kbd">⌘K</kbd>
     </label>
-    <div class="k-populer" id="k-populer" aria-label="Pencarian populer"><span>Populer:</span></div>
-    <dl class="k-angka">
-      <div><dt>Source code</dt><dd id="a-total">0</dd></div>
-      <div><dt>Premium gratis</dt><dd id="a-premium">0</dd></div>
-      <div hidden><dt>Total unduhan</dt><dd id="a-unduh">0</dd></div>
-      <div><dt>Harga</dt><dd>Rp0</dd></div>
-    </dl>
-  </div>
-  <div class="k-hero-kanan" id="k-unggulan" aria-label="Unggulan"></div>
-</section>
-
-<section class="k-dukung" aria-labelledby="k-dukung-j">
-  <div>
-    <p class="eyebrow">// dukung maliki studio</p>
-    <h2 id="k-dukung-j">Gratis. Balasnya cukup follow &amp; share.</h2>
-    <p>Semua source code di sini bebas diunduh tanpa daftar. Kalau bermanfaat, follow, like, dan bagikan videonya biar makin banyak yang kebagian.</p>
-  </div>
-  <div class="k-dukung-aksi">
-    <a class="tombol" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
-    <a class="tombol garis" href="https://www.instagram.com/malikisaputra" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</section>
-
-<section class="k-blok" id="kategori" aria-labelledby="k-kat-j">
-  <div class="k-kepala"><div><p class="eyebrow">// kategori</p><h2 id="k-kat-j">Pilih sesuai kebutuhan</h2></div></div>
-  <div class="k-kategori" id="k-kategori"></div>
-</section>
-
-<section class="k-blok" id="katalog" aria-labelledby="k-kat2-j">
-  <div class="k-kepala">
-    <div><p class="eyebrow">// katalog</p><h2 id="k-kat2-j">Semua source code</h2></div>
-    <div class="k-tab" role="tablist" aria-label="Saring tingkat">
+    <div class="k-seg" id="k-kategori" role="group" aria-label="Saring kategori"></div>
+    <div class="k-seg k-tab" role="tablist" aria-label="Saring tingkat">
       <button role="tab" aria-selected="true" data-tier="">Semua</button>
       <button role="tab" aria-selected="false" data-tier="gratis">Gratis</button>
       <button role="tab" aria-selected="false" data-tier="premium">Premium</button>
     </div>
   </div>
   <p class="k-info" id="k-info" aria-live="polite"></p>
-  <div class="k-grid" id="k-grid"></div>
+  <div class="k-bento" id="k-grid"></div>
 </section>
 
-<section class="k-jaminan" aria-label="Kenapa source code ini">
-  <div><b>Siap dijalankan</b><p>Data contoh sudah ada. Buka, ganti nama brand, langsung jalan.</p></div>
-  <div><b>Ada panduannya</b><p>Tiap paket punya README langkah demi langkah, ramah pemula.</p></div>
-  <div><b>Bebas dipakai</b><p>Lisensi MIT: boleh untuk usaha sendiri maupun klien.</p></div>
-  <div><b>Desain beda-beda</b><p>Tiap template punya gaya sendiri dan responsif di HP.</p></div>
+<section class="k-segera" id="k-segera-blok" aria-labelledby="k-segera-j">
+  <div class="k-segera-kepala">
+    <h2 id="k-segera-j"><span id="k-segera-n">0</span> template lagi sedang dipoles.</h2>
+    <p>Dibuka bertahap. Follow biar kamu yang pertama tahu.</p>
+  </div>
+  <div class="k-segera-jalur" id="k-segera"></div>
 </section>
 
-<section class="k-usul" aria-labelledby="k-usul-j">
-  <h2 id="k-usul-j">Mau aplikasi apa lagi?</h2>
-  <p>Tulis di komentar video terbaruku. Yang paling banyak diminta aku buatkan dan bagikan di sini.</p>
-  <a class="tombol" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Request di TikTok →</a>
+<section class="k-cara" aria-labelledby="k-cara-j">
+  <h2 id="k-cara-j" class="k-cara-judul"><span>Unduh.</span> <span>Ganti nama.</span> <span class="aksen">Jalan.</span></h2>
+  <dl class="k-jaminan">
+    <div><dt>Siap dijalankan</dt><dd>Data contoh sudah ada. Buka, ganti nama brand, langsung jalan.</dd></div>
+    <div><dt>Ada panduannya</dt><dd>Tiap paket punya README langkah demi langkah, ramah pemula.</dd></div>
+    <div><dt>Bebas dipakai</dt><dd>Lisensi MIT: boleh untuk usaha sendiri maupun klien.</dd></div>
+    <div><dt>Desain beda-beda</dt><dd>Tiap template punya gaya sendiri dan responsif di HP.</dd></div>
+  </dl>
+</section>
+
+<section class="k-final" id="k-usul" aria-labelledby="k-final-j">
+  <div class="k-cakrawala bawah" aria-hidden="true"><div class="k-sinar"></div><div class="k-busur"></div></div>
+  <h2 id="k-final-j">Gratis. Bayarnya cukup follow &amp; share.</h2>
+  <p>Semua source code bebas diunduh tanpa daftar. Mau aplikasi lain? Tulis di komentar video terbaruku, yang paling banyak diminta aku buatkan.</p>
+  <div class="k-hero-aksi">
+    <a class="tombol magnet" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow &amp; request di TikTok</a>
+    <a class="tombol garis magnet" href="https://www.instagram.com/malikisaputra" target="_blank" rel="noopener">Instagram</a>
+  </div>
 </section>
 </main>
 
@@ -211,6 +207,7 @@
 <script src="../data/kode.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
 <script src="hitung.js"></script>
 <script src="kode.js"></script>

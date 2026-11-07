@@ -1,5 +1,47 @@
 window.KODE = [
  {
+  "slug": "absensi-karyawan",
+  "judul": "Absensi Karyawan",
+  "ringkas": "Absensi UMKM & kantor kecil: check-in tombol besar, lokasi & selfie opsional, shift, izin, kalender warna, rekap gaji, mode kiosk.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "IndexedDB",
+   "PWA"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Check-in/out tombol besar dengan jam hidup",
+   "Lokasi opsional: radius kantor bisa diwajibkan",
+   "Selfie opsional (kamera HP/laptop), disimpan kecil",
+   "Shift pagi/siang/malam + toleransi telat",
+   "Izin, sakit, cuti dengan persetujuan admin",
+   "Kalender kehadiran berwarna per karyawan",
+   "Rekap bulanan: hadir, telat, izin, alpa, lembur + perkiraan tunjangan/potongan",
+   "Mode kiosk: satu perangkat bersama, pilih nama + PIN pribadi",
+   "Ekspor CSV, backup & pulihkan JSON",
+   "PWA: pasang di layar utama, jalan offline"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html (PIN admin demo: 1234)",
+   "Atur › Hapus semua data, lalu isi karyawan & shift",
+   "Isi lokasi kantor bila mau pakai radius",
+   "Unggah ke GitHub Pages/Netlify supaya lokasi, kamera & PWA aktif",
+   "Backup JSON rutin"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "segera",
+  "gambar": "img/absensi-karyawan.png",
+  "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
+  "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "belanja-keluarga",
   "judul": "Anggaran Belanja Keluarga",
   "ringkas": "Atur uang bulanan keluarga pakai amplop per kategori, catat belanja cepat, peringatan amplop hampir habis, dan target tabungan.",
@@ -75,6 +117,86 @@ window.KODE = [
   "gambar": "img/catatan-ojol.png",
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
   "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "direktori-rumah-ibadah",
+  "judul": "Direktori Rumah Ibadah",
+  "ringkas": "Direktori masjid, musala, gereja, pura, vihara & klenteng: peta, cari terdekat, member mengusulkan data, pengurus memoderasi.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Leaflet",
+   "OpenStreetMap",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Daftar + peta OpenStreetMap, tanpa API key",
+   "Filter jenis (6 agama, warna & ikon sejajar) dan pencarian",
+   "Terdekat dari saya (lokasi HP)",
+   "Detail: foto, alamat, jadwal ibadah, fasilitas, kontak",
+   "Tombol petunjuk arah ke Google Maps",
+   "Member mengajukan tempat baru & usulan perubahan",
+   "Antrean moderasi: setujui/tolak + riwayat perubahan",
+   "Akun member sederhana (nama + PIN)",
+   "Ekspor/impor JSON & CSV",
+   "Mode gelap, rapi di HP & laptop"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html di browser (butuh internet untuk peta)",
+   "Masuk sebagai Pengurus Kota, PIN 1234, lalu coba moderasi",
+   "Data › Kosongkan data, lalu isi kotamu sendiri",
+   "Ekspor JSON rutin, atau sambungkan ke Google Sheets/Supabase (lihat README)"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "segera",
+  "gambar": "img/direktori-rumah-ibadah.png",
+  "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
+  "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "helpdesk-tiket",
+  "judul": "Helpdesk Tiket IT",
+  "ringkas": "Tiket IT support dengan prioritas, level eskalasi L1–L3, SLA & hitung mundur, papan Kanban, utas, dan notifikasi WhatsApp.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Form tiket: pelapor, divisi, kategori, deskripsi, lampiran gambar",
+   "Prioritas Rendah/Sedang/Tinggi/Kritis + level L1/L2/L3",
+   "Target SLA per prioritas dengan hitung mundur & tanda lewat SLA",
+   "Papan Kanban seret-lepas + daftar dengan cari & saring",
+   "Utas percakapan, riwayat, penugasan & eskalasi teknisi",
+   "Notifikasi WhatsApp wa.me saat dibuat/eskalasi/selesai + panduan gateway",
+   "Notifikasi browser untuk tiket Kritis & lewat SLA",
+   "Dasbor & laporan: terbuka, lewat SLA, rata-rata selesai, kinerja teknisi",
+   "Ekspor CSV, backup & pulihkan JSON",
+   "PIN lokal admin/teknisi, mode terang/gelap, rapi di HP"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html, masuk admin dengan PIN 1234",
+   "Atur teknisi + No. WA, nomor koordinator, dan target SLA",
+   "Kosongkan tiket contoh lalu bagikan link untuk lapor masalah",
+   "Unduh backup JSON secara rutin"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "segera",
+  "gambar": "img/helpdesk-tiket.png",
+  "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
+  "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip"
  },
  {
   "slug": "iuran-kas-rt",
@@ -411,6 +533,48 @@ window.KODE = [
   "dasar": "paket/manajemen-klien/",
   "repo": "https://github.com/malikisaputra-source/manajemen-klien",
   "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "pesan-antar-kedai",
+  "judul": "Pesan Antar Kedai",
+  "ringkas": "Pesan antar ala GoFood dengan kurir milik kedai sendiri: menu, pin peta, tawar ongkir lewat chat, pelacakan, sudut kedai & kurir.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage",
+   "BroadcastChannel",
+   "Leaflet + OpenStreetMap"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Tiga sudut dalam satu app: Pembeli, Kedai, Kurir",
+   "Menu bergambar, stok, keranjang & cari kategori",
+   "Alamat + pin peta Leaflet/OSM, jarak & saran ongkir otomatis",
+   "Tawar ongkir lewat chat: tombol cepat setuju / tawar balik",
+   "Status pesanan bertahap & pelacakan kurir di peta",
+   "Kedai: terima/tolak, tugaskan kurir, kelola menu & stok",
+   "Kurir: daftar antaran, rute Google Maps, terima COD + kembalian",
+   "Laporan omzet 7 hari, menu terlaris, setoran COD kurir",
+   "Ringkasan pesanan ke WhatsApp (wa.me) sebagai cadangan",
+   "Sinkron antartab untuk demo, panduan Supabase/Firebase"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html di browser (perlu internet untuk peta)",
+   "Pilih sudut Pembeli, Kedai, atau Kurir di atas",
+   "Buka sudut lain di tab baru untuk mencoba alurnya",
+   "Atur nomor WA, tarif ongkir & kurir di Kedai › Atur",
+   "Untuk banyak HP sekaligus, ikuti panduan Supabase di README"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "kunci": "segera",
+  "gambar": "img/pesan-antar-kedai.png",
+  "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
+  "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
  },
  {
   "slug": "presensi-gps-gas",
