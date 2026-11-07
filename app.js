@@ -334,7 +334,7 @@ if (gerakOk) {
     gsap.fromTo(li, { "--isi": "0%" }, { "--isi": "100%", duration: .8, delay: i * .25, ease: "power2.inOut", scrollTrigger: { trigger: ".langkah", start: "top 80%" } });
     gsap.from(li.children, { opacity: 0, y: 20, duration: .6, delay: i * .25 + .2, stagger: .06, scrollTrigger: { trigger: ".langkah", start: "top 80%" } });
   });
-  gsap.from(".ajakan-besar", { opacity: 0, y: 60, scale: .95, duration: 1, ease: "expo.out", scrollTrigger: { trigger: ".kaki", start: "top 85%" } });
+  gsap.from(".ajakan-besar", { opacity: 0, y: 60, scale: .95, duration: 1, ease: "expo.out", scrollTrigger: { trigger: ".kaki", start: "top bottom-=40", once: true } });
 
   // kartu seri ikut miring mengikuti kursor
   document.querySelectorAll(".karya").forEach((k) => {
