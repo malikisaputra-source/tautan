@@ -256,3 +256,59 @@
   }
   window.addEventListener("scroll", () => $(".atas").classList.toggle("tergulir", scrollY > 10), { passive: true });
 })();
+
+/* Langit hidup: bintang berkelip berlapis + parallax kursor + bintang jatuh; roket meluncur berkala */
+(() => {
+  const cv = document.getElementById("k-langit"); if (!cv) return;
+  const kurang = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx = cv.getContext("2d"); let W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2), bintang = [], jatuh = [], mx = 0, my = 0, t0 = performance.now();
+  function ukur() {
+    const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(W * H / 4200);
+    bintang = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H * .78, z: Math.random(), r: Math.random() * 1.3 + .3,
+      f: Math.random() * 6.28, k: .6 + Math.random() * 2.2, w: Math.random() < .12 }));
+  }
+  ukur(); addEventListener("resize", ukur);
+  addEventListener("pointermove", (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  function gambar(now) {
+    const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
+    for (const b of bintang) {
+      const tw = kurang ? .8 : .45 + .55 * Math.sin(t * b.k + b.f) ** 2;
+      const x = b.x - mx * 30 * (b.z + .2), y = b.y - my * 20 * (b.z + .2) + (kurang ? 0 : (t * 4 * b.z) % H * 0);
+      const fadeY = Math.max(0, 1 - y / (H * .78));
+      ctx.globalAlpha = tw * (.35 + b.z * .65) * fadeY;
+      ctx.fillStyle = b.w ? "#a5f3fc" : "#ffffff";
+      ctx.beginPath(); ctx.arc(x, y, b.r * (b.w ? 1.3 : 1), 0, 6.28); ctx.fill();
+      if (b.w && tw > .9) { ctx.globalAlpha *= .5; ctx.fillRect(x - 5, y - .35, 10, .7); ctx.fillRect(x - .35, y - 5, .7, 10); }
+    }
+    if (!kurang) {
+      if (Math.random() < .012 && jatuh.length < 3) jatuh.push({ x: Math.random() * W * .8 + W * .1, y: Math.random() * H * .3, vx: -(5 + Math.random() * 5), vy: 2.2 + Math.random() * 2, h: 1 });
+      for (const j of jatuh) {
+        j.x += j.vx; j.y += j.vy; j.h -= .012;
+        const g = ctx.createLinearGradient(j.x, j.y, j.x - j.vx * 14, j.y - j.vy * 14);
+        g.addColorStop(0, `rgba(224,250,255,${j.h})`); g.addColorStop(1, "rgba(34,211,238,0)");
+        ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(j.x, j.y); ctx.lineTo(j.x - j.vx * 14, j.y - j.vy * 14); ctx.stroke();
+      }
+      jatuh = jatuh.filter((j) => j.h > 0 && j.x > -50 && j.y < H);
+    }
+    ctx.globalAlpha = 1;
+    if (!kurang) requestAnimationFrame(gambar);
+  }
+  requestAnimationFrame(gambar);
+
+  const roket = document.getElementById("k-roket");
+  if (!roket || kurang || !window.gsap) return;
+  const asap = roket.querySelector(".k-asap");
+  function luncur() {
+    const hero = roket.parentElement.getBoundingClientRect();
+    const tl = gsap.timeline({ onComplete: () => gsap.delayedCall(6 + Math.random() * 5, luncur) });
+    tl.set(roket, { x: 0, y: 0, rotate: 18, opacity: 0, scale: .7 })
+      .set(asap, { height: 0, opacity: 1 })
+      .to(roket, { opacity: 1, duration: .3 })
+      .to(roket, { y: -hero.height * .95, x: -hero.width * .28, rotate: -14, scale: 1.05, duration: 3.2, ease: "power2.in" }, "<")
+      .to(asap, { height: 260, duration: 3.2, ease: "power1.in" }, "<")
+      .to(roket, { opacity: 0, duration: .5 }, "-=.5")
+      .to(asap, { opacity: 0, duration: .8 }, "-=.5");
+  }
+  gsap.delayedCall(1.8, luncur);
+})();

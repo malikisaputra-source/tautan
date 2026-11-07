@@ -423,3 +423,24 @@ html.lenis, html.lenis body { height: auto; }
   .k-bento > .k-kartu.besar:first-child .k-badan { padding: 14px 18px; }
 }
 .k-bento > .k-kartu.besar:first-child .k-badan { min-width: 0; flex: 1 1 auto; padding-right: 36px; }
+
+/* Hero selebar layar: lengkung cahaya penuh dari tepi ke tepi */
+.hal-kode main > .k-hero, .hal-kode main > .k-final { max-width: none; width: 100%; margin: 0; }
+.k-busur { width: max(1700px, 150vw); }
+.k-bintik { display: none; }
+.k-langit { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Roket meluncur dari balik cakrawala */
+.k-roket { position: absolute; left: 62%; top: 74%; z-index: 1; opacity: 0; transform-origin: 50% 60%; will-change: transform, opacity; }
+.k-roket svg { display: block; filter: drop-shadow(0 0 14px rgba(34,211,238,.45)); }
+.k-api { transform-origin: 32px 90px; animation: k-api .12s ease-in-out infinite alternate; }
+@keyframes k-api { to { transform: scaleY(1.25) scaleX(.85); } }
+.k-asap { position: absolute; left: 50%; top: 60px; width: 6px; height: 0; translate: -50% 0; border-radius: 6px;
+  background: linear-gradient(180deg, rgba(165,243,252,.55), rgba(129,140,248,.18) 40%, transparent); filter: blur(2px); }
+@media (prefers-reduced-motion: reduce) { .k-roket { display: none; } .k-api { animation: none; } }
+@media (max-width: 760px) { .k-roket svg { width: 24px; height: 48px; } }
+.k-busur { width: max(2600px, 240vw); }
+@media (max-width: 760px) { .k-busur { width: 1400px; } }
+/* Hero memudar mulus ke bagian berikutnya (tanpa garis batas) */
+.k-hero .k-cakrawala { -webkit-mask: linear-gradient(#000 0 70%, transparent 100%); mask: linear-gradient(#000 0 70%, transparent 100%); }
+.k-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; z-index: -1; pointer-events: none; background: linear-gradient(180deg, transparent, var(--bg)); }
+.k-final .k-cakrawala { -webkit-mask: linear-gradient(transparent, #000 25% 75%, transparent); mask: linear-gradient(transparent, #000 25% 75%, transparent); }
