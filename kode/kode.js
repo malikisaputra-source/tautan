@@ -333,3 +333,17 @@
   }
   gsap.delayedCall(.9, luncur);
 })();
+
+/* Posisikan puncak lengkung tepat di bawah baris angka hero (semua ukuran layar) */
+(() => {
+  const hero = document.querySelector(".k-hero"); if (!hero) return;
+  const busur = hero.querySelector(".k-busur"), sinar = hero.querySelector(".k-sinar"), roket = document.getElementById("k-roket");
+  const angka = hero.querySelector(".k-ringkas");
+  function atur() {
+    const ref = angka || hero.querySelector(".k-hero-isi"); if (!ref) return;
+    const top = ref.getBoundingClientRect().bottom - hero.getBoundingClientRect().top + (innerWidth < 760 ? 70 : 90);
+    [busur, sinar].forEach((e) => e && e.style.setProperty("top", top + "px", "important"));
+    if (roket) roket.style.setProperty("top", top + 40 + "px");
+  }
+  addEventListener("load", atur); addEventListener("resize", atur); document.fonts && document.fonts.ready.then(atur); atur(); setTimeout(atur, 1800);
+})();
