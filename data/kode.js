@@ -282,6 +282,45 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
  {
+  "slug": "kantor-ai-template",
+  "judul": "Kantor AI 3D + Paket 3 Agent",
+  "ringkas": "Kantor isometrik 3D untuk agen AI kamu: tiap agen kerja di mejanya, menulis laporan, lalu santai. Plus paket 3 agent (Riset, Penulis, Admin) yang langsung mengisi laporannya.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "Template Web",
+  "tier": "premium",
+  "fitur": [
+   "Kantor 3D isometrik, ringan di HP (tanpa model 3D)",
+   "Agen mengetik saat jam tugas, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan, meja berkedip mendesak",
+   "Timelapse satu hari kerja dalam 30 detik",
+   "Rekam jadi video reels 1080×1920 (npm run rekam)",
+   "Laporan agen dibaca dari src/laporan.json",
+   "Paket 3 agent terpisah: Riset, Penulis, Admin (Antigravity CLI gratis)"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173 (coba /?timelapse=1)",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts",
+   "Unduh Paket 3 Agent, ekstrak ke folder template ini",
+   "Jalankan agent lewat Antigravity CLI (agy); laporannya muncul di kantor"
+  ],
+  "demo": null,
+  "unduhan_lain": [
+   {
+    "label": "Unduh Paket 3 Agent (.zip)",
+    "href": "unduh/paket-3-agent.zip"
+   }
+  ],
+  "gambar": "img/kantor-ai-template.png",
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "kas-warung",
   "judul": "Kas Warung",
   "ringkas": "Buku kas harian super cepat untuk warung: numpad besar, untung hari ini langsung kelihatan, kasbon pelanggan, laporan + grafik.",
