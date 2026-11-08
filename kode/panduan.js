@@ -152,6 +152,18 @@
     if (!data.bagian.length) data.bagian = [{ judul: "Cara pakai", intro: data.intro, sub: [] }], data.intro = [];
     else if (data.intro.join("").trim()) data.bagian.unshift({ judul: "Tentang", intro: data.intro, sub: [] });
     // topik AI dipindah ke urutan kedua biar cepat ketemu; lisensi selalu di akhir
+    // topik lama "Ubah pakai Claude" / "Mau hasil lebih maksimal?" digabung ke topik AI biar tidak dobel
+    const ai = data.bagian.find((b) => /pakai ai/i.test(b.judul));
+    if (ai) {
+      ai.judul = "Ubah pakai AI (ChatGPT, Claude, Codex, Antigravity)";
+      data.bagian = data.bagian.filter((b) => {
+        if (b !== ai && /ubah pakai claude|lebih maksimal/i.test(b.judul)) {
+          ai.sub.push({ judul: /claude/i.test(b.judul) ? "Pakai skill Claude bawaan paket" : b.judul, md: b.intro.concat(...b.sub.map((s) => ["", "**" + s.judul + "**", ...s.md])) });
+          return false;
+        }
+        return true;
+      });
+    }
     const iAI = data.bagian.findIndex((b) => /pakai ai/i.test(b.judul));
     if (iAI > 1) data.bagian.splice(1, 0, data.bagian.splice(iAI, 1)[0]);
     const iL = data.bagian.findIndex((b) => /^lisensi/i.test(b.judul));
