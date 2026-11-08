@@ -268,15 +268,17 @@
 (() => {
   const cv = document.getElementById("k-langit"); if (!cv) return;
   const kurang = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const ctx = cv.getContext("2d"); let percik = [], W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2), bintang = [], jatuh = [], mx = 0, my = 0, t0 = performance.now();
+  const ctx = cv.getContext("2d"); let percik = [], W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 1.5), bintang = [], jatuh = [], mx = 0, my = 0, t0 = performance.now();
   function ukur() {
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const n = Math.round(W * H / (W < 700 ? 2600 : 3200));
     bintang = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H * .78, z: Math.random(), r: Math.random() * 1.6 + .45,
       f: Math.random() * 6.28, k: .6 + Math.random() * 2.2, w: Math.random() < .12 }));
   }
-  ukur(); addEventListener("resize", ukur);
+  ukur(); let lebarLama = innerWidth, jalan = true;
+  addEventListener("resize", () => { if (innerWidth !== lebarLama) { lebarLama = innerWidth; ukur(); } });
   addEventListener("pointermove", (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  if ("IntersectionObserver" in window && !kurang) new IntersectionObserver(([en]) => { const lama = jalan; jalan = en.isIntersecting; if (jalan && !lama) requestAnimationFrame(gambar); }).observe(cv);
   function gambar(now) {
     const t = (now - t0) / 1000; ctx.clearRect(0, 0, W, H);
     for (const b of bintang) {
@@ -303,7 +305,7 @@
       percik = percik.filter((p) => p.h > 0);
     }
     ctx.globalAlpha = 1;
-    if (!kurang) requestAnimationFrame(gambar);
+    if (!kurang && jalan) requestAnimationFrame(gambar);
   }
   requestAnimationFrame(gambar);
 

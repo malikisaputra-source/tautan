@@ -11,7 +11,9 @@ for m in sorted(AKAR.glob("*/meta.json")):
     d["slug"] = slug
     ss = m.parent / "ss.png"
     if ss.exists():
-        shutil.copy(ss, SINI / "kode" / "img" / f"{slug}.png"); d["gambar"] = f"img/{slug}.png"
+        from PIL import Image
+        im = Image.open(ss).convert("RGB"); im.thumbnail((960, 1600))
+        im.save(SINI / "kode" / "img" / f"{slug}.webp", "WEBP", quality=78, method=6); d["gambar"] = f"img/{slug}.webp"
     if d.get("kunci"):
         d.pop("berkas", None); d.pop("unduhan_lain", None); d["kustom"] = False
         lama = SINI / "kode" / "paket" / slug

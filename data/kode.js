@@ -37,7 +37,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "segera",
-  "gambar": "img/absensi-karyawan.png",
+  "gambar": "img/absensi-karyawan.webp",
   "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
   "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
  },
@@ -76,7 +76,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "2026-11-16",
-  "gambar": "img/belanja-keluarga.png",
+  "gambar": "img/belanja-keluarga.webp",
   "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
   "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
  },
@@ -114,7 +114,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html?demo",
   "kunci": "2026-11-16",
-  "gambar": "img/catatan-ojol.png",
+  "gambar": "img/catatan-ojol.webp",
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
   "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
  },
@@ -155,7 +155,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "segera",
-  "gambar": "img/direktori-rumah-ibadah.png",
+  "gambar": "img/direktori-rumah-ibadah.webp",
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
   "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
  },
@@ -194,7 +194,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "segera",
-  "gambar": "img/helpdesk-tiket.png",
+  "gambar": "img/helpdesk-tiket.webp",
   "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
   "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip"
  },
@@ -233,7 +233,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "2026-11-16",
-  "gambar": "img/iuran-kas-rt.png",
+  "gambar": "img/iuran-kas-rt.webp",
   "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
   "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip"
  },
@@ -277,7 +277,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html?demo",
   "kunci": "2026-11-16",
-  "gambar": "img/kalender-kerja.png",
+  "gambar": "img/kalender-kerja.webp",
   "repo": "https://github.com/malikisaputra-source/kalender-kerja",
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
@@ -311,7 +311,7 @@ window.KODE = [
   ],
   "demo": null,
   "kunci": "segera",
-  "gambar": "img/kantor-ai-template.png",
+  "gambar": "img/kantor-ai-template.webp",
   "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
@@ -350,7 +350,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "2026-11-16",
-  "gambar": "img/kas-warung.png",
+  "gambar": "img/kas-warung.webp",
   "repo": "https://github.com/malikisaputra-source/kas-warung",
   "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
  },
@@ -405,7 +405,7 @@ window.KODE = [
    "qris.svg"
   ],
   "pratinjau": "index.html?demo",
-  "gambar": "img/kasir-umkm.png",
+  "gambar": "img/kasir-umkm.webp",
   "dasar": "paket/kasir-umkm/",
   "repo": "https://github.com/malikisaputra-source/kasir-umkm",
   "zip": "https://github.com/malikisaputra-source/kasir-umkm/archive/refs/heads/main.zip"
@@ -456,7 +456,7 @@ window.KODE = [
    "tema.js"
   ],
   "pratinjau": "index.html",
-  "gambar": "img/katalog-toko-wa.png",
+  "gambar": "img/katalog-toko-wa.webp",
   "dasar": "paket/katalog-toko-wa/",
   "repo": "https://github.com/malikisaputra-source/katalog-toko-wa",
   "zip": "https://github.com/malikisaputra-source/katalog-toko-wa/archive/refs/heads/main.zip"
@@ -509,7 +509,7 @@ window.KODE = [
    "AGENTS.md",
    ".claude/skills/ubah-manajemen-bengkel/SKILL.md"
   ],
-  "gambar": "img/manajemen-bengkel.png",
+  "gambar": "img/manajemen-bengkel.webp",
   "dasar": "paket/manajemen-bengkel/",
   "repo": "https://github.com/malikisaputra-source/manajemen-bengkel",
   "zip": "https://github.com/malikisaputra-source/manajemen-bengkel/archive/refs/heads/main.zip"
@@ -564,7 +564,7 @@ window.KODE = [
    ".claude/skills/ubah-manajemen-klien/SKILL.md",
    "ss.png"
   ],
-  "gambar": "img/manajemen-klien.png",
+  "gambar": "img/manajemen-klien.webp",
   "dasar": "paket/manajemen-klien/",
   "repo": "https://github.com/malikisaputra-source/manajemen-klien",
   "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip"
@@ -607,7 +607,7 @@ window.KODE = [
   "kustom": false,
   "pratinjau": "index.html",
   "kunci": "segera",
-  "gambar": "img/pesan-antar-kedai.png",
+  "gambar": "img/pesan-antar-kedai.webp",
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
   "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
  },
@@ -644,7 +644,7 @@ window.KODE = [
    "Deploy → Web app → akses: Siapa saja, bagikan link"
   ],
   "demo": "demo.html",
-  "gambar": "img/presensi-gps-gas.png",
+  "gambar": "img/presensi-gps-gas.webp",
   "repo": "https://github.com/malikisaputra-source/presensi-gps-gas",
   "zip": "https://github.com/malikisaputra-source/presensi-gps-gas/archive/refs/heads/main.zip"
  },
@@ -679,7 +679,7 @@ window.KODE = [
    "Buka index.html lalu unggah ke hosting statis"
   ],
   "demo": "index.html",
-  "gambar": "img/template-agrowisata.png",
+  "gambar": "img/template-agrowisata.webp",
   "repo": "https://github.com/malikisaputra-source/template-agrowisata",
   "zip": "https://github.com/malikisaputra-source/template-agrowisata/archive/refs/heads/main.zip"
  },
@@ -715,7 +715,7 @@ window.KODE = [
    "npm run build, unggah folder dist/"
   ],
   "demo": null,
-  "gambar": "img/template-montessori-anak.png",
+  "gambar": "img/template-montessori-anak.webp",
   "repo": "https://github.com/malikisaputra-source/template-montessori-anak",
   "zip": "https://github.com/malikisaputra-source/template-montessori-anak/archive/refs/heads/main.zip"
  },
@@ -750,7 +750,7 @@ window.KODE = [
    "Unggah ke GitHub Pages/Netlify/Vercel"
   ],
   "demo": "index.html",
-  "gambar": "img/template-sekolah-yayasan.png",
+  "gambar": "img/template-sekolah-yayasan.webp",
   "repo": "https://github.com/malikisaputra-source/template-sekolah-yayasan",
   "zip": "https://github.com/malikisaputra-source/template-sekolah-yayasan/archive/refs/heads/main.zip"
  },
@@ -783,7 +783,7 @@ window.KODE = [
    "Render dengan npm run render"
   ],
   "demo": null,
-  "gambar": "img/template-video-tutor-remotion.png",
+  "gambar": "img/template-video-tutor-remotion.webp",
   "repo": "https://github.com/malikisaputra-source/template-video-tutor-remotion",
   "zip": "https://github.com/malikisaputra-source/template-video-tutor-remotion/archive/refs/heads/main.zip"
  },
@@ -841,7 +841,7 @@ window.KODE = [
    "ss.png"
   ],
   "pratinjau": "index.html",
-  "gambar": "img/website-rt.png",
+  "gambar": "img/website-rt.webp",
   "dasar": "paket/website-rt/",
   "repo": "https://github.com/malikisaputra-source/website-rt",
   "zip": "https://github.com/malikisaputra-source/website-rt/archive/refs/heads/main.zip"

@@ -212,7 +212,7 @@ if (gerakOk && matchMedia("(pointer: fine)").matches) {
 /* latar hero: hujan kode prompt ala terminal (ciri khas beranda, beda dari /kode) */
 (() => {
   const cv = $("#b-langit"); if (!cv) return;
-  const ctx = cv.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 2);
+  const ctx = cv.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 1.5);
   const BARIS = [
     "peran: kamu adalah asisten admin UMKM", "tugas: rapikan pesanan WA jadi tabel", "konteks: toko kue, 30 pesanan/hari",
     "format: tabel | nama | menu | total", "batasan: jangan ubah nominal", "/laporan --mingguan", "skill: ubah-kasir-umkm",
@@ -261,7 +261,7 @@ if (gerakOk && matchMedia("(pointer: fine)").matches) {
     if (gerakOk && jalan) requestAnimationFrame(gambar);
   }
   const pudar = (y) => Math.max(0, Math.min(1, y / 80, (H - y) / 160));
-  ukur(); addEventListener("resize", ukur);
+  ukur(); let lebarLama = innerWidth; addEventListener("resize", () => { if (innerWidth !== lebarLama) { lebarLama = innerWidth; ukur(); } });
   if (document.fonts) document.fonts.ready.then(() => requestAnimationFrame(gambar));
   addEventListener("pointermove", (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
   if ("IntersectionObserver" in window && gerakOk) new IntersectionObserver(([en]) => { const lama = jalan; jalan = en.isIntersecting; if (jalan && !lama) requestAnimationFrame(gambar); }).observe(cv);
