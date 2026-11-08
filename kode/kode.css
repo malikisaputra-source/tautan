@@ -501,3 +501,108 @@ html.lenis, html.lenis body { height: auto; }
 .kd-kredit strong { color: #fff; }
 .kd-lipat.kosong { border-top: 0; }
 .kd-lipat.kosong > summary { pointer-events: none; cursor: default; min-height: 0; padding: 20px 2px 4px; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--redup); }
+
+/* ===== Panduan penggunaan: panel help center ===== */
+html.pd-terbuka { overflow: hidden; }
+.pd { position: fixed; inset: 0; z-index: 85; display: grid; place-items: center; padding: 24px; }
+.pd[hidden] { display: none; }
+.pd-latar { position: absolute; inset: 0; background: rgba(2,4,9,.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pd-kotak { position: relative; width: min(1120px, 100%); height: min(860px, 100%); display: grid; grid-template-rows: auto auto 1fr; overflow: hidden;
+  background: #070a12; border: 1px solid var(--garis2, rgba(255,255,255,.12)); border-radius: 20px; box-shadow: 0 40px 120px -20px rgba(0,0,0,.8);
+  animation: pd-masuk .35s cubic-bezier(.2,.8,.2,1); }
+@keyframes pd-masuk { from { opacity: 0; transform: translateY(16px) scale(.985); } }
+.pd-atas { display: grid; grid-template-columns: 1fr minmax(220px, 360px) auto; gap: 16px; align-items: center; padding: 18px 20px 14px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.pd-kecil { margin: 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--aksen); }
+.pd-atas h2 { margin: 2px 0 0; font-size: 21px; letter-spacing: -.01em; color: var(--teks); }
+.pd-cari { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+.pd-cari:focus-within { border-color: var(--aksen); box-shadow: 0 0 0 3px rgba(34,211,238,.18); }
+.pd-cari svg { width: 18px; height: 18px; fill: none; stroke: var(--redup); stroke-width: 2; flex: none; }
+.pd-cari input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--teks); font: inherit; font-size: 15px; }
+.pd .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.pd-tutup { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: var(--teks); cursor: pointer; display: grid; place-items: center; }
+.pd-tutup:hover { background: rgba(255,255,255,.1); }
+.pd-tutup svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+.pd-lisensi { padding: 12px 20px 0; }
+.pd-lisensi .kd-kredit { margin: 0 0 12px; padding: 12px 14px; }
+.pd-lisensi .kd-kredit p { font-size: 13.5px !important; line-height: 1.55; }
+.pd-badan { display: grid; grid-template-columns: 260px 1fr; min-height: 0; }
+.pd-nav { overflow-y: auto; padding: 8px 12px 20px 16px; border-right: 1px solid rgba(255,255,255,.07); }
+.pd-nav ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.pd-nav button { width: 100%; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border-radius: 10px; border: 0; background: none; color: var(--redup); font: inherit; font-size: 14.5px; text-align: left; cursor: pointer; transition: background .2s, color .2s; }
+.pd-nav button:hover { background: rgba(255,255,255,.05); color: var(--teks); }
+.pd-nav button[aria-current] { background: rgba(34,211,238,.12); color: var(--teks); box-shadow: inset 0 0 0 1px rgba(34,211,238,.35); }
+.pd-nav svg, .pd-h svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pd-nav button[aria-current] svg { stroke: var(--aksen); }
+.pd button:focus-visible, .pd summary:focus-visible { outline: 2px solid var(--aksen); outline-offset: 2px; }
+.pd-isi { overflow-y: auto; padding: 18px 32px 40px; outline: 0; }
+.pd-langkah { margin: 0 0 6px; font-family: var(--mono); font-size: 12px; color: var(--redup); }
+.pd-h { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font-size: 24px; letter-spacing: -.015em; color: var(--teks); font-family: inherit; text-transform: none; }
+.pd-h svg { width: 24px; height: 24px; stroke: var(--aksen); }
+.pd-isi p, .pd-isi li { color: var(--redup); font-size: 15px; line-height: 1.7; }
+.pd-isi b, .pd-isi strong { color: var(--teks); }
+.pd-isi a { color: var(--aksen); }
+.pd-isi code { font-family: var(--mono); font-size: 13px; color: var(--oranye); background: rgba(255,255,255,.05); padding: 1px 6px; border-radius: 6px; }
+.pd-isi h3, .pd-isi h4, .pd-isi h5 { color: var(--teks); font-size: 15px; margin: 16px 0 6px; text-transform: none; letter-spacing: 0; font-family: inherit; }
+.pd-intro { max-width: 70ch; }
+.pd-intro.sorot, .pd-sub.sorot { border: 1px solid rgba(250,204,21,.4); background: rgba(250,204,21,.06); border-radius: 12px; padding: 4px 16px; }
+.pd-ol { counter-reset: n; list-style: none; padding: 0; margin: 8px 0 14px; display: grid; gap: 8px; }
+.pd-ol > li { counter-increment: n; position: relative; padding: 10px 14px 10px 50px; border-radius: 12px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); }
+.pd-ol > li::before { content: counter(n); position: absolute; left: 12px; top: 10px; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 600 13px var(--mono); color: #04121a; background: var(--aksen); }
+.pd-isi ul { padding-left: 20px; }
+.pd-sub { border: 1px solid rgba(255,255,255,.08); border-radius: 12px; margin: 10px 0; background: rgba(255,255,255,.02); }
+.pd-sub > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 10px 16px; color: var(--teks); font-weight: 600; font-size: 15.5px; }
+.pd-sub > summary::-webkit-details-marker { display: none; }
+.pd-sub > summary::after { content: ""; width: 9px; height: 9px; border-right: 2px solid var(--aksen); border-bottom: 2px solid var(--aksen); transform: rotate(45deg) translateY(-3px); transition: transform .25s; flex: none; }
+.pd-sub[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+.pd-sub > div { padding: 0 16px 12px; }
+.pd-sub.sorot > summary { color: #fde68a; }
+.pd-pilih { margin: 6px 0 10px !important; font-weight: 600; color: var(--teks) !important; }
+.pd-tab { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 14px; }
+.pd-tab [role="tab"] { display: grid; gap: 2px; text-align: left; min-height: 64px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); color: var(--teks); font: inherit; cursor: pointer; transition: border-color .2s, background .2s; }
+.pd-tab [role="tab"] b { font-size: 14.5px; }
+.pd-tab [role="tab"] small { color: var(--redup); font-size: 12.5px; line-height: 1.35; }
+.pd-tab [role="tab"]:hover { border-color: rgba(34,211,238,.4); }
+.pd-tab [aria-selected="true"] { border-color: var(--aksen); background: rgba(34,211,238,.1); box-shadow: 0 0 0 1px var(--aksen) inset; }
+.pd-panel { padding: 4px 0 8px; animation: pd-muncul .25s ease; }
+@keyframes pd-muncul { from { opacity: 0; transform: translateY(6px); } }
+.pd-bisa-salin { position: relative; }
+.pd pre { position: relative; padding: 14px 16px; padding-right: 76px; border-radius: 12px; background: #02040a; border: 1px solid rgba(255,255,255,.08); overflow-x: auto; }
+.pd pre code { background: none; padding: 0; color: var(--teks); }
+.pd-salin { position: absolute; top: 8px; right: 8px; min-height: 32px; padding: 0 12px; border-radius: 8px; border: 1px solid rgba(34,211,238,.4); background: rgba(34,211,238,.1); color: var(--aksen); font: 600 12.5px var(--mono); cursor: pointer; }
+.pd-salin:hover { background: rgba(34,211,238,.2); }
+li.pd-prompt { padding-right: 84px !important; list-style: none; position: relative; margin: 6px 0 6px -20px; padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,.03); border: 1px dashed rgba(255,255,255,.14); color: var(--teks) !important; }
+li.pd-prompt .pd-salin { top: 50%; transform: translateY(-50%); }
+.pd-maju { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.07); }
+.pd-maju button { display: grid; gap: 2px; text-align: left; min-height: 60px; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.02); color: var(--teks); font: inherit; font-size: 14.5px; cursor: pointer; }
+.pd-maju button.kanan { text-align: right; grid-column: 2; }
+.pd-maju button:hover { border-color: var(--aksen); }
+.pd-maju small { color: var(--redup); font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; }
+.pd-hasil { list-style: none; padding: 0 !important; display: grid; gap: 8px; }
+.pd-hasil button { width: 100%; display: grid; gap: 4px; text-align: left; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); color: var(--teks); font: inherit; cursor: pointer; }
+.pd-hasil button:hover { border-color: var(--aksen); }
+.pd-hasil span { color: var(--redup); font-size: 13.5px; }
+.pd mark { background: rgba(250,204,21,.3); color: #fff; border-radius: 3px; padding: 0 2px; }
+.pd-kosong { padding: 24px 0; }
+@media (max-width: 760px) {
+  .pd { padding: 0; }
+  .pd-kotak { height: 100%; border-radius: 0; border: 0; }
+  .pd-atas { grid-template-columns: 1fr auto; padding: 14px 16px 10px; }
+  .pd-cari { grid-column: 1 / -1; grid-row: 2; }
+  .pd-lisensi { padding: 10px 16px 0; }
+  .pd-lisensi .kd-kredit p { font-size: 12.5px !important; }
+  .pd-badan { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .pd-nav { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.07); padding: 8px 12px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .pd-nav ol { display: flex; gap: 6px; width: max-content; }
+  .pd-nav button { width: auto; white-space: nowrap; min-height: 40px; padding: 6px 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: 13.5px; }
+  .pd-isi { padding: 14px 16px 32px; }
+  .pd-h { font-size: 20px; }
+  .pd-maju { grid-template-columns: 1fr; } .pd-maju button.kanan { grid-column: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .pd-kotak, .pd-panel { animation: none; } }
+@media (max-width: 760px) {
+  .pd-lisensi .kd-kredit { cursor: pointer; align-items: center; }
+  .pd-lisensi .kd-kredit b { font-size: 14px; }
+  .pd-lisensi .kd-kredit:not(.buka) p { display: none; }
+  .pd-lisensi .kd-kredit:not(.buka) b::after { content: " · lihat syarat"; color: var(--redup); font-weight: 400; font-size: 12.5px; }
+}
+@media (min-width: 761px) { .pd-lisensi .kd-kredit { cursor: default; } }

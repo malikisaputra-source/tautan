@@ -164,7 +164,7 @@
     tutup(); if (kode) o += "</code></pre>"; return o;
   }
   const KREDIT = `<div class="kd-kredit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
-    <div><b>Lisensi MIT + wajib mencantumkan kreator</b><p>Bebas dipakai, diubah, bahkan untuk klien. Syaratnya: kredit <strong>"Template oleh Maliki Saputra (@malikisaputra)"</strong> di footer, kepala berkas, dan LICENSE tidak boleh dihapus.</p></div></div>`;
+    <div><b>Lisensi: wajib cantumkan kreator · tidak untuk diperjualbelikan</b><p>Gratis dipakai untuk usaha/organisasi sendiri dan boleh diubah. Kredit <strong>"Template oleh Maliki Saputra (@malikisaputra)"</strong> di footer, kepala berkas, dan LICENSE tidak boleh dihapus.</p><p><strong>Tidak boleh dijual atau dijual ulang</strong> (sebagai template, paket, atau bahan kursus) tanpa izin. Mau menjual atau kerja sama? Diskusikan dulu dengan kreatornya lewat TikTok/IG @malikisaputra.</p></div></div>`;
   // ubah tiap judul jadi bagian buka-tutup; bagian lisensi/kredit tetap terbuka & disorot
   function lipat(akar) {
     const anak = [...akar.children]; let det = null, isi = null;
@@ -199,7 +199,7 @@
   function buka(d, dari) {
     asal = dari || document.activeElement;
     $("#kd-gambar").innerHTML = d.gambar ? `<img src="${esc(d.gambar)}" alt="Tampilan ${esc(d.judul)}">` : "";
-    $("#kd-meta").textContent = `${d.kategori} · ${d.tier === "premium" ? "PREMIUM, GRATIS" : "GRATIS"} · MIT`;
+    $("#kd-meta").textContent = `${d.kategori} · ${d.tier === "premium" ? "PREMIUM, GRATIS" : "GRATIS"} · TIDAK UNTUK DIJUAL`;
     $("#kd-judul").textContent = d.judul;
     $("#kd-ringkas").textContent = d.ringkas;
     $("#kd-unduh").href = d.zip; $("#kd-repo").href = d.repo;
@@ -225,17 +225,12 @@
     }; });
     const req = (d.req || []).filter(Boolean); $("#kd-req").hidden = !req.length;
     $("#kd-req").textContent = req.length ? "Dibuat atas request " + req.map((r) => "@" + r.replace(/^@/, "")).join(", ") : "";
-    const pb = $("#kd-panduan"), pi = $("#kd-panduan-isi"); pi.hidden = true; pi.innerHTML = ""; pb.setAttribute("aria-expanded", "false"); pb.textContent = "Panduan penggunaan";
+    const pb = $("#kd-panduan");
     pb.onclick = async () => {
-      if (!pi.hidden) { pi.hidden = true; pb.setAttribute("aria-expanded", "false"); pb.textContent = "Panduan penggunaan"; return; }
-      pi.hidden = false; pb.setAttribute("aria-expanded", "true"); pb.textContent = "Tutup panduan";
-      if (!pi.innerHTML) {
-        pi.innerHTML = '<p class="kd-memuat">Memuat panduan…</p>';
-        const s = await muatPanduan(d);
-        pi.innerHTML = `<h3>Panduan penggunaan</h3>${KREDIT}` + (s ? mdKeHtml(s) : `<ol>${(d.cara || []).map((c) => `<li>${esc(c)}</li>`).join("")}</ol>`);
-        lipat(pi);
-      }
-      pi.scrollIntoView({ behavior: "smooth", block: "start" });
+      pb.disabled = true; pb.textContent = "Memuat panduan…";
+      const s = await muatPanduan(d);
+      pb.disabled = false; pb.textContent = "Panduan penggunaan";
+      window.bukaPanduan && window.bukaPanduan(d, s, KREDIT, mdKeHtml);
     };
     const kb = $("#kd-kustom"); kb.hidden = !d.kustom;
     kb.onclick = () => window.bukaStudio && window.bukaStudio(d);
