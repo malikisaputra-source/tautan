@@ -42,7 +42,7 @@
   let el, data, html, aktif = 0, asal = null, judulPaket = "";
   function pasang() {
     el = document.createElement("div");
-    el.className = "pd"; el.hidden = true;
+    el.className = "pd"; el.hidden = true; el.setAttribute("data-lenis-prevent", "");
     el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-labelledby", "pd-judul");
     el.innerHTML = `<div class="pd-latar" data-tutup></div>
       <div class="pd-kotak">
