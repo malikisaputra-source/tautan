@@ -482,3 +482,22 @@ html.lenis, html.lenis body { height: auto; }
 .kd-panduan pre code { color: var(--teks); }
 .kd-panduan a { color: var(--aksen); }
 .kd-memuat { font-family: var(--mono); }
+.kd-lipat { border-top: 1px solid var(--garis2, rgba(255,255,255,.1)); }
+.kd-lipat > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 10px 2px; color: var(--teks); font-size: 15px; font-weight: 600; }
+.kd-lipat > summary::-webkit-details-marker { display: none; }
+.kd-lipat > summary::after { content: "+"; font-family: var(--mono); color: var(--aksen); font-size: 18px; transition: transform .25s; flex: none; }
+.kd-lipat[open] > summary::after { transform: rotate(45deg); }
+.kd-lipat > summary:focus-visible { outline: 2px solid var(--aksen); outline-offset: 2px; border-radius: 6px; }
+.kd-lipat.utama > summary { font-size: 16.5px; color: var(--aksen); }
+.kd-lipat.kosong > summary::after { content: ""; }
+.kd-lipat-isi { padding: 0 2px 12px; }
+.kd-lipat.sorot { border: 1px solid rgba(250,204,21,.45); border-radius: 12px; padding: 0 12px; margin: 10px 0; background: rgba(250,204,21,.07); }
+.kd-lipat.sorot > summary { color: #fde68a; }
+.kd-sorot { padding: 10px 12px; border: 1px solid rgba(250,204,21,.4); background: rgba(250,204,21,.08); border-radius: 8px; color: var(--teks) !important; }
+.kd-kredit { display: flex; gap: 12px; align-items: flex-start; margin: 4px 0 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(250,204,21,.5); background: linear-gradient(135deg, rgba(250,204,21,.14), rgba(34,211,238,.06)); }
+.kd-kredit svg { width: 22px; height: 22px; flex: none; fill: #facc15; margin-top: 2px; }
+.kd-kredit b { color: #fde68a; font-size: 15px; }
+.kd-kredit p { margin: 4px 0 0 !important; color: var(--teks) !important; font-size: 14px !important; }
+.kd-kredit strong { color: #fff; }
+.kd-lipat.kosong { border-top: 0; }
+.kd-lipat.kosong > summary { pointer-events: none; cursor: default; min-height: 0; padding: 20px 2px 4px; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--redup); }

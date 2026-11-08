@@ -163,6 +163,26 @@
     }
     tutup(); if (kode) o += "</code></pre>"; return o;
   }
+  const KREDIT = `<div class="kd-kredit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+    <div><b>Lisensi MIT + wajib mencantumkan kreator</b><p>Bebas dipakai, diubah, bahkan untuk klien. Syaratnya: kredit <strong>"Template oleh Maliki Saputra (@malikisaputra)"</strong> di footer, kepala berkas, dan LICENSE tidak boleh dihapus.</p></div></div>`;
+  // ubah tiap judul jadi bagian buka-tutup; bagian lisensi/kredit tetap terbuka & disorot
+  function lipat(akar) {
+    const anak = [...akar.children]; let det = null, isi = null;
+    for (const el of anak) {
+      if (/^H[45]$/.test(el.tagName)) {
+        const lis = /lisensi|kredit|license/i.test(el.textContent);
+        det = document.createElement("details"); det.className = "kd-lipat" + (el.tagName === "H4" ? " utama" : "") + (lis ? " sorot" : "");
+        if (lis) det.open = true;
+        const sm = document.createElement("summary"); sm.innerHTML = el.innerHTML; det.append(sm);
+        isi = document.createElement("div"); isi.className = "kd-lipat-isi"; det.append(isi);
+        el.replaceWith(det);
+      } else if (det && el.tagName !== "H3" && !el.classList.contains("kd-kredit")) {
+        if (/kredit|template oleh|lisensi mit/i.test(el.textContent) && el.tagName === "P") el.classList.add("kd-sorot");
+        isi.append(el);
+      }
+    }
+    akar.querySelectorAll("details.kd-lipat").forEach((d) => { if (!d.querySelector(".kd-lipat-isi").children.length) d.classList.add("kosong"); });
+  }
   async function muatPanduan(d) {
     const raw = `https://raw.githubusercontent.com/malikisaputra-source/${d.slug}/main/`;
     const calon = [];
@@ -212,7 +232,8 @@
       if (!pi.innerHTML) {
         pi.innerHTML = '<p class="kd-memuat">Memuat panduan…</p>';
         const s = await muatPanduan(d);
-        pi.innerHTML = s ? `<h3>Panduan penggunaan</h3>${mdKeHtml(s)}` : `<h3>Panduan penggunaan</h3><ol>${(d.cara || []).map((c) => `<li>${esc(c)}</li>`).join("")}</ol>`;
+        pi.innerHTML = `<h3>Panduan penggunaan</h3>${KREDIT}` + (s ? mdKeHtml(s) : `<ol>${(d.cara || []).map((c) => `<li>${esc(c)}</li>`).join("")}</ol>`);
+        lipat(pi);
       }
       pi.scrollIntoView({ behavior: "smooth", block: "start" });
     };
