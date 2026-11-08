@@ -13,7 +13,7 @@ for m in sorted(AKAR.glob("*/meta.json")):
     if ss.exists():
         shutil.copy(ss, SINI / "kode" / "img" / f"{slug}.png"); d["gambar"] = f"img/{slug}.png"
     if d.get("kunci"):
-        d.pop("berkas", None); d["kustom"] = False
+        d.pop("berkas", None); d.pop("unduhan_lain", None); d["kustom"] = False
         lama = SINI / "kode" / "paket" / slug
         if lama.exists(): shutil.rmtree(lama)
     if d.get("kustom"):
