@@ -166,8 +166,10 @@
   async function muatPanduan(d) {
     const raw = `https://raw.githubusercontent.com/malikisaputra-source/${d.slug}/main/`;
     const calon = [];
-    if (d.dasar && (d.berkas || []).includes("PANDUAN.md")) calon.push(d.dasar + "PANDUAN.md");
-    calon.push(raw + "PANDUAN.md", raw + "README.md");
+    for (const f of ["PANDUAN.md", "README.md"]) {
+      if (d.dasar && (d.berkas || []).includes(f)) calon.push(d.dasar + f);
+      calon.push(raw + f);
+    }
     for (const u of calon) { try { const r = await fetch(u); if (r.ok) return await r.text(); } catch (_) {} }
     return null;
   }
