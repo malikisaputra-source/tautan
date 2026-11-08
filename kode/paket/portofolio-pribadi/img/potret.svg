@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Ilustrasi potret (ganti dengan foto Anda)">
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id -->
+<rect width="400" height="500" fill="#e9dcc8"/>
+<circle cx="320" cy="90" r="70" fill="#b4441e" opacity=".9"/>
+<path d="M0 380 Q200 300 400 380 V500 H0Z" fill="#2f5d4e"/>
+<path d="M95 500 Q100 360 200 350 Q300 360 305 500Z" fill="#1b1814"/>
+<path d="M175 330 h50 v35 q-25 18 -50 0Z" fill="#c98d6a"/>
+<ellipse cx="200" cy="245" rx="72" ry="88" fill="#d9a07e"/>
+<path d="M120 250 Q110 140 200 140 Q295 138 282 250 Q278 200 250 185 Q205 210 150 190 Q128 210 120 250Z" fill="#1b1814"/>
+<path d="M118 240 Q100 330 140 360 L150 260Z M282 240 Q300 330 262 360 L250 260Z" fill="#1b1814"/>
+<circle cx="174" cy="250" r="5" fill="#1b1814"/><circle cx="228" cy="250" r="5" fill="#1b1814"/>
+<path d="M186 295 q15 10 30 0" stroke="#7a3b23" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M60 70 l18 0 M69 61 l0 18" stroke="#1b1814" stroke-width="4"/>
+</svg>

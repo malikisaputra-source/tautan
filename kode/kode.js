@@ -53,6 +53,7 @@
       <div class="k-badan">
         <div class="k-label">${lencana(d)}${d.kustom ? `<span class="k-lencana kustom">Bisa dikustom</span>` : ""}</div>
         <h3>${esc(d.judul)}</h3><p>${esc(d.ringkas)}</p>
+        ${(d.req || []).length ? `<p class="k-req">req ${d.req.map((r) => "@" + esc(r.replace(/^@/, ""))).join(", ")}</p>` : ""}
         <p class="k-angka-k" data-angka="${esc(d.slug)}" hidden></p>
         <span class="k-kaki"><span class="k-kat-n">${esc(d.kategori)} · ${(d.teknologi || []).slice(0, 3).map(esc).join(" · ")}</span><span class="k-buka">${panah}</span></span>
       </div>`;
@@ -144,6 +145,33 @@
     });
   }
 
+  // panduan penggunaan: PANDUAN.md (atau README.md) dirender sederhana
+  function mdKeHtml(s) {
+    const baris = s.replace(/\r/g, "").split("\n"); let o = "", daftar = null, kode = false;
+    const inl = (x) => esc(x).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+      .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    const tutup = () => { if (daftar) { o += `</${daftar}>`; daftar = null; } };
+    for (const b of baris) {
+      if (/^```/.test(b)) { tutup(); o += kode ? "</code></pre>" : "<pre><code>"; kode = !kode; continue; }
+      if (kode) { o += esc(b) + "\n"; continue; }
+      let m;
+      if ((m = b.match(/^(#{1,4})\s+(.*)/))) { tutup(); const n = Math.min(m[1].length + 2, 5); o += `<h${n}>${inl(m[2])}</h${n}>`; }
+      else if ((m = b.match(/^\s*[-*]\s+(.*)/))) { if (daftar !== "ul") { tutup(); o += "<ul>"; daftar = "ul"; } o += `<li>${inl(m[1])}</li>`; }
+      else if ((m = b.match(/^\s*\d+[.)]\s+(.*)/))) { if (daftar !== "ol") { tutup(); o += "<ol>"; daftar = "ol"; } o += `<li>${inl(m[1])}</li>`; }
+      else if (/^\s*(---+|\|)/.test(b) || /^<!--/.test(b)) { if (/^\s*\|/.test(b) && !/^\s*\|[\s:-]+\|/.test(b)) { tutup(); o += `<p class="kd-baris">${inl(b.replace(/^\s*\||\|\s*$/g, "").split("|").map((x) => x.trim()).join(" · "))}</p>`; } }
+      else if (b.trim()) { tutup(); o += `<p>${inl(b)}</p>`; } else tutup();
+    }
+    tutup(); if (kode) o += "</code></pre>"; return o;
+  }
+  async function muatPanduan(d) {
+    const raw = `https://raw.githubusercontent.com/malikisaputra-source/${d.slug}/main/`;
+    const calon = [];
+    if (d.dasar && (d.berkas || []).includes("PANDUAN.md")) calon.push(d.dasar + "PANDUAN.md");
+    calon.push(raw + "PANDUAN.md", raw + "README.md");
+    for (const u of calon) { try { const r = await fetch(u); if (r.ok) return await r.text(); } catch (_) {} }
+    return null;
+  }
+
   // detail
   const panel = $("#k-detail"); let asal = null;
   function buka(d, dari) {
@@ -173,6 +201,19 @@
       const jalan = () => { window.catatHitung && window.catatHitung(nama, "zip"); location.href = u.href; };
       if (window.gerbangFollow) { e.preventDefault(); window.gerbangFollow(d.slug, jalan); } else jalan();
     }; });
+    const req = (d.req || []).filter(Boolean); $("#kd-req").hidden = !req.length;
+    $("#kd-req").textContent = req.length ? "Dibuat atas request " + req.map((r) => "@" + r.replace(/^@/, "")).join(", ") : "";
+    const pb = $("#kd-panduan"), pi = $("#kd-panduan-isi"); pi.hidden = true; pi.innerHTML = ""; pb.setAttribute("aria-expanded", "false"); pb.textContent = "Panduan penggunaan";
+    pb.onclick = async () => {
+      if (!pi.hidden) { pi.hidden = true; pb.setAttribute("aria-expanded", "false"); pb.textContent = "Panduan penggunaan"; return; }
+      pi.hidden = false; pb.setAttribute("aria-expanded", "true"); pb.textContent = "Tutup panduan";
+      if (!pi.innerHTML) {
+        pi.innerHTML = '<p class="kd-memuat">Memuat panduan…</p>';
+        const s = await muatPanduan(d);
+        pi.innerHTML = s ? `<h3>Panduan penggunaan</h3>${mdKeHtml(s)}` : `<h3>Panduan penggunaan</h3><ol>${(d.cara || []).map((c) => `<li>${esc(c)}</li>`).join("")}</ol>`;
+      }
+      pi.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
     const kb = $("#kd-kustom"); kb.hidden = !d.kustom;
     kb.onclick = () => window.bukaStudio && window.bukaStudio(d);
     const ada = (d.berkas || []).some((b) => b.startsWith(".claude/skills/"));

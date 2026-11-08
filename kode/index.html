@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../style.css?v=202611081700">
-<link rel="stylesheet" href="kode.css?v=202611081700">
+<link rel="stylesheet" href="../style.css?v=202611082100">
+<link rel="stylesheet" href="kode.css?v=202611082100">
 </head>
 <body class="hal-kode">
 <a class="lewati" href="#katalog">Langsung ke katalog</a>
@@ -111,14 +111,17 @@
     <p class="kd-angka" id="kd-angka" hidden></p>
     <h2 id="kd-judul"></h2>
     <p id="kd-ringkas" class="kd-ringkas"></p>
+    <p id="kd-req" class="kd-req" hidden></p>
     <div class="kd-aksi">
       <a id="kd-unduh" class="tombol" href="#" rel="noopener">Unduh ZIP gratis</a>
       <a id="kd-repo" class="tombol garis" href="#" target="_blank" rel="noopener">Lihat di GitHub</a>
       <button id="kd-kustom" class="tombol garis" type="button" hidden>Kustomisasi warna</button>
+      <button id="kd-panduan" class="tombol garis" type="button" aria-expanded="false" aria-controls="kd-panduan-isi">Panduan penggunaan</button>
       <button id="kd-skill" class="tombol garis" type="button" hidden>Unduh Skill (.zip)</button>
       <span id="kd-lain" hidden></span>
       <button id="kd-bagi" class="tombol garis" type="button">Bagikan</button>
     </div>
+    <section class="kd-panduan" id="kd-panduan-isi" aria-live="polite" hidden></section>
     <div class="kd-skill-info" id="kd-skill-info" hidden>
       <h3>Ubah pakai Claude</h3>
       <p>Paket ini membawa <b>Agent Skill</b>. Di <b>Claude Code / Claude Desktop</b>: buka folder paket, skill di <code>.claude/skills</code> terbaca otomatis. Di <b>claude.ai</b>: unduh skill, lalu <b>Customize › Skills › + › Create skill › Upload a skill</b>. Pastikan <i>Code execution and file creation</i> aktif di Settings › Capabilities.</p>
@@ -206,14 +209,14 @@
   </div>
 </aside>
 
-<script src="../data/kode.js?v=202611081700"></script>
+<script src="../data/kode.js?v=202611082100"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
-<script src="hitung.js?v=202611081700"></script>
-<script src="kode.js?v=202611081700"></script>
-<script src="studio.js?v=202611081700"></script>
-<script src="gerbang.js?v=202611081700"></script>
+<script src="hitung.js?v=202611082100"></script>
+<script src="kode.js?v=202611082100"></script>
+<script src="studio.js?v=202611082100"></script>
+<script src="gerbang.js?v=202611082100"></script>
 </body>
 </html>

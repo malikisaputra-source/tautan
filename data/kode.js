@@ -81,6 +81,62 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
  },
  {
+  "slug": "bengkel-las-hpp",
+  "judul": "Bengkel Las + Hitung HPP",
+  "ringkas": "Aplikasi bengkel las tanpa server: order pagar/kanopi/teralis, kalkulator bahan & sisa potong, HPP otomatis, RAB siap cetak, laporan laba.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "req": [
+   "fahwiproject"
+  ],
+  "fitur": [
+   "Order pekerjaan: survei → produksi → pasang → lunas",
+   "Master bahan: hollow, siku, plat, pipa, cat, kawat las, baut",
+   "Kalkulator bahan dari ukuran + rencana potong & sisa batang",
+   "Ongkos tukang per hari & overhead (listrik, gas, transport, sewa alat)",
+   "HPP otomatis per order & per m², markup → harga jual & DP",
+   "Penawaran / RAB A4 siap cetak + kirim ringkasan via WhatsApp",
+   "Laporan laba per bulan + grafik omzet",
+   "Ekspor CSV & cadangan JSON, mode gelap, responsif HP"
+  ],
+  "cara": [
+   "Ekstrak folder lalu buka index.html di browser",
+   "Isi harga bahan di Master bahan sesuai toko besi langganan",
+   "Atur upah tukang & markup di Pengaturan",
+   "Hitung ukuran di Kalkulator, lalu klik Jadikan order",
+   "Cetak RAB untuk pelanggan, catat DP & pelunasan"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "README.md",
+   "PANDUAN.md",
+   "LICENSE",
+   "meta.json",
+   "ss.png",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-bengkel-las-hpp/SKILL.md"
+  ],
+  "gambar": "img/bengkel-las-hpp.webp",
+  "dasar": "paket/bengkel-las-hpp/",
+  "repo": "https://github.com/malikisaputra-source/bengkel-las-hpp",
+  "zip": "https://github.com/malikisaputra-source/bengkel-las-hpp/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "catatan-ojol",
   "judul": "Catatan Ojol",
   "ringkas": "Catat order Gojek/Grab/Maxim & pengeluaran, lihat untung bersih harian, mingguan, per km, dan jam paling cuan. Jalan di HP.",
@@ -121,7 +177,7 @@ window.KODE = [
  {
   "slug": "direktori-rumah-ibadah",
   "judul": "Direktori Rumah Ibadah",
-  "ringkas": "Direktori masjid, musala, gereja, pura, vihara & klenteng: peta, cari terdekat, member mengusulkan data, pengurus memoderasi.",
+  "ringkas": "Direktori rumah ibadah semua umat + halaman website per tempat: jadwal sholat & hitung mundur, kegiatan, kas infak, donasi.",
   "teknologi": [
    "HTML",
    "CSS",
@@ -134,28 +190,48 @@ window.KODE = [
   "tier": "gratis",
   "fitur": [
    "Daftar + peta OpenStreetMap, tanpa API key",
-   "Filter jenis (6 agama, warna & ikon sejajar) dan pencarian",
-   "Terdekat dari saya (lokasi HP)",
-   "Detail: foto, alamat, jadwal ibadah, fasilitas, kontak",
-   "Tombol petunjuk arah ke Google Maps",
-   "Member mengajukan tempat baru & usulan perubahan",
-   "Antrean moderasi: setujui/tolak + riwayat perubahan",
-   "Akun member sederhana (nama + PIN)",
-   "Ekspor/impor JSON & CSV",
-   "Mode gelap, rapi di HP & laptop"
+   "Filter 6 jenis (warna & ikon sejajar) + cari terdekat",
+   "Member mengusulkan data, pengurus memoderasi + riwayat",
+   "Jadikan website: halaman profil satu tempat (?tempat=id)",
+   "Jadwal sholat 5 waktu dihitung lokal (Kemenag 20°/18°) + hitung mundur",
+   "Pengumuman, kajian & kegiatan pekanan",
+   "Laporan infak/kas + grafik 4 bulan, catat transaksi",
+   "Rekening & QRIS donasi (placeholder), galeri SVG, kontak & peta",
+   "Pengurus mengedit isi website langsung",
+   "Ekspor/impor JSON & CSV, mode gelap, rapi di HP"
   ],
   "cara": [
    "Unduh ZIP lalu ekstrak foldernya",
    "Buka index.html di browser (butuh internet untuk peta)",
-   "Masuk sebagai Pengurus Kota, PIN 1234, lalu coba moderasi",
-   "Data › Kosongkan data, lalu isi kotamu sendiri",
-   "Ekspor JSON rutin, atau sambungkan ke Google Sheets/Supabase (lihat README)"
+   "Buka index.html?tempat=thoriqussalam untuk contoh website masjid",
+   "Masuk sebagai Pengurus Kota, PIN 1234, lalu klik Edit profil",
+   "Ikuti PANDUAN.md untuk online gratis di GitHub Pages/Netlify"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-direktori-rumah-ibadah/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "PANDUAN.md",
+   "profil.js",
+   "profil.css"
+  ],
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "req": [
+   "tsyamha90",
+   "taniaflorist7"
+  ],
   "gambar": "img/direktori-rumah-ibadah.webp",
+  "dasar": "paket/direktori-rumah-ibadah/",
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
   "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
  },
@@ -462,6 +538,63 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/katalog-toko-wa/archive/refs/heads/main.zip"
  },
  {
+  "slug": "keuangan-bendahara",
+  "judul": "Keuangan Pribadi & Bendahara",
+  "ringkas": "Satu aplikasi dua mode: catat keuangan pribadi (anggaran, dompet, tabungan) atau buku kas bendahara masjid/RT dengan laporan siap cetak.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "req": [
+   "manusiabiasa",
+   "nal.ptr",
+   "muslim_upskill"
+  ],
+  "fitur": [
+   "Pilih mode di awal: Pribadi atau Bendahara",
+   "Catat pemasukan/pengeluaran cepat dengan kategori + ikon",
+   "Anggaran per kategori dengan cincin progres",
+   "Saldo per dompet (tunai, bank, e-wallet) + pindah saldo",
+   "Grafik 6 bulan, donat pengeluaran & target tabungan",
+   "Buku kas umum bernomor, saldo awal, no. bukti BKM/BKK",
+   "Laporan periode siap cetak/PDF + tanda tangan bendahara & ketua",
+   "Rekap per pos, ekspor CSV untuk Excel/Sheets",
+   "Cadangan JSON untuk pindah HP, mode gelap"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak foldernya",
+   "Buka index.html di browser HP atau laptop",
+   "Pilih mode Pribadi atau Bendahara",
+   "Lihat data contoh, lalu Atur › Kosongkan data",
+   "Baca PANDUAN.md bila bingung, backup JSON rutin"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "PANDUAN.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-keuangan-bendahara/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg"
+  ],
+  "pratinjau": "index.html",
+  "gambar": "img/keuangan-bendahara.webp",
+  "dasar": "paket/keuangan-bendahara/",
+  "repo": "https://github.com/malikisaputra-source/keuangan-bendahara",
+  "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "manajemen-bengkel",
   "judul": "Manajemen Bengkel Motor & Mobil",
   "ringkas": "Sistem bengkel tanpa server: antrean kanban + layar TV, work order, stok sparepart, nota A5/58mm, kirim WA, riwayat plat & laporan.",
@@ -610,6 +743,63 @@ window.KODE = [
   "gambar": "img/pesan-antar-kedai.webp",
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
   "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "portofolio-pribadi",
+  "judul": "Portofolio Pribadi",
+  "ringkas": "Website portofolio editorial satu halaman: tipografi raksasa, animasi GSAP, karya dengan filter & detail, kontak WA. Isi cukup di data.js.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "GSAP"
+  ],
+  "kategori": "Template Website",
+  "tier": "premium",
+  "req": [
+   "anggrek.hitam.22"
+  ],
+  "fitur": [
+   "Hero tipografi raksasa + potret melengkung",
+   "Animasi GSAP: tirai, teks per baris, parallax, counter",
+   "Karya pilihan: grid besar, filter kategori, detail modal",
+   "Pengalaman timeline, testimoni, layanan + harga",
+   "Kontak WhatsApp, email, form mailto",
+   "Unduh CV otomatis (simpan PDF)",
+   "Semua isi dari satu berkas data.js",
+   "Mode terang/gelap, responsif HP–desktop",
+   "Panduan online gratis GitHub Pages/Netlify"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak",
+   "Buka index.html di browser",
+   "Ganti isi di data.js dan foto di img/",
+   "Ikuti PANDUAN.md untuk online gratis"
+  ],
+  "demo": "index.html",
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "PANDUAN.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-portofolio-pribadi/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "data.js",
+   "cv.html",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/potret.svg"
+  ],
+  "pratinjau": "index.html",
+  "gambar": "img/portofolio-pribadi.webp",
+  "dasar": "paket/portofolio-pribadi/",
+  "repo": "https://github.com/malikisaputra-source/portofolio-pribadi",
+  "zip": "https://github.com/malikisaputra-source/portofolio-pribadi/archive/refs/heads/main.zip"
  },
  {
   "slug": "presensi-gps-gas",
