@@ -90,6 +90,12 @@
     const tabAI = b.sub.filter((s) => /^cara\s*\d/i.test(s.judul)).length >= 2;
     let h = `<p class="pd-langkah">Topik ${aktif + 1} dari ${data.bagian.length}</p><h3 class="pd-h">${svg(ikonUntuk(b.judul))}${esc(b.judul)}</h3>`;
     if (b.intro.join("").trim()) h += `<div class="pd-intro">${blok(b.intro)}</div>`;
+    if (aktif === 0 && data.bagian.length > 1) {
+      h += `<p class="pd-pilih">Mau ngapain? Langsung pilih:</p><div class="pd-kartu">${data.bagian.slice(1).map((x, j) => {
+        const ai = /pakai ai/i.test(x.judul);
+        return `<button type="button" data-ke="${j + 1}" class="${ai ? "ai" : ""}">${svg(ikonUntuk(x.judul))}<b>${esc(ai ? "Ubah sendiri pakai AI" : x.judul)}</b>${ai ? "<small>ChatGPT · Claude · Claude Code · Codex · Antigravity · Gemini</small>" : ""}</button>`;
+      }).join("")}</div>`;
+    }
     if (tabAI) {
       const cara = b.sub.filter((s) => /^cara\s*\d/i.test(s.judul)), lain = b.sub.filter((s) => !/^cara\s*\d/i.test(s.judul));
       h += `<p class="pd-pilih">Pilih alat yang kamu pakai:</p><div class="pd-tab" role="tablist">${cara.map((s, k) => {
