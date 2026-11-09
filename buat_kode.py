@@ -31,3 +31,4 @@ for m in sorted(AKAR.glob("*/meta.json")):
     daftar.append(d)
 (SINI / "data" / "kode.js").write_text("window.KODE = " + json.dumps(daftar, ensure_ascii=False, indent=1) + ";\n")
 print(len(daftar), "paket")
+import subprocess; subprocess.run(["python3", str(SINI / "buat_laman.py")], check=True)

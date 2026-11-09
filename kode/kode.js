@@ -1,7 +1,28 @@
 /* Laman Source Code: katalog, cari, saring, panel detail, deep link #k/<slug> */
 (() => {
-  const DATA = (window.KODE || []).slice();
+  // tiga laman: Website & Webapp (/kode/), AI Agent (/kode/agent/), Video (/kode/video/)
+  const LAMAN = document.body.dataset.laman || "web", AKAR = document.body.dataset.akar || "";
+  const grup = (d) => d.kategori === "AI Agent" ? "agent" : d.kategori === "Template Video" ? "video" : "web";
+  const relatif = (u) => !u || /^(https?:|\/|data:)/.test(u) ? u : AKAR + u;
+  const SEMUA = (window.KODE || []).map((d) => AKAR ? { ...d, gambar: relatif(d.gambar), dasar: relatif(d.dasar),
+    unduhan_lain: (d.unduhan_lain || []).map((u) => ({ ...u, href: relatif(u.href) })) } : d);
+  const DATA = SEMUA.filter((d) => grup(d) === LAMAN);
+  const LAMAN_DAF = [
+    { id: "web", label: "Website & Webapp", url: "" },
+    { id: "agent", label: "AI Agent", url: "agent/" },
+    { id: "video", label: "Video", url: "video/" },
+  ];
+  // deep link ke paket di laman lain → pindah ke laman yang benar
+  { const mh = location.hash.match(/^#k\/(.+)$/), s = mh && decodeURIComponent(mh[1]);
+    const lain = s && !DATA.some((d) => d.slug === s) && SEMUA.find((d) => d.slug === s);
+    if (lain) { const tj = LAMAN_DAF.find((l) => l.id === grup(lain)); location.replace((AKAR || "./") + tj.url + "#k/" + s); } }
+  { const nav = document.getElementById("k-laman");
+    if (nav) nav.innerHTML = LAMAN_DAF.map((l) => {
+      const n = SEMUA.filter((d) => grup(d) === l.id).length;
+      return `<a href="${(AKAR || "./") + l.url}" ${l.id === LAMAN ? 'aria-current="page"' : ""}>${l.label}<span>${n}</span></a>`;
+    }).join(""); }
   const KAT = {
+    "AI Agent": { warna: "#f472b6", kode: "AI" },
     "Template Website": { warna: "#22d3ee", kode: "</>" },
     "Aplikasi Web": { warna: "#818cf8", kode: "APP" },
     "Google Apps Script": { warna: "#10b981", kode: "GAS" },
@@ -123,7 +144,7 @@
     const hasil = DATA.filter(cocok);
     hasil.forEach((d, i) => grid.append(kartu(d, i)));
     grid.classList.toggle("sedikit", hasil.length < 4);
-    if (!hasil.length) grid.append(el("p", "k-kosong", "Belum ada yang cocok. Coba kata lain, atau request di komentar TikTok ya."));
+    if (!hasil.length) grid.append(el("p", "k-kosong", buka_.length ? "Belum ada yang cocok. Coba kata lain, atau request di komentar TikTok ya." : "Paket di laman ini segera dibuka. Lihat daftar \"Segera hadir\" di bawah, dan follow TikTok @malikisaputra biar tidak ketinggalan."));
     const bagian = [state.kat, state.tier && (state.tier === "premium" ? "premium" : "gratis"), state.q && `“${esc(state.q)}”`].filter(Boolean);
     $("#k-info").innerHTML = `${hasil.length} source code${bagian.length ? " · " + bagian.join(" · ") : ""}`;
     segarkanHitung();

@@ -335,7 +335,7 @@ window.KODE = [
    "Vite",
    "TypeScript"
   ],
-  "kategori": "Template Web",
+  "kategori": "AI Agent",
   "tier": "premium",
   "fitur": [
    "Kantor 3D isometrik, ringan di HP (tanpa model 3D)",
@@ -675,7 +675,7 @@ window.KODE = [
    "Three.js",
    "Vite"
   ],
-  "kategori": "Template Web",
+  "kategori": "AI Agent",
   "tier": "premium",
   "fitur": [
    "Lantai 1: agent kasir, stok, pesanan, CS WhatsApp, keuangan",
