@@ -2061,6 +2061,206 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/template-montessori-anak/archive/refs/heads/main.zip"
  },
  {
+  "slug": "template-reels-t01",
+  "judul": "T01 Panggung Kutipan Sinematik",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Panggung Kutipan Sinematik.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t01.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t01",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t01/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t02",
+  "judul": "T02 Kata Kunci Minimal",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Kata Kunci Minimal.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t02.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t02",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t02/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t03",
+  "judul": "T03 Kolase Kertas",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Kolase Kertas.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t03.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t03",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t03/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t04",
+  "judul": "T04 Editorial Hangat",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Editorial Hangat.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t04.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t04",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t04/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t05",
+  "judul": "T05 UI Aplikasi Kaca",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya UI Aplikasi Kaca.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t05.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t05",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t05/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t06",
+  "judul": "T06 Bicara + Sisipan",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Bicara + Sisipan.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t06.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t06",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t06/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t07",
+  "judul": "T07 Dokumenter Retro",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Dokumenter Retro.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t07.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t07",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t07/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t08",
+  "judul": "T08 Tekno Gelap Oranye",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Tekno Gelap Oranye.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t08.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t08",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t08/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t09",
+  "judul": "T09 Iklan Jasa Krem",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Iklan Jasa Krem.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t09.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t09",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t09/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "template-reels-t10",
+  "judul": "T10 Grid Lampu Sorot",
+  "ringkas": "Template video reels 9:16 berbasis kode, gaya Grid Lampu Sorot.",
+  "teknologi": [
+   "Remotion",
+   "React",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [],
+  "cara": [],
+  "demo": null,
+  "kunci": "segera",
+  "gambar": "img/template-reels-t10.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/template-reels-t10",
+  "zip": "https://github.com/malikisaputra-source/template-reels-t10/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "template-sekolah-yayasan",
   "judul": "Template Sekolah & Yayasan Qur'ani",
   "ringkas": "Template website premium untuk yayasan, TK Qur'an, madrasah, dan SD Islam: kubah animasi GSAP, jadwal salat otomatis, satu config.js.",
