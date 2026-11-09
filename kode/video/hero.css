@@ -10,14 +10,38 @@ body[data-laman="video"] .k-hero-isi { position: relative; z-index: 2; transitio
 .hk-tombol:hover { background: rgba(34,211,238,.16); }
 .hk-tombol:focus-visible { outline: 3px solid #22d3ee; outline-offset: 3px; }
 .hk-tombol kbd { font: 500 11px "JetBrains Mono", monospace; opacity: .7; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; padding: 1px 5px; }
-.hk-hud { position: absolute; z-index: 3; top: 84px; left: 50%; translate: -50% 0; display: none; gap: 18px; font: 600 14px "JetBrains Mono", monospace; color: #e6f6ff; background: rgba(8,14,26,.7); border: 1px solid rgba(34,211,238,.35); border-radius: 12px; padding: 10px 16px; white-space: nowrap; }
-.hk-hud b { color: #22d3ee; } .hk-hud .o { color: #fb923c; }
-.hk-pesan { position: absolute; z-index: 3; top: 42%; left: 50%; translate: -50% -50%; display: none; text-align: center; font: 700 clamp(22px, 4vw, 40px) "Space Grotesk", sans-serif; color: #fff; text-shadow: 0 0 24px rgba(34,211,238,.7); width: min(90%, 560px); }
-.hk-pesan small { display: block; font: 500 14px "JetBrains Mono", monospace; color: #9fb0cc; margin-top: 10px; text-shadow: none; }
 .k-hero.hk-main .hk-kabut { opacity: .15; }
 .k-hero.hk-main .k-hero-isi { opacity: .06 !important; transform: scale(.97); filter: blur(2px); pointer-events: none; }
 .k-hero.hk-main .hk-hud { display: flex; }
 .k-hero.hk-main .hero-khusus canvas { pointer-events: auto; touch-action: none; }
 .k-hero.hk-main .hk-pesan.on { display: block; }
-@media (max-width: 760px) { .hk-hud { top: 72px; gap: 12px; font-size: 12px; } .hk-panel .hk-info { display: none; } }
 @media (prefers-reduced-motion: reduce) { body[data-laman="video"] .k-hero-isi, .hero-khusus .hk-kabut { transition: none; } }
+.hk-hud { position: absolute; z-index: 3; top: 80px; left: 50%; translate: -50% 0; display: none; flex-direction: column; gap: 6px; width: min(92vw, 520px); box-sizing: border-box; font: 600 13px "JetBrains Mono", monospace; color: #e6f6ff; background: rgba(8,14,26,.72); border: 1px solid rgba(34,211,238,.35); border-radius: 12px; padding: 8px 14px; pointer-events: none; }
+.hk-baris { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.hk-baris small { display: block; font-size: 10px; color: #9fb0cc; letter-spacing: .08em; text-transform: uppercase; }
+.hk-skor b { font-size: 22px; color: #fff; } .hk-waktu b { font-size: 20px; color: #22d3ee; } .hk-waktu b.genting { color: #f43f5e; } .hk-lv b { color: #a855f7; font-size: 18px; }
+.hk-waktu, .hk-lv { text-align: center; }
+.hk-render { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #9fb0cc; }
+.hk-render i { flex: 1; height: 10px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+.hk-render em { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #22d3ee, #a855f7, #fb923c); transition: width .25s ease; }
+.hk-render b { color: #fb923c; min-width: 3.5ch; text-align: right; }
+.hk-baris.kecil { font-size: 11px; color: #9fb0cc; flex-wrap: wrap; justify-content: flex-start; gap: 4px 12px; }
+.hk-combo.on { color: #facc15; } .hk-bintang { color: #fb923c; letter-spacing: .1em; } .hk-bintang.on { color: #fff; text-shadow: 0 0 10px #fb923c; }
+.hk-misi { flex-basis: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hk-pesan { position: absolute; z-index: 4; top: 46%; left: 50%; translate: -50% -50%; display: none; width: min(calc(100% - 32px), 460px); box-sizing: border-box; }
+.hk-kartu { background: rgba(8,12,24,.92); border: 1px solid rgba(34,211,238,.4); border-radius: 16px; padding: 18px 20px; color: #e6f6ff; font: 400 14px/1.45 "Space Grotesk", sans-serif; box-shadow: 0 20px 60px rgba(0,0,0,.6); text-align: left; }
+.hk-kartu h2 { margin: 2px 0 10px; font: 700 clamp(20px, 3.2vw, 26px)/1.15 "Space Grotesk", sans-serif; color: #fff; }
+.hk-label { margin: 0; font: 600 11px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: #22d3ee; }
+.hk-kartu ul { margin: 0 0 10px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.hk-kartu li i { font-style: normal; display: inline-block; width: 1.4em; text-align: center; }
+.hk-kartu i.c { color: #22d3ee; } .hk-kartu i.w { color: #e6f6ff; } .hk-kartu i.o { color: #fb923c; } .hk-kartu i.r { color: #f43f5e; }
+.hk-tantangan { margin: 8px 0; padding: 8px 10px; border-radius: 10px; background: rgba(168,85,247,.14); border: 1px solid rgba(168,85,247,.4); font-size: 13px; }
+.hk-kendali, .hk-rinci, .hk-lagi { margin: 6px 0; font: 500 12px/1.5 "JetBrains Mono", monospace; color: #9fb0cc; }
+.hk-besar { margin-top: 10px; width: 100%; min-height: 52px; border: 0; border-radius: 12px; background: linear-gradient(90deg, #22d3ee, #a855f7); color: #05070f; font: 700 17px "Space Grotesk", sans-serif; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.hk-besar kbd { font: 500 11px "JetBrains Mono", monospace; border: 1px solid rgba(5,7,15,.4); border-radius: 4px; padding: 1px 5px; }
+.hk-besar:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.hk-kartu.hasil { text-align: center; }
+.hk-medali { display: inline-block; margin: 8px 0 2px; padding: 6px 16px; border-radius: 99px; border: 2px solid var(--m); color: var(--m); font: 700 18px "Space Grotesk", sans-serif; box-shadow: 0 0 22px color-mix(in srgb, var(--m) 45%, transparent); }
+.hk-total { margin: 4px 0; font: 700 40px/1 "Space Grotesk", sans-serif; color: #fff; }
+.hk-total small { display: block; margin-top: 4px; font: 500 12px "JetBrains Mono", monospace; color: #facc15; }
+@media (max-width: 760px) { .hk-hud { top: 68px; } .hk-panel .hk-info { display: none; } .hk-kartu { padding: 14px 16px; font-size: 13px; } .hk-total { font-size: 32px; } }
