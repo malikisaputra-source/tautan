@@ -41,9 +41,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 11,
    "aktif": false,
-   "jenis": "share",
    "target": 200,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
@@ -88,9 +103,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 4,
    "aktif": false,
-   "jenis": "share",
    "target": 130,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
@@ -136,9 +166,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 5,
    "aktif": false,
-   "jenis": "share",
    "target": 140,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/bengkel-las-hpp",
@@ -182,9 +227,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 6,
    "aktif": false,
-   "jenis": "share",
    "target": 150,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
@@ -235,9 +295,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 3,
    "aktif": false,
-   "jenis": "share",
    "target": 120,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
@@ -282,9 +357,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 10,
    "aktif": false,
-   "jenis": "share",
    "target": 190,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
@@ -329,9 +419,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 9,
    "aktif": false,
-   "jenis": "share",
    "target": 180,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
@@ -381,9 +486,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 8,
    "aktif": false,
-   "jenis": "share",
    "target": 170,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kalender-kerja",
@@ -422,9 +542,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 14,
    "aktif": false,
-   "jenis": "share",
    "target": 230,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -463,9 +598,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 16,
    "aktif": false,
-   "jenis": "share",
    "target": 250,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -504,9 +654,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 1,
    "aktif": true,
-   "jenis": "share",
    "target": 100,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -545,9 +710,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 5,
    "aktif": false,
-   "jenis": "share",
    "target": 140,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -586,9 +766,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 2,
    "aktif": false,
-   "jenis": "share",
    "target": 110,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -627,9 +822,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 12,
    "aktif": false,
-   "jenis": "share",
    "target": 210,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -668,9 +878,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 13,
    "aktif": false,
-   "jenis": "share",
    "target": 220,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -709,9 +934,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 6,
    "aktif": false,
-   "jenis": "share",
    "target": 150,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -750,9 +990,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 10,
    "aktif": false,
-   "jenis": "share",
    "target": 190,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -791,9 +1046,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 15,
    "aktif": false,
-   "jenis": "share",
    "target": 240,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -832,9 +1102,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 8,
    "aktif": false,
-   "jenis": "share",
    "target": 170,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -873,9 +1158,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 7,
    "aktif": false,
-   "jenis": "share",
    "target": 160,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -914,9 +1214,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 11,
    "aktif": false,
-   "jenis": "share",
    "target": 200,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -990,9 +1305,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 9,
    "aktif": false,
-   "jenis": "share",
    "target": 180,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -1031,9 +1361,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 4,
    "aktif": false,
-   "jenis": "share",
    "target": 130,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -1072,9 +1417,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 3,
    "aktif": false,
-   "jenis": "share",
    "target": 120,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
@@ -1118,9 +1478,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 2,
    "aktif": false,
-   "jenis": "share",
    "target": 110,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/kas-warung",
@@ -1280,9 +1655,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 1,
    "aktif": true,
-   "jenis": "share",
    "target": 100,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/keuangan-bendahara",
@@ -1478,9 +1868,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 12,
    "aktif": false,
-   "jenis": "share",
    "target": 210,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
@@ -1524,9 +1929,24 @@ window.KODE = [
   "tantangan": {
    "giliran": 7,
    "aktif": false,
-   "jenis": "share",
    "target": 160,
-   "sekarang": 0,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
    "tautan": null
   },
   "repo": "https://github.com/malikisaputra-source/portofolio-pribadi",

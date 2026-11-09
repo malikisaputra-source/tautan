@@ -30,9 +30,10 @@ for m in sorted(AKAR.glob("*/meta.json")):
     grp = next((g for g, l in ANTRE.get("antrean", {}).items() if slug in l), None)
     if grp:
         i = ANTRE["antrean"][grp].index(slug); pr = ANTRE.get("progres", {}).get(slug, {})
-        d["tantangan"] = {"giliran": i + 1, "aktif": i == 0, "jenis": ANTRE.get("jenis", "share"),
+        d["tantangan"] = {"giliran": i + 1, "aktif": i == 0,
                           "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 10) * i,
-                          "sekarang": pr.get("sekarang", 0), "tautan": pr.get("tautan")}
+                          "metrik": [{**m, "sekarang": pr.get(m["id"], 0)} for m in ANTRE.get("metrik", [])],
+                          "tautan": pr.get("tautan")}
     rg = d.pop("repo_github", None) or slug
     d["repo"] = GH + rg
     d["zip"] = GH + rg + "/archive/refs/heads/main.zip"
