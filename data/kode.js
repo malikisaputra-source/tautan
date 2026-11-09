@@ -667,11 +667,13 @@ window.KODE = [
  {
   "slug": "paket-10-agent-umkm",
   "judul": "10 AI Agent UMKM",
-  "ringkas": "10 AI agent untuk usaha kecil (contoh toko roti fiktif \"Roti Senja\") dalam kantor 2 lantai. Jalan gratis di Antigravity CLI.",
+  "ringkas": "10 AI agent untuk usaha kecil + Kantor AI 3D 2 lantai (contoh toko roti fiktif \"Roti Senja\"). Jalan gratis di Antigravity CLI.",
   "teknologi": [
    "Antigravity CLI",
    "AGENTS.md",
-   "JSON"
+   "React",
+   "Three.js",
+   "Vite"
   ],
   "kategori": "Template Web",
   "tier": "premium",
@@ -680,6 +682,7 @@ window.KODE = [
    "Lantai 2: agent riset, konten, desain, laporan, manajer",
    "Contoh data harian: penjualan, stok, pesanan, pesan WA",
    "Semua agent menulis laporan ke src/laporan.json",
+   "Kantor AI 3D 2 lantai: lihat 10 agent bekerja & laporannya (Vite + Three.js)",
    "Jalan gratis di Antigravity CLI (login Gmail)",
    "Paket gratis punya kuota mingguan, cek /usage"
   ],
@@ -687,7 +690,8 @@ window.KODE = [
    "Pasang Antigravity CLI dan login dengan Gmail",
    "Ganti isi folder data/ dengan data usahamu",
    "Buka Terminal di folder paket, ketik agy",
-   "Minta agent mengerjakan tugasnya, lalu baca setiap izin sebelum setuju"
+   "Minta agent mengerjakan tugasnya, lalu baca setiap izin sebelum setuju",
+   "Lihat kantornya: npm install lalu npm run dev"
   ],
   "demo": null,
   "kunci": "segera",
