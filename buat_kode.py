@@ -4,6 +4,7 @@ import json, pathlib, shutil
 SINI = pathlib.Path(__file__).resolve().parent
 AKAR = SINI.parent.parent / "kode"
 GH = "https://github.com/malikisaputra-source/"
+ANTRE = json.loads((AKAR / "antrean.json").read_text()) if (AKAR / "antrean.json").exists() else {"urutan": []}
 daftar = []
 for m in sorted(AKAR.glob("*/meta.json")):
     d = json.loads(m.read_text())
@@ -26,6 +27,11 @@ for m in sorted(AKAR.glob("*/meta.json")):
             if src.is_file():
                 (tujuan / b).parent.mkdir(parents=True, exist_ok=True); shutil.copy(src, tujuan / b)
         d["dasar"] = f"paket/{slug}/"
+    if slug in ANTRE.get("urutan", []):
+        i = ANTRE["urutan"].index(slug); pr = ANTRE.get("progres", {}).get(slug, {})
+        d["tantangan"] = {"giliran": i + 1, "aktif": i == 0, "jenis": ANTRE.get("jenis", "share"),
+                          "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 10) * i,
+                          "sekarang": pr.get("sekarang", 0), "tautan": pr.get("tautan")}
     d["repo"] = GH + slug
     d["zip"] = GH + slug + "/archive/refs/heads/main.zip"
     daftar.append(d)

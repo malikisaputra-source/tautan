@@ -59,10 +59,20 @@
   function kartuKunci(d) {
     const b = el("button", "k-kartu terkunci");
     b.type = "button"; b.disabled = true; b.setAttribute("aria-disabled", "true");
-    const t = tglKunci(d), lbl = t === "segera" ? "Segera dibuka" : "Dibuka " + t;
+    const tg = d.tantangan, t = tglKunci(d);
+    const lbl = tg ? (tg.aktif ? `Tantangan aktif · ${tg.target} ${tg.jenis}` : `Giliran #${tg.giliran} · ${tg.target} ${tg.jenis}`) : t === "segera" ? "Segera dibuka" : "Dibuka " + t;
     b.setAttribute("aria-label", `${d.judul}, ${lbl.toLowerCase()}`);
+    let prog = "";
+    if (tg && tg.aktif) {
+      const p = Math.min(100, Math.round((tg.sekarang || 0) / tg.target * 100));
+      prog = `<div class="k-tantangan"><div class="k-tt-angka"><b>${(tg.sekarang || 0).toLocaleString("id-ID")}</b> / ${tg.target} ${esc(tg.jenis)}</div>
+        <div class="k-tt-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${tg.target}" aria-valuenow="${tg.sekarang || 0}" aria-label="Progres tantangan"><span style="width:${p}%"></span></div>
+        <p>Tembus ${tg.target} ${esc(tg.jenis)}, langsung dibuka.</p></div>`;
+      b.disabled = false; b.removeAttribute("aria-disabled"); b.classList.add("aktif");
+      b.addEventListener("click", () => { if (tg.tautan) window.open(tg.tautan, "_blank", "noopener"); else window.open("https://www.tiktok.com/@malikifsaputra", "_blank", "noopener"); });
+    } else if (tg) prog = `<p class="k-tt-tunggu">Dibuka setelah tantangan sebelumnya tercapai.</p>`;
     b.innerHTML = `<div class="k-sampul">${d.gambar ? `<img src="${esc(d.gambar)}" alt="" loading="lazy" width="1280" height="800">` : ""}<span class="k-gembok">${gembok}</span></div>
-      <div class="k-badan"><span class="k-lencana kunci">${lbl}</span><h3>${esc(d.judul)}</h3></div>`;
+      <div class="k-badan"><span class="k-lencana kunci">${lbl}</span><h3>${esc(d.judul)}</h3>${prog}</div>`;
     return b;
   }
   function kartu(d, i) {
@@ -90,6 +100,7 @@
   $("#k-jumlah-pil").textContent = `${buka_.length} siap unduh · ${kunci.length} segera hadir`;
   $("#k-segera-n").textContent = kunci.length;
   if (!kunci.length) $("#k-segera-blok").hidden = true;
+  kunci.sort((a, b) => (a.tantangan ? a.tantangan.giliran : 99) - (b.tantangan ? b.tantangan.giliran : 99));
   kunci.forEach((d) => $("#k-segera").append(kartuKunci(d)));
 
   // kategori: segmen

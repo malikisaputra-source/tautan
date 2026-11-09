@@ -36,8 +36,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/absensi-karyawan.webp",
+  "tantangan": {
+   "giliran": 11,
+   "aktif": false,
+   "jenis": "share",
+   "target": 200,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
   "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
  },
@@ -75,8 +83,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "2026-11-16",
+  "kunci": "tantangan",
   "gambar": "img/belanja-keluarga.webp",
+  "tantangan": {
+   "giliran": 4,
+   "aktif": false,
+   "jenis": "share",
+   "target": 130,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
   "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
  },
@@ -115,8 +131,16 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/bengkel-las-hpp.webp",
+  "tantangan": {
+   "giliran": 5,
+   "aktif": false,
+   "jenis": "share",
+   "target": 140,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/bengkel-las-hpp",
   "zip": "https://github.com/malikisaputra-source/bengkel-las-hpp/archive/refs/heads/main.zip"
  },
@@ -153,8 +177,16 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "2026-11-16",
+  "kunci": "tantangan",
   "gambar": "img/catatan-ojol.webp",
+  "tantangan": {
+   "giliran": 6,
+   "aktif": false,
+   "jenis": "share",
+   "target": 150,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
   "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
  },
@@ -198,8 +230,16 @@ window.KODE = [
    "tsyamha90",
    "taniaflorist7"
   ],
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/direktori-rumah-ibadah.webp",
+  "tantangan": {
+   "giliran": 3,
+   "aktif": false,
+   "jenis": "share",
+   "target": 120,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
   "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
  },
@@ -237,8 +277,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/helpdesk-tiket.webp",
+  "tantangan": {
+   "giliran": 10,
+   "aktif": false,
+   "jenis": "share",
+   "target": 190,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
   "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip"
  },
@@ -276,8 +324,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "2026-11-16",
+  "kunci": "tantangan",
   "gambar": "img/iuran-kas-rt.webp",
+  "tantangan": {
+   "giliran": 9,
+   "aktif": false,
+   "jenis": "share",
+   "target": 180,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
   "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip"
  },
@@ -320,8 +376,16 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "2026-11-16",
+  "kunci": "tantangan",
   "gambar": "img/kalender-kerja.webp",
+  "tantangan": {
+   "giliran": 8,
+   "aktif": false,
+   "jenis": "share",
+   "target": 170,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/kalender-kerja",
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
@@ -393,8 +457,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "2026-11-16",
+  "kunci": "tantangan",
   "gambar": "img/kas-warung.webp",
+  "tantangan": {
+   "giliran": 2,
+   "aktif": false,
+   "jenis": "share",
+   "target": 110,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/kas-warung",
   "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
  },
@@ -547,8 +619,16 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/keuangan-bendahara.webp",
+  "tantangan": {
+   "giliran": 1,
+   "aktif": true,
+   "jenis": "share",
+   "target": 100,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/keuangan-bendahara",
   "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip"
  },
@@ -737,8 +817,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/pesan-antar-kedai.webp",
+  "tantangan": {
+   "giliran": 12,
+   "aktif": false,
+   "jenis": "share",
+   "target": 210,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
   "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
  },
@@ -775,8 +863,16 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/portofolio-pribadi.webp",
+  "tantangan": {
+   "giliran": 7,
+   "aktif": false,
+   "jenis": "share",
+   "target": 160,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/portofolio-pribadi",
   "zip": "https://github.com/malikisaputra-source/portofolio-pribadi/archive/refs/heads/main.zip"
  },

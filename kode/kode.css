@@ -624,3 +624,14 @@ li.pd-prompt .pd-salin { top: 50%; transform: translateY(-50%); }
 .k-laman a[aria-current="page"] span { background: rgba(4,18,26,.18); color: #04121a; }
 .k-laman a:focus-visible { outline: 2px solid var(--aksen); outline-offset: 2px; }
 @media (max-width: 560px) { .k-laman { width: 100%; border-radius: 18px; } .k-laman a { flex: 1 1 auto; justify-content: center; padding: 0 12px; font-size: 14px; } }
+
+/* tantangan buka bertahap */
+.k-kartu.terkunci.aktif { cursor: pointer; border-color: rgba(250,204,21,.55); box-shadow: 0 0 0 1px rgba(250,204,21,.35), 0 20px 60px -30px rgba(250,204,21,.5); }
+.k-kartu.terkunci.aktif .k-lencana.kunci { background: rgba(250,204,21,.16); color: #fde68a; border-color: rgba(250,204,21,.5); }
+.k-tantangan { margin-top: 10px; display: grid; gap: 8px; text-align: left; }
+.k-tt-angka { font-family: var(--mono); font-size: 13px; color: var(--redup); }
+.k-tt-angka b { color: #fde68a; font-size: 18px; }
+.k-tt-bar { height: 8px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.k-tt-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #facc15, #22d3ee); transition: width .6s ease; }
+.k-tantangan p, .k-tt-tunggu { margin: 0; font-size: 13px; color: var(--redup); line-height: 1.5; }
+.k-kartu.terkunci.aktif { height: auto; min-height: 300px; }

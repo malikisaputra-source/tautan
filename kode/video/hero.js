@@ -162,8 +162,9 @@
   }
 
   // ---- gambar ----
-  var camX = 0, lebarKart = 100;
-  function posKartX() { return W / 2 + (px - camX) * lebarKart; }
+  var camX = 0, lebarKart = 100, pusatKart = 0;
+  // x layar kart = proyeksi jalan yang sama di baris ky (pusat jalan + px * setengah lebar)
+  function posKartX() { return (pusatKart || W / 2) + px * lebarKart; }
   function poly(x1, y1, w1, x2, y2, w2, warna) { cx.fillStyle = warna; cx.beginPath(); cx.moveTo(x1 - w1, y1); cx.lineTo(x2 - w2, y2); cx.lineTo(x2 + w2, y2); cx.lineTo(x1 + w1, y1); cx.fill(); }
   function langit(off) {
     var hz = H * 0.5, g = cx.createLinearGradient(0, 0, 0, hz);
@@ -205,7 +206,11 @@
     var gx = guncang ? Math.sin(performance.now() / 25) * 6 * guncang : 0;
     cx.save(); cx.translate(gx, 0);
     var b = Math.floor(pos / SEG), frac = (pos % SEG) / SEG, base = segs[b % JUMLAH];
-    camX = px * (W < 640 ? 0.2 : 0.5); // di HP kamera hampir diam → lintasan tidak condong
+    // kamera: geser jalan (bukan kart) supaya kart selalu di layar, juga di tikungan & jalan yang lebih lebar dari layar
+    var lk = lebarKart || W * 0.4, lengkung = pusatKart ? pusatKart - W / 2 + camX * lk : 0,
+        batas = W * (W < 640 ? 0.28 : 0.3), mau = lengkung + px * lk * 0.5;
+    mau = Math.max(-batas, Math.min(batas, mau));
+    camX = px - (mau - lengkung) / lk;
     var camH = 1100 + base.h, dx = -base.c * frac, x = 0, maxY = H, D = 0.84, hz = H * 0.5, ky = VH - 96;
     langit(pos * 0.002);
     var titik = []; lebarKart = 0;
@@ -218,7 +223,10 @@
       var w1 = LEBAR * s1 * 0.6, w2 = LEBAR * s2 * 0.6;
       x += dx; dx += sg.c;
       titik.push({ n: b + n, i: i, y: y1, cx: cx1, w: w1 });
-      if (!lebarKart && y1 <= ky) lebarKart = w1;
+      if (!lebarKart && n > 0 && y1 <= ky && titik[n - 1].y >= ky) {
+        var pa = titik[n - 1], f = (pa.y - ky) / Math.max(1e-6, pa.y - y1);
+        lebarKart = pa.w + (w1 - pa.w) * f; pusatKart = pa.cx + (cx1 - pa.cx) * f;
+      }
       if (y2 >= maxY || y2 >= y1) continue;
       var gelap = (i >> 1) % 2;
       poly(cx1, y1, w1 * 1.32, cx2, y2, w2 * 1.32, gelap ? '#0b0f1f' : '#0f1428');
@@ -232,7 +240,7 @@
       if (gelap) { poly(cx1 - w1 / 3, y1, w1 * .012, cx2 - w2 / 3, y2, w2 * .012, 'rgba(230,246,255,.25)'); poly(cx1 + w1 / 3, y1, w1 * .012, cx2 + w2 / 3, y2, w2 * .012, 'rgba(230,246,255,.25)'); }
       maxY = y2;
     }
-    if (!lebarKart) lebarKart = W * 0.4;
+    if (!lebarKart) { lebarKart = W * 0.4; pusatKart = W / 2; }
     for (var t = titik.length - 1; t > 0; t--) {
       var p = titik[t], arr = objs[p.n];
       if (!arr || p.w < 3) continue;
@@ -243,7 +251,7 @@
       cx.strokeStyle = 'rgba(230,246,255,.35)'; cx.lineWidth = 2;
       for (var L = 0; L < 26; L++) { var an = Math.random() * TAU, r0 = Math.min(W, H) * (0.25 + Math.random() * 0.2), r1 = r0 + 60 + Math.random() * 120; cx.beginPath(); cx.moveTo(W / 2 + Math.cos(an) * r0, hz + Math.sin(an) * r0 * 0.7); cx.lineTo(W / 2 + Math.cos(an) * r1, hz + Math.sin(an) * r1 * 0.7); cx.stroke(); }
     }
-    var ks = Math.min(W, H * 1.2) * 0.11, kx = posKartX();
+    var ks = Math.max(18, Math.min(lebarKart * 0.2, Math.min(W, H * 1.2) * 0.13)), kx = posKartX();
     kilat.forEach(function (k) { cx.strokeStyle = 'rgba(34,211,238,' + (1 - k.t * 2) + ')'; cx.lineWidth = 3; cx.beginPath(); cx.arc(kx, ky - ks * .4, ks * (0.6 + k.t * 2), 0, 7); cx.stroke(); });
     kart(kx, ky, ks, steer);
     percik.forEach(function (p) { cx.globalAlpha = 1 - p.t / 0.6; cx.fillStyle = p.c; cx.fillRect(p.x - 2, p.y - 2, 4, 4); });
