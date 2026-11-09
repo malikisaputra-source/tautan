@@ -666,7 +666,7 @@ window.KODE = [
  },
  {
   "slug": "paket-10-agent-umkm",
-  "judul": "10 AI Agent UMKM",
+  "judul": "10 AI Agent UMKM + Kantor 3D 2 Lantai",
   "ringkas": "10 AI agent untuk usaha kecil + Kantor AI 3D 2 lantai (contoh toko roti fiktif \"Roti Senja\"). Jalan gratis di Antigravity CLI.",
   "teknologi": [
    "Antigravity CLI",

@@ -2,6 +2,8 @@
 """Buat laman /kode/agent/ dan /kode/video/ dari kode/index.html (satu sumber, beda isi hero & saringan)."""
 import pathlib, re
 SINI = pathlib.Path(__file__).resolve().parent
+import time
+VER = time.strftime("%Y%m%d%H%M")
 sumber = (SINI / "kode" / "index.html").read_text()
 LAMAN = {
   "agent": dict(title="AI Agent Gratis · Maliki Studio",
@@ -27,6 +29,10 @@ for nama, v in LAMAN.items():
   t = re.sub(r'(<meta property="og:description" content=")[^"]*', r"\g<1>" + v["desc"], t, 1)
   t = re.sub(r'(<h1 id="k-judul"[^>]*>).*?(</h1>)', r"\g<1>" + v["h1"] + r"\g<2>", t, 1)
   t = re.sub(r'(<p class="sub">).*?(</p>)', r"\g<1>" + v["sub"] + r"\g<2>", t, 1)
+  # hero khusus per laman: kode/<laman>/hero.css + hero.js mengisi #hero-khusus
+  t = t.replace('<section class="k-hero" aria-labelledby="k-judul">', '<section class="k-hero" aria-labelledby="k-judul">\n  <div class="hero-khusus" id="hero-khusus"></div>', 1)
+  t = t.replace("</head>", '<link rel="stylesheet" href="hero.css?v=' + VER + '">\n</head>', 1)
+  t = t.replace("</body>", '<script src="hero.js?v=' + VER + '" defer></script>\n</body>', 1)
   (SINI / "kode" / nama).mkdir(exist_ok=True)
   (SINI / "kode" / nama / "index.html").write_text(t)
 print("laman:", ", ".join(LAMAN))

@@ -1,0 +1,23 @@
+/* hero video */ body[data-laman="video"] .k-hero .k-cakrawala { display: none; }
+/* Hero khusus Video: balap kart di lintasan timeline */
+body[data-laman="video"] .hero-khusus { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-khusus canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.hero-khusus .hk-kabut { position: absolute; inset: 0; pointer-events: none; transition: opacity .5s ease;
+  background: radial-gradient(ellipse 70% 55% at 50% 42%, rgba(5,8,16,.82), rgba(5,8,16,.45) 60%, rgba(5,8,16,.1) 100%), linear-gradient(rgba(5,8,16,.35), transparent 30%, transparent 75%, rgba(5,8,16,.9)); }
+body[data-laman="video"] .k-hero-isi { position: relative; z-index: 2; transition: opacity .45s ease, transform .45s ease, filter .45s ease; }
+.hk-panel { position: absolute; z-index: 3; left: 50%; bottom: auto; top: calc(100% - 70px); translate: -50% 0; display: flex; gap: 10px; align-items: center; font: 500 12px/1.2 "JetBrains Mono", monospace; color: #9fb0cc; }
+.hk-tombol { min-height: 44px; min-width: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(34,211,238,.55); background: rgba(8,14,26,.75); color: #e6f6ff; font: 600 14px "Space Grotesk", sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(6px); }
+.hk-tombol:hover { background: rgba(34,211,238,.16); }
+.hk-tombol:focus-visible { outline: 3px solid #22d3ee; outline-offset: 3px; }
+.hk-tombol kbd { font: 500 11px "JetBrains Mono", monospace; opacity: .7; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; padding: 1px 5px; }
+.hk-hud { position: absolute; z-index: 3; top: 84px; left: 50%; translate: -50% 0; display: none; gap: 18px; font: 600 14px "JetBrains Mono", monospace; color: #e6f6ff; background: rgba(8,14,26,.7); border: 1px solid rgba(34,211,238,.35); border-radius: 12px; padding: 10px 16px; white-space: nowrap; }
+.hk-hud b { color: #22d3ee; } .hk-hud .o { color: #fb923c; }
+.hk-pesan { position: absolute; z-index: 3; top: 42%; left: 50%; translate: -50% -50%; display: none; text-align: center; font: 700 clamp(22px, 4vw, 40px) "Space Grotesk", sans-serif; color: #fff; text-shadow: 0 0 24px rgba(34,211,238,.7); width: min(90%, 560px); }
+.hk-pesan small { display: block; font: 500 14px "JetBrains Mono", monospace; color: #9fb0cc; margin-top: 10px; text-shadow: none; }
+.k-hero.hk-main .hk-kabut { opacity: .15; }
+.k-hero.hk-main .k-hero-isi { opacity: .06 !important; transform: scale(.97); filter: blur(2px); pointer-events: none; }
+.k-hero.hk-main .hk-hud { display: flex; }
+.k-hero.hk-main .hero-khusus canvas { pointer-events: auto; touch-action: none; }
+.k-hero.hk-main .hk-pesan.on { display: block; }
+@media (max-width: 760px) { .hk-hud { top: 72px; gap: 12px; font-size: 12px; } .hk-panel .hk-info { display: none; } }
+@media (prefers-reduced-motion: reduce) { body[data-laman="video"] .k-hero-isi, .hero-khusus .hk-kabut { transition: none; } }
