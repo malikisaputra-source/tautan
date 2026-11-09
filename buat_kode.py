@@ -4,7 +4,7 @@ import json, pathlib, shutil
 SINI = pathlib.Path(__file__).resolve().parent
 AKAR = SINI.parent.parent / "kode"
 GH = "https://github.com/malikisaputra-source/"
-ANTRE = json.loads((AKAR / "antrean.json").read_text()) if (AKAR / "antrean.json").exists() else {"urutan": []}
+ANTRE = json.loads((AKAR / "antrean.json").read_text()) if (AKAR / "antrean.json").exists() else {}
 daftar = []
 for m in sorted(AKAR.glob("*/meta.json")):
     d = json.loads(m.read_text())
@@ -27,13 +27,15 @@ for m in sorted(AKAR.glob("*/meta.json")):
             if src.is_file():
                 (tujuan / b).parent.mkdir(parents=True, exist_ok=True); shutil.copy(src, tujuan / b)
         d["dasar"] = f"paket/{slug}/"
-    if slug in ANTRE.get("urutan", []):
-        i = ANTRE["urutan"].index(slug); pr = ANTRE.get("progres", {}).get(slug, {})
+    grp = next((g for g, l in ANTRE.get("antrean", {}).items() if slug in l), None)
+    if grp:
+        i = ANTRE["antrean"][grp].index(slug); pr = ANTRE.get("progres", {}).get(slug, {})
         d["tantangan"] = {"giliran": i + 1, "aktif": i == 0, "jenis": ANTRE.get("jenis", "share"),
                           "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 10) * i,
                           "sekarang": pr.get("sekarang", 0), "tautan": pr.get("tautan")}
-    d["repo"] = GH + slug
-    d["zip"] = GH + slug + "/archive/refs/heads/main.zip"
+    rg = d.pop("repo_github", None) or slug
+    d["repo"] = GH + rg
+    d["zip"] = GH + rg + "/archive/refs/heads/main.zip"
     daftar.append(d)
 (SINI / "data" / "kode.js").write_text("window.KODE = " + json.dumps(daftar, ensure_ascii=False, indent=1) + ";\n")
 print(len(daftar), "paket")

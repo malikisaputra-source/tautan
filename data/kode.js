@@ -390,6 +390,416 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
  {
+  "slug": "kantor-ai-clay",
+  "judul": "Kantor AI 3D · Clay",
+  "ringkas": "Kantor AI 3D gaya Clay: semua objek dari tanah liat: membulat, bekas jari, warna lembut. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Clay: semua objek dari tanah liat: membulat, bekas jari, warna lembut",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya clay)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=clay",
+   "Atau set GAYA = 'clay' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-clay.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 1,
+   "aktif": true,
+   "jenis": "share",
+   "target": 100,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-diorama",
+  "judul": "Kantor AI 3D · Diorama Miniatur",
+  "ringkas": "Kantor AI 3D gaya Diorama Miniatur: seperti maket kecil: detail buku, cangkir, kabel, efek tilt-shift. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Diorama Miniatur: seperti maket kecil: detail buku, cangkir, kabel, efek tilt-shift",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya diorama)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=diorama",
+   "Atau set GAYA = 'diorama' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-diorama.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 5,
+   "aktif": false,
+   "jenis": "share",
+   "target": 140,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-felt",
+  "judul": "Kantor AI 3D · Felt / Wol",
+  "ringkas": "Kantor AI 3D gaya Felt / Wol: semua objek dari kain flanel dan wol berbulu halus, ada jahitan. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Felt / Wol: semua objek dari kain flanel dan wol berbulu halus, ada jahitan",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya felt)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=felt",
+   "Atau set GAYA = 'felt' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-felt.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 2,
+   "aktif": false,
+   "jenis": "share",
+   "target": 110,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-gedung30",
+  "judul": "Kantor AI 3D · Gedung 30 Lantai",
+  "ringkas": "Kantor AI 3D gaya Gedung 30 Lantai: pencakar langit voxel 30 lantai dengan lantai terbuka. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Gedung 30 Lantai: pencakar langit voxel 30 lantai dengan lantai terbuka",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya gedung30)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=gedung30",
+   "Atau set GAYA = 'gedung30' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-gedung30.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 12,
+   "aktif": false,
+   "jenis": "share",
+   "target": 210,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-hologram",
+  "judul": "Kantor AI 3D · Hologram Malam",
+  "ringkas": "Kantor AI 3D gaya Hologram Malam: grid cyan, dinding kaca, agen bertepi cahaya, board hologram. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Hologram Malam: grid cyan, dinding kaca, agen bertepi cahaya, board hologram",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya hologram)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=hologram",
+   "Atau set GAYA = 'hologram' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-hologram.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 13,
+   "aktif": false,
+   "jenis": "share",
+   "target": 220,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-kayu",
+  "judul": "Kantor AI 3D · Balok Kayu Mainan",
+  "ringkas": "Kantor AI 3D gaya Balok Kayu Mainan: agen boneka pasak kayu, pohon kerucut, serat kayu dicat. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Balok Kayu Mainan: agen boneka pasak kayu, pohon kerucut, serat kayu dicat",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya kayu)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=kayu",
+   "Atau set GAYA = 'kayu' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-kayu.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 6,
+   "aktif": false,
+   "jenis": "share",
+   "target": 150,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-menara",
+  "judul": "Kantor AI 3D · Menara Neon",
+  "ringkas": "Kantor AI 3D gaya Menara Neon: menara kantor bertumpuk dengan tepi neon malam. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Menara Neon: menara kantor bertumpuk dengan tepi neon malam",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya menara)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=menara",
+   "Atau set GAYA = 'menara' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-menara.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 10,
+   "aktif": false,
+   "jenis": "share",
+   "target": 190,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-pulau",
+  "judul": "Kantor AI 3D · Pulau Melayang",
+  "ringkas": "Kantor AI 3D gaya Pulau Melayang: kantor clay di atas pulau tanah yang mengambang di langit. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Pulau Melayang: kantor clay di atas pulau tanah yang mengambang di langit",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya pulau)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=pulau",
+   "Atau set GAYA = 'pulau' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-pulau.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 8,
+   "aktif": false,
+   "jenis": "share",
+   "target": 170,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-stickman",
+  "judul": "Kantor AI 3D · Stickman 3D",
+  "ringkas": "Kantor AI 3D gaya Stickman 3D: semua berupa batang dan bola: agen stickman, perabot rangka garis. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Stickman 3D: semua berupa batang dan bola: agen stickman, perabot rangka garis",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya stickman)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=stickman",
+   "Atau set GAYA = 'stickman' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-stickman.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 7,
+   "aktif": false,
+   "jenis": "share",
+   "target": 160,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-taman",
+  "judul": "Kantor AI 3D · Paviliun Taman",
+  "ringkas": "Kantor AI 3D gaya Paviliun Taman: paviliun kayu low-poly di taman pinus dengan kolam. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Paviliun Taman: paviliun kayu low-poly di taman pinus dengan kolam",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya taman)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=taman",
+   "Atau set GAYA = 'taman' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-taman.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 11,
+   "aktif": false,
+   "jenis": "share",
+   "target": 200,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "kantor-ai-template",
   "judul": "Kantor AI 3D + Paket 3 Agent",
   "ringkas": "Kantor isometrik 3D untuk agen AI kamu: tiap agen kerja di mejanya, menulis laporan, lalu santai. Plus paket 3 agent (Riset, Penulis, Admin) yang langsung mengisi laporannya.",
@@ -421,6 +831,129 @@ window.KODE = [
   "kunci": "segera",
   "gambar": "img/kantor-ai-template.webp",
   "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-toko",
+  "judul": "Kantor AI 3D · Toko di Trotoar",
+  "ringkas": "Kantor AI 3D gaya Toko di Trotoar: toko-kantor lukisan tangan dengan jalan, lampu, dan papan nama. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Toko di Trotoar: toko-kantor lukisan tangan dengan jalan, lampu, dan papan nama",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya toko)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=toko",
+   "Atau set GAYA = 'toko' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-toko.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 9,
+   "aktif": false,
+   "jenis": "share",
+   "target": 180,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-vinyl",
+  "judul": "Kantor AI 3D · Mainan Vinyl Chibi",
+  "ringkas": "Kantor AI 3D gaya Mainan Vinyl Chibi: agen kepala besar dari plastik mengilap seperti figur koleksi. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Mainan Vinyl Chibi: agen kepala besar dari plastik mengilap seperti figur koleksi",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya vinyl)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=vinyl",
+   "Atau set GAYA = 'vinyl' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-vinyl.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 4,
+   "aktif": false,
+   "jenis": "share",
+   "target": 130,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-voxel",
+  "judul": "Kantor AI 3D · Voxel",
+  "ringkas": "Kantor AI 3D gaya Voxel: semua tersusun dari kubus: agen, pohon, tanah, air. Agen bekerja, menulis laporan, lalu santai.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Voxel: semua tersusun dari kubus: agen, pohon, tanah, air",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Gelembung ringkasan, tanda ! menunggu keputusan",
+   "Mission Board & timelapse satu hari kerja",
+   "Rekam jadi video reels (npm run rekam -- --gaya voxel)",
+   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=voxel",
+   "Atau set GAYA = 'voxel' di src/config.ts",
+   "Ubah nama kantor, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-voxel.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 3,
+   "aktif": false,
+   "jenis": "share",
+   "target": 120,
+   "sekarang": 0,
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
