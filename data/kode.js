@@ -1266,32 +1266,9 @@ window.KODE = [
    "Jalankan agent lewat Antigravity CLI (agy); laporannya muncul di kantor"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "segera",
   "gambar": "img/kantor-ai-template.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 1,
-   "aktif": true,
-   "target": 100,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1843,9 +1820,32 @@ window.KODE = [
    "Lihat kantornya: npm install lalu npm run dev"
   ],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/paket-10-agent-umkm.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 1,
+   "aktif": true,
+   "target": 100,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/paket-10-agent-umkm",
   "zip": "https://github.com/malikisaputra-source/paket-10-agent-umkm/archive/refs/heads/main.zip"
  },
