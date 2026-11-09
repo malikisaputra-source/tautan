@@ -1,4 +1,18 @@
 /* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* GAMBAR — SATU tempat untuk semua logo & foto. Ganti = timpa berkas di img/ (nama sama) atau ubah path di sini.
+   Kosongkan ('') untuk menyembunyikan. Bila gagal dimuat, otomatis kembali ke ikon/inisial. */
+window.GAMBAR = {
+  logo: 'img/logo.svg',                 // header + kop surat (persegi, mis. 256×256)
+  hero: '',                             // foto lingkungan di beranda (1600×1000). Contoh: 'img/hero-lingkungan.svg'. Kosong = ilustrasi bawaan
+  pengurus: ['img/pengurus-1.svg', 'img/pengurus-2.svg', 'img/pengurus-3.svg', 'img/pengurus-4.svg'], // urut sesuai daftar pengurus (1:1, 400×400)
+  galeri: [                             // galeri kegiatan (4:3, 800×600)
+    { src: 'img/galeri-1.svg', ket: 'Kerja bakti selokan' },
+    { src: 'img/galeri-2.svg', ket: 'Ronda malam' },
+    { src: 'img/galeri-3.svg', ket: 'Lomba 17 Agustus' },
+    { src: 'img/galeri-4.svg', ket: 'Posyandu balita' }
+  ]
+};
+
 /* Data contoh RT 05 / RW 02 Kelurahan Contoh.
    Semua nama, NIK, No. KK, dan nomor HP di sini FIKTIF. Dibuat relatif ke bulan berjalan
    supaya iuran & kas selalu terlihat "hidup" saat dicoba. */

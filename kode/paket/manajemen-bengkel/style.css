@@ -568,3 +568,15 @@ html.mode-pilih, html.mode-pilih * { cursor: crosshair !important; }
 .kartu { min-width: 0; max-width: 100%; }
 [class*="grid"] > *, .isi > *, main > * { min-width: 0; }
 .daftar li { min-width: 0; }
+
+/* Logo & foto (KONFIG di app.js) */
+.merek-logo { overflow: hidden; }
+.samping .merek-logo:has(img.logo-img) { background: transparent; box-shadow: none; }
+.logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.logo-inisial { display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+.tv-merek { display: flex; align-items: center; gap: 14px; }
+.tv-merek .merek-logo { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; flex: none; }
+.nota-logo { width: 44px; height: 44px; object-fit: contain; display: inline-grid; place-items: center; border-radius: 8px; font-weight: 800; }
+.kop-merek { display: flex; gap: 10px; align-items: center; }
+.foto-wo-isi { display: flex; gap: 12px; align-items: center; }
+.foto-wo-isi img { width: 120px; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--tema-radius); border: 1px solid color-mix(in srgb, currentColor 20%, transparent); }

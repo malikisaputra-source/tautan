@@ -27,6 +27,10 @@
   function namaBulan(k, pendek) { var p = k.split('-'); var b = BULAN[+p[1] - 1]; return (pendek ? b.slice(0, 3) : b) + ' ' + p[0]; }
   function tglPanjang(s) { if (!s) return '-'; var d = new Date(s + 'T00:00'); return d.getDate() + ' ' + BULAN[d.getMonth()] + ' ' + d.getFullYear(); }
   function tglHari(s) { var d = new Date(s + 'T00:00'); return HARI[d.getDay()] + ', ' + tglPanjang(s); }
+  var G = window.GAMBAR || {};
+  /* <img> dengan fallback: bila gagal dimuat, gambar dihapus sehingga isi cadangan (ikon/inisial) tampil. */
+  function gbr(src, alt, kelas) { return src ? '<img class="' + (kelas || '') + '" src="' + e(src) + '" alt="' + e(alt || '') + '" loading="lazy" onerror="this.remove()">' : ''; }
+  (function () { var mg = document.querySelector('.merek-gambar'); if (!mg) return; if (G.logo) { mg.src = G.logo; mg.hidden = false; } else mg.remove(); })();
   function inisial(n) { return String(n || '?').replace(/^(hj?\.|bpk\.|ibu)\s*/i, '').split(/\s+/).slice(0, 2).map(function (x) { return x[0]; }).join('').toUpperCase(); }
   function waNomor(n) { n = String(n || '').replace(/\D/g, ''); if (n[0] === '0') n = '62' + n.slice(1); return n; }
   function waLink(nomor, teks) { return 'https://wa.me/' + waNomor(nomor) + '?text=' + encodeURIComponent(teks); }
@@ -284,6 +288,7 @@
       '<rect class="il-jalan" x="0" y="200" width="440" height="24"/><path class="il-marka" d="M10 213h420"/></svg>';
   }
   function halPublik() {
+    if (G.hero) window.__ilustrasi = ilustrasiKampung();
     var ag = infoDatang(), dekat = ag[0], peng = pengumumanUrut();
     var mundur = '';
     if (dekat) { var sel = Math.round((new Date(dekat.tgl + 'T00:00') - new Date(hariIni() + 'T00:00')) / 864e5); mundur = '<div class="hitung-mundur"><span class="titik"></span><b>' + (sel === 0 ? 'Hari ini' : sel === 1 ? 'Besok' : sel + ' hari lagi') + '</b>' + e(dekat.judul) + '</div>'; }
@@ -299,7 +304,7 @@
       '<h1>Lingkungan yang guyub dimulai dari <em>satu sapaan.</em></h1>' +
       '<p>Pengumuman, jadwal kegiatan, dan kontak pengurus <span data-tema-nama>' + e(namaUsaha()) + '</span>, semuanya di satu papan.</p>' + mundur +
       '<div class="baris-aksi"><a class="btn" href="#pengumuman">' + ik('info') + 'Lihat pengumuman</a><a class="btn btn-garis" href="#kontak">' + ik('wa') + 'Kontak pengurus</a></div></div>' +
-      '<div class="pahlawan-gambar">' + ilustrasiKampung() + '</div></section>' +
+      '<div class="pahlawan-gambar">' + (G.hero ? '<img class="hero-foto" src="' + e(G.hero) + '" alt="Foto lingkungan ' + e(namaRT()) + '" onerror="this.outerHTML=window.__ilustrasi">' : ilustrasiKampung()) + '</div></section>' +
       '<section class="langkah-wadah" aria-labelledby="judulLangkah"><div class="judul-baris"><h2 id="judulLangkah">Yang bisa Anda lakukan</h2><span class="judul-sub">4 hal penting untuk warga</span></div>' +
       '<ol class="langkah-grid stagger">' + langkah.map(function (l, i) {
         return '<li class="langkah p-' + l.w + '"><span class="langkah-no">0' + (i + 1) + '</span><span class="langkah-ikon">' + ik(l.ik) + '</span><h3>' + l.j + '</h3><p>' + l.d + '</p>' +
@@ -308,11 +313,17 @@
       '<div class="publik-grid">' +
       '<section aria-labelledby="pengumuman"><div class="judul-baris"><h2 id="pengumuman">Papan pengumuman</h2><span class="judul-sub">' + peng.length + ' kabar</span></div><div class="tumpuk stagger">' + (peng.length ? peng.map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada pengumuman.', 'info')) + '</div></section>' +
       '<div class="tumpuk"><section aria-labelledby="agenda"><div class="judul-baris"><h2 id="agenda">Agenda terdekat</h2></div><div class="tumpuk stagger">' + (ag.length ? ag.slice(0, 4).map(function (i) { return kartuInfo(i); }).join('') : kosong('Belum ada agenda.', 'kalender')) + '</div></section>' +
-      '<section class="kartu" aria-labelledby="kontak"><h2 id="kontak">Kontak pengurus</h2><ul class="daftar stagger">' + D.pengurus.map(function (p) {
-        return '<li class="pengurus-kartu"><span class="avatar">' + e(inisial(p.nama)) + '</span><div class="utama-baris"><b>' + e(p.nama) + '</b><small>' + e(p.jabatan) + '</small></div>' + (p.wa ? '<a class="btn btn-wa btn-kecil" target="_blank" rel="noopener" href="' + waLink(p.wa, 'Assalamualaikum ' + p.jabatan + ' ' + namaRT() + ', saya warga ingin bertanya…') + '" aria-label="Chat WhatsApp ' + e(p.nama) + '">' + ik('wa') + 'Chat</a>' : '') + '</li>';
+      '<section class="kartu" aria-labelledby="kontak"><h2 id="kontak">Kontak pengurus</h2><ul class="daftar stagger">' + D.pengurus.map(function (p, i) {
+        return '<li class="pengurus-kartu"><span class="avatar">' + e(inisial(p.nama)) + gbr(p.foto || (G.pengurus || [])[i], 'Foto ' + p.nama, 'avatar-foto') + '</span><div class="utama-baris"><b>' + e(p.nama) + '</b><small>' + e(p.jabatan) + '</small></div>' + (p.wa ? '<a class="btn btn-wa btn-kecil" target="_blank" rel="noopener" href="' + waLink(p.wa, 'Assalamualaikum ' + p.jabatan + ' ' + namaRT() + ', saya warga ingin bertanya…') + '" aria-label="Chat WhatsApp ' + e(p.nama) + '">' + ik('wa') + 'Chat</a>' : '') + '</li>';
       }).join('') + '</ul><p style="color:var(--redup);font-size:13px;margin:12px 0 0">Sekretariat: ' + e(D.pengaturan.alamat) + '</p></section>' +
       '<section class="kartu warga-kita"><h2>Warga kita</h2><div class="grid" style="grid-template-columns:1fr 1fr"><div class="stat p-hijau"><div class="label">Kepala keluarga</div><div class="nilai" data-hitung="' + D.kk.length + '">0</div></div><div class="stat p-kuning"><div class="label">Jiwa</div><div class="nilai" data-hitung="' + jiwaTotal() + '">0</div></div></div></section>' +
-      '</div></div>';
+      '</div></div>' + galeri();
+  }
+  function galeri() {
+    var g = (G.galeri || []).filter(function (x) { return x && x.src; });
+    if (!g.length) return '';
+    return '<section class="galeri-wadah" aria-labelledby="galeri"><div class="judul-baris"><h2 id="galeri">Galeri kegiatan</h2><span class="judul-sub">' + g.length + ' foto</span></div><div class="galeri stagger">' +
+      g.map(function (x) { return '<figure class="galeri-item">' + gbr(x.src, x.ket) + '<figcaption>' + e(x.ket || '') + '</figcaption></figure>'; }).join('') + '</div></section>';
   }
 
   /* ========== 6. Halaman pengurus ========== */
@@ -656,7 +667,7 @@
   function htmlSurat(s) {
     var p = D.pengaturan, ketua = D.pengurus.filter(function (x) { return /ketua/i.test(x.jabatan); })[0] || { nama: '……………………' };
     var baris = [['Nama', s.nama], ['NIK', s.nik], ['Tempat/Tgl. Lahir', (s.tempatLahir || '-') + ', ' + tglPanjang(s.tglLahir)], ['Jenis Kelamin', s.jk === 'P' ? 'Perempuan' : 'Laki-laki'], ['Agama', s.agama], ['Status Perkawinan', s.kawin], ['Pekerjaan', s.pekerjaan], ['Alamat', s.alamat]];
-    return '<div class="surat"><div class="kop"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="#000" stroke-width="2"/><path d="M14 32 32 17l18 15v17H14z" fill="#000"/><rect x="28" y="37" width="8" height="12" fill="#fff"/></svg><div class="kop-teks"><div class="k1">PENGURUS RUKUN TETANGGA ' + e(p.rt) + ' / RUKUN WARGA ' + e(p.rw) + '</div><div class="k2">' + e(namaUsaha()) + '</div><div class="k3">Kecamatan ' + e(p.kecamatan) + ' · ' + e(p.kota) + (p.provinsi ? ' · ' + e(p.provinsi) : '') + '<br>Sekretariat: ' + e(p.alamat) + '</div></div><div style="width:70px"></div></div>' +
+    return '<div class="surat"><div class="kop">' + (G.logo ? '<img class="kop-logo" src="' + e(G.logo) + '" alt="" onerror="this.nextElementSibling.hidden=false;this.remove()">' : '') + '<svg viewBox="0 0 64 64" aria-hidden="true"' + (G.logo ? ' hidden' : '') + '><circle cx="32" cy="32" r="30" fill="none" stroke="#000" stroke-width="2"/><path d="M14 32 32 17l18 15v17H14z" fill="#000"/><rect x="28" y="37" width="8" height="12" fill="#fff"/></svg><div class="kop-teks"><div class="k1">PENGURUS RUKUN TETANGGA ' + e(p.rt) + ' / RUKUN WARGA ' + e(p.rw) + '</div><div class="k2">' + e(namaUsaha()) + '</div><div class="k3">Kecamatan ' + e(p.kecamatan) + ' · ' + e(p.kota) + (p.provinsi ? ' · ' + e(p.provinsi) : '') + '<br>Sekretariat: ' + e(p.alamat) + '</div></div><div style="width:70px"></div></div>' +
       '<h3>SURAT PENGANTAR</h3><div class="nomor">Nomor: ' + e(s.no) + '</div>' +
       '<p>Yang bertanda tangan di bawah ini, Ketua Rukun Tetangga ' + e(p.rt) + ' Rukun Warga ' + e(p.rw) + ' Kelurahan ' + e(p.kelurahan) + ', Kecamatan ' + e(p.kecamatan) + ', ' + e(p.kota) + ', dengan ini menerangkan bahwa:</p>' +
       '<table>' + baris.map(function (b) { return '<tr><td style="width:150px">' + b[0] + '</td><td>:</td><td>' + e(b[1] || '-') + '</td></tr>'; }).join('') + '</table>' +

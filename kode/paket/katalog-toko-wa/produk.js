@@ -23,7 +23,10 @@ window.TOKO = {
   // OPSIONAL: ambil produk dari Google Sheet (File → Bagikan → Publikasikan ke web → CSV).
   // Kolom: id,nama,kategori,harga,hargaCoret,deskripsi,varian,gambar,stok,label
   // varian: "Ukuran:S,M,L;Warna:Hitam,Putih"   gambar: url1|url2 (kosongkan = gambar ilustrasi)
-  sheetCSV: ''
+  sheetCSV: '',
+  // LOGO & FOTO — ganti cukup timpa berkas di img/ atau ubah path di sini.
+  logo: 'img/logo.svg',              // tampil di header; kosongkan '' = inisial nama toko
+  fotoKosong: 'img/foto-produk.svg'  // dipakai bila produk tanpa gambar / foto gagal dimuat
 };
 
 /* Gambar: isi dengan URL foto (mis. "img/kaos-1.jpg") ATAU objek ilustrasi

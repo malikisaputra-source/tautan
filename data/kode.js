@@ -446,7 +446,9 @@ window.KODE = [
    "sw.js",
    "manifest.webmanifest",
    "ikon.svg",
-   "qris.svg"
+   "qris.svg",
+   "img/logo.svg",
+   "img/produk-contoh.svg"
   ],
   "pratinjau": "index.html?demo",
   "gambar": "img/kasir-umkm.webp",
@@ -497,7 +499,9 @@ window.KODE = [
    "app.js",
    "produk.js",
    "tema.css",
-   "tema.js"
+   "tema.js",
+   "img/logo.svg",
+   "img/foto-produk.svg"
   ],
   "pratinjau": "index.html",
   "gambar": "img/katalog-toko-wa.webp",
@@ -592,6 +596,8 @@ window.KODE = [
    "LICENSE",
    "meta.json",
    "ss.png",
+   "img/logo.svg",
+   "img/kendaraan.svg",
    "DESIGN.md",
    "AGENTS.md",
    ".claude/skills/ubah-manajemen-bengkel/SKILL.md"
@@ -649,7 +655,9 @@ window.KODE = [
    "DESIGN.md",
    "AGENTS.md",
    ".claude/skills/ubah-manajemen-klien/SKILL.md",
-   "ss.png"
+   "ss.png",
+   "img/logo.svg",
+   "img/klien-logo.svg"
   ],
   "gambar": "img/manajemen-klien.webp",
   "dasar": "paket/manajemen-klien/",
@@ -701,12 +709,11 @@ window.KODE = [
  {
   "slug": "portofolio-pribadi",
   "judul": "Portofolio Pribadi",
-  "ringkas": "Website portofolio editorial satu halaman: tipografi raksasa, animasi GSAP, karya dengan filter & detail, kontak WA. Isi cukup di data.js.",
+  "ringkas": "Portofolio dua halaman bergaya lapang putih-limau: sans tipis + serif miring, benda 3D melayang, gerak halus, detail karya per halaman. Isi & gambar cukup di data.js.",
   "teknologi": [
    "HTML",
    "CSS",
-   "JavaScript",
-   "GSAP"
+   "JavaScript"
   ],
   "kategori": "Template Website",
   "tier": "premium",
@@ -714,20 +721,19 @@ window.KODE = [
    "anggrek.hitam.22"
   ],
   "fitur": [
-   "Hero tipografi raksasa + potret melengkung",
-   "Animasi GSAP: tirai, teks per baris, parallax, counter",
-   "Karya pilihan: grid besar, filter kategori, detail modal",
-   "Pengalaman timeline, testimoni, layanan + harga",
-   "Kontak WhatsApp, email, form mailto",
-   "Unduh CV otomatis (simpan PDF)",
-   "Semua isi dari satu berkas data.js",
-   "Mode terang/gelap, responsif HP–desktop",
+   "Hero sapaan + serif miring, potret lengkung, benda 3D melayang",
+   "Marquee logo tempat kerja/klien",
+   "Kata menyala saat digulir, kartu muncul bertahap, efek kursor",
+   "Karya pilihan, angka bersumber, cara kerja 3 langkah, rak semua karya",
+   "Halaman detail karya (karya.html?id=...) dengan statistik & peran",
+   "Semua isi dan slot gambar dari satu berkas data.js",
+   "Mode terang/gelap, responsif HP–desktop, reduced-motion",
    "Panduan online gratis GitHub Pages/Netlify"
   ],
   "cara": [
    "Unduh ZIP lalu ekstrak",
    "Buka index.html di browser",
-   "Ganti isi di data.js dan foto di img/",
+   "Ganti isi di data.js dan gambar di img/ (logo, foto profil, logo klien, sampul karya)",
    "Ikuti PANDUAN.md untuk online gratis"
   ],
   "demo": "index.html",
@@ -959,6 +965,16 @@ window.KODE = [
    "sw.js",
    "manifest.webmanifest",
    "ikon.svg",
+   "img/logo.svg",
+   "img/hero-lingkungan.svg",
+   "img/pengurus-1.svg",
+   "img/pengurus-2.svg",
+   "img/pengurus-3.svg",
+   "img/pengurus-4.svg",
+   "img/galeri-1.svg",
+   "img/galeri-2.svg",
+   "img/galeri-3.svg",
+   "img/galeri-4.svg",
    "README.md",
    "LICENSE",
    "DESIGN.md",

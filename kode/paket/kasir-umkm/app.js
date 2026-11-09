@@ -3,6 +3,13 @@
 (function () {
   'use strict';
 
+  // ---------- KONFIG gambar: ganti logo/foto cukup di sini (atau timpa berkas di img/) ----------
+  var KONFIG = {
+    logo: 'img/logo.svg',                // logo toko: sidebar, layar masuk, struk. '' = pakai ikon bawaan
+    fotoContoh: 'img/produk-contoh.svg', // placeholder foto produk (rasio 1:1)
+    fotoProduk: {}                       // foto produk contoh per nama, mis. { 'Mie Goreng': 'img/mie.jpg' }
+  };
+
   // ---------- Penyimpanan (localStorage, offline) ----------
   var KUNCI = 'kasir-umkm-v1';
   var NAMA_TEMA = (window.TEMA && TEMA.nama) || 'Kopi Senja';
@@ -34,7 +41,7 @@
       ['Pisang Goreng', 'Camilan', 0, [['Isi 5', 12000]]]
     ];
     d.produk = p.map(function (x, i) {
-      return { id: 'p' + (i + 1), nama: x[0], kategori: x[1], stok: x[2], varian: x[3].map(function (v) { return { nama: v[0], harga: v[1] }; }) };
+      return { id: 'p' + (i + 1), nama: x[0], kategori: x[1], stok: x[2], foto: KONFIG.fotoProduk[x[0]] || '', varian: x[3].map(function (v) { return { nama: v[0], harga: v[1] }; }) };
     });
     d.kasir.push({ id: 'k2', nama: 'Sari', pin: '1111', peran: 'kasir' });
     // transaksi contoh 30 hari terakhir
@@ -219,6 +226,27 @@
     return [null, 'umum', '#9aa79d'];
   }
   function ilustrasi(p) {
+    if (p.foto) return '<img class="ilus foto-produk" src="' + esc(p.foto) + '" alt="" loading="lazy" onerror="this.outerHTML=window.__ilusCadangan(\'' + p.id + '\')">';
+    return ilustrasiSvg(p);
+  }
+  window.__ilusCadangan = function (id) { var p = D.produk.filter(function (x) { return x.id === id; })[0]; return p ? ilustrasiSvg(p) : ''; };
+  // Logo: tampil di .merek bila gambar termuat; gagal dimuat -> inisial nama toko
+  function pasangLogo() {
+    if (!KONFIG.logo) return;
+    $$('.merek .logo').forEach(function (svg) {
+      if (svg.getAttribute('data-logo-siap')) return; svg.setAttribute('data-logo-siap', '1');
+      var w = svg.getAttribute('width'), img = new Image(); img.className = 'logo logo-img'; img.alt = ''; img.width = w; img.height = w;
+      img.onload = function () { svg.style.display = 'none'; svg.parentNode.insertBefore(img, svg); };
+      img.onerror = function () { var sp = document.createElement('span'); sp.className = 'logo logo-inisial'; sp.setAttribute('aria-hidden', 'true'); sp.textContent = inisial((D && D.toko.nama) || NAMA_TEMA); sp.style.width = sp.style.height = w + 'px'; svg.style.display = 'none'; svg.parentNode.insertBefore(sp, svg); };
+      img.src = KONFIG.logo;
+    });
+  }
+  function kecilkanFoto(file, cb) {
+    var r = new FileReader();
+    r.onload = function () { var im = new Image(); im.onload = function () { var k = Math.min(1, 400 / Math.max(im.width, im.height)), c = document.createElement('canvas'); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k); c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL('image/jpeg', 0.8)); }; im.onerror = function () { toast('Berkas bukan gambar'); }; im.src = r.result; };
+    r.readAsDataURL(file);
+  }
+  function ilustrasiSvg(p) {
     var j = jenisIlus(p), es = /ice|es\b/i.test(p.varian.map(function (v) { return v.nama; }).join(' '));
     var bentuk = j[1] === 'kopi' && /americano/i.test(p.nama) && es ? 'es' : j[1];
     var svg = ILUS[bentuk].replace(/\{c\}/g, j[2] || (bentuk === 'es' ? '#6b4128' : '#7a4a2b')).replace(/\{s\}/g, j[3] || '#2f5d3a');
@@ -429,7 +457,7 @@
   // ---------- Struk 58mm ----------
   function cetak(trx) {
     var t = D.toko;
-    $('#struk').innerHTML = '<div class="tengah"><h4>' + esc(t.nama) + '</h4>' + (t.alamat ? '<div>' + esc(t.alamat) + '</div>' : '') + (t.telp ? '<div>' + esc(t.telp) + '</div>' : '') + '</div>' +
+    $('#struk').innerHTML = '<div class="tengah">' + (KONFIG.logo ? '<img class="struk-logo" src="' + esc(KONFIG.logo) + '" alt="" onerror="this.style.display=\'none\'">' : '') + '<h4>' + esc(t.nama) + '</h4>' + (t.alamat ? '<div>' + esc(t.alamat) + '</div>' : '') + (t.telp ? '<div>' + esc(t.telp) + '</div>' : '') + '</div>' +
       '<div class="gr"></div><div>' + trx.id + '</div><div>' + fmtWaktu(trx.waktu) + '</div><div>Kasir: ' + esc(trx.kasir) + '</div><div class="gr"></div>' +
       trx.items.map(function (i) { return '<div>' + esc(i.nama) + (i.varian ? ' (' + esc(i.varian) + ')' : '') + '</div><div class="br"><span>' + i.qty + ' x ' + rp(i.harga) + '</span><span>' + rp(i.qty * i.harga) + '</span></div>'; }).join('') +
       '<div class="gr"></div><div class="br"><span>Subtotal</span><span>' + rp(trx.subtotal) + '</span></div>' +
@@ -460,12 +488,16 @@
       '<label>Nama<input id="fNama" required value="' + esc(p.nama) + '"></label>' +
       '<label>Kategori<select id="fKat">' + D.kategori.map(function (k) { return '<option' + (k === p.kategori ? ' selected' : '') + '>' + esc(k) + '</option>'; }).join('') + '</select></label>' +
       '<label>Stok<input id="fStok" type="number" min="0" value="' + p.stok + '"></label>' +
+      '<div class="foto-baris"><span class="thumb foto-pratinjau" id="fFotoPra" data-nada="' + nadaDari(p.kategori + p.nama) + '">' + (p.foto ? '<img class="ilus foto-produk" src="' + esc(p.foto) + '" alt="">' : '') + '</span><label>Foto produk (opsional)<input id="fFoto" type="file" accept="image/*"></label><button type="button" class="tautan" id="fFotoHapus">Hapus foto</button></div>' +
       '<div><b class="kecil">Varian &amp; harga</b><div id="fVarian" class="form" style="margin-top:6px">' + p.varian.map(barisV).join('') + '</div>' +
       '<button type="button" class="tautan" id="fTambahV">+ varian</button></div></div>' +
       '<div class="dlg-aksi">' + (baru ? '' : '<button type="button" class="tombol bahaya" id="fHapus" style="margin-right:auto">Hapus</button>') +
       '<button class="tombol" value="batal" formnovalidate>Batal</button><button class="tombol utama" type="button" id="fSimpan">Simpan</button></div>', function (f) {
         function ikatHapus() { $$('.varian-baris button', f).forEach(function (b) { b.onclick = function () { if ($$('.varian-baris', f).length > 1) b.parentNode.remove(); }; }); }
         ikatHapus();
+        var fotoBaru = p.foto || '';
+        $('#fFoto', f).onchange = function () { var fl = this.files[0]; if (fl) kecilkanFoto(fl, function (u) { fotoBaru = u; $('#fFotoPra', f).innerHTML = '<img class="ilus foto-produk" src="' + u + '" alt="">'; }); };
+        $('#fFotoHapus', f).onclick = function () { fotoBaru = ''; $('#fFoto', f).value = ''; $('#fFotoPra', f).innerHTML = ''; };
         $('#fTambahV', f).onclick = function () { $('#fVarian', f).insertAdjacentHTML('beforeend', barisV({ nama: '', harga: 0 })); ikatHapus(); };
         if (!baru) $('#fHapus', f).onclick = function () { if (confirm('Hapus ' + p.nama + '?')) { D.produk = D.produk.filter(function (x) { return x.id !== p.id; }); simpan(); tutupDialog(); renderKelola(); } };
         $('#fSimpan', f).onclick = function () {
@@ -473,7 +505,7 @@
           var varian = $$('.varian-baris', f).map(function (r) { var i = $$('input', r); return { nama: i[0].value.trim() || 'Reguler', harga: Math.max(0, +i[1].value || 0) }; });
           if (!nama) return toast('Nama produk wajib diisi');
           if (!D.kategori.length) return toast('Buat kategori dulu');
-          var data = { nama: nama, kategori: $('#fKat', f).value, stok: Math.max(0, parseInt($('#fStok', f).value, 10) || 0), varian: varian };
+          var data = { nama: nama, kategori: $('#fKat', f).value, stok: Math.max(0, parseInt($('#fStok', f).value, 10) || 0), foto: fotoBaru, varian: varian };
           if (baru) D.produk.push(Object.assign({ id: uid() }, data)); else Object.assign(p, data);
           simpan(); tutupDialog(); renderKelola(); toast('Produk disimpan');
         };
@@ -666,7 +698,7 @@
   }
 
   // ---------- Mulai ----------
-  muat(); ikatEvent();
+  muat(); ikatEvent(); pasangLogo();
   var sesi = null; try { sesi = sessionStorage.getItem('kasir-sesi'); } catch (e) {}
   var k = sesi && D.kasir.find(function (x) { return x.id === sesi; });
   if (k) masuk(k); else if (/[?&]demo\b/.test(location.search)) { masuk(D.kasir[0]); [0, 0, 3, 8].forEach(function (i, n) { var p = D.produk[i]; if (p) tambahKeKeranjang(p, p.varian[n % p.varian.length]); }); } else tampilMasuk();

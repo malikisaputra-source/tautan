@@ -97,6 +97,11 @@ Pasang skill desain berikut di Claude Code sebelum minta perubahan tampilan:
 - PIN di sini untuk membedakan kasir, bukan pengamanan tingkat bank.
 - QRIS yang disertakan hanya gambar contoh, bukan kode pembayaran asli.
 
+## Ganti logo & foto
+- **Logo toko**: timpa `img/logo.svg` (persegi 1:1, PNG/JPG/SVG), atau ubah path `KONFIG.logo` di bagian atas `app.js`. Logo tampil di sidebar, layar masuk, dan struk cetak. Bila gagal dimuat, muncul inisial nama toko. Isi `''` untuk kembali ke ikon bawaan.
+- **Foto produk**: menu **Kelola › Ubah produk › Foto produk** — foto diperkecil otomatis (maks 400px) dan disimpan di perangkat (localStorage). Tanpa foto, produk memakai ilustrasi bawaan.
+- Foto produk contoh bisa dipasang lewat `KONFIG.fotoProduk` (nama produk → path, mis. `img/mie.jpg`). `img/produk-contoh.svg` adalah contoh ukuran (1:1).
+
 ## Lisensi
 MIT + syarat tambahan (lihat `LICENSE`): gratis dipakai untuk usaha/organisasi sendiri dan boleh diubah, **wajib mencantumkan kreator** (Template oleh Maliki Saputra, @malikisaputra), dan **tidak boleh diperjualbelikan** tanpa izin. Mau menjual atau kerja sama? Diskusikan dulu dengan kreatornya.
 

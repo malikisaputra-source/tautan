@@ -28,7 +28,7 @@
   "pratinjau": "index.html?demo",
   "berkas": [
     "index.html", "style.css", "app.js", "tema.css", "tema.js", "ikon.svg",
-    "README.md", "LICENSE", "meta.json", "ss.png", "DESIGN.md", "AGENTS.md",
+    "README.md", "LICENSE", "meta.json", "ss.png", "img/logo.svg", "img/kendaraan.svg", "DESIGN.md", "AGENTS.md",
     ".claude/skills/ubah-manajemen-bengkel/SKILL.md"
   ]
 }

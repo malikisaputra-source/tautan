@@ -88,8 +88,18 @@
     s += '<g transform="rotate(' + (sudut ? (sudut % 2 ? -8 : 6) : 0) + ' 140 150)">' + bentuk + '</g>';
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280">' + s + '</svg>');
   }
-  function srcGambar(g, i) { return typeof g === 'string' ? g : ilustrasi(g, i || 0); }
+  function srcGambar(g, i) { if (!g) return (window.TOKO && TOKO.fotoKosong) || ''; return typeof g === 'string' ? g : ilustrasi(g, i || 0); }
+  // foto gagal dimuat → ganti placeholder img/foto-produk.svg (sekali saja)
+  document.addEventListener('error', function (e) { var t = e.target; if (t && t.tagName === 'IMG' && !t.dataset.cadangan && window.TOKO && TOKO.fotoKosong && !t.closest('.merek-ikon')) { t.dataset.cadangan = '1'; t.src = TOKO.fotoKosong; } }, true);
 
+  // Logo di header: gambar TOKO.logo, fallback inisial nama toko bila kosong/gagal dimuat
+  function pasangLogo() {
+    var el = document.querySelector('.merek-ikon'); if (!el) return;
+    var inisial = function () { el.classList.remove('ada-logo'); el.textContent = ((window.TOKO && TOKO.nama) || 'T').trim().charAt(0).toUpperCase(); };
+    if (!window.TOKO || !TOKO.logo) return inisial();
+    var img = new Image(); img.alt = ''; img.onerror = inisial; img.src = TOKO.logo;
+    el.textContent = ''; el.appendChild(img); el.classList.add('ada-logo');
+  }
   var API = { rupiah: rupiah, hargaVarian: hargaVarian, hitungTotal: hitungTotal, buatPesan: buatPesan, linkWA: linkWA, parseCSV: parseCSV, produkDariCSV: produkDariCSV, ilustrasi: ilustrasi };
   if (typeof module !== 'undefined' && module.exports) { module.exports = API; return; }
   root.__katalog = API;
@@ -204,8 +214,8 @@
   // ---------- mulai ----------
   function mulai() {
     document.title = TOKO.nama + ' — Katalog';
-    $('#namaToko').textContent = TOKO.nama; $('#namaTokoKaki').textContent = TOKO.nama; $('#slogan').textContent = TOKO.slogan;
-    $('.merek-ikon').textContent = TOKO.nama.charAt(0); $('#tahun').textContent = new Date().getFullYear();
+    $('#namaToko').textContent = TOKO.nama; $('#namaTokoKaki').textContent = TOKO.nama; $('#slogan').textContent = TOKO.slogan; pasangLogo();
+    $('#tahun').textContent = new Date().getFullYear();
     $('#pilihKota').innerHTML = '<option value="">— pilih —</option>' + TOKO.ongkir.map(function (o, i) { return '<option value="' + i + '">' + esc(o.kota) + (o.biaya ? ' (' + rp(o.biaya) + ')' : '') + '</option>'; }).join('');
     var pb = simpanan.get('katalog-pembeli', {}); var f = $('#formPesan');
     ['nama', 'alamat', 'catatan', 'kota'].forEach(function (k) { if (pb[k] != null) f.elements[k].value = pb[k]; });
@@ -272,7 +282,7 @@
     if (t.nama) {
       TOKO.nama = t.nama;
       Array.prototype.forEach.call(document.querySelectorAll('[data-tema-nama]'), function (e) { e.textContent = t.nama; });
-      var ik = document.querySelector('.merek-ikon'); if (ik) ik.textContent = t.nama.charAt(0);
+      var ik = document.querySelector('.merek-ikon'); if (ik && !ik.classList.contains('ada-logo')) ik.textContent = t.nama.charAt(0);
     }
   }
   window.addEventListener('message', function (e) { if (e.data && e.data.tipe === 'tema') terapkanTema(e.data); });

@@ -1,6 +1,6 @@
 /* Service worker: simpan berkas agar aplikasi tetap jalan tanpa internet. */
-var CACHE = 'website-rt-v1';
-var BERKAS = ['./', './index.html', './tema.css', './tema.js', './style.css', './data.js', './app.js', './manifest.webmanifest', './ikon.svg'];
+var CACHE = 'website-rt-v2';
+var BERKAS = ['./', './index.html', './tema.css', './tema.js', './style.css', './data.js', './app.js', './manifest.webmanifest', './ikon.svg', './img/logo.svg', './img/hero-lingkungan.svg', './img/pengurus-1.svg', './img/pengurus-2.svg', './img/pengurus-3.svg', './img/pengurus-4.svg', './img/galeri-1.svg', './img/galeri-2.svg', './img/galeri-3.svg', './img/galeri-4.svg'];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(BERKAS); }).then(function () { return self.skipWaiting(); }));
 });

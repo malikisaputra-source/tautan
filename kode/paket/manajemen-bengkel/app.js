@@ -2,6 +2,12 @@
 /* Manajemen Bengkel — Maliki Studio (malikisaputra.biz.id). Tanpa server: semua data di localStorage. */
 (function () {
   'use strict';
+  /* KONFIG gambar — ganti logo/foto cukup timpa berkas di img/ atau ubah path di sini. */
+  var KONFIG = {
+    logo: 'img/logo.svg',               /* logo bengkel: sidebar, layar TV & nota (persegi 1:1) */
+    fotoKendaraan: 'img/kendaraan.svg', /* placeholder foto kendaraan di work order (4:3) */
+    fotoMaksPx: 400                     /* foto unggahan diperkecil <=400px lalu disimpan di localStorage */
+  };
   var KUNCI = 'bengkel-data-v1';
   var VERSI = 1;
   var STATUS = [
@@ -39,6 +45,12 @@
 
   /* ---------- Data ---------- */
   var D;
+  function logoHtml(kelas) { return '<img class="' + kelas + '" src="' + esc(KONFIG.logo) + '" alt="Logo ' + esc(namaUsaha()) + '" onerror="this.outerHTML=\'<span class=&quot;' + kelas + ' logo-inisial&quot;>' + esc(inisial(namaUsaha())) + '</span>\'">'; }
+  function kecilkanFoto(file, cb) {
+    var r = new FileReader();
+    r.onload = function () { var im = new Image(); im.onload = function () { var m = KONFIG.fotoMaksPx, sk = Math.min(1, m / Math.max(im.width, im.height)), c = document.createElement('canvas'); c.width = Math.round(im.width * sk); c.height = Math.round(im.height * sk); c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL('image/jpeg', .8)); }; im.onerror = function () { toast('Berkas bukan gambar', 1); }; im.src = r.result; };
+    r.readAsDataURL(file);
+  }
   function simpan() { D.versi = VERSI; try { localStorage.setItem(KUNCI, JSON.stringify(D)); } catch (e) { toast('Penyimpanan penuh / diblokir', 1); } }
   function muat() {
     try { D = JSON.parse(localStorage.getItem(KUNCI)); } catch (e) { D = null; }
@@ -157,7 +169,7 @@
   }
   function halus() { if (kurangGerak) return; document.body.classList.add('halus'); clearTimeout(halus.t); halus.t = setTimeout(function () { document.body.classList.remove('halus'); }, 400); }
   function namaUsaha() { return (window.TEMA && TEMA.nama) || 'Bengkel'; }
-  function isiNama() { $$('[data-tema-nama]').forEach(function (el) { el.textContent = namaUsaha(); }); document.title = namaUsaha() + ' · Manajemen Bengkel'; }
+  function isiNama() { $$('[data-tema-nama]').forEach(function (el) { el.textContent = namaUsaha(); }); document.title = namaUsaha() + ' · Manajemen Bengkel'; $$('[data-logo]').forEach(function (el) { el.innerHTML = logoHtml('logo-img'); }); }
   function terapkan(t) {
     var s = document.documentElement.style; halus();
     if (t.utama) s.setProperty('--tema-utama', t.utama);
@@ -558,6 +570,7 @@
       '<label class="isian"><span>Nama pelanggan *</span><input name="nama" required value="' + esc(pel.nama || '') + '" placeholder="Budi Santoso"></label>' +
       '<label class="isian"><span>No. WhatsApp</span><input name="hp" type="tel" inputmode="tel" value="' + esc(pel.hp || '') + '" placeholder="0812…"></label>' +
       '<label class="isian penuh"><span>Keluhan / permintaan</span><textarea name="keluhan" placeholder="Rem bunyi, ganti oli…">' + esc(data.keluhan) + '</textarea></label>' +
+      '<div class="isian penuh foto-wo"><span>Foto kendaraan</span><div class="foto-wo-isi"><img id="fotoWoPrat" src="' + esc(data.foto || KONFIG.fotoKendaraan) + '" alt="Foto kendaraan" onerror="this.style.visibility=\'hidden\'"><div class="tumpuk"><label class="tombol kecil">' + ikon('plus') + 'Unggah foto<input type="file" accept="image/*" id="fotoWoBerkas" class="sr"></label><button type="button" class="tombol kecil hantu" id="fotoWoHapus"' + (data.foto ? '' : ' hidden') + '>Hapus foto</button><small class="redup">Diperkecil otomatis ≤' + KONFIG.fotoMaksPx + 'px</small></div></div></div>' +
       '<label class="isian"><span>Mekanik</span><select name="mekanikId"><option value="">— Belum ditentukan —</option>' + D.mekanik.filter(function (m) { return m.aktif || m.id === data.mekanikId; }).map(function (m) { return '<option value="' + m.id + '"' + (m.id === data.mekanikId ? ' selected' : '') + '>' + esc(m.nama) + '</option>'; }).join('') + '</select></label>' +
       '<label class="isian"><span>Estimasi selesai</span><input name="estimasi" value="' + esc(data.estimasi) + '" placeholder="1 jam"></label>' +
       '</div>' +
@@ -589,6 +602,8 @@
       } else { info.className = 'saran penuh'; info.textContent = p ? 'Plat baru — kendaraan & pelanggan akan dibuat otomatis.' : ''; }
     }
     gambarItem(); cekPlat();
+    $('#fotoWoBerkas').onchange = function () { var fl = this.files[0]; if (!fl) return; kecilkanFoto(fl, function (u) { data.foto = u; var im = $('#fotoWoPrat'); im.style.visibility = ''; im.src = u; $('#fotoWoHapus').hidden = false; }); };
+    $('#fotoWoHapus').onclick = function () { delete data.foto; $('#fotoWoPrat').src = KONFIG.fotoKendaraan; this.hidden = true; };
     f.plat.addEventListener('change', cekPlat); f.diskon.addEventListener('input', ringkas);
     $('#tJasa').onclick = function () { data.jasa.push({ nama: '', harga: '' }); gambarItem(); $$('#dJasa input[data-j="nama"]').pop().focus(); };
     $('#tPart').onclick = function () { var s = D.part[0]; data.part.push({ partId: s.id, nama: s.nama, qty: 1, harga: s.jual }); gambarItem(); $$('#dPart select').pop().focus(); };
@@ -632,7 +647,7 @@
     var p = cariPelanggan(w.pelangganId), set = D.pengaturan, k = cariKendaraan(w.plat) || {};
     if (ukuran === 't58') {
       var br = function (a, b) { return '<div class="br"><span>' + a + '</span><span>' + b + '</span></div>'; };
-      return '<div class="nota t58"><div class="tengah"><b>' + esc(namaUsaha()) + '</b><br>' + esc(set.alamat) + '<br>' + esc(set.hp) + '</div><hr>' +
+      return '<div class="nota t58"><div class="tengah">' + logoHtml('nota-logo') + '<br><b>' + esc(namaUsaha()) + '</b><br>' + esc(set.alamat) + '<br>' + esc(set.hp) + '</div><hr>' +
         br(esc(w.no), tgl(w.t)) + br('Plat', esc(w.plat)) + br('Kend.', esc(k.merk + ' ' + (k.model || ''))) + br('KM', (w.km || '-').toLocaleString('id-ID')) + br('Plgn', esc(p.nama)) + br('Mekanik', esc(cariMekanik(w.mekanikId).nama)) + '<hr>' +
         w.jasa.map(function (j) { return '<div>' + esc(j.nama) + '</div>' + br('', rp(j.harga)); }).join('') +
         w.part.map(function (x) { return '<div>' + esc(x.nama) + '</div>' + br(x.qty + ' x ' + rp(x.harga), rp(x.qty * x.harga)); }).join('') + '<hr>' +
@@ -640,7 +655,7 @@
         (w.servisBerikut ? '<div class="tengah">Servis berikutnya:<br>' + tgl(w.servisBerikut.tgl) + ' / ' + w.servisBerikut.km.toLocaleString('id-ID') + ' km</div><hr>' : '') +
         '<div class="tengah">' + esc(set.catatan) + '</div></div>';
     }
-    return '<div class="nota a5"><div class="kop"><div><h1>' + esc(namaUsaha()) + '</h1><div>' + esc(set.alamat) + '</div><div>WA ' + esc(set.hp) + '</div></div><div style="text-align:right"><b>NOTA SERVIS</b><div>' + esc(w.no) + '</div><div>' + tgl(w.t, 1) + '</div></div></div>' +
+    return '<div class="nota a5"><div class="kop"><div class="kop-merek">' + logoHtml('nota-logo') + '<div><h1>' + esc(namaUsaha()) + '</h1><div>' + esc(set.alamat) + '</div><div>WA ' + esc(set.hp) + '</div></div></div><div style="text-align:right"><b>NOTA SERVIS</b><div>' + esc(w.no) + '</div><div>' + tgl(w.t, 1) + '</div></div></div>' +
       '<table style="width:100%;margin-bottom:8px"><tr><td>Pelanggan</td><td><b>' + esc(p.nama) + '</b> ' + esc(p.hp) + '</td><td>Plat</td><td><b>' + esc(w.plat) + '</b></td></tr><tr><td>Kendaraan</td><td>' + esc((k.merk || '') + ' ' + (k.model || '')) + '</td><td>KM</td><td>' + (w.km || '-').toLocaleString('id-ID') + '</td></tr><tr><td>Keluhan</td><td colspan="3">' + esc(w.keluhan) + '</td></tr></table>' +
       '<table style="width:100%"><thead><tr><th>Uraian</th><th style="text-align:right">Qty</th><th style="text-align:right">Harga</th><th style="text-align:right">Jumlah</th></tr></thead><tbody>' +
       w.jasa.map(function (j) { return '<tr><td>Jasa: ' + esc(j.nama) + '</td><td style="text-align:right">1</td><td style="text-align:right">' + rp(j.harga) + '</td><td style="text-align:right">' + rp(j.harga) + '</td></tr>'; }).join('') +

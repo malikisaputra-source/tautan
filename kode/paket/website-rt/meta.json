@@ -26,6 +26,6 @@
   ],
   "demo": "index.html",
   "kustom": true,
-  "berkas": ["index.html", "tema.css", "tema.js", "style.css", "data.js", "app.js", "sw.js", "manifest.webmanifest", "ikon.svg", "README.md", "LICENSE", "DESIGN.md", "AGENTS.md", ".claude/skills/ubah-website-rt/SKILL.md", "meta.json", "ss.png"],
+  "berkas": ["index.html", "tema.css", "tema.js", "style.css", "data.js", "app.js", "sw.js", "manifest.webmanifest", "ikon.svg", "img/logo.svg", "img/hero-lingkungan.svg", "img/pengurus-1.svg", "img/pengurus-2.svg", "img/pengurus-3.svg", "img/pengurus-4.svg", "img/galeri-1.svg", "img/galeri-2.svg", "img/galeri-3.svg", "img/galeri-4.svg", "README.md", "LICENSE", "DESIGN.md", "AGENTS.md", ".claude/skills/ubah-website-rt/SKILL.md", "meta.json", "ss.png"],
   "pratinjau": "index.html"
 }

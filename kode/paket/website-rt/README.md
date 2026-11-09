@@ -95,6 +95,22 @@ Dibuat oleh **Maliki Studio** — malikisaputra.biz.id, follow TikTok/IG **@mali
 <!-- kredit-maliki -->
 **Kredit:** Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Kredit di footer & kepala berkas wajib dipertahankan (lihat LICENSE).
 
+## Ganti logo & foto
+
+Semua path gambar ada di **satu tempat**: objek `window.GAMBAR` di bagian atas `data.js`. Cara termudah: timpa berkas di folder `img/` dengan nama yang sama.
+
+| Berkas | Tampil di | Ukuran disarankan |
+|---|---|---|
+| `img/logo.svg` | header & kop surat pengantar | persegi, 256×256 (PNG/SVG) |
+| `img/hero-lingkungan.svg` | foto besar di beranda (aktifkan: isi `hero: 'img/hero-lingkungan.jpg'`) | 1600×1000 |
+| `img/pengurus-1..4.svg` | foto di Kontak pengurus (urut sesuai daftar pengurus) | 400×400 (1:1) |
+| `img/galeri-1..4.svg` | Galeri kegiatan di beranda (`ket` = keterangan foto) | 800×600 (4:3) |
+
+- Pakai JPG/PNG? Ubah ekstensinya di `window.GAMBAR` (mis. `'img/logo.png'`). Tambah foto galeri = tambah baris `{ src, ket }`.
+- Kosongkan path (`''`) untuk menyembunyikan. Bila gambar gagal dimuat, otomatis kembali ke ikon rumah atau inisial nama.
+- Setelah mengganti berkas di situs online, naikkan `CACHE` di `sw.js` (mis. `website-rt-v3`) agar HP warga memuat gambar baru.
+- Placeholder bawaan hanya bingkai berlabel, bukan foto orang asli.
+
 <!-- panduan-ai-maliki -->
 ## Ubah sendiri sesuai kebutuhanmu pakai AI
 

@@ -55,6 +55,19 @@ MIT + syarat tambahan (lihat `LICENSE`): gratis dipakai untuk usaha/organisasi s
 
 Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra
 
+## Ganti logo & foto
+
+Semua path gambar diatur di satu tempat: objek `KONFIG` di baris atas `app.js`.
+
+| Slot | Berkas bawaan | Tampil di | Rasio |
+|---|---|---|---|
+| Logo usaha | `img/logo.svg` | sidebar, layar PIN, cetakan invoice/penawaran | 1:1 (min. 256px) |
+| Logo/avatar klien contoh | `img/klien-logo.svg` | daftar klien, profil, follow-up | 1:1 |
+
+- **Cara termudah:** timpa berkas di `img/` dengan nama yang sama (boleh PNG/JPG, tapi lalu ubah path di `KONFIG.logo`, mis. `"img/logo.png"`).
+- **Foto/logo tiap klien:** buka klien › Ubah › "Logo / foto klien" › pilih gambar. Gambar otomatis diperkecil ke ≤400px dan disimpan di browser (localStorage), ikut backup JSON.
+- Bila gambar gagal dimuat, aplikasi menampilkan inisial nama secara otomatis.
+
 ---
 
 <!-- kredit-maliki -->

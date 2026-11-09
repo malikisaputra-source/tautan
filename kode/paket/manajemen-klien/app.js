@@ -3,6 +3,14 @@
    Semua data disimpan di localStorage (kunci "crm_data"). Dibuat oleh Maliki Studio. */
 (function () {
   "use strict";
+  // ================= KONFIG GAMBAR (satu tempat) =================
+  // Ganti logo/foto: timpa berkas di folder img/ dengan nama sama, atau ubah path di sini.
+  // Bila gambar gagal dimuat, aplikasi otomatis menampilkan inisial.
+  var KONFIG = {
+    logo: "img/logo.svg",                       // logo usaha: sidebar, layar PIN, cetakan invoice/penawaran
+    fotoKlien: { k1: "img/klien-logo.svg" },    // logo/avatar bawaan per id klien (foto unggahan di form klien lebih diutamakan)
+    ukuranFotoMaks: 400                         // foto unggahan diperkecil ke ≤400px (dataURL di localStorage)
+  };
 
   // ================= util =================
   var $ = function (s, el) { return (el || document).querySelector(s); };
@@ -36,7 +44,24 @@
   var WARNA_AV = ["#4f46e5", "#0f766e", "#b45309", "#be185d", "#1d4ed8", "#7c3aed", "#15803d", "#c2410c"];
   var warnaAv = function (s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return WARNA_AV[h % WARNA_AV.length]; };
   var inisial = function (s) { return (s || "?").split(/\s+/).slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase(); };
-  var avatar = function (nama, besar) { return '<span class="avatar' + (besar ? " besar" : "") + '" style="--av:' + warnaAv(nama || "") + '" aria-hidden="true">' + esc(inisial(nama)) + "</span>"; };
+  var fotoK = function (k) { return k ? (k.foto || KONFIG.fotoKlien[k.id] || "") : ""; };
+  var avatar = function (nama, besar, foto) { return '<span class="avatar' + (besar ? " besar" : "") + '" style="--av:' + warnaAv(nama || "") + '" aria-hidden="true">' + esc(inisial(nama)) + (foto ? '<img src="' + esc(foto) + '" alt="" onerror="this.remove()">' : "") + "</span>"; };
+  var kecilkanFoto = function (file, cb) {
+    var r = new FileReader(); r.onload = function () { var im = new Image(); im.onload = function () {
+      var m = KONFIG.ukuranFotoMaks, sk = Math.min(1, m / Math.max(im.width, im.height)), c = document.createElement("canvas");
+      c.width = Math.round(im.width * sk); c.height = Math.round(im.height * sk); c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL("image/jpeg", .85));
+    }; im.onerror = function () { cb(""); }; im.src = r.result; }; r.readAsDataURL(file);
+  };
+  function pasangLogo() {
+    document.querySelectorAll(".merek .logo, .logo-besar").forEach(function (el) {
+      if (el.querySelector("img")) return;
+      var im = new Image(); im.alt = ""; im.className = "logo-img";
+      im.onload = function () { el.innerHTML = ""; el.appendChild(im); };
+      im.onerror = function () { el.innerHTML = '<span class="logo-inisial">' + esc(inisial(window.TEMA.nama)) + "</span>"; };
+      im.src = KONFIG.logo;
+    });
+  }
+  pasangLogo();
   var ikon = function (n) { return '<svg aria-hidden="true"><use href="#i-' + n + '"/></svg>'; };
   var waNomor = function (no) { no = String(no || "").replace(/\D/g, ""); if (no[0] === "0") no = "62" + no.slice(1); return no; };
   var waLink = function (no, teks) { return "https://wa.me/" + waNomor(no) + "?text=" + encodeURIComponent(teks); };
@@ -262,7 +287,7 @@
     if (!list.length) return '<div class="kosong">' + ikon("check") + "<p>Tidak ada follow-up tertunda.</p></div>";
     return '<ul class="daftar">' + list.map(function (p) {
       var k = klienById(p.klienId);
-      return '<li>' + avatar(k.nama) + '<div class="isi"><b>' + esc(p.teks) + "</b><small>" + esc(k.nama) + " · " + (p.tgl < HARI_INI ? '<span style="color:var(--merah);font-weight:700">terlewat ' + relatif(p.tgl) + "</span>" : relatif(p.tgl)) + "</small></div>" +
+      return '<li>' + avatar(k.nama, false, fotoK(k)) + '<div class="isi"><b>' + esc(p.teks) + "</b><small>" + esc(k.nama) + " · " + (p.tgl < HARI_INI ? '<span style="color:var(--merah);font-weight:700">terlewat ' + relatif(p.tgl) + "</span>" : relatif(p.tgl)) + "</small></div>" +
         '<a class="ikon-btn kecil" style="color:var(--hijau)" target="_blank" rel="noopener" href="' + esc(waLink(k.wa, "Halo " + (k.kontak || k.nama) + ", saya dari " + window.TEMA.nama + ". " + p.teks + ". Terima kasih 🙏")) + '" aria-label="Kirim WhatsApp ke ' + esc(k.nama) + '">' + ikon("wa") + "</a>" +
         '<button class="ikon-btn kecil" data-fu-selesai="' + p.id + '" aria-label="Tandai selesai: ' + esc(p.teks) + '">' + ikon("check") + "</button></li>";
     }).join("") + "</ul>";
@@ -298,7 +323,7 @@
     var rows = D.klien.filter(function (k) { return (!saringKlien.tag || k.tag.indexOf(saringKlien.tag) >= 0) && (!q || (k.nama + " " + k.kontak + " " + k.email).toLowerCase().indexOf(q) >= 0); });
     $("#tb-klien").innerHTML = rows.length ? rows.map(function (k, i) {
       var nilai = D.dok.filter(function (d) { return d.klienId === k.id && d.jenis === "invoice" && d.status === "lunas"; }).reduce(function (s, d) { return s + hitung(d).total; }, 0);
-      return '<tr class="klik" data-buka="#klien/' + k.id + '" style="animation:naik .4s ' + (i * .03) + 's both"><td><div style="display:flex;gap:12px;align-items:center">' + avatar(k.nama) + '<div><a href="#klien/' + k.id + '" style="font-weight:700;color:var(--teks);text-decoration:none">' + esc(k.nama) + '</a><div class="kecil redup">' + esc(k.kontak) + " · " + esc(k.wa) + '</div></div></div></td><td class="sembunyi-hp">' + esc(k.sumber) + '</td><td class="sembunyi-hp">' + k.tag.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + '</td><td class="kanan-teks angka"><b>' + rp(nilai) + '</b></td><td class="kanan-teks"><a class="ikon-btn kecil" style="color:var(--hijau)" target="_blank" rel="noopener" href="' + esc(waLink(k.wa, "Halo " + k.kontak + ", ")) + '" aria-label="WhatsApp ' + esc(k.nama) + '">' + ikon("wa") + "</a></td></tr>";
+      return '<tr class="klik" data-buka="#klien/' + k.id + '" style="animation:naik .4s ' + (i * .03) + 's both"><td><div style="display:flex;gap:12px;align-items:center">' + avatar(k.nama, false, fotoK(k)) + '<div><a href="#klien/' + k.id + '" style="font-weight:700;color:var(--teks);text-decoration:none">' + esc(k.nama) + '</a><div class="kecil redup">' + esc(k.kontak) + " · " + esc(k.wa) + '</div></div></div></td><td class="sembunyi-hp">' + esc(k.sumber) + '</td><td class="sembunyi-hp">' + k.tag.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + '</td><td class="kanan-teks angka"><b>' + rp(nilai) + '</b></td><td class="kanan-teks"><a class="ikon-btn kecil" style="color:var(--hijau)" target="_blank" rel="noopener" href="' + esc(waLink(k.wa, "Halo " + k.kontak + ", ")) + '" aria-label="WhatsApp ' + esc(k.nama) + '">' + ikon("wa") + "</a></td></tr>";
     }).join("") : '<tr><td colspan="5" class="kosong">Tidak ada klien yang cocok.</td></tr>';
   }
   PASANG.klien = function (id) {
@@ -317,7 +342,7 @@
     var lunas = dok.filter(function (d) { return d.jenis === "invoice" && d.status === "lunas"; }).reduce(function (s, d) { return s + hitung(d).total; }, 0);
     var tl = k.timeline.slice().sort(function (a, b) { return a.tgl < b.tgl ? 1 : -1; });
     return '<a href="#klien" class="btn-hantu" style="margin:-8px 0 10px -12px">' + ikon("left") + "Semua klien</a>" +
-      '<div class="hal-kepala"><div class="profil-kepala">' + avatar(k.nama, true) + '<div><h1>' + esc(k.nama) + '</h1><p>' + esc(k.kontak) + " · klien sejak " + tgl(k.dibuat) + '</p><div style="margin-top:6px">' + k.tag.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div></div></div>" +
+      '<div class="hal-kepala"><div class="profil-kepala">' + avatar(k.nama, true, fotoK(k)) + '<div><h1>' + esc(k.nama) + '</h1><p>' + esc(k.kontak) + " · klien sejak " + tgl(k.dibuat) + '</p><div style="margin-top:6px">' + k.tag.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div></div></div>" +
       '<div class="aksi"><a class="btn btn-wa" target="_blank" rel="noopener" href="' + esc(waLink(k.wa, "Halo " + k.kontak + ", ")) + '">' + ikon("wa") + 'WhatsApp</a><a class="btn-garis" href="mailto:' + esc(k.email) + '">' + ikon("mail") + 'Email</a><button class="btn-garis" id="edit-klien">' + ikon("edit") + 'Ubah</button><button class="ikon-btn" id="hapus-klien" aria-label="Hapus klien">' + ikon("trash") + "</button></div></div>" +
       '<div class="dua-kolom bertahap"><div style="display:grid;gap:18px"><section class="kartu"><h2>Profil</h2><dl class="info-list"><dt>Kontak</dt><dd>' + esc(k.kontak) + "</dd><dt>WhatsApp</dt><dd>" + esc(k.wa) + "</dd><dt>Email</dt><dd>" + esc(k.email) + "</dd><dt>Sumber</dt><dd>" + esc(k.sumber) + "</dd>" + (k.alamat ? "<dt>Alamat</dt><dd>" + esc(k.alamat) + "</dd>" : "") + '<dt>Total lunas</dt><dd class="angka"><b>' + rp(lunas) + '</b></dd></dl>' + (k.catatan ? '<p class="peringatan" style="margin:14px 0 0;background:var(--utama-muda);color:var(--utama-teks)">' + esc(k.catatan) + "</p>" : "") + "</section>" +
       '<section class="kartu"><h2>Proyek & deal</h2><ul class="daftar">' + proy.map(function (p) { return '<li><div class="isi"><b>' + esc(p.nama) + "</b><small>" + progres(p) + "% · " + tgl(p.tenggat) + "</small></div>" + chipStatus2(PSTATUS[p.status]) + "</li>"; }).join("") +
@@ -348,11 +373,16 @@
       isian("Email", '<input class="input" type="email" name="email" value="' + esc(k.email) + '">') + isian("Sumber", '<select class="input" name="sumber">' + opsi(["Instagram", "TikTok", "Referensi", "Google", "Website", "LinkedIn", "Pameran", "Lainnya"], k.sumber) + "</select>") +
       isian("Tag (pisahkan koma)", '<input class="input" name="tag" value="' + esc(k.tag.join(", ")) + '">', true) + isian("Alamat", '<input class="input" name="alamat" value="' + esc(k.alamat || "") + '">', true) +
       isian("Catatan", '<textarea class="input" name="catatan">' + esc(k.catatan) + "</textarea>", true) +
+      isian("Logo / foto klien (opsional)", '<div style="display:flex;gap:12px;align-items:center"><span id="pratinjau-foto">' + avatar(k.nama || "?", false, fotoK(k)) + '</span><input class="input" type="file" name="foto" accept="image/*"><button type="button" class="btn-garis" id="hapus-foto">Hapus</button></div>', true) +
       '<div class="form-aksi lebar"><button type="button" class="btn-garis" data-tutup>Batal</button><button class="btn" type="submit">Simpan</button></div></form>');
     rapikanLabel($("#modal-isi"));
+    var fotoBaru = k.foto;
+    $("#f-klien [name=foto]").onchange = function (e) { var fl = e.target.files[0]; if (!fl) return; kecilkanFoto(fl, function (u) { if (!u) return toast("Gambar tidak bisa dibaca"); fotoBaru = u; $("#pratinjau-foto").innerHTML = avatar(k.nama || "?", false, u); }); };
+    $("#hapus-foto").onclick = function () { fotoBaru = ""; $("#pratinjau-foto").innerHTML = avatar(k.nama || "?", false, ""); };
     $("#f-klien").onsubmit = function (e) {
       e.preventDefault(); var f = new FormData(e.target);
       ["nama", "kontak", "email", "wa", "sumber", "alamat", "catatan"].forEach(function (x) { k[x] = (f.get(x) || "").trim(); });
+      if (fotoBaru) k.foto = fotoBaru; else delete k.foto;
       k.tag = f.get("tag").split(",").map(function (t) { return t.trim(); }).filter(Boolean);
       if (baru) { k.id = uid(); k.dibuat = HARI_INI; k.timeline = [{ id: uid(), tgl: HARI_INI, jenis: "catatan", judul: "Klien ditambahkan", teks: "" }]; D.klien.unshift(k); }
       simpan(); tutupModal(); toast(baru ? "Klien ditambahkan" : "Klien diperbarui");
@@ -562,7 +592,7 @@
   }
   function cetak(d) {
     var k = klienById(d.klienId), h = hitung(d), P = D.pengaturan, inv = d.jenis === "invoice";
-    $("#cetak").innerHTML = '<div class="dok"><div class="dok-kepala"><div><h2 style="font-size:20px">' + esc(window.TEMA.nama) + "</h2><div>" + esc(P.alamat) + "<br>" + esc(P.email) + " · " + esc(P.wa) + '</div></div><div style="text-align:right"><h1>' + (inv ? "INVOICE" : "PENAWARAN") + "</h1><div><b>" + esc(d.nomor) + "</b></div><div>Tanggal: " + tgl(d.tgl) + "</div><div>" + (inv ? "Jatuh tempo: " : "Berlaku s.d.: ") + tgl(d.jatuhTempo) + "</div></div></div>" +
+    $("#cetak").innerHTML = '<div class="dok"><div class="dok-kepala"><div><img class="dok-logo" src="' + esc(KONFIG.logo) + '" alt="" onerror="this.remove()"><h2 style="font-size:20px">' + esc(window.TEMA.nama) + "</h2><div>" + esc(P.alamat) + "<br>" + esc(P.email) + " · " + esc(P.wa) + '</div></div><div style="text-align:right"><h1>' + (inv ? "INVOICE" : "PENAWARAN") + "</h1><div><b>" + esc(d.nomor) + "</b></div><div>Tanggal: " + tgl(d.tgl) + "</div><div>" + (inv ? "Jatuh tempo: " : "Berlaku s.d.: ") + tgl(d.jatuhTempo) + "</div></div></div>" +
       "<div><small>Kepada</small><br><b>" + esc(k.nama) + "</b><br>" + esc(k.kontak) + "<br>" + esc(k.email) + " · " + esc(k.wa) + "</div>" +
       '<table><thead><tr><th>Deskripsi</th><th style="text-align:right">Qty</th><th style="text-align:right">Harga</th><th style="text-align:right">Jumlah</th></tr></thead><tbody>' + d.item.map(function (it) { return "<tr><td>" + esc(it.nama) + '</td><td style="text-align:right">' + it.qty + '</td><td style="text-align:right">' + rp(it.harga) + '</td><td style="text-align:right">' + rp(it.qty * it.harga) + "</td></tr>"; }).join("") + "</tbody></table>" +
       '<div class="tot"><div><span>Subtotal</span><span>' + rp(h.sub) + "</span></div>" + (h.diskon ? "<div><span>Diskon</span><span>−" + rp(h.diskon) + "</span></div>" : "") + "<div><span>PPN " + d.pajak + "%</span><span>" + rp(h.pajak) + '</span></div><div class="akhir"><span>Total</span><span>' + rp(h.total) + "</span></div>" + (h.dp ? "<div><span>DP</span><span>−" + rp(h.dp) + '</span></div><div class="akhir"><span>Sisa</span><span>' + rp(h.sisa) + "</span></div>" : "") + "</div>" +
@@ -594,7 +624,7 @@
   function daftarPengingat(arr) {
     return '<ul class="daftar">' + arr.map(function (p) {
       var k = klienById(p.klienId);
-      return '<li style="' + (p.selesai ? "opacity:.6" : "") + '">' + avatar(k.nama) + '<div class="isi"><b style="' + (p.selesai ? "text-decoration:line-through" : "") + '">' + esc(p.teks) + "</b><small>" + esc(k.nama) + " · " + tgl(p.tgl) + " (" + relatif(p.tgl) + ")</small></div>" +
+      return '<li style="' + (p.selesai ? "opacity:.6" : "") + '">' + avatar(k.nama, false, fotoK(k)) + '<div class="isi"><b style="' + (p.selesai ? "text-decoration:line-through" : "") + '">' + esc(p.teks) + "</b><small>" + esc(k.nama) + " · " + tgl(p.tgl) + " (" + relatif(p.tgl) + ")</small></div>" +
         '<a class="ikon-btn kecil" style="color:var(--hijau)" target="_blank" rel="noopener" href="' + esc(waLink(k.wa, "Halo " + (k.kontak || k.nama) + ", saya dari " + window.TEMA.nama + ". " + p.teks + ". Terima kasih 🙏")) + '" aria-label="WhatsApp ' + esc(k.nama) + '">' + ikon("wa") + "</a>" +
         '<button class="ikon-btn kecil" data-fu-selesai="' + p.id + '" aria-label="' + (p.selesai ? "Batalkan selesai" : "Tandai selesai") + '">' + ikon(p.selesai ? "x" : "check") + '</button><button class="ikon-btn kecil" data-fu-hapus="' + p.id + '" aria-label="Hapus pengingat">' + ikon("trash") + "</button></li>";
     }).join("") + "</ul>";

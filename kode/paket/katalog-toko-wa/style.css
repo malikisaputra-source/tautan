@@ -263,3 +263,5 @@ html.mode-pilih [data-pilih-hover]{outline:2px solid #f43f5e!important;outline-o
 .kepala,.ikon-btn,.kat,.kartu-gambar,.label,.modal,.laci,.tombol,.opsi button,.saring input,.saring select,.merek-ikon,.kaki,.sorotan-kartu,.keranjang-btn,.laci-kaki{transition:background-color .35s,color .35s,border-color .35s,transform .3s var(--pegas),box-shadow .35s}
 .laci{transition:transform .45s var(--halus),visibility .45s,background-color .35s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.merek-ikon.ada-logo{background:transparent;overflow:hidden}
+.merek-ikon img{width:100%;height:100%;object-fit:cover;display:block}

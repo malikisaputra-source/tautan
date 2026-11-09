@@ -413,3 +413,11 @@ html.mode-pilih [data-pilih-hover]{outline:2px solid #f43f5e!important;outline-o
   .struk b{font-weight:700}
   .struk h4{margin:0;font-size:13px}
 }
+
+/* Logo & foto produk (KONFIG di app.js) */
+.logo-img{object-fit:contain;border-radius:22%;flex:none}
+.logo-inisial{display:grid;place-items:center;flex:none;border-radius:22%;background:var(--aksen);color:#fff;font-weight:800;font-size:14px}
+.foto-produk{width:100%;height:100%;object-fit:cover}
+.foto-baris{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.foto-pratinjau{width:64px;height:64px;flex:none}
+@media print{.struk .struk-logo{display:block;width:22mm;height:auto;margin:0 auto 2mm}}

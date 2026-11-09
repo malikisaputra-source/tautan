@@ -96,6 +96,11 @@ Dibuat oleh **Maliki Studio** — [malikisaputra.biz.id](https://malikisaputra.b
 <!-- kredit-maliki -->
 **Kredit:** Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Kredit di footer & kepala berkas wajib dipertahankan (lihat LICENSE).
 
+## Ganti logo & foto
+- Semua path gambar diatur di `produk.js` (objek `TOKO`): `logo` dan `fotoKosong`.
+- Logo: timpa `img/logo.svg` (atau ubah `logo: 'img/logo.png'`). Rasio 1:1, tampil bulat di header. Kosongkan `''` atau bila gagal dimuat → otomatis inisial nama toko.
+- Foto produk: isi `gambar: ['img/kaos-1.jpg', ...]` per produk (rasio 1:1, ±800×800 px, kompres ≤200 KB). Produk tanpa gambar atau foto yang gagal dimuat memakai `img/foto-produk.svg`; ganti berkas itu untuk placeholder sendiri.
+
 <!-- panduan-ai-maliki -->
 ## Ubah sendiri sesuai kebutuhanmu pakai AI
 

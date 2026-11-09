@@ -30,6 +30,7 @@
   "berkas": [
     "index.html", "style.css", "app.js", "tema.css", "tema.js", "ikon.svg",
     "README.md", "LICENSE", "meta.json", "DESIGN.md", "AGENTS.md",
-    ".claude/skills/ubah-manajemen-klien/SKILL.md", "ss.png"
+    ".claude/skills/ubah-manajemen-klien/SKILL.md", "ss.png",
+    "img/logo.svg", "img/klien-logo.svg"
   ]
 }

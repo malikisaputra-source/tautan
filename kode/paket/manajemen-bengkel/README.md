@@ -69,6 +69,11 @@ Dibuat oleh **Maliki Studio** — malikisaputra.biz.id, follow TikTok/IG **@mali
 <!-- kredit-maliki -->
 **Kredit:** Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Kredit di footer & kepala berkas wajib dipertahankan (lihat LICENSE).
 
+## Ganti logo & foto
+Semua path gambar ada di objek `KONFIG` paling atas `app.js`.
+- **Logo** (`img/logo.svg`, persegi 1:1): tampil di sidebar, layar TV, dan nota A5/58mm. Ganti dengan menimpa berkas (boleh `.png`/`.jpg`, lalu ubah path `KONFIG.logo`). Bila gagal dimuat, otomatis tampil inisial nama usaha.
+- **Foto kendaraan** per work order: tombol "Unggah foto" di form work order. Foto diperkecil otomatis ≤400px (`KONFIG.fotoMaksPx`) lalu disimpan di localStorage bersama data. Placeholder: `img/kendaraan.svg` (4:3).
+
 <!-- panduan-ai-maliki -->
 ## Ubah sendiri sesuai kebutuhanmu pakai AI
 
