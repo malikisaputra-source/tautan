@@ -41,7 +41,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 11,
    "aktif": false,
-   "target": 200,
+   "target": 600,
    "metrik": [
     {
      "id": "like",
@@ -103,7 +103,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 4,
    "aktif": false,
-   "target": 130,
+   "target": 250,
    "metrik": [
     {
      "id": "like",
@@ -166,7 +166,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 5,
    "aktif": false,
-   "target": 140,
+   "target": 300,
    "metrik": [
     {
      "id": "like",
@@ -227,7 +227,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 6,
    "aktif": false,
-   "target": 150,
+   "target": 350,
    "metrik": [
     {
      "id": "like",
@@ -295,7 +295,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 3,
    "aktif": false,
-   "target": 120,
+   "target": 200,
    "metrik": [
     {
      "id": "like",
@@ -357,7 +357,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 10,
    "aktif": false,
-   "target": 190,
+   "target": 550,
    "metrik": [
     {
      "id": "like",
@@ -419,7 +419,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 9,
    "aktif": false,
-   "target": 180,
+   "target": 500,
    "metrik": [
     {
      "id": "like",
@@ -486,7 +486,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 8,
    "aktif": false,
-   "target": 170,
+   "target": 450,
    "metrik": [
     {
      "id": "like",
@@ -542,7 +542,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 14,
    "aktif": false,
-   "target": 230,
+   "target": 750,
    "metrik": [
     {
      "id": "like",
@@ -598,7 +598,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 16,
    "aktif": false,
-   "target": 250,
+   "target": 850,
    "metrik": [
     {
      "id": "like",
@@ -710,7 +710,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 5,
    "aktif": false,
-   "target": 140,
+   "target": 300,
    "metrik": [
     {
      "id": "like",
@@ -766,7 +766,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 2,
    "aktif": false,
-   "target": 110,
+   "target": 150,
    "metrik": [
     {
      "id": "like",
@@ -822,7 +822,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 12,
    "aktif": false,
-   "target": 210,
+   "target": 650,
    "metrik": [
     {
      "id": "like",
@@ -878,7 +878,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 13,
    "aktif": false,
-   "target": 220,
+   "target": 700,
    "metrik": [
     {
      "id": "like",
@@ -934,7 +934,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 6,
    "aktif": false,
-   "target": 150,
+   "target": 350,
    "metrik": [
     {
      "id": "like",
@@ -990,7 +990,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 10,
    "aktif": false,
-   "target": 190,
+   "target": 550,
    "metrik": [
     {
      "id": "like",
@@ -1046,7 +1046,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 15,
    "aktif": false,
-   "target": 240,
+   "target": 800,
    "metrik": [
     {
      "id": "like",
@@ -1102,7 +1102,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 8,
    "aktif": false,
-   "target": 170,
+   "target": 450,
    "metrik": [
     {
      "id": "like",
@@ -1158,7 +1158,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 7,
    "aktif": false,
-   "target": 160,
+   "target": 400,
    "metrik": [
     {
      "id": "like",
@@ -1214,7 +1214,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 11,
    "aktif": false,
-   "target": 200,
+   "target": 600,
    "metrik": [
     {
      "id": "like",
@@ -1305,7 +1305,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 9,
    "aktif": false,
-   "target": 180,
+   "target": 500,
    "metrik": [
     {
      "id": "like",
@@ -1361,7 +1361,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 4,
    "aktif": false,
-   "target": 130,
+   "target": 250,
    "metrik": [
     {
      "id": "like",
@@ -1417,7 +1417,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 3,
    "aktif": false,
-   "target": 120,
+   "target": 200,
    "metrik": [
     {
      "id": "like",
@@ -1478,7 +1478,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 2,
    "aktif": false,
-   "target": 110,
+   "target": 150,
    "metrik": [
     {
      "id": "like",
@@ -1868,7 +1868,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 12,
    "aktif": false,
-   "target": 210,
+   "target": 650,
    "metrik": [
     {
      "id": "like",
@@ -1929,7 +1929,7 @@ window.KODE = [
   "tantangan": {
    "giliran": 7,
    "aktif": false,
-   "target": 160,
+   "target": 400,
    "metrik": [
     {
      "id": "like",
@@ -2074,9 +2074,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t01.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 1,
+   "aktif": true,
+   "target": 100,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t01",
   "zip": "https://github.com/malikisaputra-source/template-reels-t01/archive/refs/heads/main.zip"
  },
@@ -2094,9 +2117,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t02.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 2,
+   "aktif": false,
+   "target": 150,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t02",
   "zip": "https://github.com/malikisaputra-source/template-reels-t02/archive/refs/heads/main.zip"
  },
@@ -2114,9 +2160,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t03.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 3,
+   "aktif": false,
+   "target": 200,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t03",
   "zip": "https://github.com/malikisaputra-source/template-reels-t03/archive/refs/heads/main.zip"
  },
@@ -2134,9 +2203,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t04.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 4,
+   "aktif": false,
+   "target": 250,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t04",
   "zip": "https://github.com/malikisaputra-source/template-reels-t04/archive/refs/heads/main.zip"
  },
@@ -2154,9 +2246,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t05.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 5,
+   "aktif": false,
+   "target": 300,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t05",
   "zip": "https://github.com/malikisaputra-source/template-reels-t05/archive/refs/heads/main.zip"
  },
@@ -2174,9 +2289,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t06.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 6,
+   "aktif": false,
+   "target": 350,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t06",
   "zip": "https://github.com/malikisaputra-source/template-reels-t06/archive/refs/heads/main.zip"
  },
@@ -2194,9 +2332,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t07.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 7,
+   "aktif": false,
+   "target": 400,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t07",
   "zip": "https://github.com/malikisaputra-source/template-reels-t07/archive/refs/heads/main.zip"
  },
@@ -2214,9 +2375,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t08.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 8,
+   "aktif": false,
+   "target": 450,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t08",
   "zip": "https://github.com/malikisaputra-source/template-reels-t08/archive/refs/heads/main.zip"
  },
@@ -2234,9 +2418,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t09.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 9,
+   "aktif": false,
+   "target": 500,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t09",
   "zip": "https://github.com/malikisaputra-source/template-reels-t09/archive/refs/heads/main.zip"
  },
@@ -2254,9 +2461,32 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/template-reels-t10.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 10,
+   "aktif": false,
+   "target": 550,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t10",
   "zip": "https://github.com/malikisaputra-source/template-reels-t10/archive/refs/heads/main.zip"
  },

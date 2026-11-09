@@ -29,11 +29,12 @@ for m in sorted(AKAR.glob("*/meta.json")):
         d["dasar"] = f"paket/{slug}/"
     grp = next((g for g, l in ANTRE.get("antrean", {}).items() if slug in l), None)
     if grp:
-        i = ANTRE["antrean"][grp].index(slug); pr = ANTRE.get("progres", {}).get(slug, {})
+        i = ANTRE["antrean"][grp].index(slug); po = ANTRE.get("postingan", {}).get(grp, {})
+        n = ANTRE.get("terbuka", {}).get(grp, 0) + i
         d["tantangan"] = {"giliran": i + 1, "aktif": i == 0,
-                          "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 10) * i,
-                          "metrik": [{**m, "sekarang": pr.get(m["id"], 0)} for m in ANTRE.get("metrik", [])],
-                          "tautan": pr.get("tautan")}
+                          "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 50) * n,
+                          "metrik": [{**m, "sekarang": po.get(m["id"], 0)} for m in ANTRE.get("metrik", [])],
+                          "tautan": po.get("tautan")}
     rg = d.pop("repo_github", None) or slug
     d["repo"] = GH + rg
     d["zip"] = GH + rg + "/archive/refs/heads/main.zip"

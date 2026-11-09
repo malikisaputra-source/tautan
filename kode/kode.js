@@ -66,12 +66,12 @@
     const IK = { like: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>', komentar: '<path d="M4 5h16v11H9l-5 4z"/>', simpan: '<path d="M6 3h12v18l-6-4-6 4z"/>' };
     let prog = "";
     if (tg && tg.aktif) {
-      prog = `<div class="k-tantangan"><p class="k-tt-judul">Kumpulkan <b>${tg.target}</b> ${esc(namaM)} di postingan tantangan</p>` +
+      prog = `<div class="k-tantangan"><p class="k-tt-judul">Tembus <b>${tg.target}</b> ${esc(namaM)} di postingan showcase</p>` +
         (tg.metrik || []).map((m) => { const p = Math.min(100, Math.round((m.sekarang || 0) / tg.target * 100));
           return `<div class="k-tt-baris"><svg viewBox="0 0 24 24" aria-hidden="true">${IK[m.id] || ""}</svg><span class="k-tt-nama">${esc(m.label)}</span>
             <div class="k-tt-bar" role="progressbar" aria-label="${esc(m.label)}" aria-valuemin="0" aria-valuemax="${tg.target}" aria-valuenow="${m.sekarang || 0}"><span style="width:${p}%"></span></div>
             <span class="k-tt-n"><b>${(m.sekarang || 0).toLocaleString("id-ID")}</b>/${tg.target}</span></div>`; }).join("") +
-        `<span class="k-tt-cta">Bantu di postingannya</span></div>`;
+        `<span class="k-tt-cta">Buka postingan showcase</span></div>`;
       b.disabled = false; b.removeAttribute("aria-disabled"); b.classList.add("aktif");
       b.addEventListener("click", () => window.open(tg.tautan || "https://www.tiktok.com/@malikifsaputra", "_blank", "noopener"));
     } else if (tg) prog = `<p class="k-tt-tunggu">${tg.target} ${esc(namaM)} · dibuka setelah tantangan sebelumnya tercapai.</p>`;
