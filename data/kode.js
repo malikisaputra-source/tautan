@@ -390,6 +390,88 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
  {
+  "slug": "kantor-ai-angkringan",
+  "judul": "Kantor AI 3D · Angkringan Malam",
+  "ringkas": "Kantor AI pedagang kaki lima: gerobak beratap terpal, tikar lesehan, tungku arang, bohlam kuning. Agen AI bekerja di lapak pinggir jalan.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Angkringan Malam: gerobak beratap terpal, tikar lesehan, tungku arang, bohlam kuning",
+   "Nuansa pinggir jalan Indonesia",
+   "Mission Board berupa papan kapur",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Rekam jadi video reels (npm run rekam -- --gaya angkringan)",
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=angkringan",
+   "Atau set GAYA = 'angkringan' di src/config.ts",
+   "Ubah nama lapak, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-angkringan.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 14,
+   "aktif": false,
+   "jenis": "share",
+   "target": 230,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-bakso",
+  "judul": "Kantor AI 3D · Gerobak Bakso & Es",
+  "ringkas": "Kantor AI pedagang kaki lima: gerobak bakso berkaca, payung warna-warni, pagar sekolah, siang terang. Agen AI bekerja di lapak pinggir jalan.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Gerobak Bakso & Es: gerobak bakso berkaca, payung warna-warni, pagar sekolah, siang terang",
+   "Nuansa pinggir jalan Indonesia",
+   "Mission Board berupa papan kapur",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Rekam jadi video reels (npm run rekam -- --gaya bakso)",
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=bakso",
+   "Atau set GAYA = 'bakso' di src/config.ts",
+   "Ubah nama lapak, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-bakso.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 16,
+   "aktif": false,
+   "jenis": "share",
+   "target": 250,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "kantor-ai-clay",
   "judul": "Kantor AI 3D · Clay",
   "ringkas": "Kantor AI 3D gaya Clay: semua objek dari tanah liat: membulat, bekas jari, warna lembut. Agen bekerja, menulis laporan, lalu santai.",
@@ -407,7 +489,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya clay)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -448,7 +530,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya diorama)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -489,7 +571,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya felt)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -530,7 +612,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya gedung30)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -571,7 +653,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya hologram)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -612,7 +694,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya kayu)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -653,7 +735,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya menara)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -670,6 +752,47 @@ window.KODE = [
    "aktif": false,
    "jenis": "share",
    "target": 190,
+   "sekarang": 0,
+   "tautan": null
+  },
+  "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kantor-ai-pecellele",
+  "judul": "Kantor AI 3D · Warung Tenda Pecel Lele",
+  "ringkas": "Kantor AI pedagang kaki lima: tenda terpal dengan spanduk lukis, bangku plastik, lampu neon, kabel semrawut. Agen AI bekerja di lapak pinggir jalan.",
+  "teknologi": [
+   "React",
+   "Three.js",
+   "Vite",
+   "TypeScript"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Gaya Warung Tenda Pecel Lele: tenda terpal dengan spanduk lukis, bangku plastik, lampu neon, kabel semrawut",
+   "Nuansa pinggir jalan Indonesia",
+   "Mission Board berupa papan kapur",
+   "Agen mengetik, laporan sore, santai & ngopi",
+   "Rekam jadi video reels (npm run rekam -- --gaya pecellele)",
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
+  ],
+  "cara": [
+   "Install Node.js 20+, lalu npm install dan npm run dev",
+   "Buka http://localhost:5173/?gaya=pecellele",
+   "Atau set GAYA = 'pecellele' di src/config.ts",
+   "Ubah nama lapak, agen, dan jadwal di src/config.ts"
+  ],
+  "demo": null,
+  "kunci": "tantangan",
+  "gambar": "img/kantor-ai-pecellele.webp",
+  "kustom": false,
+  "tantangan": {
+   "giliran": 15,
+   "aktif": false,
+   "jenis": "share",
+   "target": 240,
    "sekarang": 0,
    "tautan": null
   },
@@ -694,7 +817,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya pulau)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -735,7 +858,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya stickman)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -776,7 +899,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya taman)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -852,7 +975,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya toko)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -893,7 +1016,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya vinyl)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
@@ -934,7 +1057,7 @@ window.KODE = [
    "Gelembung ringkasan, tanda ! menunggu keputusan",
    "Mission Board & timelapse satu hari kerja",
    "Rekam jadi video reels (npm run rekam -- --gaya voxel)",
-   "Bisa ganti ke 13 gaya lain lewat tombol pemilih"
+   "Bisa ganti ke 16 gaya lain lewat tombol pemilih"
   ],
   "cara": [
    "Install Node.js 20+, lalu npm install dan npm run dev",
