@@ -540,9 +540,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-angkringan.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 14,
+   "giliran": 15,
    "aktif": false,
-   "target": 750,
+   "target": 800,
    "metrik": [
     {
      "id": "like",
@@ -596,9 +596,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-bakso.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 16,
+   "giliran": 17,
    "aktif": false,
-   "target": 850,
+   "target": 900,
    "metrik": [
     {
      "id": "like",
@@ -652,9 +652,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-clay.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 1,
-   "aktif": true,
-   "target": 100,
+   "giliran": 2,
+   "aktif": false,
+   "target": 150,
    "metrik": [
     {
      "id": "like",
@@ -708,9 +708,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-diorama.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 5,
+   "giliran": 6,
    "aktif": false,
-   "target": 300,
+   "target": 350,
    "metrik": [
     {
      "id": "like",
@@ -764,9 +764,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-felt.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 2,
+   "giliran": 3,
    "aktif": false,
-   "target": 150,
+   "target": 200,
    "metrik": [
     {
      "id": "like",
@@ -820,9 +820,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-gedung30.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 12,
+   "giliran": 13,
    "aktif": false,
-   "target": 650,
+   "target": 700,
    "metrik": [
     {
      "id": "like",
@@ -876,9 +876,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-hologram.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 13,
+   "giliran": 14,
    "aktif": false,
-   "target": 700,
+   "target": 750,
    "metrik": [
     {
      "id": "like",
@@ -932,9 +932,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-kayu.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 6,
+   "giliran": 7,
    "aktif": false,
-   "target": 350,
+   "target": 400,
    "metrik": [
     {
      "id": "like",
@@ -988,9 +988,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-menara.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 10,
+   "giliran": 11,
    "aktif": false,
-   "target": 550,
+   "target": 600,
    "metrik": [
     {
      "id": "like",
@@ -1044,9 +1044,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-pecellele.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 15,
+   "giliran": 16,
    "aktif": false,
-   "target": 800,
+   "target": 850,
    "metrik": [
     {
      "id": "like",
@@ -1100,9 +1100,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-pulau.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 8,
+   "giliran": 9,
    "aktif": false,
-   "target": 450,
+   "target": 500,
    "metrik": [
     {
      "id": "like",
@@ -1156,9 +1156,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-stickman.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 7,
+   "giliran": 8,
    "aktif": false,
-   "target": 400,
+   "target": 450,
    "metrik": [
     {
      "id": "like",
@@ -1212,9 +1212,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-taman.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 11,
+   "giliran": 12,
    "aktif": false,
-   "target": 600,
+   "target": 650,
    "metrik": [
     {
      "id": "like",
@@ -1266,9 +1266,32 @@ window.KODE = [
    "Jalankan agent lewat Antigravity CLI (agy); laporannya muncul di kantor"
   ],
   "demo": null,
-  "kunci": "segera",
+  "kunci": "tantangan",
   "gambar": "img/kantor-ai-template.webp",
   "kustom": false,
+  "tantangan": {
+   "giliran": 1,
+   "aktif": true,
+   "target": 100,
+   "metrik": [
+    {
+     "id": "like",
+     "label": "like",
+     "sekarang": 0
+    },
+    {
+     "id": "komentar",
+     "label": "komentar",
+     "sekarang": 0
+    },
+    {
+     "id": "simpan",
+     "label": "simpan",
+     "sekarang": 0
+    }
+   ],
+   "tautan": null
+  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1303,9 +1326,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-toko.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 9,
+   "giliran": 10,
    "aktif": false,
-   "target": 500,
+   "target": 550,
    "metrik": [
     {
      "id": "like",
@@ -1359,9 +1382,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-vinyl.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 4,
+   "giliran": 5,
    "aktif": false,
-   "target": 250,
+   "target": 300,
    "metrik": [
     {
      "id": "like",
@@ -1415,9 +1438,9 @@ window.KODE = [
   "gambar": "img/kantor-ai-voxel.webp",
   "kustom": false,
   "tantangan": {
-   "giliran": 3,
+   "giliran": 4,
    "aktif": false,
-   "target": 200,
+   "target": 250,
    "metrik": [
     {
      "id": "like",
