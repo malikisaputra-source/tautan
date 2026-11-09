@@ -36,31 +36,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-12-17",
   "gambar": "img/absensi-karyawan.webp",
-  "tantangan": {
-   "giliran": 11,
-   "aktif": false,
-   "target": 600,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
   "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
  },
@@ -98,31 +75,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-11-23",
   "gambar": "img/belanja-keluarga.webp",
-  "tantangan": {
-   "giliran": 4,
-   "aktif": false,
-   "target": 250,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
   "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
  },
@@ -161,31 +115,8 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "tantangan",
+  "kunci": "2026-11-26",
   "gambar": "img/bengkel-las-hpp.webp",
-  "tantangan": {
-   "giliran": 5,
-   "aktif": false,
-   "target": 300,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/bengkel-las-hpp",
   "zip": "https://github.com/malikisaputra-source/bengkel-las-hpp/archive/refs/heads/main.zip"
  },
@@ -222,31 +153,8 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "tantangan",
+  "kunci": "2026-11-30",
   "gambar": "img/catatan-ojol.webp",
-  "tantangan": {
-   "giliran": 6,
-   "aktif": false,
-   "target": 350,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
   "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
  },
@@ -290,31 +198,8 @@ window.KODE = [
    "tsyamha90",
    "taniaflorist7"
   ],
-  "kunci": "tantangan",
+  "kunci": "2026-11-19",
   "gambar": "img/direktori-rumah-ibadah.webp",
-  "tantangan": {
-   "giliran": 3,
-   "aktif": false,
-   "target": 200,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
   "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
  },
@@ -352,31 +237,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-12-14",
   "gambar": "img/helpdesk-tiket.webp",
-  "tantangan": {
-   "giliran": 10,
-   "aktif": false,
-   "target": 550,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
   "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip"
  },
@@ -414,31 +276,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-12-10",
   "gambar": "img/iuran-kas-rt.webp",
-  "tantangan": {
-   "giliran": 9,
-   "aktif": false,
-   "target": 500,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
   "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip"
  },
@@ -481,31 +320,8 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html?demo",
-  "kunci": "tantangan",
+  "kunci": "2026-12-07",
   "gambar": "img/kalender-kerja.webp",
-  "tantangan": {
-   "giliran": 8,
-   "aktif": false,
-   "target": 450,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kalender-kerja",
   "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
  },
@@ -536,32 +352,9 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-31",
   "gambar": "img/kantor-ai-angkringan.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 15,
-   "aktif": false,
-   "target": 800,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -592,32 +385,9 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2027-01-07",
   "gambar": "img/kantor-ai-bakso.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 17,
-   "aktif": false,
-   "target": 900,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -648,32 +418,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-16",
   "gambar": "img/kantor-ai-clay.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 2,
-   "aktif": false,
-   "target": 150,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -704,32 +451,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-30",
   "gambar": "img/kantor-ai-diorama.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 6,
-   "aktif": false,
-   "target": 350,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -760,32 +484,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-19",
   "gambar": "img/kantor-ai-felt.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 3,
-   "aktif": false,
-   "target": 200,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -816,32 +517,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-24",
   "gambar": "img/kantor-ai-gedung30.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 13,
-   "aktif": false,
-   "target": 700,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -872,32 +550,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-28",
   "gambar": "img/kantor-ai-hologram.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 14,
-   "aktif": false,
-   "target": 750,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -928,32 +583,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-03",
   "gambar": "img/kantor-ai-kayu.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 7,
-   "aktif": false,
-   "target": 400,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -984,32 +616,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-17",
   "gambar": "img/kantor-ai-menara.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 11,
-   "aktif": false,
-   "target": 600,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1040,32 +649,9 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2027-01-04",
   "gambar": "img/kantor-ai-pecellele.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 16,
-   "aktif": false,
-   "target": 850,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1096,32 +682,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-10",
   "gambar": "img/kantor-ai-pulau.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 9,
-   "aktif": false,
-   "target": 500,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1152,32 +715,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-07",
   "gambar": "img/kantor-ai-stickman.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 8,
-   "aktif": false,
-   "target": 450,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1208,32 +748,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-21",
   "gambar": "img/kantor-ai-taman.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 12,
-   "aktif": false,
-   "target": 650,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1299,32 +816,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-14",
   "gambar": "img/kantor-ai-toko.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 10,
-   "aktif": false,
-   "target": 550,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1355,32 +849,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-26",
   "gambar": "img/kantor-ai-vinyl.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 5,
-   "aktif": false,
-   "target": 300,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1411,32 +882,9 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-23",
   "gambar": "img/kantor-ai-voxel.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 4,
-   "aktif": false,
-   "target": 250,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -1473,31 +921,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-11-16",
   "gambar": "img/kas-warung.webp",
-  "tantangan": {
-   "giliran": 2,
-   "aktif": false,
-   "target": 150,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/kas-warung",
   "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
  },
@@ -1650,31 +1075,8 @@ window.KODE = [
   "demo": "index.html?demo",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-11-12",
   "gambar": "img/keuangan-bendahara.webp",
-  "tantangan": {
-   "giliran": 1,
-   "aktif": true,
-   "target": 100,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/keuangan-bendahara",
   "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip"
  },
@@ -1820,32 +1222,9 @@ window.KODE = [
    "Lihat kantornya: npm install lalu npm run dev"
   ],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-12",
   "gambar": "img/paket-10-agent-umkm.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 1,
-   "aktif": true,
-   "target": 100,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/paket-10-agent-umkm",
   "zip": "https://github.com/malikisaputra-source/paket-10-agent-umkm/archive/refs/heads/main.zip"
  },
@@ -1886,31 +1265,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-12-21",
   "gambar": "img/pesan-antar-kedai.webp",
-  "tantangan": {
-   "giliran": 12,
-   "aktif": false,
-   "target": 650,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
   "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
  },
@@ -1947,31 +1303,8 @@ window.KODE = [
   "demo": "index.html",
   "kustom": false,
   "pratinjau": "index.html",
-  "kunci": "tantangan",
+  "kunci": "2026-12-03",
   "gambar": "img/portofolio-pribadi.webp",
-  "tantangan": {
-   "giliran": 7,
-   "aktif": false,
-   "target": 400,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/portofolio-pribadi",
   "zip": "https://github.com/malikisaputra-source/portofolio-pribadi/archive/refs/heads/main.zip"
  },
@@ -2097,32 +1430,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-12",
   "gambar": "img/template-reels-t01.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 1,
-   "aktif": true,
-   "target": 100,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t01",
   "zip": "https://github.com/malikisaputra-source/template-reels-t01/archive/refs/heads/main.zip"
  },
@@ -2140,32 +1450,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-16",
   "gambar": "img/template-reels-t02.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 2,
-   "aktif": false,
-   "target": 150,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t02",
   "zip": "https://github.com/malikisaputra-source/template-reels-t02/archive/refs/heads/main.zip"
  },
@@ -2183,32 +1470,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-19",
   "gambar": "img/template-reels-t03.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 3,
-   "aktif": false,
-   "target": 200,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t03",
   "zip": "https://github.com/malikisaputra-source/template-reels-t03/archive/refs/heads/main.zip"
  },
@@ -2226,32 +1490,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-23",
   "gambar": "img/template-reels-t04.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 4,
-   "aktif": false,
-   "target": 250,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t04",
   "zip": "https://github.com/malikisaputra-source/template-reels-t04/archive/refs/heads/main.zip"
  },
@@ -2269,32 +1510,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-26",
   "gambar": "img/template-reels-t05.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 5,
-   "aktif": false,
-   "target": 300,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t05",
   "zip": "https://github.com/malikisaputra-source/template-reels-t05/archive/refs/heads/main.zip"
  },
@@ -2312,32 +1530,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-11-30",
   "gambar": "img/template-reels-t06.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 6,
-   "aktif": false,
-   "target": 350,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t06",
   "zip": "https://github.com/malikisaputra-source/template-reels-t06/archive/refs/heads/main.zip"
  },
@@ -2355,32 +1550,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-03",
   "gambar": "img/template-reels-t07.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 7,
-   "aktif": false,
-   "target": 400,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t07",
   "zip": "https://github.com/malikisaputra-source/template-reels-t07/archive/refs/heads/main.zip"
  },
@@ -2398,32 +1570,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-07",
   "gambar": "img/template-reels-t08.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 8,
-   "aktif": false,
-   "target": 450,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t08",
   "zip": "https://github.com/malikisaputra-source/template-reels-t08/archive/refs/heads/main.zip"
  },
@@ -2441,32 +1590,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-10",
   "gambar": "img/template-reels-t09.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 9,
-   "aktif": false,
-   "target": 500,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t09",
   "zip": "https://github.com/malikisaputra-source/template-reels-t09/archive/refs/heads/main.zip"
  },
@@ -2484,32 +1610,9 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "tantangan",
+  "kunci": "2026-12-14",
   "gambar": "img/template-reels-t10.webp",
   "kustom": false,
-  "tantangan": {
-   "giliran": 10,
-   "aktif": false,
-   "target": 550,
-   "metrik": [
-    {
-     "id": "like",
-     "label": "like",
-     "sekarang": 0
-    },
-    {
-     "id": "komentar",
-     "label": "komentar",
-     "sekarang": 0
-    },
-    {
-     "id": "simpan",
-     "label": "simpan",
-     "sekarang": 0
-    }
-   ],
-   "tautan": null
-  },
   "repo": "https://github.com/malikisaputra-source/template-reels-t10",
   "zip": "https://github.com/malikisaputra-source/template-reels-t10/archive/refs/heads/main.zip"
  },

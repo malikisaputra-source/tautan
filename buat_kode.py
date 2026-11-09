@@ -5,6 +5,15 @@ SINI = pathlib.Path(__file__).resolve().parent
 AKAR = SINI.parent.parent / "kode"
 GH = "https://github.com/malikisaputra-source/"
 ANTRE = json.loads((AKAR / "antrean.json").read_text()) if (AKAR / "antrean.json").exists() else {}
+import datetime
+def _tanggal(jd, n=80):
+    if not jd: return []
+    t0 = datetime.date.fromisoformat(jd["mulai"]); hari = set(jd.get("hari", [0, 3])); out = []; t = t0
+    while len(out) < n:
+        if t.weekday() in hari: out.append(t.isoformat())
+        t += datetime.timedelta(days=1)
+    return out
+TANGGAL = _tanggal(ANTRE.get("jadwal"))
 daftar = []
 for m in sorted(AKAR.glob("*/meta.json")):
     d = json.loads(m.read_text())
@@ -29,12 +38,9 @@ for m in sorted(AKAR.glob("*/meta.json")):
         d["dasar"] = f"paket/{slug}/"
     grp = next((g for g, l in ANTRE.get("antrean", {}).items() if slug in l), None)
     if grp:
-        i = ANTRE["antrean"][grp].index(slug); po = ANTRE.get("postingan", {}).get(grp, {})
-        n = ANTRE.get("terbuka", {}).get(grp, 0) + i
-        d["tantangan"] = {"giliran": i + 1, "aktif": i == 0,
-                          "target": ANTRE.get("mulai", 100) + ANTRE.get("naik", 50) * n,
-                          "metrik": [{**m, "sekarang": po.get(m["id"], 0)} for m in ANTRE.get("metrik", [])],
-                          "tautan": po.get("tautan")}
+        i = ANTRE["antrean"][grp].index(slug); jd = ANTRE.get("jadwal", {})
+        tgl = TANGGAL[i] if i < len(TANGGAL) else None
+        if tgl: d["kunci"] = tgl
     rg = d.pop("repo_github", None) or slug
     d["repo"] = GH + rg
     d["zip"] = GH + rg + "/archive/refs/heads/main.zip"

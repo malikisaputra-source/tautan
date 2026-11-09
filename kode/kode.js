@@ -104,7 +104,7 @@
   $("#k-jumlah-pil").textContent = `${buka_.length} siap unduh · ${kunci.length} segera hadir`;
   $("#k-segera-n").textContent = kunci.length;
   if (!kunci.length) $("#k-segera-blok").hidden = true;
-  kunci.sort((a, b) => (a.tantangan ? a.tantangan.giliran : 99) - (b.tantangan ? b.tantangan.giliran : 99));
+  kunci.sort((a, b) => String(a.kunci).localeCompare(String(b.kunci)));
   kunci.forEach((d) => $("#k-segera").append(kartuKunci(d)));
 
   // kategori: segmen
