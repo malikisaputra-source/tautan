@@ -1,5 +1,38 @@
 window.KODE = [
  {
+  "slug": "template-sejarah-dokumenter",
+  "judul": "Template Video Sejarah Dokumenter (Rengasdengklok)",
+  "ringkas": "Template reels sejarah 9:16 berbasis kode, persis video Peristiwa Rengasdengklok: tokoh bergerak, kalender sobek, koran di meja, plus semua prompt gambarnya.",
+  "teknologi": [
+   "Remotion 4",
+   "React 19",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [
+   "Format reels 1080x1920 30fps, ±84 detik",
+   "Tokoh badan penuh, kepala bergerak (boneka potong)",
+   "Judul dua warna di belakang kepala tokoh",
+   "Kartu tanggal kalender sobek + jam antik",
+   "Koran di meja dengan foto heksagon",
+   "Figuran & latar hidup (parallax, kabut, debu)",
+   "Semua prompt ChatGPT & Gemini (PROMPT.md)",
+   "Skrip potong latar & titik leher (alat/)"
+  ],
+  "cara": [
+   "Install Node.js 18+",
+   "Jalankan npm install",
+   "Pratinjau dengan npm run studio",
+   "Ganti adegan & gambar (lihat README)",
+   "Render dengan npm run render"
+  ],
+  "demo": null,
+  "gambar": "img/template-sejarah-dokumenter.webp",
+  "repo": "https://github.com/malikisaputra-source/template-sejarah-dokumenter",
+  "zip": "https://github.com/malikisaputra-source/template-sejarah-dokumenter/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "absensi-karyawan",
   "judul": "Absensi Karyawan",
   "ringkas": "Absensi UMKM & kantor kecil: check-in tombol besar, lokasi & selfie opsional, shift, izin, kalender warna, rekap gaji, mode kiosk.",
