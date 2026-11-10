@@ -28,7 +28,7 @@ window.KODE = [
    "Render dengan npm run render"
   ],
   "demo": null,
-  "gambar": "img/template-sejarah-dokumenter.webp",
+  "gambar": "img/template-sejarah-dokumenter-v2.webp",
   "repo": "https://github.com/malikisaputra-source/template-sejarah-dokumenter",
   "zip": "https://github.com/malikisaputra-source/template-sejarah-dokumenter/archive/refs/heads/main.zip"
  },
