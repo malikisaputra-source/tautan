@@ -1,5 +1,38 @@
 window.KODE = [
  {
+  "slug": "template-kolase-vox",
+  "judul": "Template Video Kolase Gaya Vox (Gedung Sate)",
+  "ringkas": "Template reels 9:16 berbasis kode, persis video kolase Gedung Sate: judul serif raksasa, kertas sobek, objek bertepi kertas + halftone, anotasi tangan, plus semua prompt Gemini.",
+  "teknologi": [
+   "Remotion 4",
+   "React 19",
+   "TypeScript"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [
+   "Format reels 1080x1920 30fps, ±56 detik",
+   "9 adegan kolase siap pakai",
+   "Judul serif raksasa di belakang objek",
+   "Objek bertepi kertas putih + halftone",
+   "Grafik 15 fps & latar kertas 'mendidih'",
+   "Anotasi tangan: panah, lingkaran, stabilo, label",
+   "2.5D parallax & angka menghitung",
+   "Semua prompt Gemini (PROMPT.md) + alat potong latar"
+  ],
+  "cara": [
+   "Install Node.js 18+",
+   "Jalankan npm install",
+   "Pratinjau dengan npm run studio",
+   "Ganti gambar & adegan (lihat README)",
+   "Render dengan npm run render"
+  ],
+  "demo": null,
+  "gambar": "img/template-kolase-vox.webp",
+  "repo": "https://github.com/malikisaputra-source/template-kolase-vox",
+  "zip": "https://github.com/malikisaputra-source/template-kolase-vox/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "template-sejarah-dokumenter",
   "judul": "Template Video Sejarah Dokumenter (Rengasdengklok)",
   "ringkas": "Template reels sejarah 9:16 berbasis kode, persis video Peristiwa Rengasdengklok: tokoh bergerak, kalender sobek, koran di meja, plus semua prompt gambarnya.",
