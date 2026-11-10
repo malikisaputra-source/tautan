@@ -457,3 +457,17 @@ html.lenis, html.lenis body { height: auto; }
 .b-pendar { position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(60% 50% at 70% 35%, rgba(34,211,238,.10), transparent 70%), radial-gradient(50% 45% at 20% 70%, rgba(129,140,248,.08), transparent 70%); }
 .hal-beranda .b-hero .b-cakrawala { -webkit-mask: linear-gradient(#000 0 80%, transparent); mask: linear-gradient(#000 0 80%, transparent); }
+
+/* live count kunjungan & unduhan */
+.live { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; padding: 8px 14px; border-radius: 999px;
+  border: 1px solid rgba(34,211,238,.25); background: rgba(34,211,238,.05); font-family: var(--mono); font-size: 13px; color: var(--redup, #94a3b8); }
+.live[hidden] { display: none; }
+.live b { color: var(--teks, #e5e7eb); font-weight: 600; font-variant-numeric: tabular-nums; transition: color .6s; }
+.live b.naik { color: var(--aksen); }
+.live-label { color: var(--hijau); font-weight: 600; letter-spacing: .12em; font-size: 11.5px; }
+.live-pisah { opacity: .5; }
+.live-titik { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--hijau); box-shadow: 0 0 10px var(--hijau); }
+.live-titik::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--hijau); animation: live-denyut 1.8s ease-out infinite; }
+@keyframes live-denyut { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .live-titik::after { animation: none; } }
+.k-hero .live { margin-top: 14px; }
