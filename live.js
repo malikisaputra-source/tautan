@@ -2,6 +2,8 @@
    Kunjungan dicatat sekali per sesi sebagai catat('_situs','lihat'); angka diperbarui tiap 20 detik. */
 (() => {
   const SB = "https://qsoejsauqlfkchxtnumm.supabase.co", KEY = "sb_publishable_vYBTYgHNwLIC1Q-4hHzeMA_OGQdPnWW";
+  // titik awal: klik link bio Instagram 1 Jan–10 Nov 2026 (Meta Business Suite) — sebelum penghitung situs ada
+  const AWAL = 444;
   const H = { apikey: KEY, "Content-Type": "application/json" };
   const wadah = [...document.querySelectorAll("[data-live]")];
   try { if (!sessionStorage.getItem("ms-kunjung")) { sessionStorage.setItem("ms-kunjung", "1");
@@ -20,8 +22,8 @@
   async function muat() {
     try {
       const r = await fetch(SB + "/rest/v1/rpc/ringkasan", { method: "POST", headers: H, body: "{}" }); if (!r.ok) return;
-      const rows = await r.json(); let k = 0, u = 0;
-      rows.forEach((x) => { if (x.slug === "_situs") k += +x.lihat; else u += (+x.zip) + (+x.skill); });
+      const rows = await r.json(); let k, u = 0;
+      k = AWAL; rows.forEach((x) => { if (x.slug === "_situs") k += +x.lihat; else u += (+x.zip) + (+x.skill); });
       wadah.forEach((w) => { w.hidden = false;
         hitungKe(w.querySelector("[data-live-k]"), nilai.kunjungan, k); hitungKe(w.querySelector("[data-live-u]"), nilai.unduhan, u); });
       nilai.kunjungan = k; nilai.unduhan = u;
