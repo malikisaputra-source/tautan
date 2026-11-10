@@ -471,3 +471,8 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes live-denyut { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .live-titik::after { animation: none; } }
 .k-hero .live { margin-top: 14px; }
+.live-melayang { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 70; margin: 0;
+  background: rgba(7,10,17,.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); pointer-events: none; transition: opacity .3s, transform .3s; }
+html.pd-terbuka .live-melayang, body:has(#k-detail:not([hidden])) .live-melayang, body:has(#k-studio:not([hidden])) .live-melayang { opacity: 0; transform: translateY(8px); }
+@media (max-width: 560px) { .live-melayang { left: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 6px 11px; font-size: 11.5px; gap: 7px; } }
