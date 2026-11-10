@@ -783,9 +783,13 @@ window.KODE = [
    "Jalankan agent lewat Antigravity CLI (agy); laporannya muncul di kantor"
   ],
   "demo": null,
-  "kunci": "segera",
+  "unduhan_lain": [
+   {
+    "label": "Unduh Paket 3 Agent (.zip)",
+    "href": "unduh/paket-3-agent.zip"
+   }
+  ],
   "gambar": "img/kantor-ai-template.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
