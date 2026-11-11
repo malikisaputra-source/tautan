@@ -1,6 +1,8 @@
 /* Pembuat PRD · Maliki Studio */
 .hal-prd main { padding: 96px var(--gutter) 40px; max-width: 1360px; margin: 0 auto; }
-.p-hero { max-width: 760px; padding: 28px 0 32px; }
+.p-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 28px 0 40px; }
+.p-hero-teks { max-width: 680px; }
+.p-mulai { margin-top: 24px; }
 .p-hero h1 { font-size: clamp(34px, 5.4vw, 60px); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 16px; }
 .p-hero .sub { color: var(--redup); font-size: 17px; margin: 0; max-width: 640px; }
 .p-hero code { font-family: var(--mono); color: var(--aksen); font-size: .92em; }
@@ -150,3 +152,69 @@
   .p-langkah { flex-direction: column; align-items: stretch; }
 }
 @media (prefers-reduced-motion: reduce) { .p-panel.masuk > *, .p-baris, .p-md .baru { animation: none; } }
+
+/* ===== v2: hero demo ===== */
+.p-demo { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 22px; border: 1px solid var(--garis2);
+  background: radial-gradient(120% 80% at 80% 0%, rgba(129,140,248,.14), transparent 60%), linear-gradient(180deg, #0f1522, #080b12); overflow: hidden; }
+.p-demo::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; background: linear-gradient(120deg, transparent 30%, rgba(34,211,238,.18) 50%, transparent 70%) 0 0 / 250% 100%; animation: p-kilau 5s linear infinite; mix-blend-mode: screen; }
+@keyframes p-kilau { to { background-position: -250% 0; } }
+.p-demo-ide { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 12px 16px; border-radius: 14px; background: var(--bg); border: 1px solid var(--garis2); font-size: 15px; }
+.p-demo-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--aksen); flex: none; }
+.p-kursor { width: 2px; height: 18px; background: var(--aksen); animation: p-kedip 1s steps(1) infinite; }
+@keyframes p-kedip { 50% { opacity: 0; } }
+.p-demo-panah { display: grid; place-items: center; height: 26px; }
+.p-demo-panah span { width: 2px; height: 100%; background: linear-gradient(var(--aksen), transparent); position: relative; }
+.p-demo-panah span::after { content: ""; position: absolute; left: -4px; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--aksen); animation: p-turun 1.4s ease-in infinite; }
+@keyframes p-turun { from { transform: translateY(-6px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(22px); opacity: 0; } }
+.p-demo-dok { border-radius: 14px; background: #f4f1ea; color: #1b1d24; padding: 16px 18px; min-height: 270px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.p-demo-kepala { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; padding-bottom: 10px; margin-bottom: 8px; border-bottom: 1px solid #ddd6c8; }
+.p-demo-kepala span { color: #0e7490; }
+.p-demo-dok ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.p-demo-dok li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; animation: p-masuk .45s cubic-bezier(.2,.8,.2,1) both; }
+.p-demo-dok li i { flex: none; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11px; background: #0e7490; color: #fff; }
+.p-demo-dok li em { font-style: normal; color: #6b6458; font-size: 12px; margin-left: auto; font-family: var(--mono); }
+.p-demo-dok li.lar i { background: #b91c1c; }
+
+/* ===== v2: tab, mode, dokumen ===== */
+.p-hasil-atas { flex-wrap: wrap; }
+.p-tab, .p-mode { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--garis); }
+.p-mode { margin-left: auto; }
+.p-tab button, .p-mode button { min-height: 32px; padding: 0 12px; border: 0; border-radius: 7px; background: none; color: var(--redup2); font: inherit; font-size: 12px; cursor: pointer; transition: all .2s; }
+.p-tab button[aria-selected="true"], .p-mode button[aria-pressed="true"] { background: var(--panel); color: var(--teks); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 4px 10px -4px rgba(0,0,0,.6); }
+.p-tab button[aria-selected="true"] { color: var(--aksen); }
+.p-hasil-sub { display: flex; align-items: center; gap: 12px; padding: 8px 18px; border-bottom: 1px solid var(--garis); font-family: var(--mono); font-size: 12px; }
+.p-md:not(.dok) { white-space: pre-wrap; }
+.p-md.dok { font-family: var(--sans); font-size: 14px; line-height: 1.6; color: #1e2230; background: #f6f3ec; white-space: normal; padding: 22px 26px; }
+.p-md.dok h1 { font-size: 21px; line-height: 1.25; margin: 0 0 4px; color: #0f121a; letter-spacing: -.01em; }
+.p-md.dok h1 + p { color: #6b6458; font-size: 12px; font-family: var(--mono); margin: 0 0 14px; }
+.p-md.dok h2 { font-size: 14px; margin: 22px 0 8px; padding-top: 14px; border-top: 1px solid #e2dccf; color: #0e7490; text-transform: uppercase; letter-spacing: .04em; font-family: var(--mono); font-weight: 600; }
+.p-md.dok p { margin: 0 0 8px; }
+.p-md.dok ul, .p-md.dok ol { margin: 0 0 8px; padding-left: 20px; }
+.p-md.dok li { margin: 3px 0; } .p-md.dok li.sub { margin-left: 18px; list-style: circle; }
+.p-md.dok code { font-family: var(--mono); font-size: 12px; background: #e9e3d6; padding: 1px 5px; border-radius: 4px; }
+.p-md.dok .isi { color: #b45309; background: #fdecc8; padding: 1px 4px; border-radius: 4px; font-family: var(--mono); font-size: 12px; }
+.dok-tabel { overflow-x: auto; margin: 0 0 8px; border: 1px solid #e2dccf; border-radius: 10px; }
+.p-md.dok table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.p-md.dok th { text-align: left; background: #ece6d9; font-weight: 600; padding: 7px 10px; white-space: nowrap; }
+.p-md.dok td { padding: 7px 10px; border-top: 1px solid #e7e1d4; vertical-align: top; }
+.p-md.dok hr { border: 0; border-top: 1px solid #e2dccf; }
+
+/* efek selesai */
+.p-hasil { position: relative; }
+.p-hasil.jadi::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2; border: 2px solid var(--aksen); animation: p-jadi 1.6s ease-out forwards; }
+@keyframes p-jadi { 0% { opacity: 0; box-shadow: inset 0 0 0 0 rgba(34,211,238,.0); } 20% { opacity: 1; box-shadow: inset 0 0 60px 0 rgba(34,211,238,.35); } 100% { opacity: 0; box-shadow: inset 0 0 0 0 rgba(34,211,238,0); } }
+.p-chip-grup.satu .p-chip::before { border-radius: 50%; }
+
+@media (max-width: 900px) { .p-hero { grid-template-columns: 1fr; gap: 28px; } }
+@media (prefers-reduced-motion: reduce) { .p-demo::after, .p-demo-panah span::after, .p-kursor, .p-demo-dok li, .p-hasil.jadi::before { animation: none; } }
+.p-alat { padding: 0; align-items: start; }
+.p-langkah, .p-form { align-self: stretch; }
+.p-hasil { position: sticky; top: 72px; max-height: calc(100vh - 88px); }
+.p-hasil .p-md { max-height: none; min-height: 0; }
+@media (max-width: 760px) { .p-hasil { position: relative; top: 0; max-height: none; } .p-hasil .p-md { max-height: 460px; } }
+.hal-prd main > section { max-width: none; padding-left: 0; padding-right: 0; }
+.hal-prd main > .p-hero { padding: 40px 0 56px; }
+.hal-prd main > .p-alat { padding: 0; }
+.hal-prd main > .p-kenapa { padding: 72px 0 24px; }
+.p-md.dok td:first-child, .p-md.dok th:first-child { white-space: nowrap; width: 1%; font-family: var(--mono); font-size: 12px; color: #6b6458; }
+.p-md.dok td:not(:first-child), .p-md.dok th:not(:first-child) { min-width: 130px; }

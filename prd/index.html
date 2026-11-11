@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="../style.css?v=202611111800">
-<link rel="stylesheet" href="prd.css?v=202611111800">
+<link rel="stylesheet" href="prd.css?v=202611112100">
 </head>
 <body class="hal-prd">
 <a class="lewati" href="#alat">Langsung ke alat</a>
@@ -32,9 +32,20 @@
 
 <main>
 <section class="p-hero">
+  <div class="p-hero-teks">
   <p class="eyebrow"><span class="titik"></span>pembuat prd · gratis</p>
   <h1>Kasih AI <span class="aksen">PRD</span>, bukan cuma perintah.</h1>
-  <p class="sub">Isi form singkat, dapatkan <code>PRD.md</code> siap tempel ke ChatGPT, Claude, GLM, atau DeepSeek. Dengan PRD, AI gratis pun bekerja rapi, sesuai urutan, dan tidak mengarang angka atau testimoni.</p>
+  <p class="sub">Isi form singkat, dapatkan <code>PRD.md</code> + <code>TASKS.md</code> siap tempel ke ChatGPT, Claude, GLM, atau DeepSeek. Dengan PRD, AI gratis pun bekerja rapi, sesuai urutan, dan tidak mengarang angka atau testimoni.</p>
+  <a class="tombol p-mulai" href="#alat">Mulai bikin PRD →</a>
+  </div>
+  <div class="p-demo" aria-hidden="true">
+    <div class="p-demo-ide"><span class="p-demo-label">ide</span><span class="p-demo-ketik" id="p-demo-ketik"></span><i class="p-kursor"></i></div>
+    <div class="p-demo-panah"><span></span></div>
+    <div class="p-demo-dok" id="p-demo-dok">
+      <div class="p-demo-kepala"><b>PRD.md</b><span id="p-demo-skor">0/8</span></div>
+      <ul id="p-demo-list"></ul>
+    </div>
+  </div>
 </section>
 
 <section class="p-alat" id="alat" aria-label="Pembuat PRD">
@@ -58,13 +69,15 @@
   <section class="p-hasil" id="p-hasil" aria-label="Pratinjau PRD">
     <div class="p-hasil-atas">
       <span class="p-titik-jendela" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span class="p-nama-berkas">PRD.md</span>
-      <span class="p-skor" id="p-skor" title="Kelengkapan PRD"></span>
+      <div class="p-tab" role="tablist" aria-label="Berkas"><button type="button" role="tab" data-tab="prd" aria-selected="true">PRD</button><button type="button" role="tab" data-tab="task" aria-selected="false">Task untuk AI</button></div>
+      <div class="p-mode" aria-label="Tampilan"><button type="button" data-mode="dok" aria-pressed="true">Dokumen</button><button type="button" data-mode="md" aria-pressed="false">Markdown</button></div>
     </div>
-    <pre class="p-md" id="p-md" data-lenis-prevent tabindex="0"></pre>
+    <div class="p-hasil-sub"><span class="p-nama-berkas" id="p-nama-berkas">PRD.md</span><span class="p-skor" id="p-skor" title="Kelengkapan PRD"></span>
+    </div>
+    <div class="p-md" id="p-md" data-lenis-prevent tabindex="0" aria-live="off"></div>
     <div class="p-hasil-bawah">
-      <button type="button" class="tombol" id="p-salin-perintah">Salin + perintah AI</button>
-      <button type="button" class="p-btn garis" id="p-salin">Salin PRD</button>
+      <button type="button" class="tombol" id="p-salin-perintah">Salin semua + perintah AI</button>
+      <button type="button" class="p-btn garis" id="p-salin">Salin berkas ini</button>
       <button type="button" class="p-btn garis" id="p-unduh">Unduh .md</button>
     </div>
   </section>
@@ -87,7 +100,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <p class="live live-melayang" data-live hidden aria-live="polite"><span class="live-titik" aria-hidden="true"></span><span class="live-label">LIVE</span><span><b data-live-k>0</b> kunjungan</span><span class="live-pisah" aria-hidden="true">·</span><span><b data-live-u>0</b> unduhan</span></p>
-<script src="prd.js?v=202611111800" defer></script>
+<script src="prd.js?v=202611112100" defer></script>
 <script src="../live.js?v=202611101200" defer></script>
 </body>
 </html>
