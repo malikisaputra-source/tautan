@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pembuat PRD Gratis · Maliki Studio</title>
+<meta name="description" content="Isi form singkat, dapatkan PRD.md siap tempel ke ChatGPT, Claude, GLM, atau DeepSeek. Hasil AI gratis jadi jauh lebih rapi dan tidak mengarang.">
+<meta property="og:title" content="Pembuat PRD Gratis · Maliki Studio">
+<meta property="og:description" content="Form singkat → PRD.md siap tempel ke AI. Website, reels, deck, aplikasi kecil.">
+<meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
+<link rel="icon" href="../ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../ikon-180.png">
+<meta name="theme-color" content="#020308">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css?v=202611111800">
+<link rel="stylesheet" href="prd.css?v=202611111800">
+</head>
+<body class="hal-prd">
+<a class="lewati" href="#alat">Langsung ke alat</a>
+
+<header class="atas">
+  <a class="logo" href="../" aria-label="Maliki Studio, ke beranda">Maliki <span>Studio</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="../#perpustakaan">Prompt</a>
+    <a href="../kode/">Source Code</a>
+    <a href="./" aria-current="page">PRD</a>
+    <a class="tombol kecil" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
+  </nav>
+</header>
+
+<main>
+<section class="p-hero">
+  <p class="eyebrow"><span class="titik"></span>pembuat prd · gratis</p>
+  <h1>Kasih AI <span class="aksen">PRD</span>, bukan cuma perintah.</h1>
+  <p class="sub">Isi form singkat, dapatkan <code>PRD.md</code> siap tempel ke ChatGPT, Claude, GLM, atau DeepSeek. Dengan PRD, AI gratis pun bekerja rapi, sesuai urutan, dan tidak mengarang angka atau testimoni.</p>
+</section>
+
+<section class="p-alat" id="alat" aria-label="Pembuat PRD">
+  <aside class="p-langkah" aria-label="Langkah">
+    <ol id="p-stepper"></ol>
+    <div class="p-aksi-kecil">
+      <button class="tautan-garis" type="button" id="p-contoh">Isi contoh</button>
+      <button class="tautan-garis" type="button" id="p-reset">Mulai ulang</button>
+    </div>
+  </aside>
+
+  <form class="p-form" id="p-form" novalidate autocomplete="off">
+    <div class="p-panel" id="p-panel" aria-live="polite"></div>
+    <div class="p-nav">
+      <button type="button" class="p-btn garis" id="p-mundur">← Kembali</button>
+      <span class="p-progres" aria-hidden="true"><i id="p-bar"></i></span>
+      <button type="button" class="tombol" id="p-maju">Lanjut →</button>
+    </div>
+  </form>
+
+  <section class="p-hasil" id="p-hasil" aria-label="Pratinjau PRD">
+    <div class="p-hasil-atas">
+      <span class="p-titik-jendela" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="p-nama-berkas">PRD.md</span>
+      <span class="p-skor" id="p-skor" title="Kelengkapan PRD"></span>
+    </div>
+    <pre class="p-md" id="p-md" data-lenis-prevent tabindex="0"></pre>
+    <div class="p-hasil-bawah">
+      <button type="button" class="tombol" id="p-salin-perintah">Salin + perintah AI</button>
+      <button type="button" class="p-btn garis" id="p-salin">Salin PRD</button>
+      <button type="button" class="p-btn garis" id="p-unduh">Unduh .md</button>
+    </div>
+  </section>
+</section>
+
+<section class="p-kenapa">
+  <h2>Kenapa PRD bikin AI lebih patuh?</h2>
+  <div class="p-kartu-grid">
+    <article><b>Satu kebutuhan, satu baris</b><p>Kebutuhan bernomor dan tanpa kata samar lebih mudah diikuti dan dicek. <span class="redup">(Lucassen dkk., 2016; Femmer dkk., 2017)</span></p></article>
+    <article><b>Larangan sedikit tapi tegas</b><p>Makin banyak batasan, makin turun kepatuhan model. Jadi larangan dibuat pendek, satu per baris. <span class="redup">(FollowBench, ACL 2024)</span></p></article>
+    <article><b>Kosong diisi [ISI: …], bukan dikarang</b><p>Model cenderung "mengisi" bagian yang tidak jelas. Tanda isian memaksa AI bertanya dulu. <span class="redup">(CodeHalu, AAAI 2025)</span></p></article>
+    <article><b>Kriteria selesai yang bisa dicek</b><p>Pola "Ketika …, maka …" membuat hasil bisa diuji, bukan dikira-kira. <span class="redup">(Mavin dkk., RE 2009)</span></p></article>
+  </div>
+</section>
+</main>
+
+<footer class="kaki p-kaki">
+  <p>Dibuat oleh <a href="../">@malikisaputra</a> · PRD yang kamu buat sepenuhnya milikmu. Isian tersimpan hanya di browser ini.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<p class="live live-melayang" data-live hidden aria-live="polite"><span class="live-titik" aria-hidden="true"></span><span class="live-label">LIVE</span><span><b data-live-k>0</b> kunjungan</span><span class="live-pisah" aria-hidden="true">·</span><span><b data-live-u>0</b> unduhan</span></p>
+<script src="prd.js?v=202611111800" defer></script>
+<script src="../live.js?v=202611101200" defer></script>
+</body>
+</html>
