@@ -446,7 +446,7 @@ html.lenis, html.lenis body { height: auto; }
 .k-final .k-cakrawala { -webkit-mask: linear-gradient(transparent, #000 25% 75%, transparent); mask: linear-gradient(transparent, #000 25% 75%, transparent); }
 /* roket lebih besar & bercahaya */
 .k-roket { left: 50%; top: 80%; translate: -50% 0; }
-.k-roket svg { width: 54px; height: 108px; filter: drop-shadow(0 0 18px rgba(34,211,238,.6)) drop-shadow(0 0 40px rgba(129,140,248,.35)); }
+.k-roket svg { width: 54px; height: 108px; filter: drop-shadow(0 6px 14px rgba(0,0,0,.6)); }
 .k-asap { top: 92px; width: 10px; filter: blur(3px); }
 @media (max-width: 760px) { .k-roket svg { width: 38px; height: 76px; } .k-asap { top: 64px; } }
 /* nav HP: hindari tumpuk logo & tautan */

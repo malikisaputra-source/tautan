@@ -548,3 +548,41 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
 /* tautan menu atas: area sentuh lebih lebar */
 .atas nav a:not(.tombol) { padding: 12px 6px; }
 @media (max-width: 760px) { .atas nav a:not(.tombol) { display: none !important; } }
+
+/* ===== quieter: pendar dikurangi, gerak dipusatkan (audit 12 Nov) ===== */
+.aksen, .aksen2, .angka .sel:nth-child(1) b, .b-angka:nth-of-type(2) b, .k-cara-judul .aksen { text-shadow: none; }
+.tombol:hover { box-shadow: 0 10px 24px -12px rgba(0,0,0,.7); }
+.titik { animation: none; box-shadow: 0 0 0 3px rgba(16,185,129,.18); }
+.live-titik { box-shadow: 0 0 0 3px rgba(16,185,129,.2); }
+.judul-besar, .k-judul { line-height: 1.04; }
+.judul-besar .baris { padding-bottom: .1em; }
+/* filter yang bisa digeser: tepi kanan memudar sebagai tanda */
+@media (max-width: 760px) {
+  .k-seg { -webkit-mask: linear-gradient(90deg, #000 85%, transparent); mask: linear-gradient(90deg, #000 85%, transparent); padding-right: 28px; }
+}
+
+/* ===== beranda: cuplikan per pintu ===== */
+.hal-beranda main > .cuplik { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; max-width: 1240px; margin: 0 auto; padding: 72px var(--gutter) 24px; }
+.cuplik-kepala { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.cuplik-kepala b { font-size: 20px; }
+.cuplik-kepala a { color: var(--redup); font-size: 14px; text-underline-offset: 4px; padding: 10px 0; }
+.cuplik-kepala a:hover { color: var(--teks); }
+.cuplik-tpl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.cuplik-kartu { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; border: 1px solid var(--garis); background: rgba(13,17,27,.85); text-decoration: none; color: var(--teks); transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s; }
+.cuplik-kartu:hover { transform: translateY(-3px); border-color: #34405c; }
+.cuplik-kartu img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; background: var(--bg2); }
+.cuplik-kartu span { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; }
+.cuplik-kartu b { font-size: 14.5px; line-height: 1.3; }
+.cuplik-kartu small { color: var(--redup2); font-size: 12px; }
+.cuplik-skill { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: cs; }
+.cuplik-skill a { display: grid; grid-template-columns: 28px 1fr auto; grid-template-areas: "n nama em" "n fungsi em"; column-gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--garis); background: rgba(13,17,27,.85); text-decoration: none; color: var(--teks); transition: border-color .3s; }
+.cuplik-skill a::before { counter-increment: cs; content: counter(cs, decimal-leading-zero); grid-area: n; font-family: var(--mono); font-size: 12px; color: var(--aksen); padding-top: 3px; }
+.cuplik-skill a:hover { border-color: #34405c; }
+.cs-nama { grid-area: nama; font-weight: 600; font-size: 15px; }
+.cs-fungsi { grid-area: fungsi; color: var(--redup2); font-size: 12.5px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.cuplik-skill em { grid-area: em; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--oranye); align-self: center; }
+@media (max-width: 900px) {
+  .hal-beranda main > .cuplik { grid-template-columns: 1fr; padding-top: 48px; }
+  .cuplik-tpl { grid-template-columns: repeat(3, 72%); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+  .cuplik-kartu { scroll-snap-align: start; }
+}

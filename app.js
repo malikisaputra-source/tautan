@@ -176,6 +176,17 @@ document.querySelectorAll("[data-hitung]").forEach((el) => {
     setInterval(() => { if (document.hidden) return; img.classList.add("ganti"); setTimeout(() => { i = (i + 1) % g.length; img.src = g[i]; img.onload = () => img.classList.remove("ganti"); }, 300); }, 2600);
 })();
 
+/* ---------- cuplikan per pintu ---------- */
+(() => {
+  const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const tpl = document.getElementById("cuplik-tpl"), sk = document.getElementById("cuplik-skill");
+  const U = (window.RINGKAS || {}).unggulan || [];
+  if (tpl) tpl.innerHTML = U.map((d) => `<a class="cuplik-kartu" href="kode/#k/${esc(d.slug)}"><img src="kode/${esc(d.gambar)}" alt="" loading="lazy" width="320" height="200"><span><b>${esc(d.judul)}</b><small>${esc(d.kategori || "")}</small></span></a>`).join("");
+  const S = ((window.SKILL || {}).skill || []).slice().sort((a, b) => (b.bintang || 0) - (a.bintang || 0)).slice(0, 4);
+  const fmt = (n) => n >= 1000 ? Math.round(n / 1000) + "rb" : String(n || 0);
+  if (sk) sk.innerHTML = S.map((s) => `<li><a href="skill/"><span class="cs-nama">${esc(s.repo.split("/")[1] === "skills" ? s.repo : s.repo.split("/")[1])}</span><span class="cs-fungsi">${esc(s.fungsi)}</span><em>★ ${fmt(s.bintang)}</em></a></li>`).join("");
+})();
+
 /* ---------- header ---------- */
 addEventListener("scroll", () => $(".atas").classList.toggle("tergulir", scrollY > 20), { passive: true });
 

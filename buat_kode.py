@@ -55,7 +55,8 @@ for d in daftar:
 _buka = [d for d in daftar if not d.get("kunci")]
 (SINI / "data" / "ringkas.js").write_text("window.RINGKAS = " + json.dumps({
     "kode": len(daftar), "terbuka": len(_buka),
-    "gambar": [d["gambar"] for d in _buka if d.get("gambar")][:8]}, ensure_ascii=False) + ";\n")
+    "gambar": [d["gambar"] for d in _buka if d.get("gambar")][:8],
+    "unggulan": [{"slug": d["slug"], "judul": d["judul"], "gambar": d.get("gambar"), "kategori": d.get("kategori")} for d in sorted(_buka, key=lambda d: (d.get("tier") != "premium", d["slug"])) if d.get("gambar")][:3]}, ensure_ascii=False) + ";\n")
 print(len(daftar), "paket")
 import subprocess; subprocess.run(["python3", str(SINI / "buat_laman.py")], check=True)
 subprocess.run(["python3", str(AKAR / "buat_skill.py")], check=False, stdout=subprocess.DEVNULL)
