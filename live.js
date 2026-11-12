@@ -33,3 +33,20 @@
   let iv = setInterval(muat, 20000);
   document.addEventListener("visibilitychange", () => { clearInterval(iv); if (!document.hidden) { muat(); iv = setInterval(muat, 20000); } });
 })();
+
+/* Pengumuman fitur baru: kartu kecil kanan bawah, bisa ditutup (diingat per browser). */
+(() => {
+  const ID = "ms-umum-prd-1";
+  if (/\/prd\//.test(location.pathname)) return;
+  try { if (localStorage.getItem(ID)) return; } catch (_) {}
+  const s = document.querySelector('script[src*="live.js"]'); if (!s) return;
+  const akar = s.getAttribute("src").replace(/live\.js.*$/, "");
+  const a = document.createElement("aside");
+  a.className = "umum"; a.setAttribute("aria-label", "Fitur baru");
+  a.innerHTML = `<span class="umum-tag">BARU · GRATIS</span><b>Pembuat PRD</b><p>Isi form singkat, dapat PRD + daftar task siap tempel ke ChatGPT, Claude, GLM, atau DeepSeek. Hasil AI gratis jadi rapi & tidak mengarang.</p><div class="umum-aksi"><a class="tombol kecil" href="${akar}prd/">Coba sekarang →</a><button type="button" class="umum-tutup" aria-label="Tutup pengumuman">×</button></div>`;
+  const tutup = () => { a.classList.remove("tampil"); try { localStorage.setItem(ID, "1"); } catch (_) {} setTimeout(() => a.remove(), 400); };
+  a.querySelector(".umum-tutup").addEventListener("click", tutup);
+  a.querySelector("a").addEventListener("click", () => { try { localStorage.setItem(ID, "1"); } catch (_) {} });
+  document.body.append(a);
+  setTimeout(() => a.classList.add("tampil"), 1800);
+})();

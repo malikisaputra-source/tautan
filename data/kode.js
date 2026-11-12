@@ -791,7 +791,8 @@ window.KODE = [
   ],
   "gambar": "img/kantor-ai-template.webp",
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
-  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kantor-ai-toko",
@@ -986,7 +987,8 @@ window.KODE = [
   "gambar": "img/kasir-umkm.webp",
   "dasar": "paket/kasir-umkm/",
   "repo": "https://github.com/malikisaputra-source/kasir-umkm",
-  "zip": "https://github.com/malikisaputra-source/kasir-umkm/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kasir-umkm/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "katalog-toko-wa",
@@ -1039,7 +1041,8 @@ window.KODE = [
   "gambar": "img/katalog-toko-wa.webp",
   "dasar": "paket/katalog-toko-wa/",
   "repo": "https://github.com/malikisaputra-source/katalog-toko-wa",
-  "zip": "https://github.com/malikisaputra-source/katalog-toko-wa/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/katalog-toko-wa/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "keuangan-bendahara",
@@ -1137,7 +1140,8 @@ window.KODE = [
   "gambar": "img/manajemen-bengkel.webp",
   "dasar": "paket/manajemen-bengkel/",
   "repo": "https://github.com/malikisaputra-source/manajemen-bengkel",
-  "zip": "https://github.com/malikisaputra-source/manajemen-bengkel/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/manajemen-bengkel/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "manajemen-klien",
@@ -1194,7 +1198,8 @@ window.KODE = [
   "gambar": "img/manajemen-klien.webp",
   "dasar": "paket/manajemen-klien/",
   "repo": "https://github.com/malikisaputra-source/manajemen-klien",
-  "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "paket-10-agent-umkm",
@@ -1347,7 +1352,8 @@ window.KODE = [
   "demo": "demo.html",
   "gambar": "img/presensi-gps-gas.webp",
   "repo": "https://github.com/malikisaputra-source/presensi-gps-gas",
-  "zip": "https://github.com/malikisaputra-source/presensi-gps-gas/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/presensi-gps-gas/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-agrowisata",
@@ -1382,7 +1388,8 @@ window.KODE = [
   "demo": "index.html",
   "gambar": "img/template-agrowisata.webp",
   "repo": "https://github.com/malikisaputra-source/template-agrowisata",
-  "zip": "https://github.com/malikisaputra-source/template-agrowisata/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-agrowisata/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-kolase-vox",
@@ -1415,7 +1422,8 @@ window.KODE = [
   "demo": null,
   "gambar": "img/template-kolase-vox.webp",
   "repo": "https://github.com/malikisaputra-source/template-kolase-vox",
-  "zip": "https://github.com/malikisaputra-source/template-kolase-vox/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-kolase-vox/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-montessori-anak",
@@ -1451,7 +1459,8 @@ window.KODE = [
   "demo": null,
   "gambar": "img/template-montessori-anak.webp",
   "repo": "https://github.com/malikisaputra-source/template-montessori-anak",
-  "zip": "https://github.com/malikisaputra-source/template-montessori-anak/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-montessori-anak/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-reels-t01",
@@ -1686,7 +1695,8 @@ window.KODE = [
   "demo": "index.html",
   "gambar": "img/template-sekolah-yayasan.webp",
   "repo": "https://github.com/malikisaputra-source/template-sekolah-yayasan",
-  "zip": "https://github.com/malikisaputra-source/template-sekolah-yayasan/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-sekolah-yayasan/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-video-tutor-remotion",
@@ -1719,7 +1729,8 @@ window.KODE = [
   "demo": null,
   "gambar": "img/template-video-tutor-remotion.webp",
   "repo": "https://github.com/malikisaputra-source/template-video-tutor-remotion",
-  "zip": "https://github.com/malikisaputra-source/template-video-tutor-remotion/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-video-tutor-remotion/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "website-rt",
@@ -1788,6 +1799,7 @@ window.KODE = [
   "gambar": "img/website-rt.webp",
   "dasar": "paket/website-rt/",
   "repo": "https://github.com/malikisaputra-source/website-rt",
-  "zip": "https://github.com/malikisaputra-source/website-rt/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/website-rt/archive/refs/heads/main.zip",
+  "prd": true
  }
 ];

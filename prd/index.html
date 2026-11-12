@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../style.css?v=202611111800">
-<link rel="stylesheet" href="prd.css?v=202611112100">
+<link rel="stylesheet" href="../style.css?v=202611121300">
+<link rel="stylesheet" href="prd.css?v=202611121200">
 </head>
 <body class="hal-prd">
 <a class="lewati" href="#alat">Langsung ke alat</a>
@@ -76,6 +76,7 @@
     </div>
     <div class="p-md" id="p-md" data-lenis-prevent tabindex="0" aria-live="off"></div>
     <div class="p-hasil-bawah">
+      <button type="button" class="tombol p-paket" id="p-paket" hidden>Unduh paket</button>
       <button type="button" class="tombol" id="p-salin-perintah">Salin semua + perintah AI</button>
       <button type="button" class="p-btn garis" id="p-salin">Salin berkas ini</button>
       <button type="button" class="p-btn garis" id="p-unduh">Unduh .md</button>
@@ -100,7 +101,9 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <p class="live live-melayang" data-live hidden aria-live="polite"><span class="live-titik" aria-hidden="true"></span><span class="live-label">LIVE</span><span><b data-live-k>0</b> kunjungan</span><span class="live-pisah" aria-hidden="true">·</span><span><b data-live-u>0</b> unduhan</span></p>
-<script src="prd.js?v=202611112100" defer></script>
-<script src="../live.js?v=202611101200" defer></script>
+<script src="../data/kode.js?v=202611121200"></script>
+<script src="../data/prd-profil.js?v=202611121200"></script>
+<script src="prd.js?v=202611121200" defer></script>
+<script src="../live.js?v=202611112200" defer></script>
 </body>
 </html>

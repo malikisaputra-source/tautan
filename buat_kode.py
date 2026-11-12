@@ -45,6 +45,12 @@ for m in sorted(AKAR.glob("*/meta.json")):
     d["repo"] = GH + rg
     d["zip"] = GH + rg + "/archive/refs/heads/main.zip"
     daftar.append(d)
+import subprocess as _sp
+_sp.run(["python3", str(AKAR / "buat_profil.py")], check=True, stdout=_sp.DEVNULL)
+_pt = (SINI / "data" / "prd-profil.js").read_text()
+_prof = json.loads(_pt[_pt.index("{"):_pt.rindex("}") + 1])
+for d in daftar:
+    if d["slug"] in _prof and not d.get("kunci"): d["prd"] = True
 (SINI / "data" / "kode.js").write_text("window.KODE = " + json.dumps(daftar, ensure_ascii=False, indent=1) + ";\n")
 print(len(daftar), "paket")
 import subprocess; subprocess.run(["python3", str(SINI / "buat_laman.py")], check=True)

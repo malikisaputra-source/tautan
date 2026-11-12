@@ -252,9 +252,10 @@
       if (window.gerbangFollow) { e.preventDefault(); window.gerbangFollow(d.slug, jalan); }
       else window.catatHitung && window.catatHitung(d.slug, "zip");
     };
-    const lain = $("#kd-lain"); lain.hidden = !(d.unduhan_lain || []).length;
-    lain.innerHTML = (d.unduhan_lain || []).map((u, i) => `<a class="tombol garis" data-i="${i}" href="${esc(u.href)}" download>${esc(u.label)}</a>`).join("");
-    lain.querySelectorAll("a").forEach((a) => { a.onclick = (e) => {
+    const lain = $("#kd-lain"); lain.hidden = !((d.unduhan_lain || []).length || d.prd);
+    lain.innerHTML = (d.unduhan_lain || []).map((u, i) => `<a class="tombol garis" data-i="${i}" href="${esc(u.href)}" download>${esc(u.label)}</a>`).join("") +
+      (d.prd ? `<a class="tombol garis k-prd" href="${AKAR || ""}../prd/?template=${encodeURIComponent(d.slug)}" title="Buat PRD khusus template ini, lalu unduh template + PRD sekaligus">Ubah pakai PRD ✦</a>` : "");
+    lain.querySelectorAll("a[data-i]").forEach((a) => { a.onclick = (e) => {
       const u = d.unduhan_lain[+a.dataset.i], nama = u.href.split("/").pop().replace(/\.zip$/, "");
       const jalan = () => { window.catatHitung && window.catatHitung(nama, "zip"); location.href = u.href; };
       if (window.gerbangFollow) { e.preventDefault(); window.gerbangFollow(d.slug, jalan); } else jalan();
