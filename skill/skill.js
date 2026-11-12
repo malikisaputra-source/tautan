@@ -45,7 +45,7 @@
       <p class="s-fungsi">${esc(s.fungsi)}</p>
       <p class="s-alat">Gratis · .zip · ${esc(s.alat || "")}</p>
       <div class="s-pasang"><code>${esc(s.pasang)}</code><button type="button" data-salin="${esc(s.ketik)}" data-slug="${esc(s.repo)}" aria-label="Salin perintah ${esc(nm)}">Salin</button></div>
-      <div class="s-buatan-aksi"><a class="tombol kecil" href="${esc(s.unduh)}" ${/^https?:/.test(s.unduh) ? "" : "download"} data-unduh="${esc(nm)}">Unduh skill (.zip)</a><a class="s-gh" href="${esc(s.github)}" ${/^https?:/.test(s.github) ? 'target="_blank" rel="noopener"' : ""}>${/^https?:/.test(s.github) ? "Buka di GitHub ↗" : "Paket 10 agent →"}</a></div>
+      <div class="s-buatan-aksi"><a class="tombol kecil" href="${esc(s.unduh)}" ${/^https?:/.test(s.unduh) ? "" : "download"} data-unduh="${esc(nm)}">Unduh skill (.zip)</a><a class="s-gh" href="${esc(s.github)}" ${/^https?:/.test(s.github) ? 'target="_blank" rel="noopener"' : ""}>${/^https?:/.test(s.github) ? "Buka di GitHub ↗" : esc(s.github_label || "Lihat paket →")}</a></div>
     </article>`;
   }
   function kartu(s) {

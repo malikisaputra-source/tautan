@@ -160,3 +160,12 @@
 @media (max-width: 960px) { .hal-skill main > .s-hero { grid-template-columns: 1fr; } .s-pop { display: none; } }
 @media (prefers-reduced-motion: reduce) { .s-pop-kartu, .s-pop-chip { animation: none; opacity: 1; } }
 .s-pop-chip { z-index: 4; left: 0; bottom: 8px; }
+.s-pop { min-height: 500px; }
+.s-pop-kartu { width: min(290px, 74%); }
+.s-pop-kartu img { height: 110px; }
+.s-pop-kartu:nth-child(1) { top: 0; left: 0; }
+.s-pop-kartu:nth-child(2) { top: 110px; right: 0; left: auto; }
+.s-pop-kartu:nth-child(3) { top: 250px; left: 8%; rotate: -1.5deg; z-index: 3; }
+.s-pop { min-height: 540px; }
+.s-pop-kartu:nth-child(2) { top: 70px; }
+.s-pop-kartu:nth-child(3) { top: 285px; left: 4%; }
