@@ -1238,6 +1238,43 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/paket-10-agent-umkm/archive/refs/heads/main.zip"
  },
  {
+  "slug": "paket-15-agent-koperasi",
+  "judul": "15 AI Agent Koperasi Desa + Kantor 3D 3 Lantai",
+  "ringkas": "15 AI agent untuk koperasi desa + Kantor AI 3D merah-putih 3 lantai (contoh fiktif Koperasi Desa Merah Putih Sukamaju). Jalan di Claude Code atau OpenCode gratis.",
+  "teknologi": [
+   "Claude Code",
+   "OpenCode",
+   "React",
+   "Three.js",
+   "Vite"
+  ],
+  "kategori": "AI Agent",
+  "tier": "premium",
+  "fitur": [
+   "Lantai 1 · Layanan anggota: sembako, stok, gudang, logistik, CS",
+   "Lantai 2 · Keuangan & kesehatan: simpan pinjam, anggota, klinik, apotek, pembukuan",
+   "Lantai 3 · Pengurus: harga, konten, desain, laporan, ketua",
+   "Siap di Claude Code (.claude/agents) dan OpenCode gratis (.opencode/agent)",
+   "CLAUDE.md berisi aturan & larangan: tidak menyetujui pinjaman, tidak mendiagnosis, tidak meresepkan obat, tidak mengirim pesan",
+   "LANGKAH.md: 4 perintah (lantai 1, 2, 3, rapat) + 13 file data contoh",
+   "Contoh hasil uji asli 12 Nov 2026 (Claude Code, 15/15 agent)",
+   "Skill kantor-ai-koperasi untuk menyesuaikan dengan data koperasimu",
+   "Kantor AI 3D merah-putih 3 lantai: lihat 15 agent bekerja & laporannya"
+  ],
+  "cara": [
+   "Unduh ZIP lalu ekstrak, baca BACA-DULU.txt",
+   "Ganti isi folder data/ dengan data koperasimu",
+   "Buka folder di Claude Code (claude) atau OpenCode (opencode)",
+   "Ikuti LANGKAH.md: lantai 1, lantai 2, lantai 3, lalu rapat; baca setiap izin sebelum setuju",
+   "Lihat kantornya: npm install lalu npm run dev"
+  ],
+  "demo": null,
+  "catatan": "Contoh fiktif, bukan logo atau data resmi Koperasi Desa Merah Putih.",
+  "gambar": "img/paket-15-agent-koperasi.webp",
+  "repo": null,
+  "zip": "unduh/paket-15-agent-koperasi.zip"
+ },
+ {
   "slug": "pesan-antar-kedai",
   "judul": "Pesan Antar Kedai",
   "ringkas": "Pesan antar ala GoFood dengan kurir milik kedai sendiri: menu, pin peta, tawar ongkir lewat chat, pelacakan, sudut kedai & kurir.",

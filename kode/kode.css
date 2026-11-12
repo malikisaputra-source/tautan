@@ -643,3 +643,4 @@ li.pd-prompt .pd-salin { top: 50%; transform: translateY(-50%); }
 .k-tt-n { font-family: var(--mono); font-size: 12px; color: var(--redup); }
 .k-tt-n b { color: #fde68a; }
 .k-tt-cta { justify-self: start; margin-top: 2px; font-size: 13px; font-weight: 600; color: #fde68a; text-decoration: underline; text-underline-offset: 3px; }
+#kd-repo[hidden] { display: none !important; }

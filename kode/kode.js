@@ -239,7 +239,7 @@
     $("#kd-meta").textContent = `${d.kategori} · ${d.tier === "premium" ? "PREMIUM, GRATIS" : "GRATIS"} · TIDAK UNTUK DIJUAL`;
     $("#kd-judul").textContent = d.judul;
     $("#kd-ringkas").textContent = d.ringkas;
-    $("#kd-unduh").href = d.zip; $("#kd-repo").href = d.repo;
+    $("#kd-unduh").href = relatif(d.zip); $("#kd-repo").hidden = !d.repo; if (d.repo) $("#kd-repo").href = d.repo;
     $("#kd-fitur").innerHTML = (d.fitur || []).map((f) => `<li>${esc(f)}</li>`).join("");
     $("#kd-cara").innerHTML = (d.cara || []).map((f) => `<li>${esc(f)}</li>`).join("");
     $("#kd-bagi").onclick = async () => {
@@ -249,7 +249,7 @@
     $("#kd-bagi").textContent = "Bagikan";
     aktifSlug = d.slug; window.catatHitung && window.catatHitung(d.slug, "lihat"); segarkanHitung();
     $("#kd-unduh").onclick = (e) => {
-      const jalan = () => { window.catatHitung && window.catatHitung(d.slug, "zip"); location.href = d.zip; };
+      const jalan = () => { window.catatHitung && window.catatHitung(d.slug, "zip"); location.href = relatif(d.zip); };
       if (window.gerbangFollow) { e.preventDefault(); window.gerbangFollow(d.slug, jalan); }
       else window.catatHitung && window.catatHitung(d.slug, "zip");
     };

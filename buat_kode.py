@@ -44,6 +44,12 @@ for m in sorted(AKAR.glob("*/meta.json")):
     rg = d.pop("repo_github", None) or slug
     d["repo"] = GH + rg
     d["zip"] = GH + rg + "/archive/refs/heads/main.zip"
+    zl = d.pop("zip_lokal", None)
+    if zl and not d.get("kunci"):
+        src = m.parent / "unduh" / pathlib.Path(zl).name
+        if src.exists():
+            (SINI / "kode" / "unduh").mkdir(exist_ok=True); shutil.copy(src, SINI / "kode" / "unduh" / src.name)
+            d["zip"] = zl; d["repo"] = None
     daftar.append(d)
 import subprocess as _sp
 _sp.run(["python3", str(AKAR / "buat_profil.py")], check=True, stdout=_sp.DEVNULL)
