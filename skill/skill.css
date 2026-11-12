@@ -88,21 +88,31 @@
   .s-kaki a { display: inline-block; padding: 12px 4px; }
 }
 
-/* Skill buatanku */
-.sb-kartu { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); border-radius: 22px; border: 1px solid var(--garis2); background: rgba(13,17,27,.9); overflow: hidden; }
-.sb-kartu figure { margin: 0; border-right: 1px solid var(--garis); }
-.sb-kartu figure img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.sb-isi { padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; }
-.sb-isi h3 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
-.sb-isi h3 code { display: block; margin-top: 4px; font: 500 14px var(--mono); color: var(--aksen); }
-.sb-isi p { margin: 0; color: var(--redup); }
-.sb-agen { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--redup); }
-.sb-agen li { display: flex; gap: 10px; align-items: center; }
-.sb-agen i { width: 28px; height: 28px; border-radius: 8px; flex: none; display: grid; place-items: center; font: 700 13px var(--sans); font-style: normal; color: #05070d; }
-.sb-agen b { color: var(--teks); }
-.sb-langkah { margin: 0; padding-left: 20px; color: var(--redup); display: grid; gap: 4px; font-size: 15px; }
+/* Skill buatanku — kartu ringkas berdampingan */
+.sb-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.sb-kartu { display: flex; flex-direction: column; min-width: 0; border-radius: 20px; border: 1px solid var(--garis2); background: rgba(13,17,27,.9); overflow: hidden; transition: border-color .3s, transform .3s cubic-bezier(.2,.8,.2,1); }
+.sb-kartu:hover { border-color: #34405c; transform: translateY(-3px); }
+.sb-kartu figure { margin: 0; height: 168px; overflow: hidden; border-bottom: 1px solid var(--garis); position: relative; }
+.sb-kartu figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.sb-kartu:hover figure img { transform: scale(1.04); }
+.sb-isi { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.sb-isi h3 { margin: 0; font-size: 19px; line-height: 1.25; letter-spacing: -.01em; }
+.sb-isi h3 code { display: block; margin-top: 3px; font: 500 12.5px var(--mono); color: var(--aksen); }
+.sb-isi > p { margin: 0; color: var(--redup); font-size: 14px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sb-agen { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.sb-agen li { display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px 4px 4px; border-radius: 999px; background: var(--bg); border: 1px solid var(--garis); font-size: 12.5px; color: var(--redup); max-width: 100%; }
+.sb-agen li span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sb-agen li span b { color: var(--teks); font-weight: 600; }
+.sb-agen i { width: 20px; height: 20px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 700 11px var(--sans); font-style: normal; color: #05070d; }
+.sb-cara { border-top: 1px solid var(--garis); padding-top: 8px; margin-top: auto; }
+.sb-cara summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; font-size: 13.5px; color: var(--redup); list-style: none; }
+.sb-cara summary::-webkit-details-marker { display: none; }
+.sb-cara summary::after { content: "+"; margin-left: auto; font-family: var(--mono); color: var(--aksen); }
+.sb-cara[open] summary::after { content: "−"; }
+.sb-langkah { margin: 4px 0 6px; padding-left: 20px; color: var(--redup); display: grid; gap: 4px; font-size: 13.5px; }
 .sb-langkah code { font-family: var(--mono); font-size: .9em; color: var(--aksen); }
-.sb-aksi { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-.sb-garis { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--garis2); color: var(--teks); text-decoration: none; }
+.sb-aksi { display: flex; gap: 8px; flex-wrap: wrap; }
+.sb-aksi .tombol { min-height: 44px; padding: 0 18px; font-size: 14px; }
+.sb-garis { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--garis2); color: var(--teks); text-decoration: none; font-size: 14px; }
 .sb-garis:hover { border-color: var(--aksen); }
-@media (max-width: 860px) { .sb-kartu { grid-template-columns: 1fr; } .sb-kartu figure { border-right: 0; border-bottom: 1px solid var(--garis); } }
+@media (max-width: 860px) { .sb-grid { grid-template-columns: 1fr; } .sb-kartu figure { height: 150px; } }
