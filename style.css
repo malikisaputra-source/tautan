@@ -526,3 +526,6 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
   .b-pintu { order: 2; margin-top: 8px; }
   .b-potret { order: 3; margin-top: 40px; position: relative; z-index: 2; }
 }
+.b-pintu { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+@media (max-width: 1100px) and (min-width: 901px) { .b-pintu { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) { .b-pintu { grid-template-columns: 1fr; } }

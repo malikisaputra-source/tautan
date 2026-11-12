@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perpustakaan Skill AI · Maliki Studio</title>
+<meta name="description" content="Skill AI (Claude Code, Codex, Gemini CLI) yang layak dipasang untuk reels, AI agent, dan website. Dicek bintang, fork, lisensi, dan diuji pasang. Gratis.">
+<meta property="og:title" content="Perpustakaan Skill AI · Maliki Studio">
+<meta property="og:description" content="Skill AI yang layak dipasang untuk reels, AI agent, dan website. Bukan daftar comotan.">
+<meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
+<link rel="icon" href="../ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../ikon-180.png">
+<meta name="theme-color" content="#020308">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css?v=202611121500">
+<link rel="stylesheet" href="skill.css?v=202611121510">
+</head>
+<body class="hal-skill">
+<a class="lewati" href="#daftar">Langsung ke daftar skill</a>
+
+<header class="atas">
+  <a class="logo" href="../" aria-label="Maliki Studio, ke beranda">Maliki <span>Studio</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="../#perpustakaan">Prompt</a>
+    <a href="../kode/">Source Code</a>
+    <a href="./" aria-current="page">Skill</a>
+    <a href="../prd/">PRD</a>
+    <a class="tombol kecil" href="https://www.tiktok.com/@malikifsaputra" target="_blank" rel="noopener">Follow TikTok</a>
+  </nav>
+</header>
+
+<main>
+<section class="s-hero">
+  <p class="eyebrow"><span class="titik"></span>perpustakaan skill · gratis</p>
+  <h1>Skill AI yang layak dipasang. <span class="aksen">Bukan daftar comotan.</span></h1>
+  <p class="sub">Skill membuat Claude Code, Codex, atau Gemini CLI jago di satu pekerjaan. Semua di sini aku cek bintang, fork, lisensi, dan aku uji pasang di folder bersih.</p>
+  <dl class="s-angka" id="s-angka"></dl>
+</section>
+
+<section class="s-bagian" aria-labelledby="judul-paket">
+  <h2 id="judul-paket">Mulai dari sini</h2>
+  <p class="s-bantu">Bingung pilih? Pasang satu paket sesuai kebutuhanmu. Satu perintah, tiga skill.</p>
+  <div class="s-paket" id="s-paket"></div>
+</section>
+
+<section class="s-bagian" id="daftar" aria-labelledby="judul-daftar">
+  <div class="s-kepala-daftar">
+    <h2 id="judul-daftar">Semua skill</h2>
+    <label class="s-urut"><span class="sr">Urutkan</span><select id="s-urut"><option value="bintang">Bintang terbanyak</option><option value="fork">Paling banyak dipakai (fork)</option><option value="update">Baru diperbarui</option></select></label>
+  </div>
+  <div class="s-filter" role="group" aria-label="Kategori" id="s-kat"></div>
+  <div class="s-filter kecil" role="group" aria-label="Label" id="s-label"></div>
+  <p class="s-jumlah" aria-live="polite" id="s-jumlah"></p>
+  <div class="s-grid" id="s-grid"></div>
+</section>
+
+<section class="s-bagian s-panduan" aria-labelledby="judul-panduan">
+  <h2 id="judul-panduan">Cara pakai &amp; aman</h2>
+  <div class="s-panduan-grid">
+    <article><span class="s-no">01</span><b>Apa itu skill?</b><p>Folder berisi <code>SKILL.md</code> (instruksi) dan kadang skrip. Agen AI membacanya otomatis saat tugasnya cocok, jadi kamu tidak perlu menulis prompt panjang tiap kali.</p></article>
+    <article><span class="s-no">02</span><b>Cara pasang</b><p>Buka terminal di folder proyekmu, tempel perintah <code>npx skills add …</code>, pilih agen (Claude Code, Codex, Gemini CLI, Cursor). Butuh Node.js. Skill masuk ke <code>.claude/skills/</code>.</p></article>
+    <article><span class="s-no">03</span><b>Cek sebelum pasang</b><p>Skill berjalan dengan izin penuh agen. Pilih label <b>Resmi</b> atau yang <b>teruji</b>, baca <code>SKILL.md</code> dan folder <code>scripts/</code>, dan waspadai repo tiruan bernama mirip.</p></article>
+    <article><span class="s-no">04</span><b>Jangan pasang semua</b><p>Terlalu banyak skill bikin agen bingung dan boros token. Pasang 2–3 yang kamu butuh, pakai di proyek nyata minggu ini, baru tambah lagi.</p></article>
+  </div>
+  <p class="s-catatan">Arti label: <b>Dipuji tokoh</b> = direkomendasikan tokoh independen (sumber bisa dibuka) · <b>Resmi</b> = dari pembuat/vendor alatnya · <b>Populer</b> = bintang &amp; fork tinggi · <b>Aku pakai</b> = dipakai di Maliki Studio. Angka GitHub diperbarui tiap build.</p>
+</section>
+</main>
+
+<footer class="kaki s-kaki">
+  <p>Dikurasi oleh <a href="../">@malikisaputra</a>. Skill milik pembuatnya masing-masing; halaman ini hanya menautkan ke repo aslinya.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<p class="live live-melayang" data-live hidden aria-live="polite"><span class="live-titik" aria-hidden="true"></span><span class="live-label">LIVE</span><span><b data-live-k>0</b> kunjungan</span><span class="live-pisah" aria-hidden="true">·</span><span><b data-live-u>0</b> unduhan</span></p>
+<script src="../data/skill.js?v=202611121510"></script>
+<script src="skill.js?v=202611121510" defer></script>
+<script src="../live.js?v=202611112200" defer></script>
+</body>
+</html>

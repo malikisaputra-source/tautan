@@ -58,3 +58,4 @@ _buka = [d for d in daftar if not d.get("kunci")]
     "gambar": [d["gambar"] for d in _buka if d.get("gambar")][:8]}, ensure_ascii=False) + ";\n")
 print(len(daftar), "paket")
 import subprocess; subprocess.run(["python3", str(SINI / "buat_laman.py")], check=True)
+subprocess.run(["python3", str(AKAR / "buat_skill.py")], check=False, stdout=subprocess.DEVNULL)
