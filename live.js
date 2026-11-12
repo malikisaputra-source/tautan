@@ -50,3 +50,29 @@
   document.body.append(a);
   setTimeout(() => a.classList.add("tampil"), 1800);
 })();
+
+/* Tab bar bawah di HP: menu atas menyembunyikan tautan di layar kecil, jadi navigasi utama pindah ke sini. */
+(() => {
+  const s = document.querySelector('script[src*="live.js"]'); if (!s) return;
+  const akar = s.getAttribute("src").replace(/live\.js.*$/, "");
+  const p = location.pathname;
+  const T = [
+    ["kode/", "Source Code", '<path d="M8 6 2 12l6 6M16 6l6 6-6 6"/>', /\/kode\//],
+    ["#perpustakaan", "Prompt", '<path d="M4 17l6-5-6-5M12 19h8"/>', null],
+    ["skill/", "Skill", '<path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.9L12 16.6 6.8 19.3l1-5.9L3.5 9.3l5.9-.9z"/>', /\/skill\//],
+    ["prd/", "PRD", '<path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/>', /\/prd\//],
+  ];
+  const nav = document.createElement("nav");
+  nav.className = "tab-bawah"; nav.setAttribute("aria-label", "Navigasi utama (HP)");
+  const diBeranda = !/\/(kode|skill|prd)\//.test(p);
+  nav.innerHTML = T.map(([h, l, ik, re]) => {
+    const href = h.startsWith("#") ? (diBeranda ? h : akar + h) : akar + h;
+    const aktif = re ? re.test(p) : false;
+    return `<a href="${href}"${aktif ? ' aria-current="page"' : ""}><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ik}</svg><span>${l}</span></a>`;
+  }).join("");
+  document.body.append(nav);
+  document.documentElement.classList.add("ada-tab-bawah");
+  /* pil LIVE di HP: tampil hanya di dekat puncak laman supaya tidak menutupi isi */
+  const pil = document.querySelector(".live-melayang");
+  if (pil) { const f = () => pil.classList.toggle("sembunyi-hp", scrollY > 240); addEventListener("scroll", f, { passive: true }); f(); }
+})();

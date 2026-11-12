@@ -79,22 +79,3 @@
 @media (max-width: 680px) { .s-grid, .s-paket, .s-panduan-grid { grid-template-columns: 1fr; } .s-stat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .s-kartu, .s-pkt { opacity: 1; translate: 0 0; transition: none; } }
 .s-kartu, .s-pkt { min-width: 0; } .s-pkt li span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-/* Skill buatanku */
-.sb-kartu { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); border-radius: 22px; border: 1px solid var(--garis2); background: rgba(13,17,27,.9); overflow: hidden; }
-.sb-kartu figure { margin: 0; border-right: 1px solid var(--garis); }
-.sb-kartu figure img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.sb-isi { padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; }
-.sb-isi h3 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
-.sb-isi h3 code { display: block; margin-top: 4px; font: 500 14px var(--mono); color: var(--aksen); }
-.sb-isi p { margin: 0; color: var(--redup); }
-.sb-agen { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--redup); }
-.sb-agen li { display: flex; gap: 10px; align-items: center; }
-.sb-agen i { width: 28px; height: 28px; border-radius: 8px; flex: none; display: grid; place-items: center; font: 700 13px var(--sans); font-style: normal; color: #05070d; }
-.sb-agen b { color: var(--teks); }
-.sb-langkah { margin: 0; padding-left: 20px; color: var(--redup); display: grid; gap: 4px; font-size: 15px; }
-.sb-langkah code { font-family: var(--mono); font-size: .9em; color: var(--aksen); }
-.sb-aksi { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-.sb-garis { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--garis2); color: var(--teks); text-decoration: none; }
-.sb-garis:hover { border-color: var(--aksen); }
-@media (max-width: 860px) { .sb-kartu { grid-template-columns: 1fr; } .sb-kartu figure { border-right: 0; border-bottom: 1px solid var(--garis); } }

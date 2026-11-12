@@ -101,7 +101,8 @@
   const buka_ = DATA.filter((d) => !terkunci(d)), kunci = DATA.filter(terkunci);
   $("#a-total").textContent = buka_.length;
   $("#a-premium").textContent = buka_.filter((d) => d.tier === "premium").length;
-  $("#k-jumlah-pil").textContent = `${buka_.length} siap unduh · ${kunci.length} segera hadir`;
+  const totalBuka = SEMUA.filter((d) => !terkunci(d)).length;
+  $("#k-jumlah-pil").textContent = totalBuka > buka_.length ? `${buka_.length} di laman ini · ${totalBuka} siap unduh total` : `${buka_.length} siap unduh · ${kunci.length} segera hadir`;
   $("#k-segera-n").textContent = kunci.length;
   if (!kunci.length) $("#k-segera-blok").hidden = true;
   kunci.sort((a, b) => String(a.kunci).localeCompare(String(b.kunci)));
