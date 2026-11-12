@@ -79,3 +79,11 @@
 @media (max-width: 680px) { .s-grid, .s-paket, .s-panduan-grid { grid-template-columns: 1fr; } .s-stat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .s-kartu, .s-pkt { opacity: 1; translate: 0 0; transition: none; } }
 .s-kartu, .s-pkt { min-width: 0; } .s-pkt li span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* area sentuh ≥44px di HP (audit) */
+@media (max-width: 760px) {
+  .s-filter button, .s-filter.kecil button { min-height: 44px; }
+  .s-pasang button { min-height: 44px; }
+  .s-gh { min-height: 44px; }
+  .s-sumber a { display: inline-block; padding: 12px 0; margin: -12px 0; }
+  .s-kaki a { display: inline-block; padding: 12px 4px; }
+}

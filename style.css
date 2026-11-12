@@ -586,3 +586,4 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
   .cuplik-tpl { grid-template-columns: repeat(3, 72%); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
   .cuplik-kartu { scroll-snap-align: start; }
 }
+.atas .logo { display: inline-flex; align-items: center; min-height: 44px; }

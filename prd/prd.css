@@ -235,3 +235,8 @@
 .p-paket { background: linear-gradient(135deg, #10b981, #22d3ee); }
 @media (max-width: 760px) { .p-tpl-grid { grid-template-columns: 1fr; } }
 .p-paket[hidden] { display: none !important; }
+/* area sentuh ≥44px di HP (audit) */
+@media (max-width: 760px) {
+  .p-tab button, .p-mode button { min-height: 44px; padding: 0 14px; }
+  .p-kaki a { display: inline-block; padding: 12px 4px; }
+}
