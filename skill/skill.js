@@ -21,6 +21,15 @@
       <button type="button" class="tombol kecil" data-salin="${esc(cmd)}" data-slug="paket-${p.id}">Salin perintah paket</button></article>`;
   }).join("");
 
+  /* pop-up skill buatanku di sisi kanan hero */
+  const B = D.skill.filter((s) => s.buatan);
+  $("#s-pop").innerHTML = B.map((s, i) => `<article class="s-pop-kartu" style="--i:${i}">
+      ${s.gambar ? `<img src="${esc(s.gambar)}" alt="" width="320" height="180">` : ""}
+      <div class="s-pop-isi"><span class="s-lbl l-buatan">Buatanku</span><b>${esc(s.repo.split("/")[1])}</b><small>${esc(s.fungsi.split(".")[0])}.</small>
+      <span class="s-pop-aksi"><a class="tombol kecil" href="${esc(s.unduh)}" ${/^https?:/.test(s.unduh) ? "" : "download"} data-unduh="${esc(s.repo.split("/")[1])}">Unduh .zip</a><button type="button" class="s-pop-lihat" data-lihat>Lihat</button></span></div>
+    </article>`).join("") + (B.length ? `<p class="s-pop-chip" aria-hidden="true">✓ ${D.skill.filter((s) => s.teruji).length} skill lain teruji pasang</p>` : "");
+  document.addEventListener("click", (e) => { if (e.target.closest("[data-lihat]")) { lab = "buatan"; tampil(); $("#daftar").scrollIntoView({ behavior: "smooth" }); } });
+
   let kat = "semua", lab = "", urut = "bintang";
   try { kat = new URLSearchParams(location.search).get("kat") || "semua"; } catch (_) {}
   const kats = [["semua", "Semua"], ...Object.entries(D.kategori)];
