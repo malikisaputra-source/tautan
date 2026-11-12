@@ -5,7 +5,7 @@
   const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const fmt = (n) => n >= 1e6 ? (n / 1e6).toFixed(1).replace(".", ",") + " jt" : n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(".", ",") + "rb" : String(n || 0);
   const tgl = (s) => s ? new Date(s + "T00:00:00").toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }) : "–";
-  const LABEL = { tokoh: "Dipuji tokoh", resmi: "Resmi", populer: "Populer", coba: "Aku pakai" };
+  const LABEL = { buatan: "Buatanku", tokoh: "Dipuji tokoh", resmi: "Resmi", populer: "Populer", coba: "Aku pakai" };
   const SB = "https://qsoejsauqlfkchxtnumm.supabase.co", KEY = "sb_publishable_vYBTYgHNwLIC1Q-4hHzeMA_OGQdPnWW";
   const catat = (slug) => { try { fetch(SB + "/rest/v1/rpc/catat", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_slug: "skill:" + slug, p_jenis: "skill" }), keepalive: true }); } catch (_) {} };
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.classList.add("tampil"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("tampil"), 2200); };
@@ -28,7 +28,19 @@
     $("#s-kat").innerHTML = kats.map(([k, v]) => `<button type="button" data-kat="${k}" aria-pressed="${kat === k}">${esc(v)}<small>${k === "semua" ? D.skill.length : D.skill.filter((s) => s.kat === k).length}</small></button>`).join("");
     $("#s-label").innerHTML = Object.entries(LABEL).map(([k, v]) => `<button type="button" data-lab="${k}" aria-pressed="${lab === k}">${esc(v)}</button>`).join("");
   }
+  function kartuBuatan(s) {
+    const nm = s.repo.split("/")[1];
+    return `<article class="s-kartu s-kartu-buatan" data-kat="${s.kat}">
+      <div class="s-kartu-atas"><span class="s-kat">${esc(D.kategori[s.kat] || "")}</span><span class="s-lbl l-buatan">Buatanku</span><span class="s-lbl l-coba">Aku pakai</span></div>
+      <div class="s-buatan-judul">${s.gambar ? `<img src="${esc(s.gambar)}" alt="" width="64" height="52" loading="lazy">` : ""}<h3><span>malikisaputra/</span>${esc(nm)}</h3></div>
+      <p class="s-fungsi">${esc(s.fungsi)}</p>
+      <p class="s-alat">Gratis · .zip · ${esc(s.alat || "")}</p>
+      <div class="s-pasang"><code>${esc(s.pasang)}</code><button type="button" data-salin="${esc(s.ketik)}" data-slug="${esc(s.repo)}" aria-label="Salin perintah ${esc(nm)}">Salin</button></div>
+      <div class="s-buatan-aksi"><a class="tombol kecil" href="${esc(s.unduh)}" ${/^https?:/.test(s.unduh) ? "" : "download"} data-unduh="${esc(nm)}">Unduh skill (.zip)</a><a class="s-gh" href="${esc(s.github)}" ${/^https?:/.test(s.github) ? 'target="_blank" rel="noopener"' : ""}>${/^https?:/.test(s.github) ? "Buka di GitHub ↗" : "Paket 10 agent →"}</a></div>
+    </article>`;
+  }
   function kartu(s) {
+    if (s.buatan) return kartuBuatan(s);
     const lbl = (s.label || []).map((l) => `<span class="s-lbl l-${l}">${esc(LABEL[l] || l)}</span>`).join("");
     const [own, nm] = s.repo.split("/");
     return `<article class="s-kartu" data-kat="${s.kat}">
@@ -44,7 +56,7 @@
   }
   function tampil() {
     let L = D.skill.filter((s) => (kat === "semua" || s.kat === kat) && (!lab || (s.label || []).includes(lab)));
-    L.sort((a, b) => urut === "update" ? String(b.update).localeCompare(String(a.update)) : (b[urut] || 0) - (a[urut] || 0));
+    L.sort((a, b) => (b.buatan ? 1 : 0) - (a.buatan ? 1 : 0) || (urut === "update" ? String(b.update).localeCompare(String(a.update)) : (b[urut] || 0) - (a[urut] || 0)));
     $("#s-grid").innerHTML = L.map(kartu).join("") || `<p class="s-kosong">Belum ada skill dengan filter ini.</p>`;
     $("#s-jumlah").textContent = `${L.length} skill`;
     filter();
@@ -52,6 +64,7 @@
   document.addEventListener("click", (e) => {
     const k = e.target.closest("[data-kat]"); if (k && k.tagName === "BUTTON") { kat = k.dataset.kat; tampil(); }
     const l = e.target.closest("[data-lab]"); if (l) { lab = lab === l.dataset.lab ? "" : l.dataset.lab; tampil(); }
+    const u = e.target.closest("[data-unduh]"); if (u) catat(u.dataset.unduh);
     const c = e.target.closest("[data-salin]"); if (c) { salin(c.dataset.salin); catat(c.dataset.slug); const t = c.textContent; c.textContent = "Tersalin ✓"; setTimeout(() => (c.textContent = t), 1600); toast("Perintah disalin. Tempel di terminal folder proyekmu."); }
   });
   $("#s-urut").addEventListener("change", (e) => { urut = e.target.value; tampil(); });
