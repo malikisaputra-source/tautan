@@ -164,9 +164,17 @@ $("#bagikan").addEventListener("click", async () => {
 /* ---------- angka ---------- */
 document.querySelectorAll("[data-hitung]").forEach((el) => {
   const k = el.dataset.hitung;
-  el.dataset.akhir = k === "prompt" ? DATA.length : k === "seri" ? urutanSeri.length : k;
+  el.dataset.akhir = k === "prompt" ? DATA.length : k === "seri" ? urutanSeri.length : k === "kode" ? ((window.RINGKAS || {}).terbuka || el.textContent) : k;
   if (!gerakOk) el.textContent = el.dataset.akhir;
 });
+
+/* ---------- pintu: gambar template bergantian ---------- */
+(() => {
+  const img = document.querySelector("[data-pintu-gambar]"), g = ((window.RINGKAS || {}).gambar || []).map((x) => "kode/" + x);
+  if (!img || !g.length) return; let i = 0; img.src = g[0];
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && g.length > 1)
+    setInterval(() => { if (document.hidden) return; img.classList.add("ganti"); setTimeout(() => { i = (i + 1) % g.length; img.src = g[i]; img.onload = () => img.classList.remove("ganti"); }, 300); }, 2600);
+})();
 
 /* ---------- header ---------- */
 addEventListener("scroll", () => $(".atas").classList.toggle("tergulir", scrollY > 20), { passive: true });

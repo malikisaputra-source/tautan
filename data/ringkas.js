@@ -1,0 +1,1 @@
+window.RINGKAS = {"kode": 51, "terbuka": 12, "gambar": ["img/kantor-ai-template.webp", "img/kasir-umkm.webp", "img/katalog-toko-wa.webp", "img/manajemen-bengkel.webp", "img/manajemen-klien.webp", "img/presensi-gps-gas.webp", "img/template-agrowisata.webp", "img/template-kolase-vox.webp"]};

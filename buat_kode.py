@@ -52,5 +52,9 @@ _prof = json.loads(_pt[_pt.index("{"):_pt.rindex("}") + 1])
 for d in daftar:
     if d["slug"] in _prof and not d.get("kunci"): d["prd"] = True
 (SINI / "data" / "kode.js").write_text("window.KODE = " + json.dumps(daftar, ensure_ascii=False, indent=1) + ";\n")
+_buka = [d for d in daftar if not d.get("kunci")]
+(SINI / "data" / "ringkas.js").write_text("window.RINGKAS = " + json.dumps({
+    "kode": len(daftar), "terbuka": len(_buka),
+    "gambar": [d["gambar"] for d in _buka if d.get("gambar")][:8]}, ensure_ascii=False) + ";\n")
 print(len(daftar), "paket")
 import subprocess; subprocess.run(["python3", str(SINI / "buat_laman.py")], check=True)
