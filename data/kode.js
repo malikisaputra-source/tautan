@@ -42,6 +42,52 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
  },
  {
+  "slug": "absensi-kelas-guru",
+  "judul": "Absensi Kelas Guru",
+  "ringkas": "Absen siswa satu ketukan per anak (H/S/I/A), banyak kelas & mapel, rekap bulanan, ekspor Excel, cetak A4. Offline di HP guru.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PWA",
+   "Service Worker",
+   "localStorage",
+   "SheetJS"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Banyak kelas, tiap kelas bisa beberapa mapel",
+   "Daftar siswa: tambah manual, impor CSV, tempel dari Excel",
+   "Absen satu ketukan: Hadir/Sakit/Izin/Alpa, bawaan hadir",
+   "Tombol \"Semua hadir\" & simpan otomatis",
+   "Catatan per pertemuan (materi, PR, kejadian)",
+   "Rekap bulanan per siswa: % hadir, jumlah S/I/A",
+   "Ringkasan per kelas + tanda siswa kehadiran < 80%",
+   "Ekspor Excel (.xlsx) atau CSV, cetak rekap A4 + tanda tangan",
+   "Backup/pulihkan JSON, data tetap di perangkat",
+   "Bisa di-install & jalan offline (PWA)"
+  ],
+  "cara": [
+   "Unggah folder ke hosting HTTPS (GitHub Pages/Netlify) atau buka index.html",
+   "Buka di HP, lalu Install / Tambah ke layar utama",
+   "Buat kelas & mapel di menu Kelas & Siswa",
+   "Tempel daftar siswa dari Excel",
+   "Tiap pertemuan buka Absen, ketuk S/I/A untuk yang tidak hadir",
+   "Akhir bulan buka Rekap, unduh Excel atau cetak A4"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "req": [
+   "bang_yos15"
+  ],
+  "kunci": "2027-01-04",
+  "gambar": "img/absensi-kelas-guru.webp",
+  "repo": "https://github.com/malikisaputra-source/absensi-kelas-guru",
+  "zip": "https://github.com/malikisaputra-source/absensi-kelas-guru/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "belanja-keluarga",
   "judul": "Anggaran Belanja Keluarga",
   "ringkas": "Atur uang bulanan keluarga pakai amplop per kategori, catat belanja cepat, peringatan amplop hampir habis, dan target tabungan.",
@@ -932,6 +978,96 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
  },
  {
+  "slug": "kasir-fotocopy",
+  "judul": "Kasir Fotocopy & Percetakan",
+  "ringkas": "Kasir offline untuk fotocopy & print: hitung lembar warna/hitam-putih, bolak-balik, jilid, laminasi, rekap lembar. Jalan di laptop & HP.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PWA",
+   "Service Worker",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Hitung cepat: halaman → lembar, warna/BW, A4/F4, bolak-balik",
+   "Jilid (staples s/d hardcover) & laminasi per rangkap",
+   "Tarif per lembar bisa diubah di menu Atur",
+   "Jumlah lembar bisa diketik langsung di keranjang",
+   "Rekap lembar hitam-putih vs warna di struk & laporan",
+   "Jasa tanpa stok + barang ATK dengan stok",
+   "Bayar tunai/QRIS/transfer, struk 58mm",
+   "Laporan harian/bulanan, ekspor CSV, backup JSON",
+   "Bisa di-install & jalan offline (PWA)"
+  ],
+  "cara": [
+   "Unggah folder ke hosting HTTPS (GitHub Pages/Netlify)",
+   "Buka di HP/laptop, lalu Install / Tambah ke layar utama",
+   "Masuk sebagai Admin (PIN 1234) dan ganti PIN",
+   "Atur tarif per lembar & jilid di menu Atur",
+   "Klik Hitung cepat, isi jumlah halaman, lalu bayar"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "req": [
+   "kmssyafyasin",
+   "alfattahprint"
+  ],
+  "kunci": "2026-12-24",
+  "gambar": "img/kasir-fotocopy.webp",
+  "repo": "https://github.com/malikisaputra-source/kasir-fotocopy",
+  "zip": "https://github.com/malikisaputra-source/kasir-fotocopy/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "kasir-laundry",
+  "judul": "Kasir Laundry Offline + Dasbor Owner",
+  "ringkas": "Kasir laundry kiloan & satuan: papan status cucian, nota & WA siap ambil, laporan, offline. Sinkron Google Sheets opsional untuk owner.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PWA",
+   "Service Worker",
+   "localStorage",
+   "Google Apps Script",
+   "Google Sheets"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Kiloan (berat desimal), satuan, karpet per m²",
+   "Paket Reguler/Kilat/Express dengan tambahan harga",
+   "Order: pelanggan + WA, DP/lunas, parfum, pisah warna",
+   "Papan status Diterima → Diambil, tombol maju & filter",
+   "Struk 58mm + WA nota & WA siap ambil (wa.me)",
+   "Laporan omzet, kg per hari, belum diambil, piutang",
+   "Data pelanggan & riwayat order",
+   "Sinkron Google Sheets opsional + antrian offline",
+   "owner.html: dasbor owner dari luar kota",
+   "PWA offline, multi-kasir PIN, backup JSON, CSV"
+  ],
+  "cara": [
+   "Unggah folder ke hosting HTTPS (GitHub Pages/Netlify)",
+   "Buka di HP kasir, lalu Install / Tambah ke layar utama",
+   "Masuk Admin (PIN 1234), atur harga & ganti PIN",
+   "Opsional: pasang apps-script/Code.gs sebagai Web App",
+   "Isi URL Web App di menu Atur, owner buka owner.html"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "req": [
+   "okfian_ari"
+  ],
+  "kunci": "2026-12-28",
+  "gambar": "img/kasir-laundry.webp",
+  "repo": "https://github.com/malikisaputra-source/kasir-laundry",
+  "zip": "https://github.com/malikisaputra-source/kasir-laundry/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "kasir-umkm",
   "judul": "Kasir UMKM Offline",
   "ringkas": "Aplikasi kasir PWA untuk warung & kafe: stok, varian harga, diskon, QRIS, struk 58mm, laporan. Jalan tanpa internet.",
@@ -1088,6 +1224,47 @@ window.KODE = [
   "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip"
  },
  {
+  "slug": "landing-kelas-virtual",
+  "judul": "Landing Kelas Virtual (Lynk)",
+  "ringkas": "Landing page 1 halaman untuk jualan kelas online: harga coret, kurikulum, bonus, mentor, FAQ, countdown. Tombol beli ke link Lynk.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "SVG"
+  ],
+  "kategori": "Template Website",
+  "tier": "premium",
+  "fitur": [
+   "Hero dengan harga coret, badge hemat & tombol beli",
+   "Semua tombol beli ke satu link Lynk",
+   "Kurikulum per modul (akordion) & FAQ",
+   "Bonus dengan total nilai otomatis",
+   "Profil mentor, testimoni contoh, jaminan",
+   "Countdown promo opsional",
+   "Tombol beli melayang di HP + tombol WhatsApp",
+   "Semua isi di satu berkas konten.js",
+   "Meta OG, favicon, animasi halus, mode gelap"
+  ],
+  "cara": [
+   "Buka konten.js, isi link Lynk & nomor WA",
+   "Ganti teks, harga, modul, bonus, FAQ",
+   "Ganti testimoni contoh dengan yang asli",
+   "Ubah title & meta OG di index.html",
+   "Unggah ke GitHub Pages/Netlify, pasang di bio"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "req": [
+   "im_jeniuss"
+  ],
+  "kunci": "2027-01-14",
+  "gambar": "img/landing-kelas-virtual.webp",
+  "repo": "https://github.com/malikisaputra-source/landing-kelas-virtual",
+  "zip": "https://github.com/malikisaputra-source/landing-kelas-virtual/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "manajemen-bengkel",
   "judul": "Manajemen Bengkel Motor & Mobil",
   "ringkas": "Sistem bengkel tanpa server: antrean kanban + layar TV, work order, stok sparepart, nota A5/58mm, kirim WA, riwayat plat & laporan.",
@@ -1142,6 +1319,51 @@ window.KODE = [
   "repo": "https://github.com/malikisaputra-source/manajemen-bengkel",
   "zip": "https://github.com/malikisaputra-source/manajemen-bengkel/archive/refs/heads/main.zip",
   "prd": true
+ },
+ {
+  "slug": "manajemen-gym",
+  "judul": "Manajemen Gym",
+  "ringkas": "Aplikasi gym offline: member & paket, bayar/perpanjang, check-in cepat pakai kartu QR, jatuh tempo + pengingat WA, laporan.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PWA",
+   "Service Worker",
+   "localStorage",
+   "qrcodejs"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Data member: nama, WA, foto opsional, tanggal gabung, catatan",
+   "Paket harian/bulanan/3 bulan/tahunan + personal trainer (sesi)",
+   "Pembayaran & perpanjangan otomatis menyambung masa aktif",
+   "Check-in cepat: cari nama/kode, Enter, atau scan kartu QR",
+   "Kartu member ber-QR, bisa dicetak",
+   "Daftar jatuh tempo (≤7 hari & lewat) + pengingat wa.me siap kirim",
+   "Laporan: member aktif, check-in per hari, jam ramai, pendapatan per bulan",
+   "Multi-admin PIN (pemilik & staf)",
+   "Backup/pulihkan JSON, ekspor CSV member/pembayaran/check-in",
+   "Bisa di-install & jalan offline (PWA)"
+  ],
+  "cara": [
+   "Unggah folder ke hosting HTTPS (GitHub Pages/Netlify)",
+   "Buka di HP/laptop, lalu Install / Tambah ke layar utama",
+   "Masuk sebagai Pemilik (PIN 1234) dan ganti PIN di menu Atur",
+   "Atur nama gym, harga paket, dan templat pesan WA",
+   "Tambah member, lalu check-in lewat nama/kode/QR"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "req": [
+   "mastewe21"
+  ],
+  "kunci": "2026-12-31",
+  "gambar": "img/manajemen-gym.webp",
+  "repo": "https://github.com/malikisaputra-source/manajemen-gym",
+  "zip": "https://github.com/malikisaputra-source/manajemen-gym/archive/refs/heads/main.zip"
  },
  {
   "slug": "manajemen-klien",
@@ -1200,6 +1422,90 @@ window.KODE = [
   "repo": "https://github.com/malikisaputra-source/manajemen-klien",
   "zip": "https://github.com/malikisaputra-source/manajemen-klien/archive/refs/heads/main.zip",
   "prd": true
+ },
+ {
+  "slug": "mesin-3d-interaktif",
+  "judul": "Mesin 4-Tak 3D Interaktif",
+  "ringkas": "Model edukasi Three.js mesin 4-tak: piston, batang, engkol, katup, siklus hisap-kompresi-usaha-buang, slider RPM, transparan & potongan.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Three.js r160",
+   "WebGL"
+  ],
+  "kategori": "Template Website",
+  "tier": "gratis",
+  "fitur": [
+   "Piston, batang piston, poros engkol, katup, busi dari primitif",
+   "Kinematika engkol–piston sungguhan",
+   "Siklus 720° dengan warna per langkah",
+   "Katup buka-tutup & busi berkedip",
+   "Slider RPM, Jeda, Langkah +45°",
+   "Mode transparan & potongan",
+   "Label bagian mengikuti model",
+   "Putar & zoom, responsif HP"
+  ],
+  "cara": [
+   "Unggah ke GitHub Pages/Netlify (atau python3 -m http.server)",
+   "Buka di browser yang mendukung WebGL",
+   "Seret untuk memutar, atur RPM",
+   "Pakai Jeda + Langkah + saat menjelaskan"
+  ],
+  "demo": "index.html",
+  "pratinjau": "index.html",
+  "req": [
+   "pratamax165"
+  ],
+  "kunci": "2027-01-25",
+  "prototipe": true,
+  "gambar": "img/mesin-3d-interaktif.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/mesin-3d-interaktif",
+  "zip": "https://github.com/malikisaputra-source/mesin-3d-interaktif/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "monitor-subdomain",
+  "judul": "Monitor Subdomain (Status Page)",
+  "ringkas": "Status page ala Upptime buatan sendiri: GitHub Actions cek URL tiap 10 menit, catat uptime & latensi 90 hari, tampil di GitHub Pages.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Node.js 20",
+   "GitHub Actions",
+   "GitHub Pages"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Daftar situs cukup di sites.json",
+   "Cek otomatis tiap ±10 menit lewat GitHub Actions",
+   "Catat status, kode HTTP, latensi",
+   "Riwayat 90 hari + uptime %",
+   "Bar harian hijau/kuning/merah",
+   "Grafik latensi 24 jam (SVG)",
+   "Tanpa server & dependensi, gratis di repo publik",
+   "Jujur: bukan real-time, tidak bisa cek dari browser (CORS)"
+  ],
+  "cara": [
+   "Buat repo GitHub publik, unggah isi folder",
+   "Isi sites.json dengan URL subdomainmu",
+   "Settings › Actions: izinkan Read and write",
+   "Jalankan workflow 'Cek status situs' sekali",
+   "Aktifkan GitHub Pages dari branch main"
+  ],
+  "demo": "index.html?demo",
+  "pratinjau": "index.html?demo",
+  "req": [
+   "pakhaji896"
+  ],
+  "kunci": "2027-01-18",
+  "prototipe": true,
+  "gambar": "img/monitor-subdomain.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/monitor-subdomain",
+  "zip": "https://github.com/malikisaputra-source/monitor-subdomain/archive/refs/heads/main.zip"
  },
  {
   "slug": "paket-10-agent-umkm",
@@ -1273,6 +1579,94 @@ window.KODE = [
   "gambar": "img/paket-15-agent-koperasi.webp",
   "repo": null,
   "zip": "unduh/paket-15-agent-koperasi.zip"
+ },
+ {
+  "slug": "paket-operator-sekolah",
+  "judul": "Paket AI Operator Sekolah",
+  "ringkas": "Skill Claude Code/Codex untuk operator sekolah: rapikan data siswa Excel/CSV, buat surat .docx, rekap absensi & nilai. Diproses lokal.",
+  "teknologi": [
+   "Claude Code",
+   "Codex",
+   "CLAUDE.md",
+   "Agent Skills",
+   "Python",
+   "python-docx",
+   "openpyxl"
+  ],
+  "kategori": "AI Agent",
+  "tier": "gratis",
+  "fitur": [
+   "Rapikan nama, NISN, tanggal, kelas, nomor HP",
+   "Tandai data janggal & duplikat, tidak ditebak",
+   "Surat keterangan aktif, izin, undangan ke Word",
+   "Template surat JSON mudah ditambah",
+   "Rekap absensi H/S/I/A + persen hadir",
+   "Rekap nilai: rata-rata, peringkat, di bawah KKM",
+   "Contoh data fiktif untuk uji coba",
+   "Aturan data pribadi siswa di CLAUDE.md"
+  ],
+  "cara": [
+   "Pasang Python 3 lalu pip install openpyxl python-docx",
+   "Isi contoh/sekolah.json dengan identitas sekolah",
+   "Buka folder di terminal, jalankan claude atau codex",
+   "Minta: rapikan data siswa / buat surat / rekap absensi",
+   "Ambil & periksa hasil di folder hasil/"
+  ],
+  "demo": "index.html",
+  "pratinjau": "index.html",
+  "req": [
+   "ryapio"
+  ],
+  "kunci": "2027-01-11",
+  "prototipe": true,
+  "gambar": "img/paket-operator-sekolah.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/paket-operator-sekolah",
+  "zip": "https://github.com/malikisaputra-source/paket-operator-sekolah/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "perpustakaan-digital",
+  "judul": "Perpustakaan Digital Rumah Sakit",
+  "ringkas": "Perpustakaan staf RS offline: katalog buku & jurnal, anggota, pinjam-kembali, denda opsional, label barcode, laporan, katalog publik.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PWA",
+   "Service Worker",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "premium",
+  "fitur": [
+   "Katalog buku & jurnal: ISBN, kategori, rak, eksemplar, tautan PDF",
+   "Cari & filter: kategori, jenis, tersedia, ada e-book",
+   "Impor CSV (ada contoh) & ekspor CSV",
+   "Anggota staf: nama, unit, NIP",
+   "Pinjam/kembali dengan jatuh tempo, perpanjang, riwayat",
+   "Denda keterlambatan opsional (bisa dimatikan)",
+   "Label buku dengan barcode Code 39",
+   "Laporan: terpopuler, aktif, terlambat, per kategori",
+   "Katalog publik read-only dari katalog.json",
+   "PIN admin, backup JSON, jalan offline (PWA)"
+  ],
+  "cara": [
+   "Unggah folder ke hosting HTTPS (GitHub Pages/Netlify)",
+   "Buka di laptop/HP, lalu Install / Tambah ke layar utama",
+   "Masuk dengan PIN 1234 dan ganti PIN di menu Atur",
+   "Impor katalog dari CSV atau tambah koleksi satu per satu",
+   "Unduh katalog.json di Atur, unggah agar katalog.html terisi"
+  ],
+  "demo": "index.html?demo",
+  "kustom": false,
+  "pratinjau": "index.html?demo",
+  "req": [
+   "krniawaiz"
+  ],
+  "kunci": "2027-01-07",
+  "gambar": "img/perpustakaan-digital.webp",
+  "repo": "https://github.com/malikisaputra-source/perpustakaan-digital",
+  "zip": "https://github.com/malikisaputra-source/perpustakaan-digital/archive/refs/heads/main.zip"
  },
  {
   "slug": "pesan-antar-kedai",
@@ -1393,6 +1787,49 @@ window.KODE = [
   "prd": true
  },
  {
+  "slug": "skill-narasi-laporan-word",
+  "judul": "Skill Narasi Laporan Word",
+  "ringkas": "Skill agent: baca data CSV/Excel & catatan, tulis narasi laporan per bab, jadikan .docx rapi dengan tabel. Angka dihitung skrip.",
+  "teknologi": [
+   "Claude Code",
+   "Codex",
+   "Agent Skills",
+   "Python",
+   "python-docx",
+   "openpyxl"
+  ],
+  "kategori": "AI Agent",
+  "tier": "gratis",
+  "fitur": [
+   "Skill narasi-laporan-word siap pakai",
+   "Ringkas data: total, per kelompok, perubahan %",
+   "Angka dari skrip, bukan ditebak AI",
+   "Template bab: laporan kegiatan & penelitian sederhana",
+   "Narasi JSON → Word: bab, poin, tabel bergaya",
+   "Format angka Indonesia",
+   "Contoh data fiktif + hasil .docx",
+   "Bisa dipakai di Claude Code atau Codex"
+  ],
+  "cara": [
+   "pip install python-docx openpyxl",
+   "Taruh data & catatan di folder paket",
+   "Jalankan claude (atau codex) di folder itu",
+   "Minta: buat laporan dari data X pakai template Y",
+   "Periksa hasil/*.docx di Word"
+  ],
+  "demo": "index.html",
+  "pratinjau": "index.html",
+  "req": [
+   "genk_cebiit"
+  ],
+  "kunci": "2027-01-14",
+  "prototipe": true,
+  "gambar": "img/skill-narasi-laporan-word.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/skill-narasi-laporan-word",
+  "zip": "https://github.com/malikisaputra-source/skill-narasi-laporan-word/archive/refs/heads/main.zip"
+ },
+ {
   "slug": "template-agrowisata",
   "judul": "Template Agrowisata & Komunitas Tani",
   "ringkas": "Template website premium untuk agrowisata, kebun, dan komunitas tani: gaya bento, dua bahasa EN/ID, akordion program, animasi GSAP.",
@@ -1427,6 +1864,48 @@ window.KODE = [
   "repo": "https://github.com/malikisaputra-source/template-agrowisata",
   "zip": "https://github.com/malikisaputra-source/template-agrowisata/archive/refs/heads/main.zip",
   "prd": true
+ },
+ {
+  "slug": "template-carousel-quotes",
+  "judul": "Template Carousel Quotes Instagram",
+  "ringkas": "Editor carousel quotes IG 1080×1350: 3 gaya (editorial, neon, teduh), sampul–isi–CTA, unduh PNG per slide atau ZIP.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "html-to-image",
+   "JSZip",
+   "localStorage"
+  ],
+  "kategori": "Template Website",
+  "tier": "gratis",
+  "fitur": [
+   "3 gaya tetap: Editorial serif krem, Bold Neon gelap, Teduh geometris",
+   "Slide sampul, slide isi (kutipan + sumber), dan penutup CTA",
+   "Tambah, hapus, dan urutkan slide isi",
+   "Nama, handle, dan foto/logo opsional",
+   "Pratinjau 1080×1350 langsung saat mengetik",
+   "Unduh PNG per slide atau semua sekaligus (.zip)",
+   "Draft tersimpan otomatis di browser",
+   "Impor/ekspor konten JSON, bisa diisi AI lewat skill"
+  ],
+  "cara": [
+   "Buka index.html di browser (perlu internet untuk font)",
+   "Pilih gaya, isi judul seri, nama, dan handle",
+   "Tulis kutipan di slide isi, atur urutannya",
+   "Klik Unduh semua (.zip) lalu unggah ke Instagram"
+  ],
+  "demo": "index.html",
+  "kustom": false,
+  "pratinjau": "index.html",
+  "req": [
+   "zoealabaster",
+   "muslim_upskill"
+  ],
+  "kunci": "2027-01-11",
+  "gambar": "img/template-carousel-quotes.webp",
+  "repo": "https://github.com/malikisaputra-source/template-carousel-quotes",
+  "zip": "https://github.com/malikisaputra-source/template-carousel-quotes/archive/refs/heads/main.zip"
  },
  {
   "slug": "template-kolase-vox",
@@ -1768,6 +2247,49 @@ window.KODE = [
   "repo": "https://github.com/malikisaputra-source/template-video-tutor-remotion",
   "zip": "https://github.com/malikisaputra-source/template-video-tutor-remotion/archive/refs/heads/main.zip",
   "prd": true
+ },
+ {
+  "slug": "translate-suara",
+  "judul": "Terjemah Suara Dua Arah",
+  "ringkas": "PWA penerjemah percakapan Indonesia–Inggris: bicara, terjemahan muncul & dibacakan. Suara gratis di Chrome, terjemahan pakai API milikmu.",
+  "teknologi": [
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "Web Speech API",
+   "PWA",
+   "Service Worker",
+   "localStorage"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+   "Dua tombol mik: Indonesia (id-ID) & English (en-US)",
+   "Gelembung percakapan dua arah",
+   "Hasil dibacakan otomatis (speechSynthesis)",
+   "Penyedia: API kompatibel OpenAI atau Gemini (kunci sendiri)",
+   "Mode gratis: salin ke Google Translate",
+   "Ketik manual bila mik tidak tersedia",
+   "Bisa di-install (PWA), mode gelap otomatis",
+   "Banner jujur soal dukungan browser & API"
+  ],
+  "cara": [
+   "Unggah ke hosting HTTPS (GitHub Pages/Netlify)",
+   "Buka di Chrome dan izinkan mikrofon",
+   "Klik ⚙ lalu pilih penyedia & isi kunci API",
+   "Tekan tombol bahasa pembicara, lalu bicara"
+  ],
+  "demo": "index.html?demo",
+  "pratinjau": "index.html?demo",
+  "req": [
+   "pentinguang"
+  ],
+  "kunci": "2027-01-21",
+  "prototipe": true,
+  "gambar": "img/translate-suara.webp",
+  "kustom": false,
+  "repo": "https://github.com/malikisaputra-source/translate-suara",
+  "zip": "https://github.com/malikisaputra-source/translate-suara/archive/refs/heads/main.zip"
  },
  {
   "slug": "website-rt",
