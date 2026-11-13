@@ -1,0 +1,15 @@
+{
+  "name": "Kalender Kerja Harian",
+  "short_name": "Kalender Kerja",
+  "description": "Jadwal kerja harian berjam dengan pengingat, offline di HP & laptop",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3f4f2",
+  "theme_color": "#c83d31",
+  "lang": "id",
+  "icons": [
+    { "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

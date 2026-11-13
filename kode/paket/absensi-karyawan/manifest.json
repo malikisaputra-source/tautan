@@ -1,0 +1,10 @@
+{
+  "name": "Absensi Karyawan",
+  "short_name": "Absensi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f4fb",
+  "theme_color": "#4f46e5",
+  "icons": [{ "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

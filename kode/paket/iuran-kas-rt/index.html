@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+/* Set mode sebelum render (tanpa kedip). Pilihan tombol bulan/matahari menimpa TEMA.mode. */
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'auto';
+  try { var t = localStorage.getItem('iuran-kas-rt-mode'); if (t) m = t; } catch (e) {}
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iuran &amp; Kas RT</title>
+<meta name="description" content="Catat iuran bulanan warga, saldo kas, pengingat WhatsApp, dan laporan bulanan RT dalam satu layar.">
+<meta name="theme-color" content="#10291c">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-bagian="latar">
+<a class="lewati" href="#daftar">Lewati ke daftar warga</a>
+
+<header class="atas" data-bagian="nav">
+  <div class="merek">
+    <span class="merek-logo" data-bagian="aksen" aria-hidden="true"><img class="logo-rt" alt="" data-logo></span>
+    <span class="merek-teks"><b data-tema-nama>Kas RT</b><small id="subBendahara">Buku iuran bendahara</small></span>
+  </div>
+  <div class="atas-aksi">
+    <button class="ikon-btn" id="btnMode" type="button" aria-label="Ganti mode terang/gelap">
+      <svg class="i-bulan" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+      <svg class="i-matahari" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="ikon-btn" id="btnAtur" type="button" aria-label="Pengaturan &amp; data"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg></button>
+  </div>
+</header>
+
+<main id="isi" tabindex="-1">
+  <section class="pahlawan" data-bagian="nav" aria-labelledby="judulSaldo">
+    <div class="pahlawan-atas">
+      <div class="saldo">
+        <p class="label-redup" id="judulSaldo">Saldo kas sekarang</p>
+        <p class="saldo-angka" data-bagian="teks"><span class="rp">Rp</span><span id="angkaSaldo">0</span></p>
+        <p class="saldo-ubah" id="saldoUbah"></p>
+      </div>
+      <div class="cincin-wadah" data-bagian="aksen">
+        <svg class="cincin" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" class="cincin-alas"/><circle cx="60" cy="60" r="50" class="cincin-isi" id="cincinIsi"/></svg>
+        <div class="cincin-teks"><b id="angkaLunas">0/0</b><small>KK lunas</small></div>
+      </div>
+    </div>
+    <dl class="statistik">
+      <div><dt>Terkumpul</dt><dd id="stTerkumpul">Rp0</dd></div>
+      <div><dt>Masih kurang</dt><dd id="stKurang">Rp0</dd></div>
+      <div><dt>Keluar bulan ini</dt><dd id="stKeluar">Rp0</dd></div>
+    </dl>
+    <nav class="bulan-nav" aria-label="Pilih bulan">
+      <button class="tahun-btn" id="tahunMundur" type="button" aria-label="Tahun sebelumnya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+      <span class="tahun" id="tahun" aria-live="polite">2026</span>
+      <button class="tahun-btn" id="tahunMaju" type="button" aria-label="Tahun berikutnya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+      <div class="bulan-tab" id="bulanTab" role="tablist" aria-label="Bulan"></div>
+    </nav>
+  </section>
+
+  <div class="tata">
+    <section class="kartu daftar-kartu" id="daftar" data-bagian="panel" aria-labelledby="judulDaftar" tabindex="-1">
+      <div class="kartu-kepala">
+        <div>
+          <h2 id="judulDaftar">Iuran warga</h2>
+          <p class="sub" id="subDaftar">Ketuk nama untuk menandai lunas</p>
+        </div>
+        <button class="btn btn-garis btn-kecil" id="btnTambahWarga" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Warga</span></button>
+      </div>
+      <div class="saring">
+        <label class="cari"><span class="sr">Cari warga</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><input id="cari" type="search" placeholder="Cari nama atau rumah" autocomplete="off"></label>
+        <div class="chip-grup" role="group" aria-label="Saring status">
+          <button class="chip" type="button" data-saring="semua" aria-pressed="true">Semua <i id="nSemua">0</i></button>
+          <button class="chip" type="button" data-saring="belum" aria-pressed="false">Belum <i id="nBelum">0</i></button>
+          <button class="chip" type="button" data-saring="lunas" aria-pressed="false">Lunas <i id="nLunas">0</i></button>
+        </div>
+      </div>
+      <ul class="daftar" id="listWarga" aria-live="polite"></ul>
+    </section>
+
+    <aside class="kartu sisi" data-bagian="panel" aria-label="Pengingat, kas, dan laporan">
+      <div class="seg" role="tablist" aria-label="Alat bendahara">
+        <button role="tab" id="tab-ingat" aria-controls="pn-ingat" aria-selected="true" type="button" data-tab="ingat">Pengingat</button>
+        <button role="tab" id="tab-kas" aria-controls="pn-kas" aria-selected="false" tabindex="-1" type="button" data-tab="kas">Kas</button>
+        <button role="tab" id="tab-lap" aria-controls="pn-lap" aria-selected="false" tabindex="-1" type="button" data-tab="lap">Laporan</button>
+        <span class="seg-penanda" aria-hidden="true"></span>
+      </div>
+
+      <div class="panel-tab" role="tabpanel" id="pn-ingat" aria-labelledby="tab-ingat">
+        <h3>Rekap untuk grup WA</h3>
+        <p class="sub">Daftar yang belum bayar tersusun otomatis.</p>
+        <pre class="pesan" id="pesanGrup" tabindex="0"></pre>
+        <div class="baris-aksi">
+          <button class="btn" type="button" id="salinGrup"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>Salin rekap</span></button>
+          <a class="btn btn-wa" id="waGrup" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 0 1-2-2l1-1-1-2z"/></svg><span>Kirim ke WA</span></a>
+        </div>
+      </div>
+
+      <div class="panel-tab" role="tabpanel" id="pn-kas" aria-labelledby="tab-kas" hidden>
+        <form class="form-kas" id="formKas" novalidate>
+          <div class="jenis" role="radiogroup" aria-label="Jenis transaksi">
+            <label><input type="radio" name="jenis" value="masuk" checked><span>Pemasukan</span></label>
+            <label><input type="radio" name="jenis" value="keluar"><span>Pengeluaran</span></label>
+          </div>
+          <label class="field"><span>Keterangan</span><input name="ket" required maxlength="80" placeholder="mis. Honor petugas sampah"></label>
+          <div class="dua">
+            <label class="field"><span>Jumlah (Rp)</span><input name="jumlah" inputmode="numeric" required placeholder="0"></label>
+            <label class="field"><span>Tanggal</span><input name="tgl" type="date" required></label>
+          </div>
+          <p class="galat" id="galatKas" role="alert"></p>
+          <button class="btn lebar" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Catat transaksi</span></button>
+        </form>
+        <h3 class="jarak">Transaksi bulan ini</h3>
+        <ul class="trans" id="listKas"></ul>
+      </div>
+
+      <div class="panel-tab" role="tabpanel" id="pn-lap" aria-labelledby="tab-lap" hidden>
+        <div class="lap-kop"><img class="logo-rt" alt="Logo RT" data-logo><h3>Laporan bulanan</h3></div>
+        <p class="sub">Siap dibagikan ke grup atau dicetak.</p>
+        <div class="lap-ringkas" id="lapRingkas"></div>
+        <pre class="pesan" id="pesanLap" tabindex="0"></pre>
+        <div class="baris-aksi">
+          <button class="btn" type="button" id="salinLap"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>Salin laporan</span></button>
+          <button class="btn btn-garis" type="button" id="bagiLap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg><span>Bagikan</span></button>
+          <button class="btn btn-garis" type="button" id="cetakLap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg><span>Cetak</span></button>
+        </div>
+      </div>
+
+      <div class="data-aksi">
+        <button class="tautan" type="button" id="eksCsv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4-4 4 4 4-4M5 20h14"/></svg>Ekspor CSV</button>
+        <button class="tautan" type="button" id="eksJson"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4-4 4 4 4-4M5 20h14"/></svg>Backup JSON</button>
+        <button class="tautan" type="button" id="impJson"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V9m-4 4 4-4 4 4M5 4h14"/></svg>Pulihkan</button>
+        <input type="file" id="berkasJson" accept="application/json,.json" hidden>
+      </div>
+    </aside>
+  </div>
+  <p class="kaki">Data tersimpan di perangkat ini saja. Rutin klik <b>Backup JSON</b>. · Dibuat oleh Maliki Studio</p>
+</main>
+
+<div class="latar-modal" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalJudul" data-bagian="panel">
+    <div class="modal-kepala"><h2 id="modalJudul">Judul</h2><button class="ikon-btn" type="button" data-tutup aria-label="Tutup"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="modal-isi" id="modalIsi"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+  <p class="kredit-maliki" style="margin:24px auto 112px;padding:0 16px;text-align:center;font:12px/1.5 system-ui,sans-serif;opacity:.7">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener" style="color:inherit">@malikisaputra</a></p>
+</body>
+</html>

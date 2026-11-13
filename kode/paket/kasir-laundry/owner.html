@@ -1,0 +1,139 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'terang';
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dasbor Owner Laundry</title>
+<meta name="description" content="Dasbor read-only untuk owner laundry: ringkasan dari Google Sheets.">
+<meta name="theme-color" content="#0b6e80">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  .owner{max-width:1120px;margin:0 auto;padding:22px 16px 40px}
+  .owner-kepala{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .owner-kepala .merek{flex-direction:row;margin:0;gap:10px}
+  .owner-kepala .merek span{font-size:18px}
+  .status-st{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .status-st div{padding:12px;border-radius:var(--radius);background:var(--latar);text-align:center}
+  .status-st b{display:block;font-size:24px}
+  .status-st small{color:var(--redup);font-weight:700}
+  .tabel-owner{width:100%;border-collapse:collapse;min-width:520px}
+  .tabel-owner th,.tabel-owner td{text-align:left;padding:8px 10px;border-top:1px solid var(--garis);font-size:14px}
+  .tabel-owner th{color:var(--redup);font-size:12.5px;background:var(--latar);border:0}
+  .tabel-owner td:last-child,.tabel-owner th:last-child{text-align:right}
+  @media (max-width:760px){.status-st{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header class="kredit-maliki kredit-atas">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></header>
+<main class="owner">
+  <div class="owner-kepala">
+    <div class="merek"><img src="ikon.svg" width="36" height="36" alt=""><span><span data-tema-nama>Laundry</span> · Dasbor owner</span></div>
+    <span class="redup kecil" id="waktu">Belum dimuat</span>
+  </div>
+
+  <form class="panel form" id="formSumber">
+    <h3>Sumber data (Web App Google Apps Script)</h3>
+    <p class="redup kecil">Halaman ini hanya MEMBACA ringkasan dari Google Sheets. Data baru muncul setelah kasir online dan sinkron. URL &amp; kunci disimpan di browser ini saja.</p>
+    <div class="dua">
+      <label>URL Web App<input name="url" type="url" required placeholder="https://script.google.com/macros/s/…/exec"></label>
+      <label>Kunci rahasia<input name="kunci" required autocomplete="off"></label>
+    </div>
+    <div class="aksi wrap"><button class="tombol utama">Muat ringkasan</button><label class="cek"><input type="checkbox" name="auto"> <span>Perbarui tiap 1 menit</span></label></div>
+    <div id="pesan" class="redup kecil" aria-live="polite"></div>
+  </form>
+
+  <section id="isi" hidden>
+    <div class="kartu-angka" id="kartu"></div>
+    <div class="dua-kolom">
+      <div class="panel"><h3>Status cucian</h3><div class="status-st" id="perStatus"></div></div>
+      <div class="panel"><h3>Kg 14 hari terakhir</h3><div class="grafik" id="grafik"></div></div>
+    </div>
+    <div class="panel"><h3>Belum diambil</h3><div class="tabel-bungkus"><table class="tabel-owner" id="tabelBelum"></table></div></div>
+  </section>
+</main>
+<p class="kredit-maliki kredit-bawah" style="margin-bottom:24px">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></p>
+<script>
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. */
+(function () {
+  'use strict';
+  var KUNCI_LS = 'kasir-laundry-owner';
+  var $ = function (s) { return document.querySelector(s); };
+  function rp(n) { return 'Rp' + Math.round(n || 0).toLocaleString('id-ID'); }
+  function angka(n) { return (Math.round((n || 0) * 10) / 10).toLocaleString('id-ID'); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function waktu(iso) { if (!iso) return '-'; var d = new Date(iso); return isNaN(d) ? esc(iso) : d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ' ' + String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  var nama = (window.TEMA && TEMA.nama) || 'Laundry';
+  document.querySelectorAll('[data-tema-nama]').forEach(function (e) { e.textContent = nama; });
+  window.addEventListener('message', function (e) {
+    var t = e.data; if (!t || t.tipe !== 'tema') return;
+    var st = document.documentElement.style;
+    if (t.utama) st.setProperty('--tema-utama', t.utama);
+    if (t.aksen) st.setProperty('--tema-aksen', t.aksen);
+    if (t.radius != null) st.setProperty('--tema-radius', typeof t.radius === 'number' ? t.radius + 'px' : t.radius);
+    if (t.mode) document.documentElement.setAttribute('data-mode', t.mode === 'gelap' ? 'gelap' : 'terang');
+    if (t.nama) document.querySelectorAll('[data-tema-nama]').forEach(function (x) { x.textContent = t.nama; });
+  });
+
+  var simpanan = {}; try { simpanan = JSON.parse(localStorage.getItem(KUNCI_LS)) || {}; } catch (e) {}
+  var f = $('#formSumber'), timer = null;
+  f.url.value = simpanan.url || ''; f.kunci.value = simpanan.kunci || ''; f.auto.checked = !!simpanan.auto;
+
+  function tampil(r) {
+    $('#isi').hidden = false;
+    $('#waktu').textContent = 'Diperbarui ' + waktu(r.dibuat);
+    $('#kartu').innerHTML = [
+      ['Omzet hari ini', rp(r.hariIni.omzet), r.hariIni.order + ' order', true],
+      ['Kg hari ini', angka(r.hariIni.kg) + ' kg', 'dari ' + r.hariIni.order + ' order'],
+      ['Omzet bulan ini', rp(r.bulanIni.omzet), angka(r.bulanIni.kg) + ' kg'],
+      ['Belum diambil', r.belumDiambil.length, r.perStatus.siap + ' siap ambil'],
+      ['Piutang', rp(r.piutang), 'total sisa bayar']
+    ].map(function (k, i) { return '<div class="angka' + (k[3] ? ' sorot' : '') + '" style="--i:' + i + '"><small>' + k[0] + '</small><b>' + k[1] + '</b><span>' + k[2] + '</span></div>'; }).join('');
+    var nm = { diterima: 'Diterima', dicuci: 'Dicuci', disetrika: 'Disetrika', siap: 'Siap ambil', diambil: 'Diambil' };
+    $('#perStatus').innerHTML = Object.keys(nm).map(function (k) { return '<div><b>' + (r.perStatus[k] || 0) + '</b><small>' + nm[k] + '</small></div>'; }).join('');
+    var maks = Math.max.apply(null, r.harian.map(function (h) { return h.kg; }).concat([1]));
+    $('#grafik').innerHTML = '<div class="batang-bungkus">' + r.harian.map(function (h, i) { return '<div class="kol' + (i === r.harian.length - 1 ? ' kini' : '') + '" title="' + h.tanggal + ': ' + angka(h.kg) + ' kg"><span class="batang" style="height:' + Math.round(h.kg / maks * 100) + '%;--i:' + i + '"></span><small>' + (+h.tanggal.slice(8)) + '</small></div>'; }).join('') + '</div>';
+    $('#tabelBelum').innerHTML = '<thead><tr><th>Nota</th><th>Pelanggan</th><th>Status</th><th>Estimasi</th><th>Sisa</th></tr></thead><tbody>' +
+      (r.belumDiambil.map(function (o) { return '<tr><td>' + esc(o.no) + '</td><td>' + esc(o.pelanggan) + '</td><td>' + esc(o.status) + '</td><td>' + waktu(o.estimasi) + '</td><td class="' + (o.sisa ? 'teks-bahaya' : 'teks-ok') + '">' + (o.sisa ? rp(o.sisa) : 'Lunas') + '</td></tr>'; }).join('') || '<tr><td colspan="5" class="redup">Semua cucian sudah diambil.</td></tr>') + '</tbody>';
+  }
+  function muat() {
+    var url = f.url.value.trim(), kunci = f.kunci.value.trim();
+    if (!url) return;
+    $('#pesan').textContent = 'Memuat…';
+    fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'kunci=' + encodeURIComponent(kunci))
+      .then(function (r) { return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error(r.pesan || 'Gagal'); tampil(r); $('#pesan').textContent = 'Berhasil. ' + r.jumlahOrder + ' order di Google Sheets.'; })
+      .catch(function (e) { $('#pesan').innerHTML = '<span class="teks-bahaya">Gagal memuat: ' + esc(e.message) + '. Cek URL (harus berakhiran /exec), kunci, dan akses Web App "Siapa saja".</span>'; });
+  }
+  f.onsubmit = function (e) {
+    e.preventDefault();
+    simpanan = { url: f.url.value.trim(), kunci: f.kunci.value.trim(), auto: f.auto.checked };
+    try { localStorage.setItem(KUNCI_LS, JSON.stringify(simpanan)); } catch (er) {}
+    clearInterval(timer); if (simpanan.auto) timer = setInterval(muat, 60000);
+    muat();
+  };
+  // ?demo: tampilkan data contoh tanpa server
+  if (/[?&]demo\b/.test(location.search)) {
+    var h = [], kg = [18, 22, 15, 26, 30, 12, 20, 24, 28, 19, 31, 27, 23, 16];
+    for (var i = 13; i >= 0; i--) { var d = new Date(); d.setDate(d.getDate() - i); h.push({ tanggal: d.toISOString().slice(0, 10), kg: kg[13 - i], omzet: kg[13 - i] * 8200, order: 4 }); }
+    tampil({ dibuat: new Date().toISOString(), jumlahOrder: 52, hariIni: { order: 4, omzet: 131200, kg: 16 }, bulanIni: { order: 47, omzet: 2931500, kg: 248.6 }, perStatus: { diterima: 4, dicuci: 4, disetrika: 5, siap: 4, diambil: 35 }, piutang: 579600, harian: h,
+      belumDiambil: [{ no: 'LDR261110-0033', pelanggan: 'Kos Putri Mawar', status: 'Siap ambil', estimasi: new Date().toISOString(), sisa: 0 }, { no: 'LDR261111-0036', pelanggan: 'Bu Lina', status: 'Siap ambil', estimasi: new Date().toISOString(), sisa: 96600 }, { no: 'LDR261112-0039', pelanggan: 'Pak Harun', status: 'Disetrika', estimasi: new Date().toISOString(), sisa: 33000 }] });
+    $('#pesan').textContent = 'Mode demo: data contoh.';
+  } else if (simpanan.url) { muat(); if (simpanan.auto) timer = setInterval(muat, 60000); }
+})();
+</script>
+</body>
+</html>

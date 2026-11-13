@@ -1,0 +1,265 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>(function(){var m=(window.TEMA&&TEMA.mode)||'terang';if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'gelap':'terang';document.documentElement.setAttribute('data-mode',m);})();</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15191e">
+<title>Helpdesk Tiket IT</title>
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-bagian="latar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-dasbor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+  <symbol id="i-tiket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M15 6v12" stroke-dasharray="2 2.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-laporan" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-atur" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1.1-.9.9a4.6 4.6 0 0 1-2.4-2.4l.9-.9-1.1-2-1.6 1z"/></symbol>
+  <symbol id="i-lonceng" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-jam" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-naik" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-cek" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-cari" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-klip" viewBox="0 0 24 24"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></symbol>
+  <symbol id="i-kirim" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></symbol>
+  <symbol id="i-unduh" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+  <symbol id="i-unggah" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M4 3h16"/></symbol>
+  <symbol id="i-keluar" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+  <symbol id="i-papan" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></symbol>
+  <symbol id="i-daftar" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h0M3.5 12h0M3.5 18h0"/></symbol>
+  <symbol id="i-orang" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-kunci" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-gambar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></symbol>
+  <symbol id="i-kanan" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <symbol id="i-hapus" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></symbol>
+  <symbol id="i-peringatan" viewBox="0 0 24 24"><path d="M10.3 3.9L2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h0"/></symbol>
+  <symbol id="i-kosong" viewBox="0 0 24 24"><path d="M4 7l2-3h12l2 3M4 7v12a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7M4 7h16M9 11h6"/></symbol>
+</svg>
+
+<a class="lewati" href="#utama">Lewati ke konten</a>
+
+<!-- ================= GERBANG PIN ================= -->
+<div id="gerbang" class="gerbang" hidden>
+  <div class="gerbang-kartu" data-bagian="panel">
+    <div class="merek merek-besar"><span class="logo" data-bagian="utama" aria-hidden="true"><svg><use href="#i-tiket"/></svg></span><div><b data-tema-nama data-bagian="teks">IT Support</b><small>Helpdesk Tiket IT</small></div></div>
+    <h1 data-bagian="teks">Masuk ke helpdesk</h1>
+    <p class="redup">Pilih peran lalu ketik PIN. Data tersimpan di perangkat ini saja.</p>
+    <div class="peran-pilih" role="radiogroup" aria-label="Peran">
+      <label><input type="radio" name="peran" value="admin" checked><span><b>Admin</b><small>Atur semua tiket</small></span></label>
+      <label><input type="radio" name="peran" value="teknisi"><span><b>Teknisi</b><small>Kerjakan tiket</small></span></label>
+    </div>
+    <label class="bidang" id="bidangSiapa" hidden><span>Nama teknisi</span><select id="pilihTeknisi"></select></label>
+    <form id="formPin" class="pin-form" autocomplete="off">
+      <label for="inputPin" class="sr">PIN</label>
+      <input id="inputPin" class="pin-input" type="password" inputmode="numeric" maxlength="6" placeholder="••••" aria-describedby="pinPesan">
+      <button class="tombol utama" data-bagian="utama" type="submit">Masuk</button>
+    </form>
+    <p id="pinPesan" class="pin-pesan" role="alert"></p>
+    <p class="kecil redup">PIN contoh: admin <b class="mono">1234</b>, teknisi <b class="mono">1111</b>. Ganti di menu Atur.</p>
+    <div class="garis-atau"><span>atau</span></div>
+    <button class="tombol garis lebar" id="lapor-tamu" type="button"><svg><use href="#i-plus"/></svg>Lapor masalah tanpa masuk</button>
+  </div>
+</div>
+
+<div class="app" id="app" hidden>
+  <!-- Sidebar (desktop) -->
+  <aside class="samping" data-bagian="nav" aria-label="Menu utama">
+    <div class="merek"><span class="logo" aria-hidden="true"><svg><use href="#i-tiket"/></svg></span><div><b data-tema-nama>IT Support</b><small>Helpdesk</small></div></div>
+    <nav class="menu">
+      <button class="nav" data-hal="dasbor" data-peran="admin teknisi"><svg><use href="#i-dasbor"/></svg>Dasbor</button>
+      <button class="nav" data-hal="tiket" data-peran="admin teknisi"><svg><use href="#i-tiket"/></svg>Tiket<span class="hitung" id="hitungTerbuka"></span></button>
+      <button class="nav" data-hal="buat"><svg><use href="#i-plus"/></svg>Buat tiket</button>
+      <button class="nav" data-hal="laporan" data-peran="admin teknisi"><svg><use href="#i-laporan"/></svg>Laporan</button>
+      <button class="nav" data-hal="atur" data-peran="admin"><svg><use href="#i-atur"/></svg>Atur</button>
+    </nav>
+    <div class="samping-bawah">
+      <div class="siapa"><span class="ava" id="avaSaya" aria-hidden="true">A</span><div><b id="namaSaya">Admin</b><small id="peranSaya">Admin</small></div></div>
+      <button class="ikon-tombol" id="keluar" aria-label="Keluar"><svg><use href="#i-keluar"/></svg></button>
+    </div>
+  </aside>
+
+  <main id="utama" class="konten">
+    <header class="atas" data-bagian="nav">
+      <div class="merek kecil-merek"><span class="logo" aria-hidden="true"><svg><use href="#i-tiket"/></svg></span><b data-tema-nama>IT Support</b></div>
+      <button class="ikon-tombol" id="keluarHp" aria-label="Keluar"><svg><use href="#i-keluar"/></svg></button>
+    </header>
+
+    <!-- ===== DASBOR ===== -->
+    <section class="hal" id="hal-dasbor" hidden>
+      <div class="kepala">
+        <div><h1 data-bagian="teks" id="sapa">Dasbor</h1><p class="redup" id="sapaSub"></p></div>
+        <button class="tombol utama" data-bagian="utama" data-buka="buat"><svg><use href="#i-plus"/></svg>Buat tiket</button>
+      </div>
+      <div class="statistik" id="statistik"></div>
+      <div class="blok">
+        <div class="blok-kepala"><h2 data-bagian="teks">Perlu perhatian</h2><button class="tautan" data-buka="tiket">Semua tiket<svg><use href="#i-kanan"/></svg></button></div>
+        <div class="sorotan" id="sorotan"></div>
+      </div>
+      <div class="dua-kolom">
+        <div class="panel" data-bagian="panel">
+          <div class="blok-kepala"><h2>Tiket masuk 14 hari</h2><span class="redup kecil" id="grafikRingkas"></span></div>
+          <div class="grafik" id="grafikHarian" role="img"></div>
+        </div>
+        <div class="panel" data-bagian="panel">
+          <div class="blok-kepala"><h2>Beban teknisi</h2></div>
+          <ul class="beban" id="beban"></ul>
+        </div>
+      </div>
+      <div class="panel" data-bagian="panel">
+        <div class="blok-kepala"><h2>Aktivitas terbaru</h2></div>
+        <ul class="aktivitas" id="aktivitas"></ul>
+      </div>
+    </section>
+
+    <!-- ===== TIKET ===== -->
+    <section class="hal" id="hal-tiket" hidden>
+      <div class="kepala">
+        <div><h1 data-bagian="teks">Tiket</h1><p class="redup" id="tiketSub"></p></div>
+        <div class="segmen" role="tablist" aria-label="Tampilan">
+          <button role="tab" class="seg" data-tampil="papan"><svg><use href="#i-papan"/></svg>Papan</button>
+          <button role="tab" class="seg" data-tampil="daftar"><svg><use href="#i-daftar"/></svg>Daftar</button>
+        </div>
+      </div>
+      <div class="saring panel" data-bagian="panel">
+        <label class="cari"><svg><use href="#i-cari"/></svg><span class="sr">Cari tiket</span><input id="cari" type="search" placeholder="Cari nomor, judul, pelapor…"></label>
+        <label class="bidang-mini"><span class="sr">Prioritas</span><select id="fPrioritas"><option value="">Semua prioritas</option></select></label>
+        <label class="bidang-mini"><span class="sr">Teknisi</span><select id="fTeknisi"><option value="">Semua teknisi</option><option value="-">Belum ditugaskan</option></select></label>
+        <label class="cek-mini"><input type="checkbox" id="fSaya"><span>Tiket saya</span></label>
+      </div>
+      <div id="papan" class="papan"></div>
+      <div id="daftar" class="daftar panel" data-bagian="panel" hidden></div>
+    </section>
+
+    <!-- ===== BUAT ===== -->
+    <section class="hal" id="hal-buat" hidden>
+      <div class="kepala"><div><h1 data-bagian="teks">Buat tiket</h1><p class="redup">Jelaskan masalahnya, tim IT akan menindaklanjuti sesuai prioritas.</p></div></div>
+      <form id="formTiket" class="form-tiket" novalidate>
+        <div class="panel form-kolom" data-bagian="panel">
+          <h2>Pelapor</h2>
+          <div class="baris-2">
+            <label class="bidang"><span>Nama pelapor *</span><input name="pelapor" required autocomplete="name" placeholder="mis. Rina Wulandari"><em class="galat"></em></label>
+            <label class="bidang"><span>No. WhatsApp</span><input name="hp" inputmode="tel" autocomplete="tel" placeholder="0812xxxx"><em class="galat"></em></label>
+          </div>
+          <label class="bidang"><span>Divisi *</span><select name="divisi" required></select><em class="galat"></em></label>
+          <h2 class="jarak-atas">Masalah</h2>
+          <label class="bidang"><span>Judul singkat *</span><input name="judul" required maxlength="90" placeholder="mis. Printer lantai 2 tidak bisa mencetak"><em class="galat"></em></label>
+          <label class="bidang"><span>Kategori *</span><select name="kategori" required></select><em class="galat"></em></label>
+          <label class="bidang"><span>Deskripsi *</span><textarea name="deskripsi" rows="5" required placeholder="Apa yang terjadi, sejak kapan, sudah dicoba apa saja?"></textarea><em class="galat"></em></label>
+          <div class="bidang">
+            <span>Lampiran gambar</span>
+            <label class="unggah" id="zonaUnggah"><input type="file" id="fileLampiran" accept="image/*" multiple><svg><use href="#i-gambar"/></svg><b>Pilih atau seret tangkapan layar</b><small>Maks. 4 gambar, diperkecil otomatis, disimpan di perangkat</small></label>
+            <div class="lampiran-pratinjau" id="pratinjauLampiran"></div>
+          </div>
+        </div>
+        <div class="panel form-kolom" data-bagian="panel">
+          <h2>Prioritas</h2>
+          <div class="prioritas-pilih" id="pilihPrioritas" role="radiogroup" aria-label="Prioritas"></div>
+          <h2 class="jarak-atas">Level penanganan</h2>
+          <div class="level-pilih" id="pilihLevel" role="radiogroup" aria-label="Level"></div>
+          <label class="bidang" data-peran="admin teknisi"><span>Tugaskan ke</span><select name="teknisi"><option value="">Otomatis (teknisi level ini paling sedikit tiket)</option></select></label>
+          <div class="sla-info" id="slaInfo" data-bagian="aksen"></div>
+          <button class="tombol utama besar lebar" data-bagian="utama" type="submit"><svg><use href="#i-kirim"/></svg>Kirim tiket</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== LAPORAN ===== -->
+    <section class="hal" id="hal-laporan" hidden>
+      <div class="kepala">
+        <div><h1 data-bagian="teks">Laporan</h1><p class="redup" id="laporanSub"></p></div>
+        <div class="segmen" role="tablist" aria-label="Periode">
+          <button role="tab" class="seg" data-periode="7">7 hari</button>
+          <button role="tab" class="seg" data-periode="30">30 hari</button>
+          <button role="tab" class="seg" data-periode="0">Semua</button>
+        </div>
+      </div>
+      <div class="statistik" id="statLaporan"></div>
+      <div class="dua-kolom">
+        <div class="panel" data-bagian="panel"><h2>Per kategori</h2><ul class="batang" id="perKategori"></ul></div>
+        <div class="panel" data-bagian="panel"><h2>Per prioritas &amp; kepatuhan SLA</h2><ul class="batang" id="perPrioritas"></ul></div>
+      </div>
+      <div class="panel" data-bagian="panel">
+        <h2>Kinerja teknisi</h2>
+        <div class="tabel-bungkus"><table class="tabel" id="perTeknisi"></table></div>
+      </div>
+      <div class="panel aksi-data" data-bagian="panel">
+        <div><h2>Ekspor &amp; backup</h2><p class="redup kecil">CSV untuk Excel/Sheets. Backup JSON untuk memindah data ke perangkat lain.</p></div>
+        <div class="aksi-baris">
+          <button class="tombol garis" id="eksporCsv"><svg><use href="#i-unduh"/></svg>Ekspor CSV</button>
+          <button class="tombol garis" id="backupJson" data-peran="admin"><svg><use href="#i-unduh"/></svg>Backup JSON</button>
+          <label class="tombol garis" data-peran="admin"><input type="file" id="pulihkan" accept="application/json" hidden><svg><use href="#i-unggah"/></svg>Pulihkan</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ATUR ===== -->
+    <section class="hal" id="hal-atur" hidden>
+      <div class="kepala"><div><h1 data-bagian="teks">Atur</h1><p class="redup">Teknisi, SLA, notifikasi, PIN, dan data.</p></div></div>
+      <div class="dua-kolom">
+        <div class="panel" data-bagian="panel">
+          <div class="blok-kepala"><h2>Teknisi</h2><button class="tombol garis kecil" id="tambahTeknisi"><svg><use href="#i-plus"/></svg>Tambah</button></div>
+          <ul class="daftar-teknisi" id="daftarTeknisi"></ul>
+        </div>
+        <div class="panel" data-bagian="panel">
+          <h2>Target SLA per prioritas</h2>
+          <p class="redup kecil">Batas waktu tiket diselesaikan, dihitung dari tiket dibuat.</p>
+          <div class="sla-atur" id="slaAtur"></div>
+        </div>
+      </div>
+      <div class="dua-kolom">
+        <div class="panel" data-bagian="panel">
+          <h2>Notifikasi</h2>
+          <label class="bidang"><span>No. WhatsApp koordinator IT</span><input id="hpAdmin" inputmode="tel" placeholder="0812xxxx"></label>
+          <div class="baris-tombol"><span><b>Notifikasi browser</b><small class="redup" id="statusNotif">Muncul untuk tiket Kritis dan tiket lewat SLA.</small></span><button class="tombol garis kecil" id="izinNotif"><svg><use href="#i-lonceng"/></svg>Aktifkan</button></div>
+          <p class="kecil redup">Mau WA terkirim otomatis tanpa klik? Lihat panduan webhook gateway (Fonnte / WhatsApp Cloud API) di README.</p>
+        </div>
+        <div class="panel" data-bagian="panel">
+          <h2>PIN &amp; data</h2>
+          <div class="baris-2">
+            <label class="bidang"><span>PIN admin</span><input id="pinAdmin" inputmode="numeric" maxlength="6"></label>
+            <label class="bidang"><span>PIN teknisi</span><input id="pinTeknisi" inputmode="numeric" maxlength="6"></label>
+          </div>
+          <div class="aksi-baris">
+            <button class="tombol utama kecil" data-bagian="utama" id="simpanPin">Simpan PIN</button>
+            <button class="tombol garis kecil" id="muatContoh">Muat data contoh</button>
+            <button class="tombol bahaya kecil" id="kosongkan"><svg><use href="#i-hapus"/></svg>Kosongkan tiket</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Nav bawah (HP) -->
+  <nav class="bawah" data-bagian="nav" aria-label="Menu">
+    <button class="nav" data-hal="dasbor" data-peran="admin teknisi"><svg><use href="#i-dasbor"/></svg><span>Dasbor</span></button>
+    <button class="nav" data-hal="tiket" data-peran="admin teknisi"><svg><use href="#i-tiket"/></svg><span>Tiket</span></button>
+    <button class="nav nav-buat" data-hal="buat" aria-label="Buat tiket"><svg><use href="#i-plus"/></svg></button>
+    <button class="nav" data-hal="laporan" data-peran="admin teknisi"><svg><use href="#i-laporan"/></svg><span>Laporan</span></button>
+    <button class="nav" data-hal="atur" data-peran="admin"><svg><use href="#i-atur"/></svg><span>Atur</span></button>
+  </nav>
+</div>
+
+<!-- Detail tiket (laci) -->
+<div class="laci-latar" id="laciLatar" hidden></div>
+<aside class="laci" id="laci" role="dialog" aria-modal="true" aria-labelledby="laciJudul" data-bagian="panel" hidden>
+  <div id="laciIsi" class="laci-isi"></div>
+</aside>
+
+<!-- Dialog umum -->
+<dialog id="dialog" class="dialog" data-bagian="panel"><div id="dialogIsi"></div></dialog>
+<div class="lightbox" id="lightbox" hidden><div id="lightboxGambar"></div><button class="ikon-tombol" aria-label="Tutup gambar" id="tutupLightbox"><svg><use href="#i-x"/></svg></button></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+  <p class="kredit-maliki" style="margin:24px auto 112px;padding:0 16px;text-align:center;font:12px/1.5 system-ui,sans-serif;opacity:.7">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener" style="color:inherit">@malikisaputra</a></p>
+</body>
+</html>

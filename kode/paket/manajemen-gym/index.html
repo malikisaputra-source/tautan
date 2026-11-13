@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="gelap">
+<head>
+<script src="tema.js"></script>
+<script>
+/* Set mode dari TEMA.mode sebelum render (tanpa kedip). */
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'gelap';
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manajemen Gym</title>
+<meta name="description" content="Aplikasi gym offline: data member, paket, pembayaran & perpanjangan, check-in cepat dengan kartu QR, jatuh tempo, pengingat WhatsApp, laporan.">
+<meta name="theme-color" content="#10130d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="ikon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+</head>
+<body>
+
+<!-- Layar masuk -->
+<section id="layarMasuk" class="masuk" hidden>
+  <div class="masuk-merek">
+    <div class="merek"><svg class="logo" viewBox="0 0 64 64" width="40" height="40" aria-hidden="true"><use href="#logoGym"/></svg><span data-tema-nama>Gym</span></div>
+    <svg class="masuk-ilus" viewBox="0 0 320 240" aria-hidden="true">
+      <circle cx="160" cy="128" r="96" fill="color-mix(in srgb,var(--utama) 14%,transparent)"/>
+      <path class="garis-gerak" d="M40 70h40M30 90h34M250 170h40M262 190h28" stroke="var(--aksen)" stroke-width="6" stroke-linecap="round"/>
+      <g class="angkat">
+        <rect x="58" y="62" width="16" height="56" rx="4" fill="var(--utama)"/><rect x="74" y="72" width="12" height="36" rx="3" fill="var(--utama)"/>
+        <rect x="234" y="72" width="12" height="36" rx="3" fill="var(--utama)"/><rect x="246" y="62" width="16" height="56" rx="4" fill="var(--utama)"/>
+        <rect x="86" y="86" width="148" height="8" rx="4" fill="#d9dccf"/>
+        <path d="M128 90l14 26M192 90l-14 26" stroke="#f0c9a4" stroke-width="12" stroke-linecap="round"/>
+      </g>
+      <circle cx="160" cy="104" r="16" fill="#f0c9a4"/>
+      <path d="M144 98a16 16 0 0 1 32 0z" fill="#1d2118"/>
+      <path d="M138 124h44l-6 52h-32z" fill="var(--aksen)"/>
+      <path d="M146 176l-8 44M174 176l8 44" stroke="#2a2f22" stroke-width="14" stroke-linecap="round"/>
+      <rect x="120" y="214" width="80" height="8" rx="4" fill="color-mix(in srgb,var(--utama) 40%,transparent)"/>
+    </svg>
+    <p class="masuk-slogan">Member tercatat, check-in sekejap,<br>tagihan tidak ada yang kelewat.</p>
+  </div>
+  <div class="masuk-form">
+    <div class="masuk-kartu">
+      <h1 data-tema-nama>Gym</h1>
+      <p class="redup">Pilih admin, lalu masukkan PIN.</p>
+      <div id="daftarAdmin" class="pilih-admin" role="group" aria-label="Pilih admin"></div>
+      <div class="pin-titik" id="pinTitik" aria-live="polite" aria-label="PIN 4 angka"><i></i><i></i><i></i><i></i></div>
+      <div class="pad" id="padPin"></div>
+      <p class="redup kecil">PIN awal Pemilik: 1234 (ganti di menu Atur). Demo: Resepsionis 1111.</p>
+    </div>
+  </div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logoGym" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="var(--utama)"/><rect x="9" y="24" width="7" height="16" rx="2" fill="var(--utama-teks)"/><rect x="16" y="19" width="7" height="26" rx="2" fill="var(--utama-teks)"/><rect x="41" y="19" width="7" height="26" rx="2" fill="var(--utama-teks)"/><rect x="48" y="24" width="7" height="16" rx="2" fill="var(--utama-teks)"/><rect x="23" y="29" width="18" height="6" rx="2" fill="var(--aksen)"/></symbol>
+</svg>
+
+<div id="aplikasi" class="app" hidden>
+  <nav class="samping" aria-label="Menu utama">
+    <div class="merek"><svg class="logo" width="36" height="36" aria-hidden="true"><use href="#logoGym"/></svg><span data-tema-nama>Gym</span></div>
+    <button class="nav aktif" data-hal="beranda"><svg viewBox="0 0 24 24"><path d="M4 12l8-7 8 7M6 10v9h12v-9"/></svg><span>Check-in</span></button>
+    <button class="nav" data-hal="member"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-4 3.5-6 6.5-6s5.7 2 6.5 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .8 3.2 2.8 3.6 6"/></svg><span>Member</span></button>
+    <button class="nav" data-hal="tempo"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v3l2 1"/></svg><span>Jatuh tempo</span><b class="lencana" id="lencanaTempo" hidden></b></button>
+    <button class="nav" data-hal="laporan"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Laporan</span></button>
+    <button class="nav" data-hal="atur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><span>Atur</span></button>
+    <div class="samping-bawah">
+      <div class="saya"><i id="inisial">A</i><span id="namaAdmin">Admin</span></div>
+      <button class="tombol hantu kecil" id="btnKeluar">Keluar</button>
+    </div>
+  </nav>
+
+  <main id="utama">
+    <div class="demo-pita" id="pitaDemo" hidden>Mode demo: data contoh fiktif, perubahan tidak disimpan.</div>
+
+    <section class="hal aktif" id="hal-beranda">
+      <header class="kepala"><div><p class="redup kecil" id="tglHariIni"></p><h2>Check-in cepat</h2></div>
+        <button class="tombol utama" data-aksi="member-baru"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Member baru</button></header>
+      <div class="cek-kotak panel">
+        <label for="cariCek" class="label-besar">Ketik nama atau kode member (scanner QR/barcode juga bisa)</label>
+        <div class="cek-baris">
+          <input id="cariCek" type="search" autocomplete="off" placeholder="mis. GYM-0007 atau Rina" enterkeyhint="go">
+          <button class="tombol utama besar" id="btnCek">Check-in</button>
+        </div>
+        <div id="hasilCek" class="hasil-cek" aria-live="polite"></div>
+      </div>
+      <div class="statistik" id="statBeranda"></div>
+      <div class="dua-kolom">
+        <div class="panel"><div class="panel-kepala"><h3>Check-in hari ini</h3><span class="redup kecil" id="jmlCekHari"></span></div><ul class="daftar-cek" id="daftarCekHari"></ul></div>
+        <div class="panel"><div class="panel-kepala"><h3>Segera jatuh tempo</h3><button class="tautan" data-ke="tempo">Lihat semua</button></div><ul class="daftar-tempo mini" id="tempoMini"></ul></div>
+      </div>
+    </section>
+
+    <section class="hal" id="hal-member">
+      <header class="kepala"><div><h2>Member</h2><p class="redup kecil" id="infoMember"></p></div>
+        <button class="tombol utama" data-aksi="member-baru"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Member baru</button></header>
+      <div class="alat">
+        <input id="cariMember" type="search" placeholder="Cari nama, kode, atau WA" aria-label="Cari member">
+        <div class="chip-grup" id="filterMember" role="group" aria-label="Saring status">
+          <button class="chip aktif" data-f="semua">Semua</button><button class="chip" data-f="aktif">Aktif</button><button class="chip" data-f="segera">≤7 hari</button><button class="chip" data-f="lewat">Lewat</button>
+        </div>
+      </div>
+      <div class="grid-member" id="gridMember"></div>
+    </section>
+
+    <section class="hal" id="hal-tempo">
+      <header class="kepala"><div><h2>Jatuh tempo</h2><p class="redup kecil">Kirim pengingat perpanjangan lewat WhatsApp, pesan sudah siap kirim.</p></div></header>
+      <div class="panel"><div class="panel-kepala"><h3>Lewat jatuh tempo</h3><span class="pil lewat" id="jmlLewat">0</span></div><ul class="daftar-tempo" id="tempoLewat"></ul></div>
+      <div class="panel"><div class="panel-kepala"><h3>Habis dalam 7 hari</h3><span class="pil segera" id="jmlSegera">0</span></div><ul class="daftar-tempo" id="tempoSegera"></ul></div>
+    </section>
+
+    <section class="hal" id="hal-laporan">
+      <header class="kepala"><div><h2>Laporan</h2><p class="redup kecil">Ringkasan member, keramaian, dan pendapatan.</p></div>
+        <div class="baris-tombol"><button class="tombol hantu" data-aksi="csv-member">CSV member</button><button class="tombol hantu" data-aksi="csv-bayar">CSV pembayaran</button><button class="tombol hantu" data-aksi="csv-cek">CSV check-in</button></div></header>
+      <div class="statistik" id="statLaporan"></div>
+      <div class="panel"><div class="panel-kepala"><h3>Check-in 14 hari terakhir</h3></div><div class="grafik" id="grafikHari"></div></div>
+      <div class="dua-kolom">
+        <div class="panel"><div class="panel-kepala"><h3>Jam ramai (30 hari)</h3></div><div class="jam-grid" id="grafikJam"></div></div>
+        <div class="panel"><div class="panel-kepala"><h3>Pendapatan per bulan</h3></div><div class="grafik oranye" id="grafikBulan"></div></div>
+      </div>
+      <div class="panel"><div class="panel-kepala"><h3>Pembayaran terbaru</h3></div><div class="tabel-bungkus"><table class="tabel" id="tabelBayar"></table></div></div>
+    </section>
+
+    <section class="hal" id="hal-atur">
+      <header class="kepala"><div><h2>Atur</h2><p class="redup kecil">Profil gym, paket, admin, dan cadangan data.</p></div></header>
+      <div class="dua-kolom">
+        <form class="panel form" id="formGym">
+          <h3>Profil gym</h3>
+          <label>Nama gym<input name="nama" required maxlength="60"></label>
+          <label>Alamat<input name="alamat" maxlength="120"></label>
+          <label>WA gym<input name="wa" inputmode="tel" maxlength="20"></label>
+          <label>Templat pesan pengingat<textarea name="pesan" rows="5"></textarea></label>
+          <p class="redup kecil">Kode isian: {nama} {gym} {paket} {tanggal} {sisa} {kode}</p>
+          <button class="tombol utama">Simpan profil</button>
+        </form>
+        <div class="panel">
+          <div class="panel-kepala"><h3>Paket</h3><button class="tombol hantu kecil" data-aksi="paket-baru">+ Paket</button></div>
+          <ul class="daftar-atur" id="daftarPaket"></ul>
+        </div>
+      </div>
+      <div class="dua-kolom">
+        <div class="panel">
+          <div class="panel-kepala"><h3>Admin & PIN</h3><button class="tombol hantu kecil" data-aksi="admin-baru">+ Admin</button></div>
+          <ul class="daftar-atur" id="daftarAdminAtur"></ul>
+        </div>
+        <div class="panel">
+          <h3>Cadangan data</h3>
+          <p class="redup kecil">Data tersimpan di browser perangkat ini. Unduh cadangan rutin, terutama sebelum ganti HP atau hapus riwayat browser.</p>
+          <div class="baris-tombol">
+            <button class="tombol utama" data-aksi="backup">Unduh backup JSON</button>
+            <label class="tombol hantu">Pulihkan JSON<input type="file" id="fileImpor" accept="application/json,.json" hidden></label>
+          </div>
+          <div class="baris-tombol"><button class="tombol bahaya" data-aksi="reset">Hapus semua data</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bawah" aria-label="Menu bawah">
+    <button class="nav aktif" data-hal="beranda"><svg viewBox="0 0 24 24"><path d="M4 12l8-7 8 7M6 10v9h12v-9"/></svg><span>Check-in</span></button>
+    <button class="nav" data-hal="member"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-4 3.5-6 6.5-6s5.7 2 6.5 6"/></svg><span>Member</span></button>
+    <button class="nav" data-hal="tempo"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Tempo</span><b class="lencana" id="lencanaTempo2" hidden></b></button>
+    <button class="nav" data-hal="laporan"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Laporan</span></button>
+    <button class="nav" data-hal="atur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Atur</span></button>
+  </nav>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgJudul"><div class="dlg-isi" id="dlgIsi"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<p class="kredit-maliki">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></p>
+<script src="app.js"></script>
+</body>
+</html>

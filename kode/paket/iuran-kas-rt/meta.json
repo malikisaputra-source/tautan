@@ -1,0 +1,53 @@
+{
+  "slug": "iuran-kas-rt",
+  "judul": "Iuran & Kas RT (ringkas, untuk bendahara)",
+  "ringkas": "Satu layar untuk bendahara RT: ketuk nama untuk lunas, saldo kas besar, pesan WA pengingat, laporan bulanan, ekspor CSV.",
+  "teknologi": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "localStorage",
+    "WhatsApp wa.me"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "fitur": [
+    "Tab bulan + pindah tahun, titik status tiap bulan",
+    "Daftar KK per blok: ketuk untuk lunas, bisa diurungkan",
+    "Saldo kas besar + cincin progres KK lunas",
+    "Pesan WA pengingat per warga (bisa diedit)",
+    "Rekap belum bayar untuk grup WA, sekali salin",
+    "Catat pemasukan & pengeluaran kas",
+    "Laporan bulanan siap salin, bagikan, atau cetak",
+    "Ekspor CSV, backup & pulihkan JSON",
+    "Mode gelap, animasi halus, rapi di HP"
+  ],
+  "cara": [
+    "Buka index.html di browser HP atau laptop",
+    "Klik ikon pengaturan: isi iuran, batas, cara bayar",
+    "Kosongkan data contoh, tambah warga lewat + Warga",
+    "Ketuk nama warga yang sudah bayar",
+    "Salin rekap ke grup WA, rutin Backup JSON"
+  ],
+  "demo": "index.html",
+  "kustom": true,
+  "berkas": [
+    "index.html",
+    "tema.css",
+    "tema.js",
+    "style.css",
+    "data.js",
+    "app.js",
+    "ikon.svg",
+    "img/logo-rt.svg",
+    "img/contoh-bukti.svg",
+    "README.md",
+    "LICENSE",
+    "DESIGN.md",
+    "AGENTS.md",
+    ".claude/skills/ubah-iuran-kas-rt/SKILL.md",
+    "meta.json",
+    "ss.png"
+  ],
+  "pratinjau": "index.html"
+}

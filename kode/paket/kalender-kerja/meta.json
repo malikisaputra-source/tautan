@@ -1,0 +1,59 @@
+{
+  "slug": "kalender-kerja",
+  "judul": "Kalender Kerja Harian",
+  "ringkas": "Jadwal harian berjam dengan blok warna, tampilan minggu, seret-lepas, pengingat notifikasi, ekspor ke Google/Apple Calendar.",
+  "teknologi": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "localStorage",
+    "Notification API",
+    "Service Worker",
+    "iCalendar (.ics)",
+    "PWA"
+  ],
+  "kategori": "Aplikasi Web",
+  "tier": "gratis",
+  "prompt": "jadwal",
+  "fitur": [
+    "Garis waktu harian per jam + garis merah jam sekarang",
+    "Blok berwarna per kategori: Kerja, Rapat, Pribadi, Istirahat",
+    "Tampilan minggu, pindah hari dengan strip tanggal",
+    "Seret untuk pindah jam/hari, tarik bawah untuk ubah lama",
+    "Kartu Sekarang & Berikutnya dengan hitung mundur",
+    "Pengingat notifikasi browser (service worker) + cadangan di layar",
+    "Tugas berulang: harian, hari kerja, mingguan",
+    "+ Google Calendar & unduh .ics per acara atau semua",
+    "Ekspor CSV & backup/pulihkan JSON",
+    "PWA offline, mode gelap, rapi di HP"
+  ],
+  "cara": [
+    "Ekstrak folder lalu buka index.html",
+    "Hapus jadwal contoh di Pengaturan & data",
+    "Tambah jadwal, pilih jam, lama, kategori, ingatkan",
+    "Klik Izinkan notifikasi agar diingatkan",
+    "Unggah ke GitHub Pages agar bisa dipasang di HP"
+  ],
+  "demo": "index.html?demo",
+  "kustom": true,
+  "pratinjau": "index.html?demo",
+  "berkas": [
+    "index.html",
+    "style.css",
+    "app.js",
+    "tema.css",
+    "tema.js",
+    "sw.js",
+    "manifest.webmanifest",
+    "ikon.svg",
+    "README.md",
+    "LICENSE",
+    "meta.json",
+    "DESIGN.md",
+    "AGENTS.md",
+    ".claude/skills/ubah-kalender-kerja/SKILL.md",
+    "ss.png",
+    "img/logo.svg",
+    "img/profil.svg"
+  ]
+}

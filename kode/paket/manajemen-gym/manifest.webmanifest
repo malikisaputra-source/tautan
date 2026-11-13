@@ -1,0 +1,13 @@
+{
+  "name": "Manajemen Gym",
+  "short_name": "Gym",
+  "description": "Kelola member, paket, pembayaran, dan check-in gym secara offline",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0d09",
+  "theme_color": "#10130d",
+  "lang": "id",
+  "icons": [{ "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

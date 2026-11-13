@@ -1,0 +1,13 @@
+{
+  "name": "Perpustakaan Digital Rumah Sakit",
+  "short_name": "Perpustakaan",
+  "description": "Katalog, anggota, dan peminjaman buku perpustakaan staf rumah sakit, jalan offline",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f1e8",
+  "theme_color": "#0f6b6b",
+  "lang": "id",
+  "icons": [{ "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

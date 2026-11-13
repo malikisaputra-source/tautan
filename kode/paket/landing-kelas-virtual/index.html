@@ -1,0 +1,227 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+/* Set mode dari TEMA.mode sebelum render (tanpa kedip). */
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'terang';
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+  document.documentElement.classList.add('js');
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelas Canva untuk Jualan Online</title>
+<meta name="description" content="Kelas Canva untuk Jualan Online: 6 modul video, 40+ template, grup diskusi. Desain konten jualan yang rapi dalam 14 hari.">
+<meta name="theme-color" content="#1c1538">
+<!-- Kartu bagikan (WhatsApp/IG/X). Ganti teks & gambar ini bila kelasmu berbeda (crawler tidak membaca konten.js). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kelas Canva untuk Jualan Online">
+<meta property="og:description" content="6 modul video, 40+ template Canva, grup diskusi. Akses selamanya.">
+<meta property="og:image" content="img/og.png">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="konten.js"></script>
+</head>
+<body data-bagian="latar">
+<a class="lompat" href="#kurikulum">Lompat ke kurikulum</a>
+
+<header class="atas" data-bagian="nav">
+  <div class="wadah atas-isi">
+    <a class="merek" href="#" aria-label="Ke atas"><span class="merek-tanda" aria-hidden="true"></span><span data-tema-nama data-k="merek">Kelas Rapi</span></a>
+    <nav class="atas-nav" aria-label="Bagian halaman">
+      <a href="#kurikulum">Kurikulum</a><a href="#mentor">Mentor</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="tombol kecil beli" data-bagian="utama" href="#">Beli</a>
+  </div>
+</header>
+
+<main id="isi">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wadah hero-grid">
+      <div class="hero-teks muncul">
+        <p class="label" data-k="hero.label"></p>
+        <h1 id="heroJudul" data-bagian="teks"></h1>
+        <p class="hero-sub" data-k="hero.subjudul"></p>
+        <div class="harga-kotak" data-bagian="panel">
+          <div class="harga-baris">
+            <s class="harga-coret" id="hargaCoret"></s>
+            <span class="hemat" id="hemat" data-bagian="aksen"></span>
+          </div>
+          <p class="harga-jual" id="hargaJual"></p>
+          <p class="harga-catatan" data-k="harga.catatan"></p>
+          <a class="tombol besar beli" data-bagian="utama" href="#"><span data-k="harga.tombol"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+          <div class="hitung" id="hitung" hidden>
+            <span data-k="promo.teks"></span>
+            <div class="hitung-angka" role="timer" aria-live="off" id="hitungAngka"></div>
+          </div>
+        </div>
+        <ul class="statistik" id="statistik"></ul>
+      </div>
+      <div class="hero-visual muncul" aria-hidden="true">
+        <svg class="ilus" viewBox="0 0 440 480">
+          <defs>
+            <linearGradient id="gLayar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="s-utama"/><stop offset="1" class="s-utama-tua"/></linearGradient>
+          </defs>
+          <circle cx="250" cy="230" r="190" class="f-utama-muda"/>
+          <g class="melayang">
+            <rect x="70" y="70" width="270" height="340" rx="26" fill="url(#gLayar)"/>
+            <rect x="92" y="96" width="226" height="150" rx="14" class="f-panel"/>
+            <circle cx="150" cy="160" r="34" class="f-aksen"/>
+            <rect x="200" y="132" width="96" height="14" rx="7" class="f-utama"/>
+            <rect x="200" y="156" width="70" height="10" rx="5" class="f-garis"/>
+            <rect x="200" y="174" width="84" height="10" rx="5" class="f-garis"/>
+            <rect x="112" y="212" width="80" height="20" rx="10" class="f-utama"/>
+            <rect x="92" y="262" width="108" height="124" rx="14" class="f-panel" opacity=".92"/>
+            <rect x="210" y="262" width="108" height="124" rx="14" class="f-aksen" opacity=".95"/>
+            <path d="M110 360l24-34 18 22 14-14 22 26z" class="f-utama-muda"/>
+            <text x="264" y="335" text-anchor="middle" class="t-besar">40+</text>
+          </g>
+          <g class="melayang lambat">
+            <rect x="300" y="300" width="120" height="70" rx="16" class="f-panel kartu-bayang"/>
+            <circle cx="328" cy="335" r="13" class="f-aksen"/>
+            <rect x="348" y="326" width="56" height="8" rx="4" class="f-utama"/>
+            <rect x="348" y="340" width="38" height="7" rx="3.5" class="f-garis"/>
+          </g>
+          <g class="melayang cepat">
+            <rect x="24" y="250" width="92" height="92" rx="20" class="f-panel kartu-bayang"/>
+            <path d="M48 300l14 14 28-30" fill="none" class="g-utama" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <path class="kilau" d="M372 92l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/>
+          <path class="kilau k2" d="M56 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNTUK SIAPA -->
+  <section class="bagian" id="siapa">
+    <div class="wadah">
+      <h2 class="judul-bagian muncul" data-k="untukSiapa.judul" data-bagian="teks"></h2>
+      <div class="siapa-grid">
+        <ul class="daftar cocok muncul" id="cocok" data-bagian="panel"></ul>
+        <div class="tidak muncul" data-bagian="panel">
+          <p class="tidak-judul">Mungkin belum cocok kalau…</p>
+          <ul class="daftar" id="tidakCocok"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KURIKULUM -->
+  <section class="bagian gelap-tipis" id="kurikulum">
+    <div class="wadah sempit">
+      <p class="label muncul">Kurikulum</p>
+      <h2 class="judul-bagian muncul" data-k="kurikulum.judul"></h2>
+      <p class="sub-bagian muncul" data-k="kurikulum.sub"></p>
+      <div class="akordion" id="modul"></div>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section class="bagian" id="bonus">
+    <div class="wadah">
+      <p class="label muncul">Gratis untukmu</p>
+      <h2 class="judul-bagian muncul" data-k="bonus.judul"></h2>
+      <div class="bonus-grid" id="bonusGrid"></div>
+      <p class="bonus-total muncul" id="bonusTotal"></p>
+    </div>
+  </section>
+
+  <!-- MENTOR -->
+  <section class="bagian" id="mentor">
+    <div class="wadah mentor-grid">
+      <div class="mentor-potret muncul" aria-hidden="true">
+        <svg viewBox="0 0 300 340">
+          <rect x="10" y="20" width="280" height="310" rx="140" class="f-utama"/>
+          <circle cx="150" cy="140" r="58" class="f-kulit"/>
+          <path d="M88 132c0-48 30-72 64-72s62 22 62 70c-16-20-40-30-62-30s-46 12-64 32z" class="f-rambut"/>
+          <path d="M60 330c4-70 44-110 90-110s86 40 90 110z" class="f-aksen"/>
+          <circle cx="130" cy="146" r="5" class="f-rambut"/><circle cx="170" cy="146" r="5" class="f-rambut"/>
+          <path d="M134 170q16 12 32 0" fill="none" class="g-rambut" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="lencana-contoh">Ilustrasi</span>
+      </div>
+      <div class="muncul">
+        <p class="label">Mentor kamu</p>
+        <h2 class="judul-bagian" data-k="mentor.nama"></h2>
+        <p class="mentor-peran" data-k="mentor.peran"></p>
+        <p class="mentor-bio" data-k="mentor.bio"></p>
+        <ul class="statistik kecil" id="mentorPoin"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="bagian gelap-tipis" id="testimoni">
+    <div class="wadah">
+      <h2 class="judul-bagian muncul" data-k="testimoni.judul"></h2>
+      <p class="catatan-contoh muncul">Contoh testimoni fiktif, ganti dengan testimoni asli pembelimu.</p>
+      <div class="testi-grid" id="testiGrid"></div>
+    </div>
+  </section>
+
+  <!-- JAMINAN -->
+  <section class="bagian">
+    <div class="wadah sempit">
+      <div class="jaminan muncul" data-bagian="panel">
+        <svg class="segel" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 4l10 8 13-2 5 12 12 6-2 13 8 10-8 10 2 13-12 6-5 12-13-2-10 8-10-8-13 2-5-12-12-6 2-13-8-10 8-10-2-13 12-6 5-12 13 2z" class="f-aksen"/>
+          <text x="50" y="50" text-anchor="middle" class="t-segel">7</text><text x="50" y="66" text-anchor="middle" class="t-segel-k">HARI</text>
+        </svg>
+        <div>
+          <h2 data-k="jaminan.judul"></h2>
+          <p data-k="jaminan.isi"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bagian" id="faq">
+    <div class="wadah sempit">
+      <p class="label muncul">FAQ</p>
+      <h2 class="judul-bagian muncul">Pertanyaan yang sering muncul</h2>
+      <div class="akordion faq" id="faqDaftar"></div>
+    </div>
+  </section>
+
+  <!-- PENUTUP -->
+  <section class="penutup" data-bagian="nav">
+    <div class="wadah sempit penutup-isi muncul">
+      <h2 data-k="penutup.judul"></h2>
+      <p data-k="penutup.isi"></p>
+      <p class="penutup-harga"><s id="hargaCoret2"></s> <b id="hargaJual2"></b></p>
+      <div class="penutup-tombol">
+        <a class="tombol besar beli aksen" href="#"><span data-k="harga.tombol"></span></a>
+        <a class="tombol besar garis" id="tombolWa" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki">
+  <p>&copy; <span id="tahun"></span> <span data-tema-nama data-k="merek">Kelas Rapi</span>. Pembayaran diproses di Lynk.</p>
+  <p class="kredit-maliki">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></p>
+</footer>
+
+<!-- Tombol beli melayang (HP) -->
+<div class="melayang-beli" id="melayangBeli" data-bagian="panel">
+  <div><s id="hargaCoret3"></s><b id="hargaJual3"></b></div>
+  <a class="tombol beli" data-bagian="utama" href="#"><span data-k="harga.tombolPendek"></span></a>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

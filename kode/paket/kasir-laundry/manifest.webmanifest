@@ -1,0 +1,15 @@
+{
+  "name": "Kasir Laundry",
+  "short_name": "Laundry",
+  "description": "Kasir laundry offline + sinkron Google Sheets opsional",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef6f8",
+  "theme_color": "#0b6e80",
+  "lang": "id",
+  "icons": [
+    { "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

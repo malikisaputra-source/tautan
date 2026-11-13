@@ -1,0 +1,257 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>(function(){var m=(window.TEMA&&TEMA.mode)||'terang';if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'gelap':'terang';document.documentElement.setAttribute('data-mode',m);})();</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4f46e5">
+<meta name="description" content="Absensi karyawan untuk UMKM & kantor kecil: check-in/out, lokasi, selfie, shift, izin, kalender, rekap bulanan.">
+<title>Absensi Karyawan</title>
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-bagian="latar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-jari" viewBox="0 0 24 24"><path d="M12 11v4M7.5 8.5A6 6 0 0 1 18 12v2a14 14 0 0 1-1 5M6 12a6 6 0 0 1 .3-1.9M9 21a12 12 0 0 0 1-5v-4a2 2 0 0 1 4 0v1M14.5 21c.3-1 .5-2 .5-3M12 3a9 9 0 0 1 9 9v1M3 12a9 9 0 0 1 3-6.7"/></symbol>
+  <symbol id="i-kal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-rekap" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-izin" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></symbol>
+  <symbol id="i-orang" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="i-atur" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-kiosk" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-kamera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="i-jam" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cek" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-kiri" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-kanan" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-unduh" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-unggah" viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5M4 20h16"/></symbol>
+  <symbol id="i-hapus" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-pensil" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></symbol>
+  <symbol id="i-gembok" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></symbol>
+  <symbol id="i-pulang" viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4M16 17l5-5-5-5M21 12H9"/></symbol>
+  <symbol id="i-keluar" viewBox="0 0 24 24"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+  <symbol id="i-matahari" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-bulan" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-hapus-angka" viewBox="0 0 24 24"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1zM12 9l6 6M18 9l-6 6"/></symbol>
+</svg>
+
+<a class="lompat" href="#isi">Lompat ke isi</a>
+
+<aside class="sidebar" data-bagian="nav" aria-label="Navigasi utama">
+  <div class="merek">
+    <span class="logo" aria-hidden="true"><svg><use href="#i-jam"/></svg></span>
+    <div><b data-tema-nama>CV Maju Bersama</b><small>Absensi Karyawan</small></div>
+  </div>
+  <nav class="menu">
+    <button class="nav" data-hal="absen"><svg><use href="#i-jari"/></svg><span>Absen</span></button>
+    <button class="nav" data-hal="kalender"><svg><use href="#i-kal"/></svg><span>Kalender</span></button>
+    <button class="nav" data-hal="rekap"><svg><use href="#i-rekap"/></svg><span>Rekap</span></button>
+    <button class="nav" data-hal="izin"><svg><use href="#i-izin"/></svg><span>Izin</span><i class="lencana" id="lencanaIzin" hidden></i></button>
+    <button class="nav" data-hal="karyawan"><svg><use href="#i-orang"/></svg><span>Karyawan</span></button>
+    <button class="nav" data-hal="atur"><svg><use href="#i-atur"/></svg><span>Atur</span></button>
+  </nav>
+  <button class="tombol-kiosk" id="bukaKiosk"><svg><use href="#i-kiosk"/></svg><span>Mode kiosk</span></button>
+</aside>
+
+<header class="atas-hp" data-bagian="nav">
+  <span class="logo" aria-hidden="true"><svg><use href="#i-jam"/></svg></span>
+  <b data-tema-nama>CV Maju Bersama</b>
+  <button class="ikon-btn" id="bukaKiosk2" aria-label="Mode kiosk"><svg><use href="#i-kiosk"/></svg></button>
+</header>
+
+<main id="isi" tabindex="-1">
+  <!-- ABSEN -->
+  <section class="hal" id="hal-absen" aria-labelledby="jd-absen">
+    <div class="kepala">
+      <div><p class="sapa" id="sapa">Selamat pagi</p><h1 id="jd-absen" data-bagian="teks">Absen hari ini</h1></div>
+      <label class="pilih-orang"><span class="sr">Absen sebagai</span><select id="pilihOrang"></select></label>
+    </div>
+    <div class="grid-absen">
+      <article class="kartu kartu-absen" data-bagian="panel">
+        <div class="jam-wrap">
+          <p class="tgl" id="tglHari">Sabtu, 7 November 2026</p>
+          <p class="jam" id="jamHidup" aria-live="off">08:00<small>:00</small></p>
+          <p class="shift-chip" id="shiftChip"></p>
+        </div>
+        <div class="tombol-absen-wrap">
+          <svg class="cincin" viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="102" class="cincin-bg"/><circle cx="110" cy="110" r="102" class="cincin-isi" id="cincinIsi"/></svg>
+          <button class="tombol-absen" id="tombolAbsen" data-bagian="utama"><svg><use href="#i-jari"/></svg><b id="labelAbsen">Check-in</b><small id="subAbsen">Tap untuk masuk</small></button>
+        </div>
+        <div class="syarat" id="syarat"></div>
+        <dl class="tiga">
+          <div><dt><svg><use href="#i-keluar"/></svg>Masuk</dt><dd id="vMasuk">--:--</dd></div>
+          <div><dt><svg><use href="#i-pulang"/></svg>Pulang</dt><dd id="vPulang">--:--</dd></div>
+          <div><dt><svg><use href="#i-jam"/></svg>Durasi</dt><dd id="vDurasi">0j 0m</dd></div>
+        </dl>
+        <button class="tautan" id="ajukanIzin"><svg><use href="#i-izin"/></svg>Tidak bisa masuk? Ajukan izin / sakit / cuti</button>
+      </article>
+      <div class="kolom-kanan">
+        <article class="kartu" data-bagian="panel">
+          <div class="judul-kartu"><h2>Kehadiran hari ini</h2><span class="pil" id="pilJamKini"></span></div>
+          <div class="donat-wrap">
+            <svg class="donat" viewBox="0 0 120 120" id="donatHari" role="img" aria-label="Grafik kehadiran hari ini"></svg>
+            <ul class="legenda" id="legendaHari"></ul>
+          </div>
+        </article>
+        <article class="kartu" data-bagian="panel">
+          <div class="judul-kartu"><h2>Tim hari ini</h2><button class="tautan kecil" data-buka="kalender">Lihat kalender</button></div>
+          <ul class="daftar-tim" id="daftarTim"></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KALENDER -->
+  <section class="hal" id="hal-kalender" aria-labelledby="jd-kal" hidden>
+    <div class="kepala">
+      <div><p class="sapa">Kalender kehadiran</p><h1 id="jd-kal" data-bagian="teks">Kalender</h1></div>
+      <div class="nav-bulan"><button class="ikon-btn" id="kalSebelum" aria-label="Bulan sebelumnya"><svg><use href="#i-kiri"/></svg></button><b id="kalBulan">November 2026</b><button class="ikon-btn" id="kalSesudah" aria-label="Bulan berikutnya"><svg><use href="#i-kanan"/></svg></button></div>
+    </div>
+    <div class="chip-orang" id="chipOrang" role="tablist" aria-label="Pilih karyawan"></div>
+    <div class="grid-kal">
+      <article class="kartu" data-bagian="panel">
+        <div class="statbar" id="kalStat"></div>
+        <div class="kal" id="kalGrid" role="grid" aria-label="Kalender kehadiran"></div>
+        <ul class="legenda-kal" id="legendaKal"></ul>
+      </article>
+      <article class="kartu kartu-ringkas" data-bagian="panel">
+        <h2>Ringkasan bulan ini</h2>
+        <div class="donat-wrap tegak"><svg class="donat besar" viewBox="0 0 120 120" id="donatKal" role="img"></svg><ul class="legenda" id="legendaKal2"></ul></div>
+        <div class="detail-hari" id="detailHari"><p class="redup">Pilih tanggal untuk lihat jam masuk/pulang.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- REKAP -->
+  <section class="hal" id="hal-rekap" aria-labelledby="jd-rekap" hidden>
+    <div class="kepala">
+      <div><p class="sapa">Rekap bulanan</p><h1 id="jd-rekap" data-bagian="teks">Rekap &amp; perkiraan gaji</h1></div>
+      <div class="aksi-kepala">
+        <div class="nav-bulan"><button class="ikon-btn" id="rekSebelum" aria-label="Bulan sebelumnya"><svg><use href="#i-kiri"/></svg></button><b id="rekBulan"></b><button class="ikon-btn" id="rekSesudah" aria-label="Bulan berikutnya"><svg><use href="#i-kanan"/></svg></button></div>
+        <button class="btn" id="eksporRekap"><svg><use href="#i-unduh"/></svg>CSV</button>
+      </div>
+    </div>
+    <div class="ringkas-rekap" id="ringkasRekap"></div>
+    <article class="kartu tabel-wrap" data-bagian="panel">
+      <table class="tabel" id="tabelRekap">
+        <thead><tr><th scope="col">Karyawan</th><th scope="col">Hadir</th><th scope="col">Telat</th><th scope="col">Izin/Sakit/Cuti</th><th scope="col">Alpa</th><th scope="col">Lembur</th><th scope="col">Tunjangan</th><th scope="col">Potongan</th><th scope="col">Bersih</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+    <p class="catatan">Perkiraan sederhana: tunjangan = uang makan × hari hadir + lembur × tarif per jam; potongan = telat × potongan telat + alpa × potongan alpa. Atur nilainya di <button class="tautan kecil inline" data-buka="atur">Atur</button>.</p>
+  </section>
+
+  <!-- IZIN -->
+  <section class="hal" id="hal-izin" aria-labelledby="jd-izin" hidden>
+    <div class="kepala">
+      <div><p class="sapa">Izin, sakit &amp; cuti</p><h1 id="jd-izin" data-bagian="teks">Pengajuan</h1></div>
+      <button class="btn utama" id="izinBaru" data-bagian="utama"><svg><use href="#i-plus"/></svg>Ajukan</button>
+    </div>
+    <div class="tab-seg" role="tablist" aria-label="Saring pengajuan">
+      <button role="tab" class="seg" data-saring="menunggu" aria-selected="true">Menunggu</button>
+      <button role="tab" class="seg" data-saring="disetujui" aria-selected="false">Disetujui</button>
+      <button role="tab" class="seg" data-saring="ditolak" aria-selected="false">Ditolak</button>
+    </div>
+    <ul class="daftar-izin" id="daftarIzin"></ul>
+  </section>
+
+  <!-- KARYAWAN -->
+  <section class="hal" id="hal-karyawan" aria-labelledby="jd-kary" hidden>
+    <div class="kepala">
+      <div><p class="sapa">Data karyawan &amp; shift</p><h1 id="jd-kary" data-bagian="teks">Karyawan</h1></div>
+      <button class="btn utama" id="karyBaru" data-bagian="utama"><svg><use href="#i-plus"/></svg>Tambah</button>
+    </div>
+    <div class="grid-kary" id="gridKary"></div>
+    <div class="kepala sub"><h2>Shift</h2><button class="btn" id="shiftBaru"><svg><use href="#i-plus"/></svg>Shift</button></div>
+    <div class="grid-shift" id="gridShift"></div>
+  </section>
+
+  <!-- ATUR -->
+  <section class="hal" id="hal-atur" aria-labelledby="jd-atur" hidden>
+    <div class="kepala"><div><p class="sapa">Pengaturan</p><h1 id="jd-atur" data-bagian="teks">Atur</h1></div></div>
+    <div class="grid-atur">
+      <form class="kartu form" id="formLokasi" data-bagian="panel">
+        <h2><svg class="ikon-judul"><use href="#i-pin"/></svg>Lokasi kantor</h2>
+        <label class="saklar"><input type="checkbox" id="pakaiLokasi"><span>Catat lokasi saat absen</span></label>
+        <label class="saklar"><input type="checkbox" id="wajibRadius"><span>Tolak absen di luar radius kantor</span></label>
+        <div class="dua"><div><label class="label" for="inLat">Lintang</label><input id="inLat" inputmode="decimal" placeholder="-6.9147"></div><div><label class="label" for="inLng">Bujur</label><input id="inLng" inputmode="decimal" placeholder="107.6098"></div></div>
+        <label class="label" for="inRadius">Radius (meter)</label><input id="inRadius" type="number" min="20" max="5000" step="10">
+        <div class="baris-aksi"><button type="button" class="btn" id="lokasiSini"><svg><use href="#i-pin"/></svg>Pakai lokasi saya</button><button class="btn utama" data-bagian="utama">Simpan</button></div>
+        <p class="bantuan" id="lokasiInfo">Lokasi butuh izin browser dan halaman https (atau localhost).</p>
+      </form>
+      <form class="kartu form" id="formSelfie" data-bagian="panel">
+        <h2><svg class="ikon-judul"><use href="#i-kamera"/></svg>Selfie &amp; keamanan</h2>
+        <label class="saklar"><input type="checkbox" id="pakaiSelfie"><span>Minta selfie saat absen</span></label>
+        <label class="saklar"><input type="checkbox" id="wajibSelfie"><span>Selfie wajib (tidak bisa dilewati)</span></label>
+        <label class="label" for="inPinAdmin">PIN admin (kosongkan = tanpa kunci)</label><input id="inPinAdmin" inputmode="numeric" maxlength="6" pattern="[0-9]*" autocomplete="off" placeholder="mis. 1234">
+        <p class="bantuan">PIN admin dipakai untuk membuka halaman Rekap, Izin (setujui), Karyawan, Atur dan keluar dari mode kiosk.</p>
+        <div class="baris-aksi"><button class="btn utama" data-bagian="utama">Simpan</button></div>
+      </form>
+      <form class="kartu form" id="formUang" data-bagian="panel">
+        <h2><svg class="ikon-judul"><use href="#i-rekap"/></svg>Tunjangan &amp; potongan</h2>
+        <div class="dua"><div><label class="label" for="inMakan">Uang makan / hari hadir</label><input id="inMakan" inputmode="numeric"></div><div><label class="label" for="inLembur">Lembur / jam</label><input id="inLembur" inputmode="numeric"></div></div>
+        <div class="dua"><div><label class="label" for="inPotTelat">Potongan / telat</label><input id="inPotTelat" inputmode="numeric"></div><div><label class="label" for="inPotAlpa">Potongan / alpa</label><input id="inPotAlpa" inputmode="numeric"></div></div>
+        <label class="label" for="inMinLembur">Lembur dihitung setelah lewat (menit)</label><input id="inMinLembur" type="number" min="0" max="240">
+        <div class="baris-aksi"><button class="btn utama" data-bagian="utama">Simpan</button></div>
+      </form>
+      <div class="kartu form" data-bagian="panel">
+        <h2><svg class="ikon-judul"><use href="#i-unduh"/></svg>Data &amp; cadangan</h2>
+        <p class="bantuan">Data tersimpan di browser perangkat ini. Rajin backup JSON, terutama di perangkat kiosk.</p>
+        <div class="tombol-data">
+          <button class="btn" id="eksporAbsen"><svg><use href="#i-unduh"/></svg>Ekspor absen (CSV)</button>
+          <button class="btn" id="backup"><svg><use href="#i-unduh"/></svg>Backup JSON</button>
+          <label class="btn" for="pulihkan"><svg><use href="#i-unggah"/></svg>Pulihkan JSON</label><input type="file" id="pulihkan" accept="application/json,.json" class="sr">
+          <button class="btn" id="isiContoh">Isi data contoh</button>
+          <button class="btn bahaya" id="hapusSemua"><svg><use href="#i-hapus"/></svg>Hapus semua data</button>
+        </div>
+        <p class="bantuan" id="infoPWA">Pasang di layar utama: buka lewat https lalu pilih “Tambahkan ke Layar Utama”.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="nav-bawah" data-bagian="nav" aria-label="Navigasi bawah">
+  <button class="nav" data-hal="absen"><svg><use href="#i-jari"/></svg><span>Absen</span></button>
+  <button class="nav" data-hal="kalender"><svg><use href="#i-kal"/></svg><span>Kalender</span></button>
+  <button class="nav" data-hal="rekap"><svg><use href="#i-rekap"/></svg><span>Rekap</span></button>
+  <button class="nav" data-hal="izin"><svg><use href="#i-izin"/></svg><span>Izin</span><i class="lencana" id="lencanaIzin2" hidden></i></button>
+  <button class="nav" data-hal="karyawan"><svg><use href="#i-orang"/></svg><span>Tim</span></button>
+  <button class="nav" data-hal="atur"><svg><use href="#i-atur"/></svg><span>Atur</span></button>
+</nav>
+
+<!-- KIOSK -->
+<div class="kiosk" id="kiosk" hidden role="dialog" aria-modal="true" aria-label="Mode kiosk absensi">
+  <div class="kiosk-atas">
+    <div class="merek"><span class="logo" aria-hidden="true"><svg><use href="#i-jam"/></svg></span><b data-tema-nama>CV Maju Bersama</b></div>
+    <button class="btn kaca" id="tutupKiosk"><svg><use href="#i-gembok"/></svg>Keluar kiosk</button>
+  </div>
+  <div class="kiosk-jam"><p class="jam" id="kioskJam">08:00</p><p id="kioskTgl"></p></div>
+  <p class="kiosk-ajak">Ketuk namamu untuk absen</p>
+  <div class="kiosk-grid" id="kioskGrid"></div>
+</div>
+
+<!-- DIALOG -->
+<dialog class="dlg" id="dlg" aria-labelledby="dlgJudul">
+  <form method="dialog" class="dlg-isi" id="dlgForm">
+    <div class="dlg-kepala"><h2 id="dlgJudul">Judul</h2><button type="button" class="ikon-btn" id="dlgTutup" aria-label="Tutup"><svg><use href="#i-x"/></svg></button></div>
+    <div id="dlgBadan"></div>
+    <div class="dlg-aksi" id="dlgAksi"></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+  <p class="kredit-maliki" style="margin:24px auto 112px;padding:0 16px;text-align:center;font:12px/1.5 system-ui,sans-serif;opacity:.7">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener" style="color:inherit">@malikisaputra</a></p>
+</body>
+</html>

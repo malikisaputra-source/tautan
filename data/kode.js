@@ -34,12 +34,30 @@ window.KODE = [
    "Backup JSON rutin"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-absensi-karyawan/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "manifest.json",
+   "sw.js",
+   "img/logo.svg",
+   "img/karyawan.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-12-17",
   "gambar": "img/absensi-karyawan.webp",
+  "dasar": "paket/absensi-karyawan/",
   "repo": "https://github.com/malikisaputra-source/absensi-karyawan",
-  "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/absensi-karyawan/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "absensi-kelas-guru",
@@ -77,15 +95,32 @@ window.KODE = [
    "Akhir bulan buka Rekap, unduh Excel atau cetak A4"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-absensi-kelas-guru/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "img/papan.svg"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "bang_yos15"
   ],
-  "kunci": "2027-01-04",
   "gambar": "img/absensi-kelas-guru.webp",
+  "dasar": "paket/absensi-kelas-guru/",
   "repo": "https://github.com/malikisaputra-source/absensi-kelas-guru",
-  "zip": "https://github.com/malikisaputra-source/absensi-kelas-guru/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/absensi-kelas-guru/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "belanja-keluarga",
@@ -119,12 +154,28 @@ window.KODE = [
    "Catat tiap belanja, unduh backup JSON secara rutin"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-belanja-keluarga/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/logo.svg",
+   "img/avatar.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-11-23",
   "gambar": "img/belanja-keluarga.webp",
+  "dasar": "paket/belanja-keluarga/",
   "repo": "https://github.com/malikisaputra-source/belanja-keluarga",
-  "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/belanja-keluarga/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "bengkel-las-hpp",
@@ -159,12 +210,29 @@ window.KODE = [
    "Cetak RAB untuk pelanggan, catat DP & pelunasan"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
   "pratinjau": "index.html?demo",
-  "kunci": "2026-11-26",
+  "berkas": [
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "README.md",
+   "PANDUAN.md",
+   "LICENSE",
+   "meta.json",
+   "ss.png",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-bengkel-las-hpp/SKILL.md"
+  ],
   "gambar": "img/bengkel-las-hpp.webp",
+  "dasar": "paket/bengkel-las-hpp/",
   "repo": "https://github.com/malikisaputra-source/bengkel-las-hpp",
-  "zip": "https://github.com/malikisaputra-source/bengkel-las-hpp/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/bengkel-las-hpp/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "catatan-ojol",
@@ -197,12 +265,28 @@ window.KODE = [
    "Tekan Order selesai tiap habis antar, backup tiap minggu"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-catatan-ojol/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/logo.svg",
+   "img/avatar.svg"
+  ],
   "pratinjau": "index.html?demo",
-  "kunci": "2026-11-30",
   "gambar": "img/catatan-ojol.webp",
+  "dasar": "paket/catatan-ojol/",
   "repo": "https://github.com/malikisaputra-source/catatan-ojol",
-  "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/catatan-ojol/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "direktori-rumah-ibadah",
@@ -238,16 +322,33 @@ window.KODE = [
    "Ikuti PANDUAN.md untuk online gratis di GitHub Pages/Netlify"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-direktori-rumah-ibadah/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "PANDUAN.md",
+   "profil.js",
+   "profil.css"
+  ],
   "pratinjau": "index.html",
   "req": [
    "tsyamha90",
    "taniaflorist7"
   ],
-  "kunci": "2026-11-19",
   "gambar": "img/direktori-rumah-ibadah.webp",
+  "dasar": "paket/direktori-rumah-ibadah/",
   "repo": "https://github.com/malikisaputra-source/direktori-rumah-ibadah",
-  "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/direktori-rumah-ibadah/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "helpdesk-tiket",
@@ -281,12 +382,29 @@ window.KODE = [
    "Unduh backup JSON secara rutin"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-helpdesk-tiket/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/logo.svg",
+   "img/avatar-agen.svg",
+   "img/avatar-pelapor.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-12-14",
   "gambar": "img/helpdesk-tiket.webp",
+  "dasar": "paket/helpdesk-tiket/",
   "repo": "https://github.com/malikisaputra-source/helpdesk-tiket",
-  "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/helpdesk-tiket/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "iuran-kas-rt",
@@ -320,12 +438,31 @@ window.KODE = [
    "Salin rekap ke grup WA, rutin Backup JSON"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "index.html",
+   "tema.css",
+   "tema.js",
+   "style.css",
+   "data.js",
+   "app.js",
+   "ikon.svg",
+   "img/logo-rt.svg",
+   "img/contoh-bukti.svg",
+   "README.md",
+   "LICENSE",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-iuran-kas-rt/SKILL.md",
+   "meta.json",
+   "ss.png"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-12-10",
   "gambar": "img/iuran-kas-rt.webp",
+  "dasar": "paket/iuran-kas-rt/",
   "repo": "https://github.com/malikisaputra-source/iuran-kas-rt",
-  "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/iuran-kas-rt/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kalender-kerja",
@@ -364,12 +501,32 @@ window.KODE = [
    "Unggah ke GitHub Pages agar bisa dipasang di HP"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
   "pratinjau": "index.html?demo",
-  "kunci": "2026-12-07",
+  "berkas": [
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "README.md",
+   "LICENSE",
+   "meta.json",
+   "DESIGN.md",
+   "AGENTS.md",
+   ".claude/skills/ubah-kalender-kerja/SKILL.md",
+   "ss.png",
+   "img/logo.svg",
+   "img/profil.svg"
+  ],
   "gambar": "img/kalender-kerja.webp",
+  "dasar": "paket/kalender-kerja/",
   "repo": "https://github.com/malikisaputra-source/kalender-kerja",
-  "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kalender-kerja/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kantor-ai-angkringan",
@@ -398,9 +555,7 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-31",
   "gambar": "img/kantor-ai-angkringan.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -431,9 +586,7 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2027-01-07",
   "gambar": "img/kantor-ai-bakso.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -464,9 +617,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-11-16",
   "gambar": "img/kantor-ai-clay.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -497,9 +648,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-11-30",
   "gambar": "img/kantor-ai-diorama.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -530,9 +679,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-11-19",
   "gambar": "img/kantor-ai-felt.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -563,9 +710,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-24",
   "gambar": "img/kantor-ai-gedung30.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -596,9 +741,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-28",
   "gambar": "img/kantor-ai-hologram.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -629,9 +772,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-03",
   "gambar": "img/kantor-ai-kayu.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -662,9 +803,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-17",
   "gambar": "img/kantor-ai-menara.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -695,9 +834,7 @@ window.KODE = [
    "Ubah nama lapak, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2027-01-04",
   "gambar": "img/kantor-ai-pecellele.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -728,9 +865,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-10",
   "gambar": "img/kantor-ai-pulau.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -761,9 +896,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-07",
   "gambar": "img/kantor-ai-stickman.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -794,9 +927,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-21",
   "gambar": "img/kantor-ai-taman.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -867,9 +998,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-12-14",
   "gambar": "img/kantor-ai-toko.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -900,9 +1029,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-11-26",
   "gambar": "img/kantor-ai-vinyl.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -933,9 +1060,7 @@ window.KODE = [
    "Ubah nama kantor, agen, dan jadwal di src/config.ts"
   ],
   "demo": null,
-  "kunci": "2026-11-23",
   "gambar": "img/kantor-ai-voxel.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/kantor-ai-template",
   "zip": "https://github.com/malikisaputra-source/kantor-ai-template/archive/refs/heads/main.zip"
  },
@@ -970,12 +1095,28 @@ window.KODE = [
    "Backup JSON rutin supaya data aman"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-kas-warung/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/logo.svg",
+   "img/produk.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-11-16",
   "gambar": "img/kas-warung.webp",
+  "dasar": "paket/kas-warung/",
   "repo": "https://github.com/malikisaputra-source/kas-warung",
-  "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kas-warung/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kasir-fotocopy",
@@ -1010,16 +1151,35 @@ window.KODE = [
    "Klik Hitung cepat, isi jumlah halaman, lalu bayar"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-kasir-fotocopy/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "qris.svg",
+   "img/logo.svg",
+   "img/produk-contoh.svg"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "kmssyafyasin",
    "alfattahprint"
   ],
-  "kunci": "2026-12-24",
   "gambar": "img/kasir-fotocopy.webp",
+  "dasar": "paket/kasir-fotocopy/",
   "repo": "https://github.com/malikisaputra-source/kasir-fotocopy",
-  "zip": "https://github.com/malikisaputra-source/kasir-fotocopy/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kasir-fotocopy/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kasir-laundry",
@@ -1057,15 +1217,33 @@ window.KODE = [
    "Isi URL Web App di menu Atur, owner buka owner.html"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-kasir-laundry/SKILL.md",
+   "index.html",
+   "owner.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "apps-script/Code.gs"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "okfian_ari"
   ],
-  "kunci": "2026-12-28",
   "gambar": "img/kasir-laundry.webp",
+  "dasar": "paket/kasir-laundry/",
   "repo": "https://github.com/malikisaputra-source/kasir-laundry",
-  "zip": "https://github.com/malikisaputra-source/kasir-laundry/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/kasir-laundry/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "kasir-umkm",
@@ -1216,12 +1394,27 @@ window.KODE = [
    "Baca PANDUAN.md bila bingung, backup JSON rutin"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "PANDUAN.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-keuangan-bendahara/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-11-12",
   "gambar": "img/keuangan-bendahara.webp",
+  "dasar": "paket/keuangan-bendahara/",
   "repo": "https://github.com/malikisaputra-source/keuangan-bendahara",
-  "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/keuangan-bendahara/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "landing-kelas-virtual",
@@ -1254,15 +1447,32 @@ window.KODE = [
    "Unggah ke GitHub Pages/Netlify, pasang di bio"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-landing-kelas-virtual/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "konten.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/og.svg",
+   "img/og.png"
+  ],
   "pratinjau": "index.html",
   "req": [
    "im_jeniuss"
   ],
-  "kunci": "2027-01-14",
   "gambar": "img/landing-kelas-virtual.webp",
+  "dasar": "paket/landing-kelas-virtual/",
   "repo": "https://github.com/malikisaputra-source/landing-kelas-virtual",
-  "zip": "https://github.com/malikisaputra-source/landing-kelas-virtual/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/landing-kelas-virtual/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "manajemen-bengkel",
@@ -1355,15 +1565,31 @@ window.KODE = [
    "Tambah member, lalu check-in lewat nama/kode/QR"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-manajemen-gym/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "mastewe21"
   ],
-  "kunci": "2026-12-31",
   "gambar": "img/manajemen-gym.webp",
+  "dasar": "paket/manajemen-gym/",
   "repo": "https://github.com/malikisaputra-source/manajemen-gym",
-  "zip": "https://github.com/malikisaputra-source/manajemen-gym/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/manajemen-gym/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "manajemen-klien",
@@ -1453,16 +1679,25 @@ window.KODE = [
    "Pakai Jeda + Langkah + saat menjelaskan"
   ],
   "demo": "index.html",
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-mesin-3d-interaktif/SKILL.md",
+   "app.js",
+   "index.html",
+   "style.css"
+  ],
   "pratinjau": "index.html",
   "req": [
    "pratamax165"
   ],
-  "kunci": "2027-01-25",
   "prototipe": true,
   "gambar": "img/mesin-3d-interaktif.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/mesin-3d-interaktif",
-  "zip": "https://github.com/malikisaputra-source/mesin-3d-interaktif/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/mesin-3d-interaktif/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "monitor-subdomain",
@@ -1496,16 +1731,28 @@ window.KODE = [
    "Aktifkan GitHub Pages dari branch main"
   ],
   "demo": "index.html?demo",
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-monitor-subdomain/SKILL.md",
+   "salin-ke-github/cek.yml",
+   "app.js",
+   "cek.mjs",
+   "data/status.json",
+   "index.html",
+   "sites.json"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "pakhaji896"
   ],
-  "kunci": "2027-01-18",
   "prototipe": true,
   "gambar": "img/monitor-subdomain.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/monitor-subdomain",
-  "zip": "https://github.com/malikisaputra-source/monitor-subdomain/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/monitor-subdomain/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "paket-10-agent-umkm",
@@ -1537,11 +1784,15 @@ window.KODE = [
    "Lihat kantornya: npm install lalu npm run dev"
   ],
   "demo": null,
-  "kunci": "2026-11-12",
+  "unduhan_lain": [
+   {
+    "label": "Unduh Paket 10 Agent (.zip)",
+    "href": "unduh/paket-10-agent-umkm.zip"
+   }
+  ],
   "gambar": "img/paket-10-agent-umkm.webp",
-  "kustom": false,
-  "repo": "https://github.com/malikisaputra-source/paket-10-agent-umkm",
-  "zip": "https://github.com/malikisaputra-source/paket-10-agent-umkm/archive/refs/heads/main.zip"
+  "repo": null,
+  "zip": "unduh/paket-10-agent-umkm.zip"
  },
  {
   "slug": "paket-15-agent-koperasi",
@@ -1613,14 +1864,35 @@ window.KODE = [
    "Ambil & periksa hasil di folder hasil/"
   ],
   "demo": "index.html",
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   "CLAUDE.md",
+   ".claude/skills/buat-surat/SKILL.md",
+   ".claude/skills/rapikan-data-siswa/SKILL.md",
+   ".claude/skills/rekap-absensi-nilai/SKILL.md",
+   ".claude/skills/ubah-paket-operator-sekolah/SKILL.md",
+   ".gitignore",
+   "alat/buat_surat.py",
+   "alat/rapikan.py",
+   "alat/rekap.py",
+   "contoh/absensi-7a-oktober.csv",
+   "contoh/nilai-7a-ganjil.csv",
+   "contoh/sekolah.json",
+   "contoh/siswa-mentah.csv",
+   "index.html",
+   "templates/izin.json",
+   "templates/keterangan-aktif.json",
+   "templates/undangan.json"
+  ],
   "pratinjau": "index.html",
   "req": [
    "ryapio"
   ],
-  "kunci": "2027-01-11",
   "prototipe": true,
   "gambar": "img/paket-operator-sekolah.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/paket-operator-sekolah",
   "zip": "https://github.com/malikisaputra-source/paket-operator-sekolah/archive/refs/heads/main.zip"
  },
@@ -1658,15 +1930,37 @@ window.KODE = [
    "Unduh katalog.json di Atur, unggah agar katalog.html terisi"
   ],
   "demo": "index.html?demo",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-perpustakaan-digital/SKILL.md",
+   "index.html",
+   "katalog.html",
+   "style.css",
+   "app.js",
+   "katalog.js",
+   "data-contoh.js",
+   "katalog.json",
+   "contoh-katalog.csv",
+   "tema.css",
+   "tema.js",
+   "sw.js",
+   "manifest.webmanifest",
+   "ikon.svg",
+   "img/logo.svg"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "krniawaiz"
   ],
-  "kunci": "2027-01-07",
   "gambar": "img/perpustakaan-digital.webp",
+  "dasar": "paket/perpustakaan-digital/",
   "repo": "https://github.com/malikisaputra-source/perpustakaan-digital",
-  "zip": "https://github.com/malikisaputra-source/perpustakaan-digital/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/perpustakaan-digital/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "pesan-antar-kedai",
@@ -1703,12 +1997,28 @@ window.KODE = [
    "Untuk banyak HP sekaligus, ikuti panduan Supabase di README"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-pesan-antar-kedai/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "tema.css",
+   "tema.js",
+   "ikon.svg",
+   "img/logo.svg",
+   "img/foto-menu.svg"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-12-21",
   "gambar": "img/pesan-antar-kedai.webp",
+  "dasar": "paket/pesan-antar-kedai/",
   "repo": "https://github.com/malikisaputra-source/pesan-antar-kedai",
-  "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/pesan-antar-kedai/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "portofolio-pribadi",
@@ -1741,12 +2051,58 @@ window.KODE = [
    "Ikuti PANDUAN.md untuk online gratis"
   ],
   "demo": "index.html",
-  "kustom": false,
+  "kustom": true,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "PANDUAN.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-portofolio-pribadi/SKILL.md",
+   "index.html",
+   "karya.html",
+   "style.css",
+   "app.js",
+   "data.js",
+   "tema.css",
+   "tema.js",
+   "img/foto-profil.svg",
+   "img/karya/aplikasi-laporan.svg",
+   "img/karya/funnel-kreator.svg",
+   "img/karya/genomik.svg",
+   "img/karya/kampanye-kota.svg",
+   "img/karya/sistem-info.svg",
+   "img/karya/tim-kreatif.svg",
+   "img/karya/uji-formula.svg",
+   "img/karya/video-edukasi.svg",
+   "img/logo-klien/klien-1.svg",
+   "img/logo-klien/klien-2.svg",
+   "img/logo-klien/klien-3.svg",
+   "img/logo-klien/klien-4.svg",
+   "img/logo-klien/klien-5.svg",
+   "img/logo-klien/klien-6.svg",
+   "img/logo.svg",
+   "img/objek/barchart.webp",
+   "img/objek/camera.webp",
+   "img/objek/clapperboard.webp",
+   "img/objek/cylinder.webp",
+   "img/objek/dna.webp",
+   "img/objek/envelope.webp",
+   "img/objek/flask.webp",
+   "img/objek/funnel.webp",
+   "img/objek/gradcap.webp",
+   "img/objek/laptop.webp",
+   "img/objek/medal.webp",
+   "img/objek/paperplane.webp",
+   "img/objek/report.webp",
+   "img/objek/swatches.webp"
+  ],
   "pratinjau": "index.html",
-  "kunci": "2026-12-03",
   "gambar": "img/portofolio-pribadi.webp",
+  "dasar": "paket/portofolio-pribadi/",
   "repo": "https://github.com/malikisaputra-source/portofolio-pribadi",
-  "zip": "https://github.com/malikisaputra-source/portofolio-pribadi/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/portofolio-pribadi/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "presensi-gps-gas",
@@ -1818,14 +2174,29 @@ window.KODE = [
    "Periksa hasil/*.docx di Word"
   ],
   "demo": "index.html",
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/narasi-laporan-word/SKILL.md",
+   ".claude/skills/ubah-skill-narasi-laporan-word/SKILL.md",
+   ".gitignore",
+   "buat_docx.py",
+   "contoh/catatan-lapangan.txt",
+   "contoh/hasil-contoh.docx",
+   "contoh/narasi-contoh.json",
+   "contoh/penjualan-kuartal3.csv",
+   "index.html",
+   "templates/laporan-kegiatan.json",
+   "templates/laporan-penelitian-sederhana.json"
+  ],
   "pratinjau": "index.html",
   "req": [
    "genk_cebiit"
   ],
-  "kunci": "2027-01-14",
   "prototipe": true,
   "gambar": "img/skill-narasi-laporan-word.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/skill-narasi-laporan-word",
   "zip": "https://github.com/malikisaputra-source/skill-narasi-laporan-word/archive/refs/heads/main.zip"
  },
@@ -1897,15 +2268,27 @@ window.KODE = [
   ],
   "demo": "index.html",
   "kustom": false,
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-template-carousel-quotes/SKILL.md",
+   ".claude/skills/buat-carousel-quotes/SKILL.md",
+   "index.html",
+   "style.css",
+   "app.js",
+   "konten.json"
+  ],
   "pratinjau": "index.html",
   "req": [
    "zoealabaster",
    "muslim_upskill"
   ],
-  "kunci": "2027-01-11",
   "gambar": "img/template-carousel-quotes.webp",
   "repo": "https://github.com/malikisaputra-source/template-carousel-quotes",
-  "zip": "https://github.com/malikisaputra-source/template-carousel-quotes/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/template-carousel-quotes/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "template-kolase-vox",
@@ -1992,9 +2375,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-12",
   "gambar": "img/template-reels-t01.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t01",
   "zip": "https://github.com/malikisaputra-source/template-reels-t01/archive/refs/heads/main.zip"
  },
@@ -2012,9 +2393,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-16",
   "gambar": "img/template-reels-t02.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t02",
   "zip": "https://github.com/malikisaputra-source/template-reels-t02/archive/refs/heads/main.zip"
  },
@@ -2032,9 +2411,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-19",
   "gambar": "img/template-reels-t03.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t03",
   "zip": "https://github.com/malikisaputra-source/template-reels-t03/archive/refs/heads/main.zip"
  },
@@ -2052,9 +2429,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-23",
   "gambar": "img/template-reels-t04.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t04",
   "zip": "https://github.com/malikisaputra-source/template-reels-t04/archive/refs/heads/main.zip"
  },
@@ -2072,9 +2447,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-26",
   "gambar": "img/template-reels-t05.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t05",
   "zip": "https://github.com/malikisaputra-source/template-reels-t05/archive/refs/heads/main.zip"
  },
@@ -2092,9 +2465,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-11-30",
   "gambar": "img/template-reels-t06.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t06",
   "zip": "https://github.com/malikisaputra-source/template-reels-t06/archive/refs/heads/main.zip"
  },
@@ -2112,9 +2483,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-12-03",
   "gambar": "img/template-reels-t07.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t07",
   "zip": "https://github.com/malikisaputra-source/template-reels-t07/archive/refs/heads/main.zip"
  },
@@ -2132,9 +2501,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-12-07",
   "gambar": "img/template-reels-t08.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t08",
   "zip": "https://github.com/malikisaputra-source/template-reels-t08/archive/refs/heads/main.zip"
  },
@@ -2152,9 +2519,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-12-10",
   "gambar": "img/template-reels-t09.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t09",
   "zip": "https://github.com/malikisaputra-source/template-reels-t09/archive/refs/heads/main.zip"
  },
@@ -2172,9 +2537,7 @@ window.KODE = [
   "fitur": [],
   "cara": [],
   "demo": null,
-  "kunci": "2026-12-14",
   "gambar": "img/template-reels-t10.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/template-reels-t10",
   "zip": "https://github.com/malikisaputra-source/template-reels-t10/archive/refs/heads/main.zip"
  },
@@ -2280,16 +2643,28 @@ window.KODE = [
    "Tekan tombol bahasa pembicara, lalu bicara"
   ],
   "demo": "index.html?demo",
+  "berkas": [
+   "LICENSE",
+   "README.md",
+   "AGENTS.md",
+   "DESIGN.md",
+   ".claude/skills/ubah-translate-suara/SKILL.md",
+   "app.js",
+   "ikon.svg",
+   "index.html",
+   "manifest.webmanifest",
+   "style.css",
+   "sw.js"
+  ],
   "pratinjau": "index.html?demo",
   "req": [
    "pentinguang"
   ],
-  "kunci": "2027-01-21",
   "prototipe": true,
   "gambar": "img/translate-suara.webp",
-  "kustom": false,
   "repo": "https://github.com/malikisaputra-source/translate-suara",
-  "zip": "https://github.com/malikisaputra-source/translate-suara/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/translate-suara/archive/refs/heads/main.zip",
+  "prd": true
  },
  {
   "slug": "website-rt",

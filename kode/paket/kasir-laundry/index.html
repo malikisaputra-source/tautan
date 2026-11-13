@@ -1,0 +1,200 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+/* Set mode dari TEMA.mode sebelum render (tanpa kedip). */
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'terang';
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kasir Laundry</title>
+<meta name="description" content="Kasir laundry offline: kiloan & satuan, papan status cucian, nota WhatsApp, laporan, sinkron Google Sheets opsional.">
+<meta name="theme-color" content="#0b6e80">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="ikon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="kredit-maliki kredit-atas">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></header>
+
+<!-- Layar masuk -->
+<section id="layarMasuk" class="masuk" hidden>
+  <div class="masuk-merek">
+    <div class="merek"><img src="ikon.svg" width="40" height="40" alt=""><span data-tema-nama>Laundry</span></div>
+    <div class="masuk-ilus" id="masukIlus" aria-hidden="true"></div>
+    <p class="masuk-slogan">Cucian tercatat rapi dari timbang<br>sampai diambil, tanpa internet.</p>
+  </div>
+  <div class="masuk-form">
+    <div class="masuk-kartu">
+      <h1 data-tema-nama>Kasir Laundry</h1>
+      <p class="redup">Pilih kasir, lalu masukkan PIN.</p>
+      <div id="daftarKasir" class="pilih-kasir" role="group" aria-label="Pilih kasir"></div>
+      <div class="pin-titik" id="pinTitik" aria-label="PIN 4 angka"><i></i><i></i><i></i><i></i></div>
+      <div class="pad" id="padPin"></div>
+      <p class="redup kecil">PIN contoh: Admin 1234 · Rina 1111</p>
+    </div>
+  </div>
+</section>
+
+<div id="aplikasi" class="app" hidden>
+  <nav class="samping" aria-label="Menu utama">
+    <div class="merek"><img src="ikon.svg" width="34" height="34" alt=""><span data-tema-nama>Laundry</span></div>
+    <button class="nav" data-hal="order"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Order</span></button>
+    <button class="nav aktif" data-hal="papan"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></svg><span>Status</span></button>
+    <button class="nav" data-hal="pelanggan"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><span>Pelanggan</span></button>
+    <button class="nav" data-hal="laporan"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Laporan</span></button>
+    <button class="nav" data-hal="atur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6a7 7 0 0 0 0 2.4l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z"/></svg><span>Atur</span></button>
+    <div class="sinkron-chip" id="chipSinkron" title="Status sinkron Google Sheets"></div>
+    <div class="pengguna"><span class="avatar" id="avatarKasir" aria-hidden="true">A</span><span id="namaKasir">-</span><button id="btnKeluar" class="ikon-btn" aria-label="Keluar"><svg viewBox="0 0 24 24"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></svg></button></div>
+  </nav>
+
+  <main>
+    <!-- ORDER BARU -->
+    <section class="hal" id="hal-order">
+      <header class="hal-kepala"><div><h2>Order baru</h2><span class="redup kecil" id="noBerikut"></span></div></header>
+      <form id="formOrder" class="order-grid" novalidate>
+        <div class="order-kiri">
+          <fieldset class="panel">
+            <legend>Pelanggan</legend>
+            <div class="dua">
+              <label>Nama<input name="nama" list="dlPelanggan" autocomplete="off" required placeholder="mis. Bu Sari"></label>
+              <label>No. WhatsApp<input name="wa" inputmode="tel" placeholder="08xxxxxxxxxx"></label>
+            </div>
+            <datalist id="dlPelanggan"></datalist>
+          </fieldset>
+          <fieldset class="panel">
+            <legend>Layanan</legend>
+            <div class="pilih-layanan" id="pilihLayanan"></div>
+            <ul class="item-order" id="itemOrder"></ul>
+          </fieldset>
+          <fieldset class="panel">
+            <legend>Paket &amp; catatan</legend>
+            <div class="segmen-paket" id="segPaket" role="radiogroup" aria-label="Paket"></div>
+            <div class="dua">
+              <label>Estimasi selesai<input type="datetime-local" name="estimasi" required></label>
+              <label>Parfum<select name="parfum" id="selParfum"></select></label>
+            </div>
+            <label class="cek"><input type="checkbox" name="pisah"> <span>Pisah warna (putih / berwarna)</span></label>
+            <label>Catatan<textarea name="catatan" rows="2" placeholder="mis. noda kopi di kemeja biru, jangan pakai pemutih"></textarea></label>
+          </fieldset>
+        </div>
+        <aside class="panel ringkas-order" id="ringkasOrder" aria-live="polite"></aside>
+      </form>
+    </section>
+
+    <!-- PAPAN STATUS -->
+    <section class="hal aktif" id="hal-papan">
+      <header class="hal-kepala">
+        <div><h2>Papan status</h2><span class="redup kecil" id="papanInfo"></span></div>
+        <div class="aksi">
+          <label class="cari"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="cariOrder" type="search" placeholder="Cari nama / no. nota" aria-label="Cari order"></label>
+          <button class="tombol utama" data-ke="order">+ Order</button>
+        </div>
+      </header>
+      <div class="chip-baris" id="filterStatus" role="group" aria-label="Filter status"></div>
+      <div class="papan" id="papan"></div>
+    </section>
+
+    <!-- PELANGGAN -->
+    <section class="hal" id="hal-pelanggan">
+      <header class="hal-kepala">
+        <h2>Pelanggan</h2>
+        <label class="cari"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="cariPelanggan" type="search" placeholder="Cari nama / WA" aria-label="Cari pelanggan"></label>
+      </header>
+      <div class="daftar-pelanggan" id="daftarPelanggan"></div>
+    </section>
+
+    <!-- LAPORAN -->
+    <section class="hal" id="hal-laporan">
+      <header class="hal-kepala">
+        <h2>Laporan</h2>
+        <div class="aksi"><input type="month" id="blnLaporan" aria-label="Bulan laporan"><button class="tombol" id="btnEksporCSV">Ekspor CSV</button></div>
+      </header>
+      <div class="kartu-angka" id="kartuAngka"></div>
+      <div class="dua-kolom">
+        <div class="panel"><h3>Kg per hari</h3><div id="grafikKg" class="grafik"></div></div>
+        <div class="panel"><h3>Omzet per hari</h3><div id="grafikOmzet" class="grafik"></div></div>
+      </div>
+      <div class="dua-kolom">
+        <div class="panel"><h3>Belum diambil</h3><ul id="lapBelum" class="daftar-mini"></ul></div>
+        <div class="panel"><h3>Piutang (belum lunas)</h3><ul id="lapPiutang" class="daftar-mini"></ul></div>
+      </div>
+    </section>
+
+    <!-- ATUR -->
+    <section class="hal" id="hal-atur">
+      <header class="hal-kepala"><h2>Pengaturan</h2></header>
+      <div class="dua-kolom">
+        <form class="panel form" id="formToko">
+          <h3>Profil usaha (untuk nota)</h3>
+          <label>Nama laundry<input name="nama" required></label>
+          <label>Alamat<input name="alamat"></label>
+          <label>Telepon / WA<input name="telp"></label>
+          <label>Catatan kaki nota<input name="footer"></label>
+          <button class="tombol utama">Simpan profil</button>
+        </form>
+        <form class="panel form" id="formSinkron">
+          <h3>Sinkron Google Sheets <span class="lencana">opsional</span></h3>
+          <p class="redup kecil">Tanpa URL, semua data tetap offline di perangkat ini. Isi URL Web App dari <code>apps-script/Code.gs</code> (lihat README) supaya owner bisa cek dari mana saja lewat <a href="owner.html" target="_blank" rel="noopener">owner.html</a>.</p>
+          <label>URL Web App<input name="url" type="url" placeholder="https://script.google.com/macros/s/…/exec"></label>
+          <label>Kunci rahasia (sama dengan KUNCI di Code.gs)<input name="kunci" autocomplete="off"></label>
+          <label class="cek"><input type="checkbox" name="otomatis"> <span>Kirim otomatis saat online</span></label>
+          <div class="status-sinkron" id="statusSinkron" aria-live="polite"></div>
+          <div class="aksi wrap"><button class="tombol utama">Simpan</button><button class="tombol" type="button" id="btnKirimSekarang">Kirim sekarang</button><button class="tombol" type="button" id="btnKirimSemua">Antrikan semua order</button></div>
+        </form>
+      </div>
+      <form class="panel form" id="formHarga">
+        <h3>Daftar layanan &amp; harga</h3>
+        <div class="tabel-bungkus"><table class="tabel" id="tabelLayanan"></table></div>
+        <div class="aksi wrap"><button class="tombol" type="button" id="btnTambahLayanan">+ Layanan</button><button class="tombol utama">Simpan harga</button></div>
+        <h3>Paket waktu</h3>
+        <div class="tabel-bungkus"><table class="tabel" id="tabelPaket"></table></div>
+      </form>
+      <div class="dua-kolom">
+        <div class="panel">
+          <h3>Kasir &amp; PIN</h3>
+          <ul class="daftar-kasir" id="daftarKasirAtur"></ul>
+          <form class="form sebaris" id="formKasir">
+            <input name="nama" placeholder="Nama" aria-label="Nama kasir" required>
+            <input name="pin" placeholder="PIN 4 angka" aria-label="PIN" pattern="\d{4}" inputmode="numeric" maxlength="4" required>
+            <select name="peran" aria-label="Peran"><option value="kasir">Kasir</option><option value="admin">Admin</option></select>
+            <button class="tombol">Tambah</button>
+          </form>
+          <p class="redup kecil">Kasir biasa tidak bisa membuka menu Atur dan menghapus order.</p>
+        </div>
+        <div class="panel">
+          <h3>Data</h3>
+          <div class="aksi wrap">
+            <button class="tombol" id="btnBackup">Backup JSON</button>
+            <label class="tombol">Pulihkan JSON<input type="file" id="fileBackup" accept=".json,application/json" hidden></label>
+            <button class="tombol" id="btnContoh">Isi data contoh</button>
+            <button class="tombol bahaya" id="btnReset">Hapus semua data</button>
+          </div>
+          <p class="redup kecil">Data tersimpan di browser perangkat ini (localStorage <code>kasir-laundry-v1</code>). Backup rutin, terutama sebelum ganti HP atau hapus riwayat browser.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bawah" id="navBawah" aria-label="Menu bawah"></nav>
+</div>
+
+<dialog id="dlg"><form method="dialog" id="dlgIsi"></form></dialog>
+<div id="struk" class="struk" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="app.js"></script>
+<p class="kredit-maliki kredit-bawah">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a></p>
+</body>
+</html>

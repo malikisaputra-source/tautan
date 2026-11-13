@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>
+(function () {
+  var m = (window.TEMA && TEMA.mode) || 'terang';
+  if (m === 'auto') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Katalog Perpustakaan</title>
+<meta name="description" content="Katalog publik perpustakaan rumah sakit: cari buku & jurnal, lihat rak dan ketersediaan.">
+<meta name="theme-color" content="#0f6b6b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.publik-kepala{background:var(--nav);color:var(--nav-teks);padding:28px 16px 64px}
+.publik-dalam{max-width:1120px;margin:0 auto}
+.publik-kepala .merek{padding:0 0 18px}
+.publik-kepala h1{font-size:30px;max-width:640px}
+.publik-kepala p{margin:6px 0 0;color:var(--nav-redup);max-width:560px}
+.publik-isi{max-width:1120px;margin:-40px auto 0;padding:0 16px 40px}
+.publik-isi .saring{grid-template-columns:1fr 200px 160px}
+.catatan-publik{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+@media (max-width:860px){.publik-isi .saring{grid-template-columns:1fr 1fr}.publik-isi .saring .cari{grid-column:1/-1}}
+@media (max-width:520px){.publik-isi .saring{grid-template-columns:1fr}.publik-kepala h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="publik-kepala" data-bagian="nav">
+  <div class="publik-dalam">
+    <div class="merek"><img src="img/logo.svg" width="36" height="36" alt=""><span id="namaPerpus" data-tema-nama>Perpustakaan Digital</span></div>
+    <h1>Cari bacaan staf: buku &amp; jurnal</h1>
+    <p>Lihat judul, lokasi rak, dan jumlah yang tersedia. Untuk meminjam, datang ke meja perpustakaan dengan kartu pegawai.</p>
+  </div>
+</header>
+<main class="publik-isi" data-bagian="latar">
+  <div class="saring panel">
+    <label class="cari"><span class="sr">Cari koleksi</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="cari" placeholder="Cari judul, penulis, ISBN…" autocomplete="off"></label>
+    <label><span class="sr">Kategori</span><select id="kategori"><option value="">Semua kategori</option></select></label>
+    <label><span class="sr">Ketersediaan</span><select id="status"><option value="">Semua</option><option value="ada">Tersedia</option><option value="ebook">Ada PDF</option></select></label>
+  </div>
+  <div class="catatan-publik"><p class="redup kecil" id="info" aria-live="polite">Memuat katalog…</p><label class="tombol kecil" id="pilihBerkas" hidden>Buka katalog.json<input type="file" accept=".json" id="berkas" class="sr"></label></div>
+  <div class="kisi-buku" id="daftar"></div>
+  <p class="kredit-maliki" style="margin:32px auto 16px;text-align:center;font:12px/1.5 system-ui,sans-serif;opacity:.75">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener" style="color:inherit">@malikisaputra</a></p>
+</main>
+<script src="katalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "Kasir Fotocopy & Percetakan",
+  "short_name": "Fotocopy",
+  "description": "Kasir offline fotocopy & percetakan",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f5f2",
+  "theme_color": "#2f5d8a",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "ikon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Absensi Kelas Guru",
+  "short_name": "Absen Kelas",
+  "description": "Absensi siswa harian untuk guru, offline",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f1e8",
+  "theme_color": "#1f5a43",
+  "lang": "id",
+  "icons": [{ "src": "ikon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

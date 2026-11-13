@@ -1,0 +1,150 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>(function(){var m=(window.TEMA&&TEMA.mode)||'terang';if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'gelap':'terang';document.documentElement.setAttribute('data-mode',m);})();</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f5a43">
+<meta name="description" content="Absensi kelas untuk guru: banyak kelas & mapel, absen satu ketukan, rekap bulanan, ekspor Excel, cetak A4. Offline.">
+<title>Absensi Kelas Guru</title>
+<link rel="icon" href="ikon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontTema" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-bagian="latar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-absen" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v2h6V3M8 12l3 3 5-6"/></symbol>
+  <symbol id="i-siswa" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></symbol>
+  <symbol id="i-rekap" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-atur" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-kiri" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-kanan" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-cek" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  <symbol id="i-unduh" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-cetak" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/></symbol>
+  <symbol id="i-hapus" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+  <symbol id="i-tempel" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2h6v2M9 10h6M9 14h6"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="rel" data-bagian="nav">
+    <div class="merek">
+      <img src="ikon.svg" alt="" width="40" height="40">
+      <div><b>Absensi Kelas</b><small data-tema-nama>SMP Harapan Bangsa</small></div>
+    </div>
+    <nav class="menu" aria-label="Menu utama">
+      <button class="nav" data-hal="absen" aria-current="page"><svg><use href="#i-absen"/></svg><span>Absen</span></button>
+      <button class="nav" data-hal="siswa"><svg><use href="#i-siswa"/></svg><span>Kelas &amp; Siswa</span></button>
+      <button class="nav" data-hal="rekap"><svg><use href="#i-rekap"/></svg><span>Rekap</span></button>
+      <button class="nav" data-hal="atur"><svg><use href="#i-atur"/></svg><span>Atur</span></button>
+    </nav>
+    <p class="rel-catatan">Data siswa tersimpan di perangkat ini saja.</p>
+  </aside>
+
+  <main class="isi">
+    <!-- ABSEN -->
+    <section class="hal" id="hal-absen" aria-labelledby="jAbsen">
+      <header class="kepala">
+        <div><p class="sub" id="absenTanggalTeks">—</p><h1 id="jAbsen" data-bagian="teks">Absen hari ini</h1></div>
+      </header>
+      <div class="kosong" id="absenKosong" hidden>
+        <img src="img/papan.svg" alt="" width="240" height="150">
+        <h2>Belum ada kelas</h2>
+        <p>Buat kelas dan masukkan daftar siswa dulu, lalu absen cukup satu ketukan per siswa.</p>
+        <button class="btn utama" data-bagian="utama" data-ke="siswa"><svg><use href="#i-plus"/></svg>Buat kelas</button>
+      </div>
+      <div id="absenIsi">
+        <div class="papan panel" data-bagian="panel">
+          <div class="pilihan">
+            <label class="fld"><span>Kelas</span><select id="aKelas"></select></label>
+            <label class="fld"><span>Mapel</span><select id="aMapel"></select></label>
+            <div class="fld tgl"><span id="lblTgl">Tanggal</span>
+              <div class="tgl-baris">
+                <button class="btn ikon" id="tglMundur" aria-label="Hari sebelumnya"><svg><use href="#i-kiri"/></svg></button>
+                <input type="date" id="aTanggal" aria-labelledby="lblTgl">
+                <button class="btn ikon" id="tglMaju" aria-label="Hari berikutnya"><svg><use href="#i-kanan"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="ringkas" id="aRingkas" aria-live="polite"></div>
+        </div>
+        <div class="aksi-absen">
+          <button class="btn utama" id="semuaHadir" data-bagian="utama"><svg><use href="#i-cek"/></svg>Semua hadir</button>
+          <p class="petunjuk">Ketuk H / S / I / A. Bawaan: hadir. Tersimpan otomatis.</p>
+        </div>
+        <ol class="daftar-absen" id="daftarAbsen"></ol>
+        <label class="fld panel catatan" data-bagian="panel"><span>Catatan pertemuan (materi, kejadian, PR)</span>
+          <textarea id="aCatatan" rows="3" placeholder="Contoh: Bab 3 pecahan, PR hal. 45 no. 1–5"></textarea></label>
+      </div>
+    </section>
+
+    <!-- SISWA -->
+    <section class="hal" id="hal-siswa" hidden aria-labelledby="jSiswa">
+      <header class="kepala">
+        <div><p class="sub">Kelola daftar</p><h1 id="jSiswa">Kelas &amp; Siswa</h1></div>
+        <button class="btn utama" id="tambahKelas" data-bagian="utama"><svg><use href="#i-plus"/></svg>Kelas baru</button>
+      </header>
+      <div class="chip-kelas" id="chipKelas" role="tablist" aria-label="Pilih kelas"></div>
+      <div id="kelasDetail"></div>
+    </section>
+
+    <!-- REKAP -->
+    <section class="hal" id="hal-rekap" hidden aria-labelledby="jRekap">
+      <header class="kepala">
+        <div><p class="sub">Laporan bulanan</p><h1 id="jRekap">Rekap kehadiran</h1></div>
+        <div class="kepala-aksi">
+          <button class="btn" id="eksporXlsx"><svg><use href="#i-unduh"/></svg>Excel</button>
+          <button class="btn" id="cetakRekap"><svg><use href="#i-cetak"/></svg>Cetak A4</button>
+        </div>
+      </header>
+      <div class="panel pilihan" data-bagian="panel">
+        <label class="fld"><span>Kelas</span><select id="rKelas"></select></label>
+        <label class="fld"><span>Mapel</span><select id="rMapel"></select></label>
+        <label class="fld"><span>Bulan</span><input type="month" id="rBulan"></label>
+      </div>
+      <div id="rekapIsi"></div>
+    </section>
+
+    <!-- ATUR -->
+    <section class="hal" id="hal-atur" hidden aria-labelledby="jAtur">
+      <header class="kepala"><div><p class="sub">Pengaturan</p><h1 id="jAtur">Atur</h1></div></header>
+      <form class="panel form" id="formGuru" data-bagian="panel">
+        <h2>Identitas</h2>
+        <label class="fld"><span>Nama guru</span><input id="gNama" autocomplete="name"></label>
+        <label class="fld"><span>Nama sekolah</span><input id="gSekolah"></label>
+        <label class="fld"><span>Tahun ajaran</span><input id="gTahun" placeholder="2026/2027"></label>
+        <button class="btn utama" type="submit">Simpan</button>
+      </form>
+      <div class="panel form" data-bagian="panel">
+        <h2>Backup &amp; pulihkan</h2>
+        <p class="redup">Data siswa adalah data pribadi dan hanya tersimpan di browser perangkat ini. Backup rutin ke berkas JSON supaya aman saat ganti HP.</p>
+        <div class="baris-btn">
+          <button class="btn" id="backup"><svg><use href="#i-unduh"/></svg>Unduh backup JSON</button>
+          <label class="btn" for="pulihkan"><svg><use href="#i-tempel"/></svg>Pulihkan dari JSON</label>
+          <input type="file" id="pulihkan" accept=".json,application/json" class="sembunyi">
+        </div>
+        <div class="baris-btn">
+          <button class="btn bahaya" id="resetData"><svg><use href="#i-hapus"/></svg>Hapus semua data</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="kredit-maliki" style="margin:24px auto 112px;padding:0 16px;text-align:center;font:12px/1.5 system-ui,sans-serif;opacity:.7">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener" style="color:inherit">@malikisaputra</a></p>
+  </main>
+</div>
+
+<dialog id="dlg" class="panel" data-bagian="panel"><form method="dialog" id="dlgForm"></form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="cetakArea" class="cetak-area" aria-hidden="true"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

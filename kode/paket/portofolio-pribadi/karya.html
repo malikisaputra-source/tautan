@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<!-- Gaya "Senja Terakota". Semua isi dari data.js. -->
+<html lang="id" data-mode="terang">
+<head>
+<script src="tema.js"></script>
+<script>(function(h){var m=(window.TEMA&&TEMA.mode)||'terang';try{var s=localStorage.getItem('portofolio.mode');if(s)m=s;}catch(e){}if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'gelap':'terang';h.setAttribute('data-mode',m);try{if(window.IntersectionObserver&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('mo');setTimeout(function(){if(!h.classList.contains('mo-ready'))h.classList.remove('mo');},2500);}}catch(e){}})(document.documentElement);</script>
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karya</title>
+<meta name="description" content="Portofolio pribadi: karya pilihan, cara kerja, dan kontak.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Inter+Tight:wght@300..700&display=swap">
+<link id="fontTema" rel="stylesheet" href="data:text/css,">
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+<body data-bagian="latar">
+<a class="skip" href="#main">Lewati ke isi</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" data-bagian="teks"><img id="logo" src="img/logo.svg" alt="" width="34" height="34"><span class="brand-nama" data-tema-nama>Portofolio</span></a>
+  <nav class="nav" aria-label="Navigasi utama" data-bagian="nav">
+    <a href="index.html#karya">Karya</a><a href="index.html#tentang">Tentang</a>
+    <button class="mode-btn" id="gantiMode" type="button" aria-label="Ganti mode terang/gelap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path class="bulan" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/><g class="matahari"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+    <a class="nav-cta" href="index.html#kontak">Kontak</a>
+  </nav>
+</div></header>
+<main id="main" tabindex="-1"></main>
+<div id="akhir"></div>
+<script src="app.js"></script>
+</body>
+</html>
