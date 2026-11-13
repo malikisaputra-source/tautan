@@ -644,3 +644,19 @@ li.pd-prompt .pd-salin { top: 50%; transform: translateY(-50%); }
 .k-tt-n b { color: #fde68a; }
 .k-tt-cta { justify-self: start; margin-top: 2px; font-size: 13px; font-weight: 600; color: #fde68a; text-decoration: underline; text-underline-offset: 3px; }
 #kd-repo[hidden] { display: none !important; }
+
+/* pemilih jenis source code di hero */
+.k-pilih { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 860px; margin: 8px auto 26px; text-align: left; }
+.k-pilih a { position: relative; display: grid; grid-template-columns: 44px 1fr; grid-template-areas: "ik isi" "ik em"; column-gap: 12px; row-gap: 4px; align-items: center; padding: 14px 16px; border-radius: 16px;
+  border: 1px solid var(--garis2, rgba(255,255,255,.14)); background: rgba(13,17,27,.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--teks); text-decoration: none; transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s, background .25s; }
+.k-pilih a:hover { transform: translateY(-3px); border-color: rgba(34,211,238,.55); }
+.k-pilih a[aria-current="page"] { border-color: var(--aksen); background: linear-gradient(135deg, rgba(34,211,238,.14), rgba(129,140,248,.08)), rgba(13,17,27,.85); }
+.k-pilih i { grid-area: ik; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-style: normal; font-family: var(--mono); font-weight: 600; color: var(--aksen); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+.k-pilih a[aria-current="page"] i { background: var(--aksen); color: #04121a; border-color: var(--aksen); }
+.k-pilih span { grid-area: isi; display: flex; flex-direction: column; min-width: 0; }
+.k-pilih b { font-size: 16px; }
+.k-pilih small { color: var(--redup); font-size: 12.5px; line-height: 1.35; }
+.k-pilih em { grid-area: em; font-style: normal; font-family: var(--mono); font-size: 11.5px; color: var(--hijau, #10b981); }
+@media (max-width: 760px) { .k-pilih { grid-template-columns: 1fr; gap: 8px; margin-bottom: 18px; } .k-pilih a { padding: 12px 14px; } }
+/* tab laman ikut menempel saat menggulir showroom */
+.k-laman { position: sticky; top: 72px; z-index: 30; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(7,9,15,.82); }

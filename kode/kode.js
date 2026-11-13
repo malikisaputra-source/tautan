@@ -17,6 +17,13 @@
     const lain = s && !DATA.some((d) => d.slug === s) && SEMUA.find((d) => d.slug === s);
     if (lain) { const tj = LAMAN_DAF.find((l) => l.id === grup(lain)); location.replace((AKAR || "./") + tj.url + "#k/" + s); } }
   { const nav = document.getElementById("k-laman");
+    const pilih = document.getElementById("k-pilih");
+    const INFO = { web: ["&lt;/&gt;", "Website, kasir, katalog, presensi"], agent: ["✦", "Agen AI + kantor 3D siap pakai"], video: ["▶", "Template reels & motion graphic"] };
+    if (pilih) pilih.innerHTML = LAMAN_DAF.map((l) => {
+      const n = SEMUA.filter((d) => grup(d) === l.id && !d.kunci).length, m = SEMUA.filter((d) => grup(d) === l.id).length;
+      const [ik, ket] = INFO[l.id] || ["•", ""];
+      return `<a href="${(AKAR || "./") + l.url}${l.id === LAMAN ? "#katalog" : ""}" ${l.id === LAMAN ? 'aria-current="page"' : ""}><i aria-hidden="true">${ik}</i><span><b>${l.label}</b><small>${ket}</small></span><em>${n} siap${m > n ? ` · ${m - n} segera` : ""}</em></a>`;
+    }).join("");
     if (nav) nav.innerHTML = LAMAN_DAF.map((l) => {
       const n = SEMUA.filter((d) => grup(d) === l.id).length;
       return `<a href="${(AKAR || "./") + l.url}" ${l.id === LAMAN ? 'aria-current="page"' : ""}>${l.label}<span>${n}</span></a>`;
