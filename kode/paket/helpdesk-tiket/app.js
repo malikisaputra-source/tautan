@@ -1,6 +1,6 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Helpdesk Tiket IT — tiket IT support dengan prioritas, level eskalasi L1–L3, SLA, utas, dan notifikasi WhatsApp.
-   HTML/CSS/JS murni, data di localStorage. Dibuat oleh Maliki Studio — malikisaputra.biz.id (MIT).
+   HTML/CSS/JS murni, data di localStorage. Dibuat oleh Maliki Studio — malikisaputra.biz.id (Lisensi Nonkomersial Maliki Studio).
    Peta kode: lihat .claude/skills/ubah-helpdesk-tiket/SKILL.md */
 (function () {
   'use strict';

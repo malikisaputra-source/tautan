@@ -70,7 +70,7 @@ absensi-kelas-guru/
 - ui-ux-pro-max — https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT menurut GitHub API, dicek 6 Nov 2026)
 
 ## Lisensi
-MIT + syarat atribusi & tidak untuk diperjualbelikan (lihat `LICENSE`). SheetJS Community Edition (Apache-2.0) dimuat dari CDN, tidak disertakan di paket.
+Lisensi Nonkomersial Maliki Studio: kredit wajib & tidak untuk diperjualbelikan (lihat `LICENSE`). SheetJS Community Edition (Apache-2.0) dimuat dari CDN, tidak disertakan di paket.
 
 Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra.
 

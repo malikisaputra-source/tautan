@@ -1,5 +1,5 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
-/* Katalog Toko WA — Maliki Studio (malikisaputra.biz.id). Lisensi MIT. */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
+/* Katalog Toko WA — Maliki Studio (malikisaputra.biz.id). Lisensi Nonkomersial Maliki Studio. */
 (function (root) {
   'use strict';
 

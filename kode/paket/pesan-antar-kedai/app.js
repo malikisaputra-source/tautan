@@ -1,5 +1,5 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
-/* Pesan Antar Kedai — Maliki Studio. Lisensi MIT.
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
+/* Pesan Antar Kedai — Maliki Studio. Lisensi Nonkomersial Maliki Studio.
    Satu app statis, tiga sudut: Pembeli, Kedai, Kurir.
    Data di localStorage; antartab disinkronkan lewat BroadcastChannel (demo satu perangkat).
    Untuk multi-perangkat sungguhan lihat README (Supabase/Firebase). */

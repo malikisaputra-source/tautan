@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Direktori Rumah Ibadah — logika aplikasi (HTML/CSS/JS murni, data di localStorage). Lihat SKILL.md untuk peta kode. */
 (function () {
   'use strict';

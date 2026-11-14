@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Data contoh (fiktif). Dipakai saat aplikasi pertama kali dibuka atau setelah "Isi data contoh".
    Bulan dihitung relatif ke hari ini supaya contoh selalu terasa "bulan berjalan". */
 window.DATA_CONTOH = function () {

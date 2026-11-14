@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Data contoh FIKTIF: judul, penulis, penerbit, dan ISBN dikarang sendiri (awalan 999 bukan ISBN asli).
    Dipakai saat aplikasi pertama dibuka & mode ?demo. Ganti/hapus lewat aplikasi, bukan di sini. */
 window.DATA_CONTOH = {

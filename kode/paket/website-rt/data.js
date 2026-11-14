@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* GAMBAR — SATU tempat untuk semua logo & foto. Ganti = timpa berkas di img/ (nama sama) atau ubah path di sini.
    Kosongkan ('') untuk menyembunyikan. Bila gagal dimuat, otomatis kembali ke ikon/inisial. */
 window.GAMBAR = {

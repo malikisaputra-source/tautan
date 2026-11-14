@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Catatan Ojol — HTML/CSS/JS murni, data di localStorage. Peta file: lihat AGENTS.md */
 // KONFIG gambar: ganti logo/avatar bawaan cukup timpa berkas di img/ atau ubah path di sini.
 var KONFIG = { logo: 'img/logo.svg', avatar: 'img/avatar.svg' };

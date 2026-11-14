@@ -1,6 +1,6 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Kas Warung — buku kas harian untuk warung. HTML/CSS/JS murni, data di localStorage.
-   Dibuat oleh Maliki Studio — malikisaputra.biz.id (MIT). Peta kode: lihat .claude/skills/ubah-kas-warung/SKILL.md */
+   Dibuat oleh Maliki Studio — malikisaputra.biz.id (Lisensi Nonkomersial Maliki Studio). Peta kode: lihat .claude/skills/ubah-kas-warung/SKILL.md */
 // KONFIG gambar — ganti logo/foto cukup timpa berkas di img/ atau ubah path di sini.
 var KONFIG = {
   logo: 'img/logo.svg',

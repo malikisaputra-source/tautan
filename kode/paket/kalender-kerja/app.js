@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Kalender Kerja Harian — logika aplikasi (tanpa build, tanpa server).
    Peta: util · data & migrasi · jadwal berulang · render (strip, garis waktu, fokus, legenda)
    · seret/ubah ukuran · form · pengingat · ekspor (.ics, Google, CSV, JSON) · tema & customizer · mulai */

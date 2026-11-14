@@ -29,4 +29,4 @@ Catatan: impor CSV tidak membawa jenis lembar (bw/warna); atur lewat form layana
 ## Ubah pakai AI
 Paket ini membawa Agent Skill `.claude/skills/ubah-kasir-fotocopy/SKILL.md` dan `AGENTS.md`. Kalau berkas diubah, naikkan versi `CACHE` di `sw.js`.
 
-Template oleh Maliki Saputra (@malikisaputra), lisensi MIT + atribusi.
+Template oleh Maliki Saputra (@malikisaputra), Lisensi Nonkomersial Maliki Studio.

@@ -78,7 +78,7 @@ Pasang skill desain ini di Claude Code:
 Peta © kontributor OpenStreetMap (ODbL), pustaka Leaflet (BSD-2). Patuhi kebijakan pemakaian ubin OSM; untuk trafik besar pakai penyedia ubin sendiri.
 
 ## Lisensi
-MIT + syarat tambahan (lihat `LICENSE`): gratis dipakai untuk usaha/organisasi sendiri dan boleh diubah, **wajib mencantumkan kreator** (Template oleh Maliki Saputra, @malikisaputra), dan **tidak boleh diperjualbelikan** tanpa izin. Mau menjual atau kerja sama? Diskusikan dulu dengan kreatornya.
+Lisensi Nonkomersial Maliki Studio (lihat `LICENSE`): gratis dipakai untuk usaha/organisasi sendiri dan boleh diubah, **wajib mencantumkan kreator** (Template oleh Maliki Saputra, @malikisaputra), dan **tidak boleh diperjualbelikan** tanpa izin. Mau menjual atau kerja sama? Diskusikan dulu dengan kreatornya.
 
 Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra
 

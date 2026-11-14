@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
-<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). -->
 <rect width="300" height="400" fill="#f1f3f2"/><rect x="10" y="10" width="280" height="380" rx="16" fill="none" stroke="#9aa5a0" stroke-width="3" stroke-dasharray="10 8"/>
 <rect x="105" y="150" width="90" height="70" rx="10" fill="none" stroke="#6b7772" stroke-width="6"/><circle cx="150" cy="185" r="18" fill="none" stroke="#6b7772" stroke-width="6"/>
 <text x="150" y="260" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#4b5551">Foto bukti bayar</text>

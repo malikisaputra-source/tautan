@@ -104,4 +104,4 @@ Kamu tidak perlu jago coding. Template ini sudah disiapkan supaya mudah diubah A
 Masih bingung? Komen di TikTok/IG **@malikisaputra**, nanti aku bantu.
 
 ## Lisensi
-MIT + syarat atribusi (lihat `LICENSE`). Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra.
+Lisensi Nonkomersial Maliki Studio (kredit wajib, dilarang dijual) (lihat `LICENSE`). Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra.

@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Halaman profil rumah ibadah ("Jadikan website"): satu tempat jadi website sendiri.
    Buka lewat index.html?tempat=<id> atau tombol "Jadikan website" di detail.
    Dimuat SEBELUM app.js; app.js mengisi window.DIR (data & utilitas) lalu memanggil PROFIL.buka(). */

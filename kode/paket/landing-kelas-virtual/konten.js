@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /*
   KONTEN — SATU-SATUNYA berkas yang perlu kamu ubah untuk jualan kelasmu.
   Semua teks, harga, link Lynk, link WhatsApp, dan warna ada di sini.

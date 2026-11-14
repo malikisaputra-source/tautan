@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Service worker: simpan semua berkas agar aplikasi jalan tanpa internet. */
 var CACHE = 'perpustakaan-digital-v1';
 var BERKAS = ['./', './index.html', './katalog.html', './style.css', './app.js', './katalog.js', './data-contoh.js', './katalog.json', './contoh-katalog.csv', './manifest.webmanifest', './ikon.svg', './tema.css', './tema.js', './img/logo.svg'];

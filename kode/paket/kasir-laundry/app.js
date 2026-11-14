@@ -1,5 +1,5 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
-/* Kasir Laundry — Maliki Studio (turunan Kasir Fotocopy/Kasir UMKM). Offline-first, sinkron Google Sheets opsional. Lisensi MIT. */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
+/* Kasir Laundry — Maliki Studio (turunan Kasir Fotocopy/Kasir UMKM). Offline-first, sinkron Google Sheets opsional. Lisensi Nonkomersial Maliki Studio. */
 (function () {
   'use strict';
 

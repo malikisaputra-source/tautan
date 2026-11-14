@@ -1,4 +1,4 @@
-<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). -->
+<!-- kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). -->
 # Manajemen Gym
 
 Aplikasi untuk mengelola gym kecil-menengah: data member, paket, pembayaran, check-in, dan pengingat perpanjangan lewat WhatsApp. Jalan di browser laptop atau HP, bisa di-install (PWA), dan tetap jalan tanpa internet. Data tersimpan di perangkat itu sendiri.
@@ -51,7 +51,7 @@ AGENTS.md, DESIGN.md, .claude/skills/ubah-manajemen-gym/SKILL.md   panduan untuk
 - ui-ux-pro-max — https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT menurut GitHub API, dicek 6 Nov 2026)
 
 ## Lisensi
-MIT + syarat atribusi (lihat `LICENSE`). Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra.
+Lisensi Nonkomersial Maliki Studio (kredit wajib, dilarang dijual) (lihat `LICENSE`). Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra.
 
 <!-- panduan-ai-maliki -->
 ## Ubah sendiri sesuai kebutuhanmu pakai AI

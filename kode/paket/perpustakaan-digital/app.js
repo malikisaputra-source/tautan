@@ -1,5 +1,5 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
-/* Perpustakaan Digital Rumah Sakit — Maliki Studio (malikisaputra.biz.id). Lisensi MIT + atribusi. */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
+/* Perpustakaan Digital Rumah Sakit — Maliki Studio (malikisaputra.biz.id). Lisensi Nonkomersial Maliki Studio. */
 (function () {
   'use strict';
   var KUNCI = 'perpustakaan-digital-v1';

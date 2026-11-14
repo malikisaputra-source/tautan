@@ -42,7 +42,7 @@ Ganti `--tema-utama` dan `--tema-aksen` di `tema.css` (atau `warna` di `konten.j
 - ui-ux-pro-max — https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT)
 
 ## Lisensi
-MIT + syarat atribusi & tidak untuk diperjualbelikan (lihat LICENSE).
+Lisensi Nonkomersial Maliki Studio: kredit wajib & tidak untuk diperjualbelikan (lihat LICENSE).
 
 Dibuat oleh Maliki Studio — malikisaputra.biz.id, follow TikTok/IG @malikisaputra
 

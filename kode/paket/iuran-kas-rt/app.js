@@ -1,4 +1,4 @@
-/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi MIT + wajib atribusi (lihat LICENSE). */
+/* kredit-maliki: Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id. Lisensi Nonkomersial Maliki Studio: wajib kredit, dilarang dijual (lihat LICENSE). */
 /* Iuran & Kas RT — logika aplikasi (tanpa build, tanpa library).
    Peta: 1. util · 2. data & simpan · 3. tema/customizer · 4. render · 5. aksi · 6. ekspor */
 /* KONFIG gambar: ganti logo cukup timpa img/logo-rt.svg (atau ubah path ke .png/.jpg). */
