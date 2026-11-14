@@ -1,38 +1,5 @@
 window.KODE = [
  {
-  "slug": "studio-maliki",
-  "judul": "Studio Maliki · Klip + Motion",
-  "ringkas": "Aplikasi desktop gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Semua diproses di laptopmu, AI pakai milikmu sendiri.",
-  "teknologi": [
-   "Python",
-   "Remotion",
-   "faster-whisper",
-   "ffmpeg"
-  ],
-  "kategori": "Template Video",
-  "tier": "premium",
-  "fitur": [
-   "Klip: link YouTube atau file → AI memilih momen, skor, judul, caption",
-   "Bingkai 9:16 mengikuti wajah pembicara, subtitle karaoke dengan pilihan gaya",
-   "Motion: tulis topik → naskah, suara narator, animasi, MP4",
-   "24 gaya visual + gambar SVG per adegan dari AI",
-   "AI milikmu sendiri: Lokal, Gemini, Ollama, Claude Code, Codex, OpenCode",
-   "Tanpa watermark, tanpa kuota, video tidak diunggah ke mana pun",
-   "Tema gelap & terang, installer macOS dan Windows"
-  ],
-  "cara": [
-   "Unduh ZIP, lalu ekstrak",
-   "(Untuk Motion) pasang Node.js LTS dari nodejs.org",
-   "macOS: klik dua kali Pasang Studio Maliki.command. Windows: Pasang Studio Maliki (Windows).bat",
-   "Tunggu 1–3 menit, aplikasi Studio Maliki terbuka sendiri",
-   "Ikuti wizard di dalam aplikasi untuk memasang komponen dan memilih AI"
-  ],
-  "demo": null,
-  "gambar": "img/studio-maliki.webp",
-  "repo": "https://github.com/malikisaputra-source/studio-maliki",
-  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip"
- },
- {
   "slug": "absensi-karyawan",
   "judul": "Absensi Karyawan",
   "ringkas": "Absensi UMKM & kantor kecil: check-in tombol besar, lokasi & selfie opsional, shift, izin, kalender warna, rekap gaji, mode kiosk.",
@@ -2232,6 +2199,39 @@ window.KODE = [
   "gambar": "img/skill-narasi-laporan-word.webp",
   "repo": "https://github.com/malikisaputra-source/skill-narasi-laporan-word",
   "zip": "https://github.com/malikisaputra-source/skill-narasi-laporan-word/archive/refs/heads/main.zip"
+ },
+ {
+  "slug": "studio-maliki",
+  "judul": "Studio Maliki · Klip + Motion",
+  "ringkas": "Aplikasi desktop gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Semua diproses di laptopmu, AI pakai milikmu sendiri.",
+  "teknologi": [
+   "Python",
+   "Remotion",
+   "faster-whisper",
+   "ffmpeg"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [
+   "Klip: link YouTube atau file → AI memilih momen, skor, judul, caption",
+   "Bingkai 9:16 mengikuti wajah pembicara, subtitle karaoke dengan pilihan gaya",
+   "Motion: tulis topik → naskah, suara narator, animasi, MP4",
+   "24 gaya visual + gambar SVG per adegan dari AI",
+   "AI milikmu sendiri: Lokal, Gemini, Ollama, Claude Code, Codex, OpenCode",
+   "Tanpa watermark, tanpa kuota, video tidak diunggah ke mana pun",
+   "Tema gelap & terang, installer macOS dan Windows"
+  ],
+  "cara": [
+   "Unduh ZIP, lalu ekstrak",
+   "(Untuk Motion) pasang Node.js LTS dari nodejs.org",
+   "macOS: klik dua kali Pasang Studio Maliki.command. Windows: Pasang Studio Maliki (Windows).bat",
+   "Tunggu 1–3 menit, aplikasi Studio Maliki terbuka sendiri",
+   "Ikuti wizard di dalam aplikasi untuk memasang komponen dan memilih AI"
+  ],
+  "demo": null,
+  "gambar": "img/studio-maliki.webp",
+  "repo": "https://github.com/malikisaputra-source/studio-maliki",
+  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip"
  },
  {
   "slug": "template-agrowisata",

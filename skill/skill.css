@@ -169,3 +169,5 @@
 .s-pop { min-height: 540px; }
 .s-pop-kartu:nth-child(2) { top: 70px; }
 .s-pop-kartu:nth-child(3) { top: 285px; left: 4%; }
+.s-pop-kartu:nth-child(4) { top: 330px; right: 0; left: auto; rotate: 2deg; z-index: 2; }
+.s-pop { min-height: 600px; }
