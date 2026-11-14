@@ -15,7 +15,10 @@
   window.muatHitung = async () => {
     if (!aktif) return;
     try {
-      const r = await fetch(SB_URL + "/rest/v1/rpc/ringkasan", { method: "POST", headers: kepala, body: "{}" });
+      // hanya slug paket yang ada di laman (server membatasi 1000 baris; slug sampah tidak ikut)
+      const daftar = (window.KODE || []).map((d) => d.slug).filter((x) => /^[a-z0-9-]+$/.test(x));
+      const q = daftar.length ? "?slug=in.(" + daftar.join(",") + ")" : "?or=(zip.gt.0,skill.gt.0)";
+      const r = await fetch(SB_URL + "/rest/v1/rpc/ringkasan" + q, { method: "POST", headers: kepala, body: "{}" });
       if (!r.ok) return;
       (await r.json()).forEach((x) => (window.HITUNG[x.slug] = { zip: +x.zip, skill: +x.skill, lihat: +x.lihat }));
       window.segarkanHitung && window.segarkanHitung();

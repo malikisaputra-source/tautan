@@ -21,7 +21,7 @@
   }
   async function muat() {
     try {
-      const r = await fetch(SB + "/rest/v1/rpc/ringkasan", { method: "POST", headers: H, body: "{}" }); if (!r.ok) return;
+      const r = await fetch(SB + "/rest/v1/rpc/ringkasan?or=(zip.gt.0,skill.gt.0,slug.eq._situs)", { method: "POST", headers: H, body: "{}" }); if (!r.ok) return;
       const rows = await r.json(); let k, u = 0;
       k = AWAL; rows.forEach((x) => { if (x.slug === "_situs") k += +x.lihat; else u += (+x.zip) + (+x.skill); });
       wadah.forEach((w) => { w.hidden = false;
