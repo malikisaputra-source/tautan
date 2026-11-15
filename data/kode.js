@@ -2232,20 +2232,20 @@ window.KODE = [
   "unduhan_lain": [
    {
     "label": "🍎 Download for MacBook",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Mac.dmg"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/download/v2.0.0/Studio-Maliki-Mac.dmg"
    },
    {
     "label": "🪟 Download for Windows",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Windows.exe"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/download/v2.0.0/Studio-Maliki-Windows.exe"
    },
    {
     "label": "📱 Download for Android",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/KlipHP-Android.apk"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/download/v2.0.0/KlipHP-Android.apk"
    }
   ],
   "gambar": "img/studio-maliki.webp",
-  "repo": "https://github.com/malikisaputra-source/studio-maliki",
-  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip"
+  "repo": "https://github.com/malikisaputra-source/unduh/releases/tag/v2.0.0",
+  "zip": "https://github.com/malikisaputra-source/unduh/releases/tag/v2.0.0"
  },
  {
   "slug": "template-agrowisata",
