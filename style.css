@@ -587,3 +587,16 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
   .cuplik-kartu { scroll-snap-align: start; }
 }
 .atas .logo { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Unduh Studio Maliki 2.0 (15 Nov 2026) */
+.unduh-studio { position: relative; z-index: 2; width: calc(100% - 32px); max-width: 1100px; margin: 28px auto 0; padding: 24px; box-sizing: border-box; border: 1px solid var(--garis2); border-radius: 22px; background: var(--panel); }
+.unduh-tag { margin: 0; font: 700 12px/1 ui-monospace, monospace; letter-spacing: .12em; color: var(--aksen); }
+.unduh-studio h2 { margin: 10px 0 6px; font-size: clamp(22px, 3vw, 30px); color: var(--teks); }
+.unduh-sub { margin: 0 0 16px; color: var(--redup); }
+.unduh-tombol { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.unduh-btn { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--garis2); background: var(--bg2); color: var(--teks); text-decoration: none; transition: transform .15s, border-color .15s; }
+.unduh-btn:hover { transform: translateY(-2px); border-color: var(--aksen); }
+.unduh-btn span { grid-row: span 2; font-size: 28px; }
+.unduh-btn small { color: var(--redup2); }
+.unduh-kecil { margin: 14px 0 0; font-size: 13px; color: var(--redup2); }
+.unduh-kecil a { color: var(--aksen); }
