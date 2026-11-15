@@ -45,3 +45,7 @@ body[data-laman="video"] .k-hero-isi { position: relative; z-index: 2; transitio
 .hk-total { margin: 4px 0; font: 700 40px/1 "Space Grotesk", sans-serif; color: #fff; }
 .hk-total small { display: block; margin-top: 4px; font: 500 12px "JetBrains Mono", monospace; color: #facc15; }
 @media (max-width: 760px) { .hk-hud { top: 68px; } .hk-panel .hk-info { display: none; } .hk-kartu { padding: 14px 16px; font-size: 13px; } .hk-total { font-size: 32px; } }
+
+/* panel Main: di alur halaman setelah baris ringkas (dulu absolute, menimpa tombol CTA) */
+.hk-panel { position: relative; left: auto; top: auto; bottom: auto; translate: none; justify-content: center; margin: 14px auto 0; width: max-content; max-width: 100%; }
+.k-hero.hk-main > .hk-panel { position: absolute; left: 50%; top: auto; bottom: auto; translate: -50% 0; margin: 0; z-index: 5; }

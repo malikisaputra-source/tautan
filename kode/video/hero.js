@@ -32,7 +32,10 @@
     '<div class="hk-render"><span>RENDER</span><i><em data-bar></em></i><b data-prog>0%</b></div>' +
     '<div class="hk-baris kecil"><span class="hk-combo" data-combo>x1</span><span class="hk-bintang" data-bintang>☆☆☆</span><span class="hk-misi" data-misi></span></div>';
   var pesan = document.createElement('div'); pesan.className = 'hk-pesan'; pesan.setAttribute('role', 'status');
-  hero.appendChild(panel); hero.appendChild(hud); hero.appendChild(pesan);
+  var ringkas = hero.querySelector('.k-ringkas') || hero.querySelector('.k-hero-aksi');
+  function taruhPanel(main) { if (main || !ringkas) { hero.appendChild(panel); panel.style.top = (Math.min(hero.offsetHeight, window.innerHeight) - 70) + 'px'; } else { panel.style.top = ''; ringkas.insertAdjacentElement('afterend', panel); } }  // ikut alur saat diam, pindah ke hero saat main
+  taruhPanel(false);
+  hero.appendChild(hud); hero.appendChild(pesan);
   var btn = panel.querySelector('[data-main]'), elBest = panel.querySelector('[data-best]');
   var q = function (s) { return hud.querySelector(s); };
   var elSkor = q('[data-skor]'), elWaktu = q('[data-waktu]'), elLv = q('[data-lv]'), elBar = q('[data-bar]'), elProg = q('[data-prog]'),
@@ -67,7 +70,7 @@
     var r = wadah.getBoundingClientRect(); W = r.width; H = r.height;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    VH = Math.min(H, window.innerHeight); panel.style.top = (VH - 70) + 'px';
+    VH = Math.min(H, window.innerHeight); panel.style.top = '';  // posisi panel diatur CSS (ikut alur)
     pesan.style.top = (VH * 0.46) + 'px';
     if (!jalan) gambar();
   }
@@ -329,14 +332,14 @@
 
   function masuk() {
     if (main()) return;
-    hero.classList.add('hk-main'); btn.innerHTML = '✕ Keluar <kbd>Esc</kbd>'; btn.setAttribute('aria-label', 'Keluar dari game');
+    hero.classList.add('hk-main'); taruhPanel(true); btn.innerHTML = '✕ Keluar <kbd>Esc</kbd>'; btn.setAttribute('aria-label', 'Keluar dari game');
     if (window.__lenis && window.__lenis.stop) window.__lenis.stop();
     var top = hero.getBoundingClientRect().top; if (Math.abs(top) > 4) window.scrollBy({ top: top, behavior: diam ? 'auto' : 'smooth' });
     kartuMisi(); stopLoop(); terlihat = true; mulaiLoop();
   }
   function keluar() {
     if (!main()) return; fase = 'demo'; kunci.k = kunci.n = 0; sentuh = 0; pesan.classList.remove('on'); pesan.innerHTML = '';
-    hero.classList.remove('hk-main'); btn.innerHTML = '▶ Main <kbd>Spasi</kbd>'; btn.setAttribute('aria-label', 'Main game Render Rally');
+    hero.classList.remove('hk-main'); taruhPanel(false); btn.innerHTML = '▶ Main <kbd>Spasi</kbd>'; btn.setAttribute('aria-label', 'Main game Render Rally');
     if (window.__lenis && window.__lenis.start) window.__lenis.start();
     resetRonde(); teks = []; if (diam) { stopLoop(); gambar(); }
   }
