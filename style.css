@@ -588,15 +588,22 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
 }
 .atas .logo { display: inline-flex; align-items: center; min-height: 44px; }
 
-/* Unduh Studio Maliki 2.0 (15 Nov 2026) */
-.unduh-studio { position: relative; z-index: 2; width: calc(100% - 32px); max-width: 1100px; margin: 28px auto 0; padding: 24px; box-sizing: border-box; border: 1px solid var(--garis2); border-radius: 22px; background: var(--panel); }
-.unduh-tag { margin: 0; font: 700 12px/1 ui-monospace, monospace; letter-spacing: .12em; color: var(--aksen); }
-.unduh-studio h2 { margin: 10px 0 6px; font-size: clamp(22px, 3vw, 30px); color: var(--teks); }
-.unduh-sub { margin: 0 0 16px; color: var(--redup); }
-.unduh-tombol { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.unduh-btn { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--garis2); background: var(--bg2); color: var(--teks); text-decoration: none; transition: transform .15s, border-color .15s; }
-.unduh-btn:hover { transform: translateY(-2px); border-color: var(--aksen); }
-.unduh-btn span { grid-row: span 2; font-size: 28px; }
-.unduh-btn small { color: var(--redup2); }
-.unduh-kecil { margin: 14px 0 0; font-size: 13px; color: var(--redup2); }
+/* Unduh Studio Maliki 2.0 (15 Nov 2026; dirapikan 16 Nov: di bawah hero, ikon garis, ringkas) */
+.unduh-studio { width: calc(100% - 32px); max-width: 1100px; margin: 8px auto 56px; padding: 22px 24px; box-sizing: border-box; border: 1px solid var(--garis2); border-radius: 22px; background: var(--panel);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 20px 28px; align-items: center; }
+.unduh-tag { display: flex; align-items: center; gap: 8px; margin: 0; font: 600 12px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .06em; color: var(--aksen); }
+.unduh-studio h2 { margin: 10px 0 6px; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.2; color: var(--teks); }
+.unduh-sub { margin: 0; color: var(--redup); font-size: 15px; line-height: 1.5; }
+.unduh-tombol { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; }
+.unduh-btn { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; row-gap: 2px; align-items: center; min-height: 64px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--garis2); background: var(--bg2); color: var(--teks); text-decoration: none; transition: transform .15s, border-color .15s; }
+.unduh-btn:hover, .unduh-btn:focus-visible { transform: translateY(-2px); border-color: var(--aksen); }
+.unduh-btn svg { grid-row: span 2; width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; color: var(--aksen); }
+.unduh-btn svg circle { fill: currentColor; stroke: none; }
+.unduh-btn b { font-size: 15px; }
+.unduh-btn b em { font: 500 11px/1 "JetBrains Mono", monospace; font-style: normal; color: #fbbf24; border: 1px solid rgba(251,191,36,.4); border-radius: 999px; padding: 2px 6px; margin-left: 4px; vertical-align: 2px; }
+.unduh-btn small { color: var(--redup2); font-size: 12px; }
+.unduh-kecil { grid-column: 1 / -1; margin: 0; font-size: 13px; color: var(--redup2); }
 .unduh-kecil a { color: var(--aksen); }
+@media (max-width: 1100px) { .unduh-studio { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .unduh-tombol { grid-template-columns: 1fr; } .unduh-studio { padding: 18px; } }
+#unduh-agen { margin-top: -36px; }

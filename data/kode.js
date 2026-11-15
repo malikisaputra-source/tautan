@@ -2229,9 +2229,6 @@ window.KODE = [
    "Versi baru? Pasang lagi installer barunya, hasil kerjamu tidak terhapus"
   ],
   "demo": null,
-  "gambar": "img/studio-maliki.webp",
-  "repo": "https://github.com/malikisaputra-source/studio-maliki",
-  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip",
   "unduhan_lain": [
    {
     "label": "🍎 Download for MacBook",
@@ -2245,7 +2242,10 @@ window.KODE = [
     "label": "📱 Download for Android",
     "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/KlipHP-Android.apk"
    }
-  ]
+  ],
+  "gambar": "img/studio-maliki.webp",
+  "repo": "https://github.com/malikisaputra-source/studio-maliki",
+  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip"
  },
  {
   "slug": "template-agrowisata",
