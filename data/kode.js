@@ -2202,8 +2202,8 @@ window.KODE = [
  },
  {
   "slug": "studio-maliki",
-  "judul": "Studio Maliki · Klip + Motion",
-  "ringkas": "Aplikasi desktop gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Semua diproses di laptopmu, AI pakai milikmu sendiri.",
+  "judul": "Studio Maliki 2.0 · Klip + Motion",
+  "ringkas": "Aplikasi gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Sekarang ada installer Mac & Windows (tanpa Terminal) dan Klip HP untuk Android.",
   "teknologi": [
    "Python",
    "Remotion",
@@ -2213,25 +2213,39 @@ window.KODE = [
   "kategori": "Template Video",
   "tier": "premium",
   "fitur": [
-   "Klip: link YouTube atau file → AI memilih momen, skor, judul, caption",
-   "Bingkai 9:16 mengikuti wajah pembicara, subtitle karaoke dengan pilihan gaya",
+   "Bingkai 9:16 ikut orang yang benar-benar bicara (gerak mulut dicocokkan dengan suara), pindah saat kamera pindah",
+   "Subtitle: kata penting hijau, emoji otomatis, judul pembuka, zoom di kata pemikat, progress bar, watermark",
+   "B-roll dari videomu sendiri atau Pixabay (video film, bukan kartun)",
+   "Klip: link YouTube atau file → AI memilih momen dari kalimat utuh, lengkap dengan skor, judul, alasan",
    "Motion: tulis topik → naskah, suara narator, animasi, MP4",
-   "24 gaya visual + gambar SVG per adegan dari AI",
    "AI milikmu sendiri: Lokal, Gemini, Ollama, Claude Code, Codex, OpenCode",
-   "Tanpa watermark, tanpa kuota, video tidak diunggah ke mana pun",
-   "Tema gelap & terang, installer macOS dan Windows"
+   "Installer MacBook (.dmg) & Windows (.exe), plus Klip HP untuk Android"
   ],
   "cara": [
-   "Unduh ZIP, lalu ekstrak",
-   "(Untuk Motion) pasang Node.js LTS dari nodejs.org",
-   "macOS: klik dua kali Pasang Studio Maliki.command. Windows: Pasang Studio Maliki (Windows).bat",
-   "Tunggu 1–3 menit, aplikasi Studio Maliki terbuka sendiri",
-   "Ikuti wizard di dalam aplikasi untuk memasang komponen dan memilih AI"
+   "MacBook: unduh .dmg → seret Studio Maliki ke Applications → pertama kali klik kanan → Buka",
+   "Windows (tahap uji): jalankan .exe → kalau muncul layar biru, Info selengkapnya → Tetap jalankan → ikuti wizard",
+   "Android: unduh .apk → izinkan dari sumber ini → kalau muncul Play Protect, Scan app lalu Install",
+   "Saat pertama membuat klip, model suara diunduh sekali",
+   "Versi baru? Pasang lagi installer barunya, hasil kerjamu tidak terhapus"
   ],
   "demo": null,
   "gambar": "img/studio-maliki.webp",
   "repo": "https://github.com/malikisaputra-source/studio-maliki",
-  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip"
+  "zip": "https://github.com/malikisaputra-source/studio-maliki/archive/refs/heads/main.zip",
+  "unduhan_lain": [
+   {
+    "label": "🍎 Download for MacBook",
+    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Mac.dmg"
+   },
+   {
+    "label": "🪟 Download for Windows",
+    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Windows.exe"
+   },
+   {
+    "label": "📱 Download for Android",
+    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/KlipHP-Android.apk"
+   }
+  ]
  },
  {
   "slug": "template-agrowisata",
