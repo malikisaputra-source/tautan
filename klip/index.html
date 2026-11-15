@@ -39,6 +39,11 @@ video,canvas.pratinjau{width:100%;border-radius:12px;background:#000;display:blo
 .peringatan{background:#3a2c0c;color:#fbbf24;border-radius:12px;padding:10px 12px;font-size:13px;margin-bottom:14px}
 footer{color:var(--redup);font-size:12px;text-align:center;margin-top:20px}footer a{color:var(--aksen)}
 [hidden]{display:none!important}
+details.yt{margin-top:12px;border:1px solid var(--garis);border-radius:12px;padding:0 14px}
+details.yt summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--aksen)}
+details.yt p,details.yt ol{font-size:13.5px;color:var(--teks);margin:0 0 10px}details.yt ol{padding-left:20px}
+details.yt .kecil{color:var(--redup);font-size:12.5px}
+#ytLink{width:100%;background:var(--bg);color:var(--teks);border:1px solid var(--garis);border-radius:10px;padding:12px;font:inherit}
 </style>
 </head>
 <body>
@@ -51,6 +56,19 @@ footer{color:var(--redup);font-size:12px;text-align:center;margin-top:20px}foote
     <h2><span class="no">1</span>Pilih video</h2>
     <label class="pilih" for="berkas"><b id="namaBerkas">Ketuk untuk pilih video dari galeri</b>MP4/MOV, idealnya di bawah 15 menit</label>
     <input type="file" id="berkas" accept="video/*">
+    <details class="yt">
+      <summary>Punya link YouTube?</summary>
+      <p>Browser HP tidak bisa mengambil video YouTube langsung. Simpan dulu videonya ke galeri, lalu pilih di atas.</p>
+      <div class="baris"><input id="ytLink" type="url" inputmode="url" placeholder="Tempel link YouTube di sini" aria-label="Link YouTube"></div>
+      <div style="height:8px"></div>
+      <button class="garis" id="tUnduh">Salin link &amp; buka pengunduh</button>
+      <ol>
+        <li>Di halaman pengunduh, tempel link (sudah tersalin), pilih kualitas MP4, lalu unduh.</li>
+        <li>Kembali ke sini dan ketuk <b>Pilih video</b>, ambil file yang baru diunduh.</li>
+      </ol>
+      <p class="kecil">Alternatif tanpa situs lain: putar videonya lalu <b>rekam layar</b> (iPhone: Pusat Kontrol → Rekam Layar · Android: panel cepat → Perekam layar), kemudian pilih rekamannya.</p>
+      <p class="kecil">Pengunduh adalah situs pihak ketiga (bukan milik Studio Maliki) dan berisi iklan. Pakai untuk video milikmu sendiri atau yang sudah diizinkan pemiliknya.</p>
+    </details>
   </section>
 
   <section class="kartu" id="k2" hidden>
@@ -104,6 +122,14 @@ const kurang = [];
 if (!("VideoEncoder" in window)) kurang.push("browser belum mendukung WebCodecs (pakai Chrome terbaru atau iOS 26)");
 if (kurang.length) { $("#peringatan").hidden = false; $("#peringatan").textContent = "Belum bisa jalan: " + kurang.join("; ") + "."; }
 
+$("#tUnduh").onclick = async () => {
+  const link = $("#ytLink").value.trim();
+  if (link && !/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//.test(link)) { $("#ytLink").focus(); $("#ytLink").setCustomValidity("Isi dengan link YouTube"); $("#ytLink").reportValidity(); return; }
+  $("#ytLink").setCustomValidity("");
+  if (link) { try { await navigator.clipboard.writeText(link); $("#tUnduh").textContent = "Link tersalin ✓ membuka pengunduh…"; } catch (e) {} }
+  window.open("https://savefrom.co.id/youtube-video-downloader", "_blank", "noopener");
+  setTimeout(() => ($("#tUnduh").textContent = "Salin link & buka pengunduh"), 4000);
+};
 $("#berkas").onchange = (e) => {
   file = e.target.files[0]; if (!file) return;
   $("#namaBerkas").textContent = file.name + " · " + (file.size / 1e6).toFixed(0) + " MB";
