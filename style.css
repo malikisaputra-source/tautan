@@ -637,3 +637,5 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
 .unduh-studio.terkunci .unduh-btn { opacity: .45; cursor: not-allowed; filter: grayscale(.6); }
 .unduh-studio.terkunci .unduh-btn:hover { transform: none; border-color: var(--garis2); }
 .unduh-studio.terkunci .titik { background: #fbbf24; }
+.unduh-hitung { margin: 10px 0 0; font: 500 13px/1.3 "JetBrains Mono", monospace; color: var(--hijau, #34d399); }
+.unduh-hitung b { font-weight: 700; }
