@@ -537,18 +537,20 @@
 
   function toast(t) { const el = $("#toast"); if (!el) return; el.textContent = t; el.classList.add("tampil"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("tampil"), 2400); }
   function catat() { try { fetch(SB + "/rest/v1/rpc/catat", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_slug: "prd", p_jenis: "zip" }), keepalive: true }); } catch (_) {} }
+  // gerbang follow sebelum salin/unduh PRD (sama dengan /kode & /skill); tiap pakai dicatat sebagai "prd"
+  const gerbang = (jenis, fn) => { const jalan = () => { window.catatHitung && window.catatHitung("prd", jenis); fn(); }; window.gerbangFollow ? window.gerbangFollow("prd", jalan) : jalan(); };
   async function salin(t, pesan) {
     try { await navigator.clipboard.writeText(t); } catch (_) { const a = document.createElement("textarea"); a.value = t; document.body.append(a); a.select(); document.execCommand("copy"); a.remove(); }
     toast(pesan); catat();
   }
-  $("#p-salin").addEventListener("click", () => salin(isiTab(), namaTab() + " disalin."));
-  $("#p-salin-perintah").addEventListener("click", () => salin(PERINTAH + buatMD() + "\n---\n\n" + buatTask(), "PRD + TASKS + perintah disalin. Tempel ke ChatGPT, Claude, GLM, atau DeepSeek."));
+  $("#p-salin").addEventListener("click", () => gerbang("skill", () => salin(isiTab(), namaTab() + " disalin.")));
+  $("#p-salin-perintah").addEventListener("click", () => gerbang("skill", () => salin(PERINTAH + buatMD() + "\n---\n\n" + buatTask(), "PRD + TASKS + perintah disalin. Tempel ke ChatGPT, Claude, GLM, atau DeepSeek.")));
   document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { tab = b.dataset.tab; perbarui(); }));
   document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { mode = b.dataset.mode; try { localStorage.setItem("ms-prd-mode", mode); } catch (_) {} perbarui(); }));
-  $("#p-unduh").addEventListener("click", () => {
+  $("#p-unduh").addEventListener("click", () => gerbang("zip", () => {
     const b = new Blob([isiTab()], { type: "text/markdown;charset=utf-8" }); const a = document.createElement("a");
     a.href = URL.createObjectURL(b); a.download = namaTab(); a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); toast(namaTab() + " diunduh."); catat();
-  });
+  }));
 
   /* ---------- unduh paket: PRD-paket.zip (tanpa kompresi) + ZIP template ---------- */
   const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
@@ -579,14 +581,14 @@
       `Template: ${d.repo || ""}`, "Hasil akhir tetap perlu dicek manusia. Untuk template yang sudah rapi, hasilnya \"beda\", belum tentu \"lebih bagus\".", "",
       "Template oleh @malikisaputra (malikisaputra.biz.id). Kredit & lisensi template wajib dipertahankan."].join("\n");
   }
-  $("#p-paket").addEventListener("click", () => {
+  $("#p-paket").addEventListener("click", () => gerbang("zip", () => {
     if (!S.template) return;
     const z = buatZip([["PRD.md", buatMD()], ["TASKS.md", buatTask()], ["PETUNJUK.md", petunjuk()]]);
     const a = document.createElement("a"); a.href = URL.createObjectURL(z); a.download = `PRD-${S.template}.zip`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     const d = KODE[S.template]; if (d && d.zip) setTimeout(() => { const b = document.createElement("a"); b.href = d.zip; b.rel = "noopener"; b.click(); }, 900);
     catat(); try { fetch(SB + "/rest/v1/rpc/catat", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_slug: S.template, p_jenis: "zip" }), keepalive: true }); } catch (_) {}
     toast("Mengunduh PRD + template. Bila template tidak terunduh, izinkan unduhan ganda di browser.");
-  });
+  }));
 
   /* ?template=<slug> dari kartu /kode */
   try { const q = new URLSearchParams(location.search).get("template"); if (q && PROFIL[q] && S.template !== q) { pakaiTemplate(q); aktif = 1; } } catch (_) {}
