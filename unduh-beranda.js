@@ -15,6 +15,11 @@
       });
     });
   });
+  // kembali dari aplikasi TikTok/IG dan tab termuat ulang → scroll ke kotak & buka gerbang lagi (status klik tersimpan)
+  try {
+    const t = sessionStorage.getItem("ms-follow-tunda"), k = t && document.querySelector('.unduh-studio[data-slug="' + t + '"]');
+    if (k && localStorage.getItem("ms-sudah-follow") !== "1") k.scrollIntoView({ block: "center" });
+  } catch (_) {}
 })();
 
 /* Tampilkan "N diunduh · M dilihat" di tiap kotak unduh beranda (data Supabase, sama dengan /kode). */

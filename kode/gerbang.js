@@ -9,6 +9,10 @@
   const kurang = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const sudah = () => { try { return localStorage.getItem(KUNCI) === "1"; } catch (_) { return false; } };
   let lanjut = null, slug = null, asal = null, diklik = { tt: false, ig: false };
+  // HP: membuka TikTok/IG sering memindahkan ke aplikasi lalu tab dimuat ulang. Ingat klik & aksi tertunda.
+  const KK = "ms-follow-klik", KT = "ms-follow-tunda";
+  const bacaKlik = () => { try { return JSON.parse(localStorage.getItem(KK)) || { tt: false, ig: false }; } catch (_) { return { tt: false, ig: false }; } };
+  const simpanKlik = () => { try { localStorage.setItem(KK, JSON.stringify(diklik)); } catch (_) {} };
 
   const el = document.createElement("div");
   el.className = "g-latar"; el.hidden = true;
@@ -27,7 +31,7 @@
       </a>`).join("")}
     </div>
     <button class="tombol g-unduh" type="button" disabled>Follow dua-duanya dulu</button>
-    <p class="g-kecil">Sudah follow dari dulu? Klik saja dua tombol di atas untuk membuka profilnya.</p>
+    <p class="g-kecil">Sudah follow dari dulu? Klik saja dua tombol di atas untuk membuka profilnya. Kalau halaman ini termuat ulang setelah membuka TikTok/IG, klik tombol unduh sekali lagi.</p>
   </div>`;
   document.body.append(el);
   const $ = (s) => el.querySelector(s);
@@ -45,16 +49,17 @@
   el.querySelectorAll(".g-akun").forEach((a) => a.addEventListener("click", () => {
     const k = a.dataset.akun;
     if (!diklik[k]) window.catatHitung && window.catatHitung(slug || "-", k === "tt" ? "follow_tt" : "follow_ig");
-    diklik[k] = true; setTimeout(segarkan, 600);
+    diklik[k] = true; simpanKlik(); setTimeout(segarkan, 600);
   }));
   $(".g-unduh").addEventListener("click", () => {
-    try { localStorage.setItem(KUNCI, "1"); } catch (_) {}
+    try { localStorage.setItem(KUNCI, "1"); sessionStorage.removeItem(KT); } catch (_) {}
     const f = lanjut; tutup(); f && f();
   });
   function tutup() {
     el.hidden = true; lanjut = null;
     if (asal && asal.focus) asal.focus();
   }
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && !el.hidden) segarkan(); });
   $(".g-tutup").addEventListener("click", tutup);
   el.addEventListener("click", (e) => { if (e.target === el) tutup(); });
   document.addEventListener("keydown", (e) => {
@@ -70,7 +75,8 @@
   /* Panggil sebelum aksi unduh. Bila sudah follow, aksi langsung jalan. */
   window.gerbangFollow = (s, aksi) => {
     if (sudah()) { aksi(); return; }
-    slug = s; lanjut = aksi; asal = document.activeElement; diklik = { tt: false, ig: false };
+    slug = s; lanjut = aksi; asal = document.activeElement; diklik = bacaKlik();
+    try { sessionStorage.setItem(KT, s); } catch (_) {}
     segarkan(); el.hidden = false; $(".g-tutup").focus();
     if (!kurang && window.gsap) {
       gsap.fromTo(el, { opacity: 0 }, { opacity: 1, duration: .25 });
