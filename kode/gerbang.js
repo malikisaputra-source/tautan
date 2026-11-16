@@ -17,7 +17,7 @@
     <button class="g-tutup" type="button" aria-label="Tutup">✕</button>
     <p class="g-eyebrow">Satu langkah lagi</p>
     <h2 id="g-judul">Follow dulu ya, habis itu langsung unduh</h2>
-    <p id="g-ket" class="g-ket">Source code ini gratis. Bayarnya cukup follow, biar kamu juga dapat kabar tiap ada paket baru.</p>
+    <p id="g-ket" class="g-ket">Ini semua gratis. Bayarnya cukup follow, biar kamu juga dapat kabar tiap ada paket baru.</p>
     <div class="g-daftar">
       ${Object.entries(AKUN).map(([k, a]) => `
       <a class="g-akun" data-akun="${k}" href="${a.url}" target="_blank" rel="noopener">
