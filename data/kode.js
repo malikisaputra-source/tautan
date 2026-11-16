@@ -2202,7 +2202,7 @@ window.KODE = [
  },
  {
   "slug": "studio-maliki",
-  "judul": "Studio Maliki 2.0 · Klip + Motion",
+  "judul": "Studio Maliki 2.1 · Klip + Motion",
   "ringkas": "Aplikasi gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Sekarang ada installer Mac & Windows (tanpa Terminal) dan Klip HP untuk Android.",
   "teknologi": [
    "Python",
@@ -2219,6 +2219,7 @@ window.KODE = [
    "Klip: link YouTube atau file → AI memilih momen dari kalimat utuh, lengkap dengan skor, judul, alasan",
    "Motion: tulis topik → naskah, suara narator, animasi, MP4",
    "AI milikmu sendiri: Lokal, Gemini, Ollama, Claude Code, Codex, OpenCode",
+   "Baru 2.1: gaya Lime Box, Hook Neon, Serif Elegan, Kertas Sobek dengan judul beranimasi, layout Split Podcast, transisi sapuan",
    "Installer MacBook (.dmg) & Windows (.exe), plus Klip HP untuk Android"
   ],
   "cara": [
@@ -2232,15 +2233,15 @@ window.KODE = [
   "unduhan_lain": [
    {
     "label": "🍎 Download for MacBook",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Mac.dmg"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/latest/download/Studio-Maliki-Mac.dmg"
    },
    {
     "label": "🪟 Download for Windows",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/Studio-Maliki-Windows.exe"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/latest/download/Studio-Maliki-Windows.exe"
    },
    {
     "label": "📱 Download for Android",
-    "href": "https://github.com/malikisaputra-source/studio-maliki/releases/latest/download/KlipHP-Android.apk"
+    "href": "https://github.com/malikisaputra-source/unduh/releases/latest/download/KlipHP-Android.apk"
    }
   ],
   "gambar": "img/studio-maliki.webp",
