@@ -606,7 +606,7 @@ html.pd-terbuka .umum, body:has(#k-detail:not([hidden])) .umum, body:has(#k-stud
 .unduh-kecil a { color: var(--aksen); }
 @media (max-width: 1100px) { .unduh-studio { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .unduh-tombol { grid-template-columns: 1fr; } .unduh-studio { padding: 18px; } }
-#unduh-agen { margin-top: -36px; }
+.unduh-studio + .unduh-studio { margin-top: -36px; }
 
 /* Gerbang follow (salinan dari kode/kode.css) untuk tombol unduh di beranda */
 .g-latar { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 16px; background: rgba(3,5,10,.72); backdrop-filter: blur(6px); }
