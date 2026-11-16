@@ -8,6 +8,7 @@
   const LABEL = { buatan: "Buatanku", tokoh: "Dipuji tokoh", resmi: "Resmi", populer: "Populer", coba: "Aku pakai" };
   const SB = "https://qsoejsauqlfkchxtnumm.supabase.co", KEY = "sb_publishable_vYBTYgHNwLIC1Q-4hHzeMA_OGQdPnWW";
   const catat = (slug) => { try { fetch(SB + "/rest/v1/rpc/catat", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_slug: "skill:" + slug, p_jenis: "skill" }), keepalive: true }); } catch (_) {} };
+  window.catatHitung = window.catatHitung || ((slug, jenis) => { try { fetch(SB + "/rest/v1/rpc/catat", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_slug: slug, p_jenis: jenis }), keepalive: true }); } catch (_) {} });
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.classList.add("tampil"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("tampil"), 2200); };
   async function salin(t) { try { await navigator.clipboard.writeText(t); } catch (_) { const a = document.createElement("textarea"); a.value = t; document.body.append(a); a.select(); document.execCommand("copy"); a.remove(); } }
 
@@ -73,11 +74,31 @@
   document.addEventListener("click", (e) => {
     const k = e.target.closest("[data-kat]"); if (k && k.tagName === "BUTTON") { kat = k.dataset.kat; tampil(); }
     const l = e.target.closest("[data-lab]"); if (l) { lab = lab === l.dataset.lab ? "" : l.dataset.lab; tampil(); }
-    const u = e.target.closest("[data-unduh]"); if (u) catat(u.dataset.unduh);
+    const u = e.target.closest("[data-unduh]");
+    if (u) { const jalan = () => { catat(u.dataset.unduh); const t = document.createElement("a"); t.href = u.href; if (u.hasAttribute("download")) t.download = ""; document.body.append(t); t.click(); t.remove(); };
+      if (window.gerbangFollow && !u.dataset.lolos) { e.preventDefault(); window.gerbangFollow("skill:" + u.dataset.unduh, jalan); } else jalan(); }
     const c = e.target.closest("[data-salin]"); if (c) { salin(c.dataset.salin); catat(c.dataset.slug); const t = c.textContent; c.textContent = "Tersalin ✓"; setTimeout(() => (c.textContent = t), 1600); toast("Perintah disalin. Tempel di terminal folder proyekmu."); }
   });
   $("#s-urut").addEventListener("change", (e) => { urut = e.target.value; tampil(); });
   tampil();
+
+  /* angka unduh/salin (data Supabase): "skill:<nama>" = unduh .zip, "skill:<owner/nama>" = salin perintah */
+  const rb = (n) => n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(".", ",") + "rb" : String(n);
+  let ANGKA = {};
+  function tempelAngka() {
+    document.querySelectorAll(".s-kartu, .s-pop-kartu").forEach((k) => {
+      const nm = (k.querySelector("[data-unduh]") || {}).dataset?.unduh, repo = (k.querySelector("[data-slug]") || {}).dataset?.slug;
+      const un = nm ? (ANGKA["skill:" + nm] || 0) : 0, sl = repo ? (ANGKA["skill:" + repo] || 0) : 0;
+      let p = k.querySelector(".s-angka-pakai"); if (!un && !sl) { if (p) p.remove(); return; }
+      if (!p) { p = document.createElement("p"); p.className = "s-angka-pakai"; const tujuan = k.querySelector(".s-fungsi, .s-pop-isi small"); (tujuan || k).after(p); }
+      p.textContent = [un ? rb(un) + " diunduh" : "", sl ? rb(sl) + " disalin" : ""].filter(Boolean).join(" · ");
+    });
+  }
+  (async () => { try {
+    const r = await fetch(SB + "/rest/v1/rpc/ringkasan?slug=like.skill:*", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: "{}" });
+    if (!r.ok) return; (await r.json()).forEach((x) => (ANGKA[x.slug] = (+x.skill || 0) + (+x.zip || 0))); tempelAngka();
+    new MutationObserver(tempelAngka).observe($("#s-grid"), { childList: true });
+  } catch (_) {} })();
 
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("muncul"); io.unobserve(x.target); } }), { rootMargin: "0px 0px -8% 0px" });
