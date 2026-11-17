@@ -1755,6 +1755,45 @@ window.KODE = [
   "prd": true
  },
  {
+  "slug": "otomasi-video-kolase",
+  "judul": "Otomasi Video Kolase · Claude Code + Gemini (Mac)",
+  "ringkas": "Ketik satu topik, Claude Code riset, tulis naskah, bikin gambar Gemini, lalu render reel kolase 9:16. Termasuk penjadwalan otomatis IG + TikTok. Khusus Mac.",
+  "teknologi": [
+   "Claude Code",
+   "Gemini API",
+   "Remotion",
+   "ElevenLabs (opsional)",
+   "macOS"
+  ],
+  "kategori": "Template Video",
+  "tier": "premium",
+  "fitur": [
+   "Skill Claude Code + CLAUDE.md + PROMPT.md siap pakai",
+   "Skrip gambar Gemini API (kunci milikmu sendiri di .env)",
+   "Voice over ElevenLabs opsional",
+   "Alat potong objek bawaan macOS untuk stiker kolase",
+   "Template Remotion contoh Gedung Sate",
+   "Skill jadwalkan-posting: IG Business Suite + TikTok Studio lewat Claude in Chrome"
+  ],
+  "cara": [
+   "Ekstrak zip, buka Terminal di folder itu, jalankan npm install",
+   "Isi kunci Gemini API di .env",
+   "Jalankan claude, lalu ketik satu topik video",
+   "Claude riset, menulis naskah, membuat gambar, lalu merender reel",
+   "Cek hasilnya sebelum dijadwalkan ke IG/TikTok"
+  ],
+  "demo": null,
+  "unduhan_lain": [
+   {
+    "label": "Unduh Paket Otomasi Kolase (.zip)",
+    "href": "unduh/otomasi-video-kolase.zip"
+   }
+  ],
+  "gambar": "img/otomasi-video-kolase.webp",
+  "repo": null,
+  "zip": "unduh/otomasi-video-kolase.zip"
+ },
+ {
   "slug": "paket-10-agent-umkm",
   "judul": "10 AI Agent UMKM + Kantor 3D 2 Lantai",
   "ringkas": "10 AI agent untuk usaha kecil + Kantor AI 3D 2 lantai (contoh toko roti fiktif \"Roti Senja\"). Jalan gratis di Antigravity CLI.",
@@ -2202,7 +2241,7 @@ window.KODE = [
  },
  {
   "slug": "studio-maliki",
-  "judul": "Studio Maliki 3.1 · Klip + Motion",
+  "judul": "Studio Maliki 3.0 · Klip + Motion",
   "ringkas": "Aplikasi gratis: potong video panjang jadi klip 9:16 bersubtitle, atau buat video motion graphic dari satu topik. Sekarang ada installer Mac & Windows (tanpa Terminal) dan Klip HP untuk Android.",
   "teknologi": [
    "Python",
@@ -2219,7 +2258,7 @@ window.KODE = [
    "Klip: link YouTube atau file → AI memilih momen dari kalimat utuh, lengkap dengan skor, judul, alasan",
    "Motion: tulis topik → naskah, suara narator, animasi, MP4",
    "AI milikmu sendiri: Lokal, Gemini, Ollama, Claude Code, Codex, OpenCode",
-   "Baru 3.1: subtitle lebih akurat (bahasa Indonesia). Dari 3.0: sudah diuji di Mac, Windows & Android; Motion Windows membaca naskahmu. Dari 2.1: gaya Lime Box, Hook Neon, Serif Elegan, Kertas Sobek dengan judul beranimasi, layout Split Podcast, transisi sapuan",
+   "Baru 3.0: sudah diuji di Mac, Windows & Android; Motion Windows membaca naskahmu. Dari 2.1: gaya Lime Box, Hook Neon, Serif Elegan, Kertas Sobek dengan judul beranimasi, layout Split Podcast, transisi sapuan",
    "Installer MacBook (.dmg) & Windows (.exe), plus Klip HP untuk Android"
   ],
   "cara": [
