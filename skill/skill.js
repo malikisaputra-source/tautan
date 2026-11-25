@@ -55,8 +55,10 @@
     const [own, nm] = s.repo.split("/");
     return `<article class="s-kartu" data-kat="${s.kat}">
       <div class="s-kartu-atas"><span class="s-kat">${esc(D.kategori[s.kat] || "")}</span>${lbl}</div>
+      <a class="s-pratinjau" href="${esc(s.contoh || "https://github.com/" + s.repo)}" target="_blank" rel="noopener" aria-label="Lihat contoh ${esc(nm)}"><img src="https://opengraph.githubassets.com/1/${esc(s.repo)}" alt="Pratinjau ${esc(s.repo)}" width="1200" height="600" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('gagal')"></a>
       <h3><span>${esc(own)}/</span>${esc(nm)}</h3>
       <p class="s-fungsi">${esc(s.fungsi)}</p>
+      ${s.cocok || s.syarat ? `<div class="s-guna">${s.cocok ? `<p><b>Gunanya:</b> ${esc(s.cocok)}</p>` : ""}${s.syarat ? `<p><b>Perlu:</b> ${esc(s.syarat)}</p>` : ""}${s.contoh ? `<a href="${esc(s.contoh)}" target="_blank" rel="noopener">Lihat contoh hasilnya ↗</a>` : ""}</div>` : ""}
       <dl class="s-stat"><div><dt>bintang</dt><dd>★ ${fmt(s.bintang)}</dd></div><div><dt>fork</dt><dd>${fmt(s.fork)}</dd></div><div><dt>issue</dt><dd>${fmt(s.issue)}</dd></div><div><dt>update</dt><dd>${tgl(s.update)}</dd></div></dl>
       <p class="s-sumber">${s.link_sumber ? `<a href="${esc(s.link_sumber)}" target="_blank" rel="noopener">${esc(s.sumber)} ↗</a>` : esc(s.sumber || "")}${s.lisensi ? ` · lisensi ${esc(s.lisensi)}` : ""}${s.teruji ? ` · <span class="s-uji">✓ teruji pasang (${s.teruji} skill)</span>` : ""}</p>
       ${s.awas ? `<p class="s-awas">${esc(s.awas)}</p>` : ""}
