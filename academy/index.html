@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rakn Academy · Tim AI Agency: dari Konten sampai Posting</title>
+<title>Rakn Academy · AI for Business Ecosystem</title>
 <meta name="description" content="Kelas offline 6 jam di Bogor. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator & agency.">
-<meta property="og:title" content="Rakn Academy · Kelas offline Tim AI Agency">
+<meta property="og:title" content="Rakn Academy · AI for Business Ecosystem">
 <meta property="og:description" content="2 sesi × 3 jam di Bogor. Tim 4 AI agent dari konten sampai posting. Maks. 15 orang.">
 <meta property="og:image" content="https://malikisaputra.biz.id/academy/teknokita.jpg">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
@@ -312,6 +312,13 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .alur-langkah button:focus-visible{outline:2px solid var(--biru);outline-offset:4px;border-radius:6px}
 .alur-lanjut{margin:14px auto 0;display:block;border:0;background:var(--biru);color:#fff;font-weight:700;padding:10px 18px;border-radius:999px;cursor:pointer}
 @media (max-width:700px){.alur-layar{aspect-ratio:4/5}.alur-slide iframe,.s3 iframe{width:200%!important;height:200%!important;transform:scale(.5);transform-origin:0 0}.s1{padding:14px}.brief dl div:nth-child(n+2){display:none}.brief .mono{margin-bottom:8px}.brief-kirim{margin-top:10px;padding:6px 12px;font-size:12px}.s1-tim{gap:8px}.s1{grid-template-columns:1fr;align-content:center;gap:12px}.s1-agen{padding:10px}.s1-agen b{font-size:14px}.s1-agen small{font-size:11.5px}.s1-agen span{width:24px;height:24px;margin-bottom:6px}.brief{padding:14px}.brief dl{gap:6px;font-size:13px}.s3-tool{left:12px;right:12px;width:auto;padding:12px}.s3-tool p{display:none}.alur-langkah span{font-size:11.5px}}
+.kelas1{max-width:760px;margin:34px auto 0;padding:26px 26px 28px;border-radius:24px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.kelas1-label{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 10px;font-family:var(--mono);font-size:12px}
+.kelas1-label span:first-child{background:#FFC24B;color:#1B1300;padding:3px 10px;border-radius:999px;font-weight:700}
+.kelas1-label span:last-child{color:rgba(255,255,255,.85);padding:3px 0}
+.kelas1 h2{margin:0 0 8px;font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.kelas1 p{margin:0 auto;color:rgba(255,255,255,.8);max-width:560px}
+.kelas1 .hero-aksi{margin-top:22px}
 </style>
 </head>
 <body>
@@ -322,10 +329,15 @@ a{color:inherit}img,video{display:block;max-width:100%}
 
 <main>
 <section class="hero"><div class="wrap">
-  <p class="hero-label mono"><i>Batch 1</i><span data-k="labelHero"></span></p>
-  <h1>Bangun tim <span class="grad">AI agency</span>-mu sendiri.</h1>
-  <p class="hero-sub">Kelas offline 6 jam. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator &amp; agency.</p>
-  <div class="hero-aksi"><a class="btn btn-putih" data-wa href="#">Daftar via WhatsApp →</a><a class="btn btn-kaca" href="#hasil">Lihat hasilnya</a></div>
+  <p class="hero-label mono"><i>Rakn Academy</i><span>AI for Business Ecosystem</span></p>
+  <h1>AI untuk <span class="grad">ekosistem bisnismu.</span></h1>
+  <p class="hero-sub">Kelas praktik membangun tim AI agent, dashboard, dan tools untuk kreator, agency, dan pemilik bisnis.</p>
+  <div class="kelas1">
+    <p class="kelas1-label"><span>KELAS PERTAMA</span><span data-k="labelHero"></span></p>
+    <h2>Bangun tim AI agency-mu sendiri</h2>
+    <p>Kelas offline 6 jam. Pulang bawa tim AI agent yang bikin konten sampai siap posting, plus dashboard alur kerja &amp; 1 tool buatan sendiri.</p>
+    <div class="hero-aksi"><a class="btn btn-putih" data-wa href="#">Daftar via WhatsApp →</a><a class="btn btn-kaca" href="#alur">Lihat alur kelas</a></div>
+  </div>
   <div class="panggung" id="panggung" aria-hidden="true">
     <div class="ui ui-kiri"><small>Tim kamu</small><div class="angka">4 agent</div><small>bekerja dari 1 brief</small></div>
     <div class="ui ui-tengah" id="pipa"><small>Brief: video tips laptop</small>
@@ -499,7 +511,7 @@ const KELAS = {
   const K = KELAS, B = K.batch[0], rp = (n) => "Rp" + n.toLocaleString("id-ID");
   const kursi = `Kelas berjalan bila minimal ${K.kursiMin} peserta${B.batas ? " sampai " + B.batas : ""}. Jika kurang, kamu bisa pindah ke jadwal berikutnya atau uang kembali penuh. Maks. ${K.kursiMaks} kursi.`;
   const isi = {
-    labelHero: `${K.akademi} · kelas offline · ${K.kota} · ${B.tanggal}`,
+    labelHero: `${B.nama} · offline · ${K.kota} · ${B.tanggal}`,
     maksAngka: K.kursiMaks, maksAngka2: K.kursiMaks + " orang", harga: rp(K.harga), harga2: rp(K.harga),
     batchNama: B.nama, tglPendek: `${K.hari}, ${B.tanggal}`, jamPendek: K.jam, kota: K.kota,
     kursiPendek: `min. ${K.kursiMin} · maks. ${K.kursiMaks}`, jam1: `HARI 1 · ${K.hari.split("–")[0].toUpperCase()} · ${K.jam}`,
