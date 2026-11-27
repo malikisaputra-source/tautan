@@ -89,10 +89,12 @@
   kotak(1.8, 0.8, 0.5, 0x6b7090, 7.6, 0.6, -0.9); for (let i = 0; i < 5; i++) silinder(0.1, 0.1, 0.4, 0x14183d, 6.9 + i * 0.35, 1.05, -0.9, 8).rotation.x = Math.PI / 2;
   kotak(0.5, 0.35, 1.8, 0x14183d, 6.2, 0.4, 2); kotak(2.2, 0.04, 1.4, 0x5ee7ff, 8.4, 0.23, 2.6, false);
   silinder(0.02, 0.02, 1.6, 0x9aa3d1, 6.2, 1.05, 1.3, 6).rotation.z = Math.PI / 2;
-  const pelari = new T.Group(); pelari.position.set(3.8, 0.4, 0.7); scene.add(pelari);
-  const pb = new T.Mesh(new T.CylinderGeometry(0.22, 0.24, 0.65, 12), M(0x2bb673)); pb.position.y = 0.95; pb.castShadow = true; pelari.add(pb);
-  const pk = new T.Mesh(new T.SphereGeometry(0.2, 14, 12), M(0xe0ac85)); pk.position.y = 1.47; pelari.add(pk);
-  const kaki = [-0.1, 0.1].map((s) => { const k = new T.Mesh(new T.BoxGeometry(0.12, 0.6, 0.12), M(0x14183d)); k.position.set(s, 0.35, 0); k.geometry.translate(0, -0.25, 0); k.position.y = 0.6; pelari.add(k); return k; });
+  const pelari = new T.Group(); pelari.position.set(3.8, 0.4, 0.7); pelari.rotation.y = Math.PI / 2; scene.add(pelari);
+  const pb = new T.Mesh(new T.CylinderGeometry(0.26, 0.3, 0.7, 14), M(0x2bb673)); pb.position.y = 1.0; pb.castShadow = true; pelari.add(pb);
+  const pk = new T.Mesh(new T.SphereGeometry(0.24, 18, 14), M(0xe0ac85)); pk.position.y = 1.58; pk.castShadow = true; pelari.add(pk);
+  const prb = new T.Mesh(new T.SphereGeometry(0.25, 18, 14, 0, Math.PI * 2, 0, Math.PI / 2.2), M(0x1b1430)); prb.position.y = 1.6; prb.rotation.z = -0.25; pelari.add(prb);
+  const kaki = [-0.12, 0.12].map((s) => { const k = new T.Mesh(new T.BoxGeometry(0.14, 0.62, 0.14), M(0x14183d)); k.geometry.translate(0, -0.31, 0); k.position.set(0, 0.66, s); k.castShadow = true; pelari.add(k); return k; });
+  const lengan = [-0.32, 0.32].map((s) => { const l = new T.Mesh(new T.BoxGeometry(0.1, 0.5, 0.1), M(0x2bb673)); l.geometry.translate(0, -0.22, 0); l.position.set(0, 1.28, s); l.castShadow = true; pelari.add(l); return l; });
 
   /* kolam renang */
   kotak(13, 0.1, 6.4, 0xf4efe4, 0, -0.15, 8.4, false);
@@ -102,7 +104,12 @@
   [-1, 1.4, 3.8].forEach((x) => { kotak(0.8, 0.12, 1.8, 0xffffff, x, 0.08, 11.1); const s = kotak(0.8, 0.5, 0.12, 0xffffff, x, 0.3, 10.25); s.rotation.x = -0.5; });
   silinder(0.03, 0.03, 1.6, 0xffffff, -5.6, 0.75, 10.6, 6); const payung = new T.Mesh(new T.ConeGeometry(1.1, 0.5, 8), M(0xff6b3d)); payung.position.set(-5.6, 1.7, 10.6); payung.castShadow = true; scene.add(payung);
   const pelampung = new T.Mesh(new T.TorusGeometry(0.35, 0.12, 8, 18), M(0xff6b9a)); pelampung.rotation.x = Math.PI / 2; pelampung.position.set(-2, 0.1, 7.8); scene.add(pelampung);
-  const perenang = new T.Mesh(new T.SphereGeometry(0.2, 14, 12), M(0xc98e66)); perenang.position.set(2, 0.12, 8.8); scene.add(perenang);
+  const perenang = new T.Group(); perenang.position.set(2, 0.05, 8.8); scene.add(perenang);
+  const rb_ = new T.Mesh(new T.CylinderGeometry(0.26, 0.3, 0.7, 14), M(0xff6b3d)); rb_.rotation.z = Math.PI / 2; rb_.position.x = -0.2; perenang.add(rb_);
+  const rk_ = new T.Mesh(new T.SphereGeometry(0.24, 18, 14), M(0xc98e66)); rk_.position.set(0.36, 0.08, 0); perenang.add(rk_);
+  const rr_ = new T.Mesh(new T.SphereGeometry(0.25, 18, 14, 0, Math.PI * 2, 0, Math.PI / 2.2), M(0x1b1430)); rr_.position.set(0.34, 0.1, 0); rr_.rotation.z = -1.3; perenang.add(rr_);
+  const kakiR = [-0.12, 0.12].map((s) => { const k = new T.Mesh(new T.BoxGeometry(0.5, 0.13, 0.13), M(0x14183d)); k.geometry.translate(-0.25, 0, 0); k.position.set(-0.55, 0, s); perenang.add(k); return k; });
+  const lenganR = [-0.32, 0.32].map((s) => { const l = new T.Mesh(new T.BoxGeometry(0.1, 0.5, 0.1), M(0xff6b3d)); l.geometry.translate(0, 0.22, 0); l.position.set(0.1, 0.05, s); perenang.add(l); return l; });
   [[-7.5, 6.4], [7.6, 6.2], [-12.5, 0], [12.5, -3], [12.4, 3.5], [-12.6, -5.5], [7.5, 10.6]].forEach(([x, z], i) => pohon(x, z, 1 + (i % 3) * 0.2, i % 4 === 3 ? 0xff8fb5 : 0x2bb673));
 
   /* meja + agent */
@@ -194,8 +201,8 @@
       a.kepala.rotation.y = kerja ? Math.sin(t * 2) * 0.15 : Math.sin(t * 0.6 + i) * 0.5;
       a.tangan.forEach((l, j) => (l.position.y = 0.5 + (kerja ? Math.sin(t * 22 + j * 3) * 0.035 : 0)));
     });
-    kaki[0].rotation.x = Math.sin(t * 10) * 0.6; kaki[1].rotation.x = -Math.sin(t * 10) * 0.6; pelari.position.y = 0.4 + Math.abs(Math.sin(t * 10)) * 0.05;
-    perenang.position.x = Math.sin(t * 0.5) * 3.2; perenang.position.y = 0.12 + Math.sin(t * 4) * 0.03;
+    kaki[0].rotation.z = Math.sin(t * 10) * 0.6; kaki[1].rotation.z = -Math.sin(t * 10) * 0.6; lengan[0].rotation.z = -Math.sin(t * 10) * 0.7; lengan[1].rotation.z = Math.sin(t * 10) * 0.7; pelari.position.y = 0.4 + Math.abs(Math.sin(t * 10)) * 0.05;
+    perenang.position.x = Math.sin(t * 0.5) * 3.2; perenang.position.y = 0.05 + Math.sin(t * 4) * 0.03; perenang.rotation.y = Math.cos(t * 0.5) >= 0 ? 0 : Math.PI; lenganR[0].rotation.z = t * 5; lenganR[1].rotation.z = t * 5 + Math.PI; kakiR[0].rotation.y = Math.sin(t * 12) * 0.25; kakiR[1].rotation.y = -Math.sin(t * 12) * 0.25;
     pelampung.position.y = 0.1 + Math.sin(t * 1.6) * 0.04; pelampung.rotation.z = t * 0.3;
     air.material.opacity = 0.8 + Math.sin(t * 2) * 0.05;
     layarBesar.material.emissiveIntensity = 0.35 + (aktif === 2 ? 0.4 + Math.sin(t * 6) * 0.2 : 0);
