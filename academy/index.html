@@ -120,11 +120,12 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .hasil-teks h3{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:0 0 14px}
 .hasil-teks p{margin:0;color:var(--abu)}
 /* siapa */
-.siapa{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.siapa{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .siapa .kartu{padding:24px}
 .siapa b{display:block;font-size:19px;margin:14px 0 8px}
 .siapa p{margin:0;font-size:15px;color:var(--abu)}
 .siapa .t{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--biru)}
+.siapa .sorot .t{color:#fff}
 /* sesi */
 .sesi{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .sesi .kartu{padding:30px}
@@ -261,6 +262,55 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .kantor-bawah li{color:#DDE2FF;animation:masuk .4s ease}
 @keyframes masuk{from{opacity:0;transform:translateY(-6px)}}
 @media (max-width:560px){.kantor{height:440px;margin-top:0}.k-ruang{font-size:8.5px;padding:2px 5px}.kantor-tip{display:none}.k-label:not([data-st="kerja"]):not([data-st="tunggu"]) .k-tugas{display:none}.k-label{font-size:10px}.k-label b{font-size:10.5px}.kantor-atas b{font-size:12px}.kantor-atas small{font-size:10.5px}.kantor-live{font-size:10.5px}.k-tugas{max-width:120px}.k-label{font-size:11px;padding:5px 9px 5px 7px}.kantor-atas>div{padding:8px 11px}}
+.babak{margin-top:30px;border-top:1px dashed var(--garis);padding-top:26px}
+.babak:first-of-type{border-top:0}
+.babak-kepala{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;max-width:820px}
+.babak-no{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--biru);color:#fff;font-weight:800;font-size:18px}
+.babak-kepala b{display:block;font-size:22px;letter-spacing:-.02em}
+.babak-kepala p{margin:2px 0 0;color:var(--abu);font-size:15.5px}
+.babak1{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+.babak1 .tim{grid-template-columns:repeat(2,1fr)}
+.brief{padding:22px}
+.brief .mono{margin:0 0 12px;color:var(--abu);font-size:11.5px}
+.brief dl{margin:0;display:grid;gap:10px;font-size:14.5px}
+.brief dl div{display:grid;grid-template-columns:70px 1fr;gap:8px}
+.brief dt{color:var(--abu)}.brief dd{margin:0;font-weight:600}
+.brief-kirim{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:700;color:#fff;background:var(--biru);padding:8px 14px;border-radius:999px}
+.babak3{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:stretch}
+.peramban{border-radius:18px;overflow:hidden;border:1px solid var(--garis);background:#fff;box-shadow:0 30px 60px -36px rgba(11,16,51,.35);display:flex;flex-direction:column}
+.peramban-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#EEF0F8;border-bottom:1px solid var(--garis);font-size:12.5px;color:var(--abu)}
+.peramban-bar i{width:9px;height:9px;border-radius:50%;background:#D3D7E8}.peramban-bar span{margin-left:8px}
+.peramban-bar a{margin-left:auto;color:var(--biru);font-weight:700;text-decoration:none}
+.peramban iframe{width:100%;height:620px;border:0;display:block;background:#fff}
+.babak3-sisi{display:grid;gap:14px;align-content:start}
+.fitur{padding:22px}.fitur .mono{margin:0 0 10px;font-size:11.5px;color:var(--biru)}
+.fitur.sorot .mono{color:rgba(255,255,255,.8)}
+.fitur ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.fitur b{display:block;font-size:18px;margin-bottom:6px}.fitur p{margin:0;font-size:14.5px}
+@media (max-width:900px){.babak1,.babak3{grid-template-columns:1fr}.peramban iframe{height:520px}}
+.alur{margin-top:8px}
+.alur-layar{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#DCE3FF,#F4F6FC);border:1px solid var(--garis);box-shadow:0 30px 60px -36px rgba(11,16,51,.35)}
+.alur-slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.alur-slide.aktif{opacity:1;transform:none;pointer-events:auto}
+.alur-slide iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+.s1{height:100%;display:grid;grid-template-columns:minmax(240px,340px) 1fr;gap:20px;align-items:center;padding:clamp(16px,4%,48px)}
+.s1-tim{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.s1-agen{background:#fff;border:1px solid var(--garis);border-radius:16px;padding:16px;opacity:.35;transform:translateY(10px);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.s1-agen.nyala{opacity:1;transform:none;box-shadow:0 16px 30px -18px rgba(26,34,184,.5)}
+.s1-agen span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;color:#fff;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:10px}
+.s1-agen b{display:block;font-size:17px}.s1-agen small{color:var(--abu);font-size:13px}
+.s3{position:relative;height:100%}
+.s3-tool{position:absolute;right:16px;bottom:16px;width:280px;padding:18px;box-shadow:0 20px 40px -20px rgba(11,16,51,.6)}
+.s3-tool .mono{margin:0 0 6px;font-size:11px;color:rgba(255,255,255,.8)}.s3-tool b{display:block;font-size:16px;margin-bottom:4px}.s3-tool p{margin:0;font-size:13.5px}
+.alur-ket{text-align:center;margin:14px auto 10px;font-size:16px;color:var(--abu);min-height:1.6em}
+.alur-langkah{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.alur-langkah button{all:unset;cursor:pointer;display:grid;gap:8px;font-size:13.5px;font-weight:700;color:var(--abu);text-align:left}
+.alur-langkah button[aria-selected="true"]{color:var(--teks)}
+.alur-langkah i{display:block;height:4px;border-radius:9px;background:var(--garis);overflow:hidden}
+.alur-langkah b{display:block;height:100%;width:0;background:var(--biru)}
+.alur-langkah button:focus-visible{outline:2px solid var(--biru);outline-offset:4px;border-radius:6px}
+.alur-lanjut{margin:14px auto 0;display:block;border:0;background:var(--biru);color:#fff;font-weight:700;padding:10px 18px;border-radius:999px;cursor:pointer}
+@media (max-width:700px){.alur-layar{aspect-ratio:4/5}.alur-slide iframe{width:200%;height:200%;transform:scale(.5);transform-origin:0 0}.s1{padding:14px}.brief dl div:nth-child(n+2){display:none}.brief .mono{margin-bottom:8px}.brief-kirim{margin-top:10px;padding:6px 12px;font-size:12px}.s1-tim{gap:8px}.s1{grid-template-columns:1fr;align-content:center;gap:12px}.s1-agen{padding:10px}.s1-agen b{font-size:14px}.s1-agen small{font-size:11.5px}.s1-agen span{width:24px;height:24px;margin-bottom:6px}.brief{padding:14px}.brief dl{gap:6px;font-size:13px}.s3-tool{left:12px;right:12px;width:auto;padding:12px}.s3-tool p{display:none}.alur-langkah span{font-size:11.5px}}
 </style>
 </head>
 <body>
@@ -293,17 +343,36 @@ a{color:inherit}img,video{display:block;max-width:100%}
 <div class="pita" aria-hidden="true"><div class="pita-isi"><span>Strategi</span><span>Motion Designer</span><span>Copywriter</span><span>Publisher</span><span>Brief → Video → Caption → Jadwal</span><span>Strategi</span><span>Motion Designer</span><span>Copywriter</span><span>Publisher</span><span>Brief → Video → Caption → Jadwal</span></div></div>
 
 <section class="bagian"><div class="wrap">
-  <div class="kepala muncul"><p class="mono">01 · Tim kamu</p><h2>Empat agent, satu alur. <em class="grad">Kamu tetap yang memutuskan.</em></h2></div>
-  <div class="kantor-bingkai muncul">
-    <div class="kantor-atas"><div><b>Gedung Rakn Academy</b><small id="kantor-stat">0 dari 4 agent selesai</small></div><span class="kantor-live">LIVE · <span id="kantor-jam"></span></span></div>
-    <div class="kantor" id="kantor" role="img" aria-label="Gedung kantor 3D: ruang tiap divisi, ruang CEO, gym dan kolam renang; empat AI agent bekerja bergiliran"><div class="kantor-zoom"><button type="button" data-zoom="-" aria-label="Perkecil">−</button><button type="button" data-zoom="0" aria-label="Atur ulang">⟲</button><button type="button" data-zoom="+" aria-label="Perbesar">+</button></div><span class="kantor-tip">Geser untuk menjelajah gedung</span></div>
-    <div class="kantor-bawah"><p class="mono">MISSION BOARD</p><ul id="kantor-papan"></ul></div>
-  </div>
-  <div class="tim muncul anak" id="tim"><div class="tim-garis" aria-hidden="true"><i id="tim-garis"></i></div>
-    <div class="agen kartu"><span class="ikon">◎</span><span class="no">AGENT 01</span><b>Strategi</b><p>Baca brief &amp; referensi gaya, tentukan ide dan sudut konten.</p></div>
-    <div class="agen kartu"><span class="ikon">▶</span><span class="no">AGENT 02</span><b>Motion Designer</b><p>Mengubah naskah jadi video 9:16 siap tayang.</p></div>
-    <div class="agen kartu"><span class="ikon">✎</span><span class="no">AGENT 03</span><b>Copywriter</b><p>Menulis naskah, hook, dan caption sesuai gaya brand.</p></div>
-    <div class="agen kartu"><span class="ikon">✓</span><span class="no">AGENT 04</span><b>Publisher</b><p>Menyiapkan posting, lalu berhenti minta persetujuanmu sebelum dijadwalkan.</p></div>
+  <div class="kepala muncul"><p class="mono">01 · Alur kelas</p><h2>Dari brief sampai dashboard, <em class="grad">dalam 3 babak.</em></h2></div>
+
+  <div class="alur muncul" id="alur" aria-roledescription="carousel" aria-label="Alur kelas 3 babak">
+    <div class="alur-layar">
+      <div class="alur-slide aktif" data-dur="8000" aria-label="Babak 1 dari 3">
+        <div class="s1">
+          <div class="brief kartu"><p class="mono">brief.md · contoh fiktif</p>
+            <dl><div><dt>Klien</dt><dd>Kopi Lereng</dd></div><div><dt>Produk</dt><dd>Kopi susu gula aren</dd></div><div><dt>Tujuan</dt><dd>Edukasi rasa, ajak coba</dd></div><div><dt>Format</dt><dd>Reels 9:16 · 30 detik</dd></div></dl>
+            <span class="brief-kirim">Kirim ke tim agent →</span></div>
+          <div class="s1-tim">
+            <div class="s1-agen"><span style="background:#FF6B3D">01</span><b>Strategi</b><small>ide &amp; sudut konten</small></div>
+            <div class="s1-agen"><span style="background:#3B4BFF">02</span><b>Motion Designer</b><small>video 9:16</small></div>
+            <div class="s1-agen"><span style="background:#2BB673">03</span><b>Copywriter</b><small>naskah &amp; caption</small></div>
+            <div class="s1-agen"><span style="background:#E84B8A">04</span><b>Publisher</b><small>siapkan jadwal, tunggu persetujuanmu</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="alur-slide" data-dur="13000" aria-label="Babak 2 dari 3"><iframe data-src="kantor-ai/?jam=08.10&amp;embed=1" title="Kantor AI 3D: tim agent bekerja di mejanya" tabindex="-1"></iframe></div>
+      <div class="alur-slide" data-dur="10000" aria-label="Babak 3 dari 3">
+        <div class="s3"><iframe data-src="contoh-dashboard/" title="Contoh dashboard Papan Produksi Konten (data fiktif)" tabindex="-1"></iframe>
+          <div class="s3-tool kartu sorot"><p class="mono">+ 1 tool buatan sendiri</p><b>Pembuat laporan bulanan klien</b><p>Tempel data bulan ini, keluar laporan rapi siap kirim.</p></div></div>
+      </div>
+    </div>
+    <p class="alur-ket" aria-live="polite"></p>
+    <div class="alur-langkah" role="tablist">
+      <button type="button" role="tab" data-ke="0"><i><b></b></i><span>1 · Brief &amp; tim agent</span></button>
+      <button type="button" role="tab" data-ke="1"><i><b></b></i><span>2 · Agent bekerja di kantor AI</span></button>
+      <button type="button" role="tab" data-ke="2"><i><b></b></i><span>3 · Pantau di dashboard</span></button>
+    </div>
+    <button type="button" class="alur-lanjut" hidden>Lanjut →</button>
   </div>
 </div></section>
 
@@ -319,10 +388,9 @@ a{color:inherit}img,video{display:block;max-width:100%}
 <section class="bagian"><div class="wrap">
   <div class="kepala muncul"><p class="mono">03 · Untuk siapa</p><h2>Cocok kalau kamu…</h2></div>
   <div class="siapa muncul anak">
-    <div class="kartu sorot"><span class="t">01</span><b>Kreator pemula</b><p>Mau rutin posting tanpa begadang edit tiap hari.</p></div>
-    <div class="kartu"><span class="t">02</span><b>Freelancer sosmed</b><p>Pegang beberapa klien dan butuh alur kerja yang lebih ringan.</p></div>
-    <div class="kartu"><span class="t">03</span><b>Pemilik agency kecil</b><p>Mau tim kecilmu dibantu agent dari ide sampai siap posting.</p></div>
-    <div class="kartu"><span class="t">04</span><b>Admin konten UMKM</b><p>Mengurus konten usaha sendirian dan ingin lebih teratur.</p></div>
+    <div class="kartu sorot"><span class="t">01</span><b>Kreator</b><p>Mau rutin posting tanpa begadang edit tiap hari, plus punya tool ide &amp; hook sendiri.</p></div>
+    <div class="kartu"><span class="t">02</span><b>Agency</b><p>Pegang banyak klien dan butuh dashboard alur kerja + tool brief &amp; laporan klien.</p></div>
+    <div class="kartu"><span class="t">03</span><b>Business owner</b><p>Mengurus konten usaha sendiri dan ingin tool kecil: rekap order, katalog, balasan CS.</p></div>
   </div>
 </div></section>
 
@@ -334,11 +402,10 @@ a{color:inherit}img,video{display:block;max-width:100%}
       <li>Brief + referensi gaya supaya hasil sesuai selera.</li>
       <li>Susun tim 4 agent: Strategi, Motion Designer, Copywriter, Publisher.</li>
       <li>Agent membuat naskah, video, dan caption.</li></ol></article>
-    <article class="kartu sorot muncul"><div class="angka">SESI 02</div><h3>Posting &amp; Ukur</h3><span class="jam" data-k="jam2"></span><ol>
-      <li>Revisi hasil lewat agent.</li>
-      <li>Publisher menyiapkan posting lewat browser dan <mark>berhenti minta persetujuanmu</mark> sebelum dijadwalkan.</li>
-      <li>Kalender konten 2 minggu.</li>
-      <li>Dashboard konten sederhana.</li>
+    <article class="kartu sorot muncul"><div class="angka">SESI 02</div><h3>Posting, Dashboard &amp; Tools</h3><span class="jam" data-k="jam2"></span><ol>
+      <li>Revisi video lewat agent; Publisher menyiapkan posting dan <mark>berhenti minta persetujuanmu</mark> sebelum dijadwalkan.</li>
+      <li>Bangun <b style="display:inline;font-size:inherit">dashboard alur kerja</b> dari Google Sheet (status konten, jadwal, klien/produk), bisa dibuka di HP.</li>
+      <li>Bikin <b style="display:inline;font-size:inherit">1 tool sendiri</b> untuk pekerjaan paling merepotkan: generator brief klien, laporan bulanan, ide &amp; hook, rekap order harian, atau template balasan CS.</li>
       <li>Story Instagram + showcase hasil.</li></ol></article>
   </div>
 </div></section>
@@ -353,6 +420,8 @@ a{color:inherit}img,video{display:block;max-width:100%}
       <li><span>✓</span>Lembar langkah untuk diulang di rumah</li>
       <li><span>✓</span>Sertifikat</li>
       <li><span>✓</span>Story-mu di-repost ke @malikisaputra</li>
+      <li><span>✓</span>Dashboard workflow milikmu</li>
+      <li><span>✓</span>1 tool buatan sendiri</li>
       <li><span>✓</span>Rekap materi H+1</li>
     </ul>
   </div>
@@ -476,8 +545,8 @@ const KELAS = {
   /* estafet 4 agent */
   const agen = [...document.querySelectorAll("#tim .agen")], garis = document.getElementById("tim-garis"); let ia = 0, jalanTim;
   const estafet = () => { agen.forEach((a, j) => a.classList.toggle("estafet", j === ia)); garis.style.width = ((ia + 1) / agen.length * 100) + "%"; ia = (ia + 1) % agen.length; };
-  if (!diam) new IntersectionObserver(([e]) => { clearInterval(jalanTim); if (e.isIntersecting) { estafet(); jalanTim = setInterval(estafet, 1500); } }).observe(document.getElementById("tim"));
-  else agen[0].classList.add("estafet");
+  if (!document.getElementById("tim")) {} else if (!diam) new IntersectionObserver(([e]) => { clearInterval(jalanTim); if (e.isIntersecting) { estafet(); jalanTim = setInterval(estafet, 1500); } }).observe(document.getElementById("tim"));
+  else if (agen[0]) agen[0].classList.add("estafet");
 
   /* harga hitung naik + kursi terisi */
   const hargaEl = document.querySelector('.tiket [data-k="harga"]');
@@ -486,13 +555,45 @@ const KELAS = {
     if (x.target.classList.contains("kursi-bar")) { x.target.querySelectorAll("i").forEach((i, n) => (i.style.transitionDelay = n * 50 + "ms")); x.target.classList.remove("tutup"); }
   }), { threshold: .4 });
   io2.observe(hargaEl); document.querySelectorAll(".kursi-bar").forEach((k) => { if (!diam) k.classList.add("tutup"); io2.observe(k); });
+
+  /* === panel alur 3 babak === */
+  (() => {
+    const alur = document.getElementById("alur"); if (!alur) return;
+    const slide = [...alur.querySelectorAll(".alur-slide")], tombol = [...alur.querySelectorAll(".alur-langkah button")], ket = alur.querySelector(".alur-ket"), lanjut = alur.querySelector(".alur-lanjut");
+    const KET = ["Kamu menulis brief bisnis, lalu menyusun tim 4 agent yang bekerja berurutan.", "Tim agent bekerja di kantor AI: tiap agent di mejanya, Publisher menunggu persetujuanmu.", "Hasilnya dipantau di dashboard alur kerjamu, plus 1 tool buatan sendiri."];
+    const agen1 = [...alur.querySelectorAll(".s1-agen")];
+    let ke = 0, mulaiT = 0, terpakai = 0, jeda = false, terlihat = false, mulai = false, nyalaT;
+    const muat = (s) => s && s.querySelectorAll("iframe[data-src]").forEach((f) => { f.src = f.dataset.src; f.removeAttribute("data-src"); });
+    function tampil(i) {
+      ke = (i + slide.length) % slide.length; terpakai = 0; mulaiT = performance.now();
+      slide.forEach((s, j) => { s.classList.toggle("aktif", j === ke); s.setAttribute("aria-hidden", String(j !== ke)); });
+      tombol.forEach((b, j) => { b.setAttribute("aria-selected", String(j === ke)); b.querySelector("b").style.width = j < ke ? "100%" : "0"; });
+      ket.textContent = KET[ke]; muat(slide[ke]); setTimeout(() => muat(slide[ke + 1]), 1500);
+      clearInterval(nyalaT); agen1.forEach((a) => a.classList.remove("nyala"));
+      if (ke === 0) { let n = 0; nyalaT = setInterval(() => { if (n < agen1.length) agen1[n++].classList.add("nyala"); else clearInterval(nyalaT); }, 900); }
+    }
+    tombol.forEach((b, j) => b.addEventListener("click", () => tampil(j)));
+    lanjut.addEventListener("click", () => tampil(ke + 1));
+    if (diam) { lanjut.hidden = false; tampil(0); clearInterval(nyalaT); agen1.forEach((a) => a.classList.add("nyala")); return; }
+    const henti = () => { if (!jeda) { jeda = true; terpakai += performance.now() - mulaiT; } };
+    const jalan = () => { if (jeda) { jeda = false; mulaiT = performance.now(); } };
+    alur.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") henti(); });
+    alur.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") jalan(); });
+    alur.addEventListener("touchstart", () => { henti(); clearTimeout(alur._t); alur._t = setTimeout(jalan, 5000); }, { passive: true });
+    new IntersectionObserver(([e]) => { terlihat = e.isIntersecting; if (terlihat && !mulai) { mulai = true; tampil(0); } if (terlihat) jalan(); else henti(); }, { threshold: .35 }).observe(alur);
+    document.addEventListener("visibilitychange", () => (document.hidden ? henti() : terlihat && jalan()));
+    (function putar(now) {
+      requestAnimationFrame(putar); if (!mulai || jeda) return;
+      const p = Math.min(1, (terpakai + now - mulaiT) / +slide[ke].dataset.dur);
+      tombol[ke].querySelector("b").style.width = p * 100 + "%";
+      if (p >= 1) tampil(ke + 1);
+    })(performance.now());
+  })();
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("tampil"); io.unobserve(x.target); } }), { rootMargin: "0px 0px -8% 0px" });
     document.querySelectorAll(".muncul").forEach((el) => io.observe(el));
   } else document.querySelectorAll(".muncul").forEach((el) => el.classList.add("tampil"));
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="kantor.js" defer></script>
 </body>
 </html>

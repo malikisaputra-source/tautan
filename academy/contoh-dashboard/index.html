@@ -1,0 +1,371 @@
+<!doctype html>
+<!-- Starter Dashboard Workflow — Rakn Academy
+     Template oleh Maliki Saputra (@malikisaputra) — https://malikisaputra.biz.id · Lisensi Nonkomersial Maliki Studio 1.0 (LISENSI.md)
+     CARA UBAH (untuk kamu atau agent AI):
+       1. Ubah objek KONFIG di bagian <script> paling bawah (nama, judul, tahap alur kerja, warna aksen, label).
+       2. Ganti data di data.js, atau isi KONFIG.SHEET_CSV_URL dengan link CSV Google Sheet yang dipublikasikan.
+       3. Buka index.html di browser. Tidak perlu install apa pun. -->
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Workflow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Warna Rakn Academy (malikisaputra.biz.id/academy) */
+  --aksen:#2B3BF0; --aksen-tua:#0A0F6B; --aksen-muda:#C3CAFF; --aksen-pucat:#EEF0FF;
+  --tinta:#0B1033; --tinta-2:#5B6285; --tinta-3:#5B6285;
+  --latar:#E8EBFF; --kertas:#ffffff; --panel:#F4F6FC; --garis:#E3E7F3;
+  --kuning:#FFC24B; --daun:#16A36B; --bata:#d9483b;
+  --r-besar:28px; --r:20px;
+  --huruf:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--latar);color:var(--tinta);font-family:var(--huruf);font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--aksen);outline-offset:2px;border-radius:10px}
+button{font:inherit;color:inherit}
+.bingkai{max-width:1240px;margin:16px auto;background:var(--panel);border-radius:var(--r-besar);padding:14px 16px 24px}
+@media(min-width:900px){.bingkai{margin:24px auto;padding:18px 22px 28px}}
+
+/* bar atas */
+.atas{display:flex;align-items:center;gap:12px;background:var(--kertas);border-radius:99px;padding:8px 8px 8px 16px}
+.merek{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;white-space:nowrap}
+.logo{width:28px;height:28px;border-radius:50%;background:var(--aksen);display:grid;place-items:center;color:#fff;font-size:13px}
+.tab{display:flex;gap:4px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+.tab a{padding:7px 14px;border-radius:99px;color:var(--tinta-2);text-decoration:none;font-weight:500;white-space:nowrap}
+.tab a[aria-current="page"]{background:var(--panel);color:var(--tinta);font-weight:600}
+.ikon-atas{display:flex;gap:6px}
+.bulat{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--panel);border:0;cursor:pointer;flex:none}
+.bulat svg{width:17px;height:17px}
+.profil{background:var(--aksen-muda);color:var(--aksen-tua);font-weight:700;font-size:13px}
+@media(max-width:700px){.tab{display:none}.ikon-atas .bulat:not(.profil){display:none}.atas{justify-content:space-between}}
+
+/* sapaan */
+.sapa{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin:26px 4px 18px}
+.sapa h1{margin:0;font-size:clamp(26px,4.4vw,40px);font-weight:300;letter-spacing:-.025em;line-height:1.1}
+.sapa h1 b{font-weight:700}
+.sapa p{margin:6px 0 0;color:var(--tinta-2)}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--kertas);border:1px solid var(--garis);border-radius:99px;padding:8px 14px;font-weight:500;white-space:nowrap}
+.chip svg{width:15px;height:15px}
+
+/* tata letak */
+.tata{display:grid;gap:14px}
+.rel-kiri{display:none}
+@media(min-width:900px){
+  .tata{grid-template-columns:56px minmax(0,1fr)}
+  .rel-kiri{display:flex;flex-direction:column;gap:8px;background:var(--kertas);border-radius:var(--r);padding:10px 8px;align-self:start;position:sticky;top:16px}
+  .rel-kiri a{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;color:var(--tinta-2)}
+  .rel-kiri a.aktif{background:var(--aksen);color:#fff}
+  .rel-kiri svg{width:18px;height:18px}
+}
+.isi{display:grid;gap:14px;grid-template-columns:minmax(0,1fr);min-width:0}
+@media(min-width:900px){.isi{grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr) minmax(0,1.1fr)}.lebar2{grid-column:1/3}}
+.kolom{display:grid;gap:14px;align-content:start;min-width:0}
+
+.kartu{background:var(--kertas);border-radius:var(--r);padding:16px;min-width:0;position:relative}
+.kepala{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+.kepala h2{margin:0;font-size:14px;font-weight:700}
+.kepala p{margin:2px 0 0;font-size:12px;color:var(--tinta-3)}
+.panah{width:32px;height:32px;border-radius:50%;border:1px solid var(--garis);display:grid;place-items:center;background:var(--kertas);flex:none;text-decoration:none;color:var(--tinta)}
+.panah svg{width:14px;height:14px}
+
+/* kartu aksen */
+.aksen{background:var(--aksen);color:#fff;border-radius:18px;padding:16px;position:relative;overflow:hidden}
+.aksen::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.09)}
+.aksen small{opacity:.85;font-weight:500}
+.aksen .besar{display:block;font-size:34px;font-weight:700;letter-spacing:-.02em;margin:18px 0 6px}
+.aksen .bawah{display:flex;justify-content:space-between;font-size:12px;opacity:.9}
+.mini{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;background:var(--panel);border-radius:16px;padding:12px 14px}
+.mini small{display:block;color:var(--tinta-3);font-size:12px}
+.mini b{font-size:20px}
+.lencana{background:var(--aksen-pucat);color:var(--aksen-tua);font-weight:700;font-size:12px;border-radius:99px;padding:4px 10px;white-space:nowrap}
+.lencana.kuning{background:#FFF4DB;color:#8A5800}
+
+/* grafik batang pil */
+.saklar{display:flex;background:var(--panel);border-radius:99px;padding:3px}
+.saklar button{border:0;background:none;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--tinta-2);cursor:pointer}
+.saklar button[aria-pressed="true"]{background:var(--aksen);color:#fff}
+.batang{display:flex;align-items:flex-end;gap:clamp(6px,1.6vw,14px);height:200px;padding-top:34px}
+.btg{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;height:100%;justify-content:flex-end}
+.pil{width:100%;max-width:44px;border-radius:99px;background:var(--aksen-muda);position:relative;height:0;transition:height .9s cubic-bezier(.2,.8,.2,1)}
+.btg.sorot .pil{background:var(--aksen)}
+.tip{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--aksen);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:3px 8px;white-space:nowrap;opacity:0;transition:opacity .3s .8s}
+.tip::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:8px;background:var(--aksen);transform:translateX(-50%)}
+.btg.sorot .tip{opacity:1}
+.btg .nm{font-size:11px;color:var(--tinta-3);text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.catatan{margin:10px 0 0;font-size:13px;color:var(--tinta-2)}
+.catatan b{color:var(--aksen-tua)}
+
+/* grafik garis */
+.angka-besar{font-size:28px;font-weight:700;letter-spacing:-.02em}
+.angka-besar small{font-size:16px;font-weight:400;color:var(--tinta-3)}
+.garis-svg{width:100%;height:120px;display:block;margin-top:6px}
+.garis-svg .jalur{fill:none;stroke:var(--aksen);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.sumbu{display:flex;justify-content:space-between;font-size:11px;color:var(--tinta-3)}
+
+/* perlu tindakan */
+.tindak-angka{display:flex;align-items:baseline;gap:8px}
+.tindak-angka b{font-size:32px;font-weight:700}
+.daftar{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.daftar li{display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:14px;padding:10px 12px}
+.inisial{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:none}
+.daftar .t{min-width:0}
+.daftar .t b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.daftar .t span{font-size:12px;color:var(--tinta-3)}
+.kosong{color:var(--tinta-3);margin:8px 0 0}
+
+/* tabel */
+.saring{display:flex;gap:6px;flex-wrap:wrap}
+.saring button{border:1px solid var(--garis);background:var(--kertas);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--tinta-2)}
+.saring button[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.gulir{overflow-x:auto;margin:0 -16px;padding:0 16px}
+table{width:100%;border-collapse:collapse;min-width:620px}
+th{text-align:left;font-weight:500;font-size:12px;color:var(--tinta-3);padding:8px 10px;border-bottom:1px solid var(--garis)}
+td{padding:12px 10px;border-bottom:1px solid #f0f2f6}
+th:first-child,td:first-child{padding-left:0}
+.konten{display:flex;align-items:center;gap:10px}
+.konten b{font-weight:600}
+.status{display:inline-flex;align-items:center;gap:7px;font-weight:500;white-space:nowrap}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--aksen)}
+.status.tindak i{background:var(--kuning)}.status.selesai i{background:var(--daun)}
+
+.galat{background:#fde8e6;color:#8f2a20;border-radius:14px;padding:10px 14px;margin:0 4px 14px;font-size:13px}
+footer{color:var(--tinta-3);font-size:12px;text-align:center;margin-top:20px}
+@media(prefers-reduced-motion:reduce){.pil,.tip{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bingkai">
+  <nav class="atas" aria-label="Navigasi">
+    <div class="merek"><span class="logo" id="logo"></span><span id="namaMerek"></span></div>
+    <div class="tab"><a href="#ringkasan" aria-current="page">Ringkasan</a><a href="#tindakan">Perlu tindakan</a><a href="#konten">Semua konten</a></div>
+    <div class="ikon-atas">
+      <a class="bulat" href="#konten" aria-label="Cari konten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <a class="bulat" href="#tindakan" aria-label="Perlu tindakan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></a>
+      <span class="bulat profil" id="profil" aria-hidden="true"></span>
+    </div>
+  </nav>
+
+  <header class="sapa" id="ringkasan">
+    <div><h1 id="sapaan"></h1><p id="sub"></p></div>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="periode"></span></span>
+  </header>
+  <div id="galat"></div>
+
+  <div class="tata">
+    <aside class="rel-kiri" aria-label="Pintasan">
+      <a class="aktif" href="#ringkasan" aria-label="Ringkasan"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></a>
+      <a href="#tindakan" aria-label="Perlu tindakan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></a>
+      <a href="#konten" aria-label="Semua konten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></a>
+    </aside>
+
+    <div class="isi">
+      <div class="kolom">
+        <section class="kartu">
+          <div class="kepala"><div><h2>Sudah tayang</h2><p id="subTayang"></p></div><a class="panah" href="#konten" aria-label="Lihat konten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          <div class="aksen">
+            <small id="labelAksen"></small>
+            <span class="besar"><span data-hitung id="nTayang">0</span> konten</span>
+            <div class="bawah"><span id="dariTotal"></span><span id="persen"></span></div>
+          </div>
+          <div class="mini"><div><small>Jam kerja dihemat agent</small><b data-hitung data-desimal="1" id="nJam">0</b></div><span class="lencana" id="lencanaJam"></span></div>
+        </section>
+      </div>
+
+      <section class="kartu">
+        <div class="kepala">
+          <div><h2>Konten di tiap tahap</h2><p>Batang paling tinggi = paling menumpuk</p></div>
+          <div class="saklar" role="group" aria-label="Tampilkan"><button type="button" aria-pressed="true" data-mode="aktif">Berjalan</button><button type="button" aria-pressed="false" data-mode="semua">Semua</button></div>
+        </div>
+        <div class="batang" id="batang" role="img"></div>
+        <p class="catatan" id="catatan"></p>
+      </section>
+
+      <div class="kolom">
+        <section class="kartu">
+          <div class="kepala"><div><h2>Jadwal tayang</h2><p>Konten terjadwal dan tayang per minggu</p></div><a class="panah" href="#konten" aria-label="Lihat konten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          <div class="angka-besar"><span data-hitung id="nJadwal">0</span> <small id="labelJadwal">terjadwal</small></div>
+          <svg class="garis-svg" id="garis" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <div class="sumbu" id="sumbu"></div>
+        </section>
+        <section class="kartu" id="tindakan">
+          <div class="kepala"><div><h2 id="judulTindakan"></h2><p>Menunggu keputusanmu</p></div><span class="lencana kuning" id="lencanaTindak"></span></div>
+          <ul class="daftar" id="daftarTindak"></ul>
+        </section>
+      </div>
+
+      <section class="kartu lebar2" id="konten" style="grid-column:1/-1">
+        <div class="kepala"><div><h2>Semua konten</h2><p id="subKonten"></p></div><div class="saring" id="saring" role="group" aria-label="Saring"></div></div>
+        <div class="gulir"><table>
+          <thead><tr><th>Konten</th><th>Platform</th><th>Tanggal</th><th>Dikerjakan</th><th>Tahap</th></tr></thead>
+          <tbody id="baris"></tbody>
+        </table></div>
+      </section>
+    </div>
+  </div>
+  <footer>Template oleh Maliki Saputra (@malikisaputra) · malikisaputra.biz.id · Rakn Academy</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+// ================= KONFIG: ubah bagian ini =================
+const KONFIG = {
+  namaMerek: "Agency Kita",            // nama usahamu (muncul di kiri atas)
+  namaPengguna: "Maliki",              // untuk sapaan "Halo, ..."
+  sub: "Ini kerja tim AI agent-mu. Data contoh (fiktif).",
+  warnaAksen: "#2B3BF0",               // warna utama (bawaan: biru Rakn Academy); ganti dengan warna merekmu
+  // Urutan alur kerja. "id" harus sama dengan isi kolom status di data; "nama" yang tampil di layar.
+  tahap: [
+    { id: "ide",       nama: "Ide" },
+    { id: "naskah",    nama: "Naskah" },
+    { id: "video",     nama: "Video" },
+    { id: "caption",   nama: "Caption" },
+    { id: "approval",  nama: "Approval" },
+    { id: "terjadwal", nama: "Terjadwal" },
+    { id: "tayang",    nama: "Tayang" }
+  ],
+  tahapTindakan: ["approval"],          // tahap yang butuh keputusanmu
+  tahapSelesai: ["tayang"],             // tahap akhir
+  tahapJadwal: ["terjadwal"],           // dihitung sebagai jadwal tayang
+  judulTindakan: "Perlu tindakanmu",
+  labelKlien: "klien",                  // ganti jadi "produk", "proyek", dll.
+  kolomMenit: "menit_hemat",            // kolom angka menit yang dihemat (kosongkan "" bila tidak ada)
+  SHEET_CSV_URL: ""                     // opsional: link CSV Google Sheet (File > Bagikan > Publikasikan ke web > CSV)
+};
+// ================= kode: tidak perlu diubah =================
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const gerakOk = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.documentElement.style.setProperty("--aksen", KONFIG.warnaAksen);
+
+function bacaCSV(teks){
+  const baris = []; let sel = "", row = [], kutip = false;
+  for (let i = 0; i < teks.length; i++){
+    const c = teks[i];
+    if (kutip){ if (c === '"' && teks[i+1] === '"'){ sel += '"'; i++; } else if (c === '"') kutip = false; else sel += c; }
+    else if (c === '"') kutip = true;
+    else if (c === ","){ row.push(sel); sel = ""; }
+    else if (c === "\n" || c === "\r"){ if (c === "\r" && teks[i+1] === "\n") i++; row.push(sel); baris.push(row); row = []; sel = ""; }
+    else sel += c;
+  }
+  if (sel || row.length){ row.push(sel); baris.push(row); }
+  const kepala = (baris.shift() || []).map(s => s.trim());
+  return baris.filter(r => r.some(x => x.trim())).map(r => Object.fromEntries(kepala.map((k, i) => [k, (r[i] || "").trim()])));
+}
+async function muat(){
+  if (KONFIG.SHEET_CSV_URL){
+    try { const r = await fetch(KONFIG.SHEET_CSV_URL); if (!r.ok) throw new Error(r.status); return bacaCSV(await r.text()); }
+    catch(e){ $("galat").innerHTML = `<p class="galat">Google Sheet belum bisa dibaca, jadi data contoh di data.js yang dipakai. Cek link CSV di KONFIG.SHEET_CSV_URL, atau buka halaman ini lewat server lokal.</p>`; }
+  }
+  return bacaCSV(window.DATA_CSV || "");
+}
+const tgl = s => new Date(s + "T00:00:00");
+const tglPendek = s => { const d = tgl(s); return isNaN(d) ? esc(s) : d.toLocaleDateString("id-ID", { day:"numeric", month:"short" }); };
+const namaTahap = id => (KONFIG.tahap.find(t => t.id === id) || { nama: id }).nama;
+const kelasTahap = id => KONFIG.tahapTindakan.includes(id) ? "tindak" : KONFIG.tahapSelesai.includes(id) ? "selesai" : "";
+const WARNA = ["#2B3BF0","#16A36B","#A66A00","#5B6BFF","#0A0F6B","#1A22B8"];
+const warnaKlien = {}; const wk = k => warnaKlien[k] ??= WARNA[Object.keys(warnaKlien).length % WARNA.length];
+const inisial = s => String(s).split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase();
+
+function hitungNaik(el, target, desimal = 0){
+  const akhir = () => el.textContent = target.toLocaleString("id-ID", { minimumFractionDigits: desimal, maximumFractionDigits: desimal });
+  if (!gerakOk) return akhir();
+  const mulai = performance.now(), lama = 900;
+  const langkah = t => { const p = Math.min(1, (t - mulai) / lama), e = 1 - Math.pow(1 - p, 3);
+    el.textContent = (target * e).toLocaleString("id-ID", { minimumFractionDigits: desimal, maximumFractionDigits: desimal });
+    if (p < 1) requestAnimationFrame(langkah); else akhir(); };
+  requestAnimationFrame(langkah);
+}
+
+function tampil(data){
+  document.title = KONFIG.namaMerek + " · Dashboard";
+  $("namaMerek").textContent = KONFIG.namaMerek; $("logo").textContent = inisial(KONFIG.namaMerek).slice(0, 1);
+  $("profil").textContent = inisial(KONFIG.namaPengguna);
+  $("sapaan").innerHTML = `Halo, <b>${esc(KONFIG.namaPengguna)}</b>`; $("sub").textContent = KONFIG.sub;
+  $("judulTindakan").textContent = KONFIG.judulTindakan;
+
+  const tanggal = data.map(x => tgl(x.tanggal)).filter(d => !isNaN(d)).sort((a, b) => a - b);
+  const opsi = { day: "numeric", month: "short", year: "numeric" };
+  $("periode").textContent = tanggal.length ? `${tanggal[0].toLocaleDateString("id-ID", opsi)} – ${tanggal.at(-1).toLocaleDateString("id-ID", opsi)}` : "Belum ada data";
+
+  const n = id => data.filter(x => x.status === id).length;
+  const tayang = data.filter(x => KONFIG.tahapSelesai.includes(x.status)).length;
+  const jadwal = data.filter(x => KONFIG.tahapJadwal.includes(x.status)).length;
+  const tindak = data.filter(x => KONFIG.tahapTindakan.includes(x.status));
+  const menit = KONFIG.kolomMenit ? data.reduce((a, x) => a + (parseFloat(x[KONFIG.kolomMenit]) || 0), 0) : 0;
+  const nKlien = new Set(data.map(x => x.klien)).size;
+
+  // kartu aksen
+  $("labelAksen").textContent = `Dari ${nKlien} ${KONFIG.labelKlien}`;
+  $("subTayang").textContent = "Konten yang sudah sampai ke penonton";
+  $("dariTotal").textContent = `dari ${data.length} konten`;
+  $("persen").textContent = data.length ? Math.round(tayang / data.length * 100) + "% selesai" : "";
+  hitungNaik($("nTayang"), tayang);
+  hitungNaik($("nJam"), menit / 60, 1);
+  $("lencanaJam").textContent = menit ? `±${Math.round(menit / Math.max(1, data.length))} mnt/konten` : "isi kolom menit";
+
+  // grafik batang pil
+  const gambarBatang = mode => {
+    const daftar = mode === "aktif" ? KONFIG.tahap.filter(t => !KONFIG.tahapSelesai.includes(t.id)) : KONFIG.tahap;
+    const maks = Math.max(1, ...daftar.map(t => n(t.id)));
+    const puncak = daftar.reduce((m, t) => n(t.id) > n(m.id) ? t : m, daftar[0]);
+    $("batang").innerHTML = daftar.map(t => `<div class="btg ${t.id === puncak.id && n(t.id) ? "sorot" : ""}"><div class="pil" data-h="${Math.max(6, n(t.id) / maks * 100)}"><span class="tip">${n(t.id)} konten</span></div><span class="nm" title="${esc(t.nama)}">${esc(t.nama)}</span></div>`).join("");
+    $("batang").setAttribute("aria-label", daftar.map(t => `${t.nama} ${n(t.id)}`).join(", "));
+    const pils = [...$("batang").querySelectorAll(".pil")];
+    const terapkan = () => pils.forEach((p, i) => setTimeout(() => p.style.height = p.dataset.h + "%", gerakOk ? i * 70 : 0));
+    gerakOk ? requestAnimationFrame(() => requestAnimationFrame(terapkan)) : terapkan();
+    $("catatan").innerHTML = n(puncak.id) >= 2 ? `Paling menumpuk di <b>${esc(puncak.nama)}</b>. Selesaikan ini dulu supaya alur lancar.` : "Alur lancar, tidak ada tahap yang menumpuk.";
+  };
+  gambarBatang("aktif");
+  document.querySelectorAll(".saklar button").forEach(b => b.onclick = () => {
+    document.querySelectorAll(".saklar button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    gambarBatang(b.dataset.mode);
+  });
+
+  // grafik garis: konten terjadwal + tayang per minggu
+  $("labelJadwal").textContent = `terjadwal · ${tayang} tayang`;
+  hitungNaik($("nJadwal"), jadwal);
+  const relevan = data.filter(x => KONFIG.tahapJadwal.includes(x.status) || KONFIG.tahapSelesai.includes(x.status)).map(x => tgl(x.tanggal)).filter(d => !isNaN(d));
+  const awalMinggu = d => { const s = new Date(d); s.setDate(s.getDate() - ((s.getDay() + 6) % 7)); s.setHours(0,0,0,0); return +s; };
+  const minggu = {}; relevan.forEach(d => minggu[awalMinggu(d)] = (minggu[awalMinggu(d)] || 0) + 1);
+  let kunci = Object.keys(minggu).map(Number).sort((a, b) => a - b);
+  if (kunci.length === 1) kunci = [kunci[0] - 7 * 864e5, kunci[0]];
+  const nilai = kunci.map(k => minggu[k] || 0), mx = Math.max(1, ...nilai);
+  if (kunci.length) {
+    const pts = nilai.map((v, i) => [kunci.length === 1 ? 150 : i / (kunci.length - 1) * 300, 108 - v / mx * 88]);
+    const d = pts.map((p, i) => {
+      if (!i) return `M${p[0]},${p[1]}`;
+      const q = pts[i - 1], cx = (q[0] + p[0]) / 2; return `C${cx},${q[1]} ${cx},${p[1]} ${p[0]},${p[1]}`;
+    }).join(" ");
+    $("garis").innerHTML = `<defs><linearGradient id="isiGaris" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${KONFIG.warnaAksen}" stop-opacity=".28"/><stop offset="1" stop-color="${KONFIG.warnaAksen}" stop-opacity="0"/></linearGradient></defs>
+      <path d="${d} L300,120 L0,120 Z" fill="url(#isiGaris)"/><path class="jalur" d="${d}"/>
+`;
+    const jalur = $("garis").querySelector(".jalur");
+    if (gerakOk) { const L = jalur.getTotalLength(); jalur.style.strokeDasharray = L; jalur.style.strokeDashoffset = L;
+      jalur.getBoundingClientRect(); jalur.style.transition = "stroke-dashoffset 1.2s ease .3s"; jalur.style.strokeDashoffset = 0; }
+    $("sumbu").innerHTML = kunci.map(k => `<span>${new Date(k).toLocaleDateString("id-ID", { day: "numeric", month: "short" })}</span>`).join("");
+  }
+
+  // perlu tindakan
+  $("lencanaTindak").textContent = `${tindak.length} konten`;
+  $("daftarTindak").innerHTML = tindak.length ? tindak.map(x => `<li><span class="inisial" style="background:${wk(x.klien)}">${esc(inisial(x.klien))}</span><span class="t"><b>${esc(x.judul)}</b><span>${esc(x.klien)} · ${tglPendek(x.tanggal)}</span></span></li>`).join("")
+    : `<li><span class="t"><span>Tidak ada yang menunggu keputusanmu.</span></span></li>`;
+
+  // tabel
+  const daftarKlien = ["Semua", ...new Set(data.map(x => x.klien))]; let pilih = "Semua";
+  const isi = () => {
+    $("saring").innerHTML = daftarKlien.map(k => `<button type="button" aria-pressed="${k === pilih}">${esc(k)}</button>`).join("");
+    [...$("saring").children].forEach((b, i) => b.onclick = () => { pilih = daftarKlien[i]; isi(); });
+    const baris = data.filter(x => pilih === "Semua" || x.klien === pilih).sort((a, b) => tgl(a.tanggal) - tgl(b.tanggal));
+    $("subKonten").textContent = `${baris.length} konten`;
+    $("baris").innerHTML = baris.map(x => `<tr><td><span class="konten"><span class="inisial" style="background:${wk(x.klien)}">${esc(inisial(x.klien))}</span><span><b>${esc(x.judul)}</b><br><span style="color:var(--tinta-3);font-size:12px">${esc(x.klien)}</span></span></span></td><td>${esc(x.platform)}</td><td>${tglPendek(x.tanggal)}</td><td>${esc(x.agent)}</td><td><span class="status ${kelasTahap(x.status)}"><i></i>${esc(namaTahap(x.status))}</span></td></tr>`).join("");
+  };
+  isi();
+}
+muat().then(tampil);
+</script>
+</body>
+</html>
