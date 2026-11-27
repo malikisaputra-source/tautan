@@ -355,6 +355,19 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .df-rek{margin:0;display:grid;gap:8px;font-size:15px}
 .df-rek{grid-template-columns:1fr}
 .df-salin{border:0;background:var(--biru);color:#fff;font:inherit;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;min-height:32px}
+.buka-daftar{min-height:58px;padding:0 34px;font-size:17px;background:#fff;color:var(--tua);border:0;cursor:pointer;font-family:inherit;font-weight:800}
+.buka-daftar[aria-expanded="true"]{display:none}
+.daftar.tertutup{display:none}
+.daftar.buka{animation:bukaForm .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes bukaForm{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.lipat-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--garis);background:#fff;color:var(--biru);font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;transition:border-color .2s,background .2s}
+.lipat-btn:hover{border-color:var(--biru);background:#F3F5FF}
+.lipat-btn::after{content:"↓";transition:transform .3s}
+.lipat-btn[aria-expanded="true"]::after{transform:rotate(180deg)}
+.sorot .lipat-btn{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff}
+.lipat-tengah{display:flex;justify-content:center}
+.terlipat{display:none!important}
+.terbuka-anim{animation:bukaForm .5s cubic-bezier(.2,.8,.2,1) both}
 </style>
 </head>
 <body>
@@ -446,12 +459,12 @@ a{color:inherit}img,video{display:block;max-width:100%}
 <section class="bagian"><div class="wrap">
   <div class="kepala muncul"><p class="mono">04 · Materi</p><h2>Dua sesi, <em class="grad">langsung praktik.</em></h2></div>
   <div class="sesi">
-    <article class="kartu muncul"><div class="angka">SESI 01</div><h3>Bikin</h3><span class="jam" data-k="jam1"></span><ol>
+    <article class="kartu muncul"><div class="angka">SESI 01</div><h3>Bikin</h3><span class="jam" data-k="jam1"></span><ol data-lipat="Lihat isi sesi">
       <li>Petakan kerja kontenmu: apa yang bisa diserahkan ke agent.</li>
       <li>Brief + referensi gaya supaya hasil sesuai selera.</li>
       <li>Susun tim 4 agent: Strategi, Motion Designer, Copywriter, Publisher.</li>
       <li>Agent membuat naskah, video, dan caption.</li></ol></article>
-    <article class="kartu sorot muncul"><div class="angka">SESI 02</div><h3>Posting, Dashboard &amp; Tools</h3><span class="jam" data-k="jam2"></span><ol>
+    <article class="kartu sorot muncul"><div class="angka">SESI 02</div><h3>Posting, Dashboard &amp; Tools</h3><span class="jam" data-k="jam2"></span><ol data-lipat="Lihat isi sesi">
       <li>Revisi video lewat agent; Publisher menyiapkan posting dan <mark>berhenti minta persetujuanmu</mark> sebelum dijadwalkan.</li>
       <li>Bangun <b style="display:inline;font-size:inherit">dashboard alur kerja</b> dari Google Sheet (status konten, jadwal, klien/produk), bisa dibuka di HP.</li>
       <li>Bikin <b style="display:inline;font-size:inherit">1 tool sendiri</b> untuk pekerjaan paling merepotkan: generator brief klien, laporan bulanan, ide &amp; hook, rekap order harian, atau template balasan CS.</li>
@@ -462,7 +475,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 <section class="bagian"><div class="wrap duo">
   <div>
     <div class="kepala muncul"><p class="mono">05 · Benefit</p><h2>Yang kamu <em class="grad">bawa pulang</em></h2></div>
-    <ul class="benefit muncul anak">
+    <ul class="benefit muncul anak" data-lipat="Lihat semua benefit" data-tampil="3">
       <li><span>✓</span>Tempat &amp; konsumsi</li>
       <li><span>✓</span>Paket starter: template video, resep 4 agent, template Story</li>
       <li><span>✓</span>Grup WA sejak daftar</li>
@@ -493,7 +506,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 
 <section class="bagian"><div class="wrap">
   <div class="kepala muncul"><p class="mono">06 · Persiapan</p><h2>Yang perlu disiapkan</h2></div>
-  <div class="siap muncul anak">
+  <div class="siap muncul anak" data-lipat="Lihat yang perlu disiapkan">
     <div class="kartu"><b>Perangkat</b><p>Laptop (Mac/Windows) + charger + HP.</p></div>
     <div class="kartu"><b>Langganan AI<span class="tag-saran">disarankan</span></b><p>Salah satu: Claude, ChatGPT, atau Google AI, supaya praktik 6 jam lancar. Versi gratis boleh, tapi kuotanya bisa habis di tengah praktik. Tidak perlu kunci API.</p></div>
     <div class="kartu"><b>Instalasi</b><p>Panduan instalasi dikirim lewat grup WA 3 hari sebelum kelas.</p></div>
@@ -508,7 +521,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 
 <section class="bagian faq"><div class="wrap">
   <div class="kepala muncul"><p class="mono">08 · FAQ</p><h2>Yang sering ditanya</h2></div>
-  <div class="faq-isi muncul anak">
+  <div class="faq-isi muncul anak" data-lipat="Lihat pertanyaan lain" data-tampil="3">
     <details><summary>Harus bisa coding?</summary><p>Tidak. Kamu memberi arahan ke agent dengan bahasa biasa; semua langkah dipandu.</p></details>
     <details><summary>Bedanya dengan Kelas AI Gratis di YouTube?</summary><p>Ini kelas offline: praktik didampingi langsung sampai hasilmu jadi, plus dapat paket starter dan grup WA.</p></details>
     <details><summary>Laptopku spek rendah, bisa?</summary><p>Minimal bisa menjalankan browser dan Node.js. Kita cek bareng di H-3 lewat grup WA.</p></details>
@@ -523,7 +536,8 @@ a{color:inherit}img,video{display:block;max-width:100%}
   <h2>Kursinya cuma <em data-k="maksAngka2"></em>.</h2>
   <p data-k="ringkas"></p>
   <p class="kursi-isi" id="kursi-isi" hidden></p>
-  <form class="daftar" id="form-daftar" novalidate>
+  <button type="button" class="btn buka-daftar" id="buka-daftar" aria-expanded="false" aria-controls="form-daftar">Daftar sekarang →</button>
+  <form class="daftar tertutup" id="form-daftar" novalidate>
     <div class="df-grid">
       <label>Nama lengkap<input name="nama" required minlength="2" maxlength="80" autocomplete="name"></label>
       <label>Nomor WhatsApp<input name="wa" required inputmode="tel" placeholder="08xxxxxxxxxx" pattern="[0-9+ ]{9,16}" autocomplete="tel"></label>
@@ -686,6 +700,12 @@ const KELAS = {
     rpc("kursi_academy", { p_batch: B.nama }).then((r) => (r.ok ? r.json() : null)).then((n) => { if (typeof n === "number") { kursiEl.textContent = `${n}/${K.kursiMaks} kursi terisi · minimal ${K.kursiMin} agar kelas berjalan`; kursiEl.hidden = false; } }).catch(() => {});
 
     document.getElementById("df-rek").addEventListener("click", (e) => { const b = e.target.closest(".df-salin"); if (!b) return; navigator.clipboard?.writeText(b.dataset.norek).then(() => { b.textContent = "Tersalin ✓"; setTimeout(() => (b.textContent = "Salin"), 1600); }).catch(() => {}); });
+
+    const bukaBtn = document.getElementById("buka-daftar");
+    const bukaForm = (fokus) => { if (!form.classList.contains("tertutup")) return; form.classList.remove("tertutup"); form.classList.add("buka"); bukaBtn.setAttribute("aria-expanded", "true"); if (fokus) setTimeout(() => form.nama.focus({ preventScroll: true }), 300); };
+    bukaBtn.addEventListener("click", () => { bukaForm(true); form.scrollIntoView({ behavior: "smooth", block: "center" }); });
+    document.querySelectorAll('a[href="#daftar"]').forEach((a) => a.addEventListener("click", () => bukaForm(false)));
+    if (location.hash === "#daftar") bukaForm(false);
     form.addEventListener("submit", async (e) => {
       e.preventDefault(); galat.hidden = true;
       const d = Object.fromEntries(new FormData(form));
@@ -704,6 +724,25 @@ const KELAS = {
       
     });
   })();
+
+  /* === lipat isi yang tidak wajib langsung tampil === */
+  document.querySelectorAll("[data-lipat]").forEach((el, n) => {
+    const tampil = +el.dataset.tampil || 0, anak = [...el.children].filter((c) => !c.classList.contains("tim-garis"));
+    const sembunyi = tampil ? anak.slice(tampil) : [el];
+    if (!sembunyi.length) return;
+    const id = el.id || (el.id = "lipat-" + n);
+    sembunyi.forEach((c) => c.classList.add("terlipat"));
+    const b = document.createElement("button"); b.type = "button"; b.className = "lipat-btn"; b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-controls", id);
+    const label = el.dataset.lipat + (tampil ? ` (${anak.length})` : "");
+    b.textContent = label;
+    b.addEventListener("click", () => {
+      const buka = b.getAttribute("aria-expanded") !== "true";
+      sembunyi.forEach((c) => { c.classList.toggle("terlipat", !buka); if (buka) { c.classList.remove("terbuka-anim"); void c.offsetWidth; c.classList.add("terbuka-anim"); } });
+      b.setAttribute("aria-expanded", String(buka)); b.textContent = buka ? "Tutup" : label;
+    });
+    const wadah = document.createElement("div"); wadah.className = el.closest(".kartu") ? "" : "lipat-tengah"; wadah.append(b);
+    el.after(wadah);
+  });
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("tampil"); io.unobserve(x.target); } }), { rootMargin: "0px 0px -8% 0px" });
     document.querySelectorAll(".muncul").forEach((el) => io.observe(el));
