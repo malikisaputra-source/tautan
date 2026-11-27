@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelas Offline Tim AI Agency · Rakn Academy</title>
+<meta name="description" content="Kelas offline 6 jam di Bogor. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator & agency.">
+<meta property="og:title" content="Kelas Offline Tim AI Agency · Rakn Academy">
+<meta property="og:description" content="2 sesi × 3 jam. Tim AI agent dari konten sampai posting. Maks. 15 orang.">
+<meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
+<link rel="icon" href="../ikon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../ikon-180.png">
+<meta name="theme-color" content="#020308">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css?v=202611250030">
+<style>
+.kl{max-width:960px;margin:0 auto;padding:104px 20px 120px}
+.kl section{margin:72px 0 0;padding:0;max-width:none;min-height:0}
+.kl h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-.025em;margin:14px 0 16px}
+.kl h2{font-size:clamp(26px,4.5vw,38px);letter-spacing:-.02em;margin:10px 0 18px;line-height:1.1}
+.kl .kl-mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.kl-sub{font-size:18px;line-height:1.6;opacity:.8;max-width:620px;margin:0}
+.kl-chip{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.kl-chip span{font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03)}
+.kl-aksi{display:flex;flex-wrap:wrap;gap:10px}
+.kl-btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;transition:transform .2s,opacity .2s}
+.kl-btn:hover{transform:translateY(-2px)}
+.kl-utama{background:#25d366;color:#04140a}
+.kl-dua{border:1px solid rgba(255,255,255,.25);color:inherit}
+.kl-video{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px}
+.kl-video figure{margin:0}
+.kl-video video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:#0b0c12;display:block}
+.kl-video figcaption{font-size:13px;opacity:.7;margin-top:8px;line-height:1.45}
+.kl-fiktif{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(255,190,60,.15);color:#ffc95c;margin-right:6px}
+.kl-cat{font-size:14px;opacity:.65;margin-top:14px}
+.kl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kl-kotak{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 20px;background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
+.kl-kotak b{display:block;font-size:17px;margin-bottom:6px}
+.kl-kotak p,.kl-kotak li{opacity:.75;line-height:1.6;font-size:15px;margin:0}
+.kl-kotak ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.kl-sesi{display:grid;gap:14px}
+.kl-sesi .kl-kotak{padding:22px}
+.kl-no{font-family:'JetBrains Mono',monospace;font-size:12px;color:#7cc4ff;margin-bottom:6px;display:block}
+.kl-benefit{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;list-style:none;padding:0;margin:0}
+.kl-benefit li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.08);line-height:1.5;font-size:15px}
+.kl-benefit li::before{content:"✓";color:#25d366;font-weight:700}
+.kl-harga{border:1px solid rgba(37,211,102,.35);border-radius:20px;padding:28px;background:linear-gradient(140deg,rgba(37,211,102,.1),rgba(255,255,255,.02))}
+.kl-harga .kl-angka{font-size:clamp(40px,8vw,58px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.kl-harga p{margin:10px 0 0;opacity:.75}
+.kl-batch{display:grid;gap:10px}
+.kl-batch .kl-kotak{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.kl-status{text-transform:uppercase;font-family:'JetBrains Mono',monospace;font-size:12px;padding:5px 10px;border-radius:999px;background:rgba(124,196,255,.15);color:#7cc4ff}
+.kl details{border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0}
+.kl summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.kl summary::after{content:"+";opacity:.6}
+.kl details[open] summary::after{content:"–"}
+.kl details p{margin:10px 0 0;opacity:.75;line-height:1.6}
+.kl-akhir{text-align:center;padding:44px 20px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:radial-gradient(circle at 50% 0,rgba(37,211,102,.14),transparent 70%)}
+.kl-akhir .kl-aksi{justify-content:center;margin-top:20px}
+.kl-draf{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;font-family:'JetBrains Mono',monospace;font-size:12px;padding:8px 14px;border-radius:999px;background:#ffc95c;color:#1a1200}
+.kl-usulan{background:rgba(255,201,92,.15);color:#ffc95c;border-radius:4px;padding:0 4px;font-size:.8em;font-family:'JetBrains Mono',monospace}
+@media (max-width:640px){.kl-grid,.kl-benefit{grid-template-columns:1fr}.kl section{margin-top:56px}.kl-btn{flex:1 1 100%}}
+</style>
+</head>
+<body>
+<header class="atas">
+  <a class="logo" href="../" aria-label="Maliki Studio, ke beranda">Maliki <span>Studio</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="../alat/">Alat Web</a>
+    <a href="../kode/">Source Code</a>
+    <a href="../skill/">Skill</a>
+    <a class="tombol kecil" href="#daftar">Daftar Kelas</a>
+  </nav>
+</header>
+
+<main class="kl">
+  <!-- 1. Hero -->
+  <p class="kl-mono" data-k="akademi"></p>
+  <h1 data-k="judul"></h1>
+  <p class="kl-sub">Kelas offline 6 jam. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator &amp; agency.</p>
+  <div class="kl-chip"><span data-k="kota"></span><span>2 sesi × 3 jam</span><span data-k="maks"></span></div>
+  <div class="kl-aksi"><a class="kl-btn kl-utama" data-wa href="#">Daftar via WhatsApp</a><a class="kl-btn kl-dua" href="#hasil">Lihat hasilnya</a></div>
+
+  <!-- 2. Hasil -->
+  <section id="hasil">
+    <p class="kl-mono">hasil yang dibawa pulang</p>
+    <h2>Satu brief, tim agent yang mengerjakan.</h2>
+    <div class="kl-video">
+      <figure><video src="teknokita.mp4" poster="teknokita.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><span class="kl-fiktif">klien fiktif</span>TeknoKita, video tips laptop</figcaption></figure>
+      <figure><video src="kopi-lereng.mp4" poster="kopi-lereng.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><span class="kl-fiktif">klien fiktif</span>Kopi Lereng, video edukasi produk</figcaption></figure>
+    </div>
+    <p class="kl-cat">Dibuat oleh tim AI agent dari satu brief. Klien contoh fiktif.</p>
+  </section>
+
+  <!-- 3. Untuk siapa -->
+  <section>
+    <p class="kl-mono">untuk siapa</p>
+    <h2>Cocok kalau kamu…</h2>
+    <div class="kl-grid">
+      <div class="kl-kotak"><b>Kreator pemula</b><p>Mau rutin posting tanpa begadang edit tiap hari.</p></div>
+      <div class="kl-kotak"><b>Freelancer sosmed</b><p>Pegang beberapa klien dan butuh alur kerja yang lebih ringan.</p></div>
+      <div class="kl-kotak"><b>Pemilik agency kecil</b><p>Mau tim kecilmu dibantu agent dari ide sampai siap posting.</p></div>
+      <div class="kl-kotak"><b>Admin konten UMKM</b><p>Mengurus konten usaha sendirian dan ingin lebih teratur.</p></div>
+    </div>
+  </section>
+
+  <!-- 4. Materi -->
+  <section>
+    <p class="kl-mono">yang kamu pelajari</p>
+    <h2>Dua sesi, langsung praktik.</h2>
+    <div class="kl-sesi">
+      <div class="kl-kotak"><span class="kl-no">SESI 1 · BIKIN</span><ul>
+        <li>Petakan kerja kontenmu: apa yang bisa diserahkan ke agent.</li>
+        <li>Brief + referensi gaya supaya hasil sesuai selera.</li>
+        <li>Susun tim 4 agent: Strategi, Motion Designer, Copywriter, Publisher.</li>
+        <li>Agent membuat naskah, video, dan caption.</li></ul></div>
+      <div class="kl-kotak"><span class="kl-no">SESI 2 · POSTING &amp; UKUR</span><ul>
+        <li>Revisi hasil lewat agent.</li>
+        <li>Publisher menyiapkan posting lewat browser dan <b style="display:inline;font-size:inherit">berhenti minta persetujuanmu</b> sebelum dijadwalkan.</li>
+        <li>Kalender konten 2 minggu.</li>
+        <li>Dashboard konten sederhana.</li>
+        <li>Story Instagram + showcase hasil.</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 5. Benefit -->
+  <section>
+    <p class="kl-mono">benefit</p>
+    <h2>Yang kamu dapat</h2>
+    <ul class="kl-benefit">
+      <li>Tempat &amp; konsumsi</li>
+      <li>Paket starter: template video, resep 4 agent, template Story</li>
+      <li>Grup WA sejak daftar</li>
+      <li>Lembar langkah untuk diulang di rumah</li>
+      <li>Sertifikat</li>
+      <li>Story-mu di-repost ke @malikisaputra</li>
+      <li>Rekap materi H+1</li>
+    </ul>
+  </section>
+
+  <!-- 6. Harga -->
+  <section>
+    <div class="kl-harga">
+      <p class="kl-mono" style="margin:0 0 10px">investasi</p>
+      <div class="kl-angka" data-k="harga"></div>
+      <p>Untuk 2 sesi (total 6 jam).</p>
+      <p data-k="promo" hidden></p>
+      <p style="font-size:14px;opacity:.6">Biaya langganan AI di luar harga kelas.</p>
+    </div>
+  </section>
+
+  <!-- 7. Persiapan -->
+  <section>
+    <p class="kl-mono">persiapan</p>
+    <h2>Yang perlu dibawa</h2>
+    <div class="kl-grid">
+      <div class="kl-kotak"><b>Perangkat</b><p>Laptop (Mac/Windows) + charger + HP.</p></div>
+      <div class="kl-kotak"><b>Langganan AI (disarankan)</b><p>Salah satu: Claude, ChatGPT, atau Google AI, supaya praktik 6 jam lancar. Versi gratis boleh, tapi kuotanya bisa habis di tengah praktik. Tidak perlu kunci API.</p></div>
+      <div class="kl-kotak"><b>Instalasi</b><p>Panduan instalasi dikirim lewat grup WA 3 hari sebelum kelas.</p></div>
+    </div>
+  </section>
+
+  <!-- 8. Jadwal -->
+  <section id="jadwal">
+    <p class="kl-mono">jadwal &amp; kursi</p>
+    <h2>Jadwal kelas</h2>
+    <p class="kl-sub" style="font-size:16px;margin-bottom:16px"><span data-k="pola"></span><br><span data-k="tempat"></span></p>
+    <div class="kl-batch" id="kl-batch"></div>
+    <p class="kl-cat" data-k="kursi"></p>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section>
+    <p class="kl-mono">faq</p>
+    <h2>Pertanyaan yang sering muncul</h2>
+    <details><summary>Harus bisa coding?</summary><p>Tidak. Kamu memberi arahan ke agent dengan bahasa biasa; semua langkah dipandu.</p></details>
+    <details><summary>Bedanya dengan Kelas AI Gratis di YouTube?</summary><p>Ini kelas offline: praktik didampingi langsung sampai hasilmu jadi, plus dapat paket starter dan grup WA.</p></details>
+    <details><summary>Laptopku spek rendah, bisa?</summary><p>Minimal bisa menjalankan browser dan Node.js. Kita cek bareng di H-3 lewat grup WA.</p></details>
+    <details><summary>Boleh pakai AI versi gratis?</summary><p>Boleh. Hanya saja kuota gratis bisa habis di tengah praktik, jadi langganan disarankan.</p></details>
+    <details><summary>Bagaimana dengan data klien?</summary><p>Selama kelas kita pakai data contoh atau data yang disamarkan.</p></details>
+    <details><summary>Kalau peserta kurang?</summary><p data-k="kursi2"></p></details>
+  </section>
+
+  <!-- 10. CTA -->
+  <section id="daftar" class="kl-akhir">
+    <p class="kl-mono">kursi terbatas</p>
+    <h2 style="margin-bottom:6px">Siap bikin tim AI-mu sendiri?</h2>
+    <p class="kl-sub" style="margin:0 auto" data-k="ringkas"></p>
+    <div class="kl-aksi"><a class="kl-btn kl-utama" data-wa href="#">Daftar via WhatsApp</a></div>
+  </section>
+</main>
+
+
+<script>
+/* ===== KONFIGURASI KELAS: ubah di sini saja ===== */
+const KELAS = {
+  akademi: "Rakn Academy",                                           // diputuskan Maliki 27 Nov
+  judul: "Tim AI Agency: dari Konten sampai Posting",
+  kota: "Bogor",
+  tempat: "Lokasi diumumkan ke peserta",                             // [USULAN]
+  pola: "2 sesi × 3 jam · Sabtu–Minggu · 09.00–12.30 WIB",
+  batch: [{ nama: "Batch 1", tanggal: "Sabtu–Minggu, 19–20 Desember 2026 · 09.00–12.30 WIB", batas: "15 Desember 2026", status: "buka" }],
+  harga: 499000, earlyBird: null, rombongan3: null,                  // null = disembunyikan
+  kursiMin: 10, kursiMaks: 15,
+  waDaftar: "08563230232",
+  usulan: [],                               // tandai [USULAN] selama draf; kosongkan saat final
+};
+/* ================================================ */
+(() => {
+  const rp = (n) => "Rp" + n.toLocaleString("id-ID");
+  const tag = (k) => KELAS.usulan.includes(k) ? ' <span class="kl-usulan">[USULAN]</span>' : "";
+  const isi = {
+    akademi: KELAS.akademi, judul: KELAS.judul, kota: KELAS.kota, maks: "maks. " + KELAS.kursiMaks + " orang",
+    harga: rp(KELAS.harga), tempat: KELAS.tempat + tag("tempat"), pola: KELAS.pola + tag("pola"),
+    kursi: `Kelas berjalan bila minimal ${KELAS.kursiMin} peserta${KELAS.batch[0].batas ? " sampai " + KELAS.batch[0].batas : ""}. Jika kurang, kamu bisa pindah ke jadwal berikutnya atau uang kembali penuh. Maks. ${KELAS.kursiMaks} kursi.`,
+    ringkas: `${KELAS.batch[0].tanggal.split(" · ")[0]} · ${KELAS.kota} · 2 sesi × 3 jam · ${rp(KELAS.harga)} · maks. ${KELAS.kursiMaks} orang`,
+  };
+  isi.kursi2 = isi.kursi;
+  document.querySelectorAll("[data-k]").forEach((el) => { if (isi[el.dataset.k] != null) el.innerHTML = isi[el.dataset.k]; });
+  const promo = [KELAS.earlyBird && `Early bird: ${rp(KELAS.earlyBird)}`, KELAS.rombongan3 && `Rombongan 3 orang: ${rp(KELAS.rombongan3)}/orang`].filter(Boolean);
+  const pEl = document.querySelector('[data-k="promo"]'); if (promo.length) { pEl.textContent = promo.join(" · "); pEl.hidden = false; }
+  document.getElementById("kl-batch").innerHTML = KELAS.batch.map((b) =>
+    `<div class="kl-kotak"><div><b>${b.nama}</b><p>${b.tanggal}${tag("batch")}</p>${b.batas ? `<p style="font-size:13px;opacity:.6">Batas daftar: ${b.batas}</p>` : ""}</div><span class="kl-status">${b.status}</span></div>`).join("");
+  const wa = "62" + KELAS.waDaftar.replace(/^0/, "");
+  const pesan = `Halo Maliki, aku mau daftar ${KELAS.judul} ${KELAS.batch[0].nama}. Nama: `;
+  document.querySelectorAll("[data-wa]").forEach((a) => { a.href = `https://wa.me/${wa}?text=${encodeURIComponent(pesan)}`; a.target = "_blank"; a.rel = "noopener"; });
+})();
+</script>
+</body>
+</html>
