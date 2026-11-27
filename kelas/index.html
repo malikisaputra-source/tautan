@@ -3,229 +3,459 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kelas Offline Tim AI Agency · Rakn Academy</title>
+<title>Rakn Academy · Tim AI Agency: dari Konten sampai Posting</title>
 <meta name="description" content="Kelas offline 6 jam di Bogor. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator & agency.">
-<meta property="og:title" content="Kelas Offline Tim AI Agency · Rakn Academy">
-<meta property="og:description" content="2 sesi × 3 jam. Tim AI agent dari konten sampai posting. Maks. 15 orang.">
-<meta property="og:image" content="https://malikisaputra.biz.id/foto.jpg">
-<link rel="icon" href="../ikon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../ikon-180.png">
-<meta name="theme-color" content="#020308">
+<meta property="og:title" content="Rakn Academy · Kelas offline Tim AI Agency">
+<meta property="og:description" content="2 sesi × 3 jam di Bogor. Tim 4 AI agent dari konten sampai posting. Maks. 15 orang.">
+<meta property="og:image" content="https://malikisaputra.biz.id/kelas/teknokita.jpg">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#070B4F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../style.css?v=202611250030">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
-.kl{max-width:960px;margin:0 auto;padding:104px 20px 120px}
-.kl section{margin:72px 0 0;padding:0;max-width:none;min-height:0}
-.kl h1{font-size:clamp(34px,7vw,62px);line-height:1.04;letter-spacing:-.025em;margin:14px 0 16px}
-.kl h2{font-size:clamp(26px,4.5vw,38px);letter-spacing:-.02em;margin:10px 0 18px;line-height:1.1}
-.kl .kl-mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
-.kl-sub{font-size:18px;line-height:1.6;opacity:.8;max-width:620px;margin:0}
-.kl-chip{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
-.kl-chip span{font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03)}
-.kl-aksi{display:flex;flex-wrap:wrap;gap:10px}
-.kl-btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;transition:transform .2s,opacity .2s}
-.kl-btn:hover{transform:translateY(-2px)}
-.kl-utama{background:#25d366;color:#04140a}
-.kl-dua{border:1px solid rgba(255,255,255,.25);color:inherit}
-.kl-video{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px}
-.kl-video figure{margin:0}
-.kl-video video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:#0b0c12;display:block}
-.kl-video figcaption{font-size:13px;opacity:.7;margin-top:8px;line-height:1.45}
-.kl-fiktif{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(255,190,60,.15);color:#ffc95c;margin-right:6px}
-.kl-cat{font-size:14px;opacity:.65;margin-top:14px}
-.kl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.kl-kotak{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 20px;background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
-.kl-kotak b{display:block;font-size:17px;margin-bottom:6px}
-.kl-kotak p,.kl-kotak li{opacity:.75;line-height:1.6;font-size:15px;margin:0}
-.kl-kotak ul{margin:0;padding-left:18px;display:grid;gap:6px}
-.kl-sesi{display:grid;gap:14px}
-.kl-sesi .kl-kotak{padding:22px}
-.kl-no{font-family:'JetBrains Mono',monospace;font-size:12px;color:#7cc4ff;margin-bottom:6px;display:block}
-.kl-benefit{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;list-style:none;padding:0;margin:0}
-.kl-benefit li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.08);line-height:1.5;font-size:15px}
-.kl-benefit li::before{content:"✓";color:#25d366;font-weight:700}
-.kl-harga{border:1px solid rgba(37,211,102,.35);border-radius:20px;padding:28px;background:linear-gradient(140deg,rgba(37,211,102,.1),rgba(255,255,255,.02))}
-.kl-harga .kl-angka{font-size:clamp(40px,8vw,58px);font-weight:700;letter-spacing:-.03em;line-height:1}
-.kl-harga p{margin:10px 0 0;opacity:.75}
-.kl-batch{display:grid;gap:10px}
-.kl-batch .kl-kotak{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.kl-status{text-transform:uppercase;font-family:'JetBrains Mono',monospace;font-size:12px;padding:5px 10px;border-radius:999px;background:rgba(124,196,255,.15);color:#7cc4ff}
-.kl details{border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0}
-.kl summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-.kl summary::after{content:"+";opacity:.6}
-.kl details[open] summary::after{content:"–"}
-.kl details p{margin:10px 0 0;opacity:.75;line-height:1.6}
-.kl-akhir{text-align:center;padding:44px 20px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:radial-gradient(circle at 50% 0,rgba(37,211,102,.14),transparent 70%)}
-.kl-akhir .kl-aksi{justify-content:center;margin-top:20px}
-.kl-draf{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;font-family:'JetBrains Mono',monospace;font-size:12px;padding:8px 14px;border-radius:999px;background:#ffc95c;color:#1a1200}
-.kl-usulan{background:rgba(255,201,92,.15);color:#ffc95c;border-radius:4px;padding:0 4px;font-size:.8em;font-family:'JetBrains Mono',monospace}
-@media (max-width:640px){.kl-grid,.kl-benefit{grid-template-columns:1fr}.kl section{margin-top:56px}.kl-btn{flex:1 1 100%}}
+:root{--bg:#F4F6FC;--putih:#fff;--teks:#0B1033;--abu:#5B6285;--garis:#E3E7F3;--biru:#2B3BF0;--biru2:#5B6BFF;--tua:#0A0F6B;--hijau:#16A36B;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--teks);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}img,video{display:block;max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;position:relative}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.05em}
+.grad{color:var(--biru)}
+/* header */
+.atas{position:absolute;top:0;left:0;right:0;z-index:20;color:#fff}
+.atas .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.merek{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:17px}
+.merek img{width:34px;height:34px;border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15.5px;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-isi{background:var(--biru);color:#fff;box-shadow:0 10px 24px -10px rgba(43,59,240,.7)}
+.btn-isi:hover{background:#1F2BD0}
+.btn-putih{background:#fff;color:var(--tua)}
+.btn-kaca{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-kaca:hover{background:rgba(255,255,255,.2)}
+.btn-kecil{min-height:42px;padding:0 18px;font-size:14px}
+/* hero biru */
+.hero{position:relative;color:#fff;padding:112px 0 0;overflow:hidden;background:linear-gradient(180deg,#070B4F 0%,#1A22B8 55%,#3346F5 100%);border-radius:0 0 40px 40px}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0 38px,rgba(255,255,255,.07) 38px 40px,rgba(255,255,255,0) 40px 78px);mask-image:linear-gradient(180deg,transparent 10%,#000 70%)}
+.hero::after{content:"";position:absolute;left:50%;bottom:-260px;width:1200px;height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(160,180,255,.55),transparent 75%)}
+.hero .wrap{z-index:1;text-align:center}
+.hero-label{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:500}
+.hero-label i{font-style:normal;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:#fff;color:var(--biru)}
+.hero h1{font-weight:800;font-size:clamp(40px,7.4vw,84px);line-height:1.02;letter-spacing:-.04em;margin:24px auto 20px;max-width:900px}
+.hero h1 .grad{color:#fff;background:linear-gradient(90deg,#A9B6FF,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{margin:0 auto;font-size:19px;color:rgba(255,255,255,.78);max-width:600px}
+.hero-aksi{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+/* panggung kartu melayang */
+.panggung{position:relative;max-width:900px;height:340px;margin:44px auto 0}
+.panggung{transition:transform .2s ease-out}
+.ui-tengah .s{transition:background .3s,color .3s}
+.ui-tengah .baris{transition:background .4s}
+.ui-tengah .baris.aktif{background:#F3F5FF;border-radius:10px}
+.ui-tengah .baris.aktif .t{background:var(--biru);color:#fff}
+.ui-bawah2.muncul-ui{animation:pop .5s cubic-bezier(.2,1.4,.4,1) both,melayang 6s ease-in-out .5s infinite}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+.agen{transition:transform .4s,background .5s,color .5s,box-shadow .5s}
+.agen.estafet{background:linear-gradient(160deg,#2B3BF0,#1A22B8);color:#fff;border-color:transparent;transform:translateY(-6px);box-shadow:0 24px 40px -20px rgba(26,34,184,.6)}
+.agen.estafet p,.agen.estafet .no{color:rgba(255,255,255,.82)}
+.agen.estafet .ikon{background:rgba(255,255,255,.16);color:#fff}
+.tim{position:relative}
+.tim-garis{position:absolute;left:12%;right:12%;top:-14px;height:3px;border-radius:9px;background:#E3E7F3;overflow:hidden}
+.tim-garis i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2B3BF0,#5B6BFF);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.kursi-bar i{transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.kursi-bar.tutup i{transform:scaleX(0)}
+.ui{position:absolute;background:rgba(255,255,255,.96);color:var(--teks);border-radius:18px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(5,10,80,.55);text-align:left;font-size:13.5px;animation:melayang 6s ease-in-out infinite}
+.ui b{display:block;font-size:15px}
+.ui small{color:var(--abu);font-size:12px}
+.ui-kaca{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ui-kaca small{color:rgba(255,255,255,.75)}
+@keyframes melayang{50%{transform:translateY(-10px)}}
+.ui-tengah{left:50%;top:10px;width:300px;margin-left:-150px;padding:20px;animation-delay:-1s}
+.ui-tengah .baris{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--garis)}
+.ui-tengah .baris:first-of-type{border-top:0}
+.ui-tengah .t{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:13px;background:#EEF0FF;color:var(--biru);flex:none}
+.ui-tengah .s{margin-left:auto;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.ok{background:#E3F7EE;color:var(--hijau)}.jalan{background:#EEF0FF;color:var(--biru)}.tunggu{background:#FFF4DB;color:#A66A00}
+.ui-kiri{left:0;top:60px;width:210px;animation-delay:-3s}
+.ui-kiri .angka{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.ui-kanan{right:0;top:30px;width:220px;animation-delay:-2s}
+.ui-kanan .bar{height:6px;border-radius:9px;background:rgba(255,255,255,.25);margin-top:10px;overflow:hidden}
+.ui-kanan .bar i{display:block;height:100%;width:94%;background:#fff;border-radius:9px;animation:isi 3s ease-out infinite}
+@keyframes isi{from{width:10%}}
+.ui-bawah{left:6%;bottom:30px;width:240px;animation-delay:-4s}
+.ui-bawah2{right:8%;bottom:40px;width:230px;animation-delay:-5s}
+.stiker{position:absolute;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:6px 12px;border-radius:999px;background:#fff;color:var(--tua);transform:rotate(-8deg);box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+/* pita */
+.pita{overflow:hidden;padding:22px 0;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.pita-isi{display:flex;gap:44px;width:max-content;animation:geser 32s linear infinite;font-weight:700;font-size:18px;color:#9AA2C9;white-space:nowrap}
+.pita-isi span::after{content:"✦";color:var(--biru);margin-left:44px}
+@keyframes geser{to{transform:translateX(-50%)}}
+/* bagian */
+.bagian{padding:64px 0}
+.kepala{text-align:center;margin:0 auto 32px;max-width:760px}
+.kepala .mono{color:var(--biru);display:inline-block;padding:6px 14px;border-radius:999px;background:#E8EBFF;font-weight:600}
+.kepala h2{font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-.035em;margin:16px 0 0}
+.kepala h2 em{font-style:normal}
+.kartu{background:var(--putih);border:1px solid var(--garis);border-radius:22px;box-shadow:0 1px 2px rgba(11,16,51,.04);transition:transform .3s,box-shadow .3s}
+.kartu:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(11,16,51,.25)}
+.sorot{background:linear-gradient(160deg,#2B3BF0,#1A22B8);color:#fff;border-color:transparent}
+.sorot p,.sorot .no{color:rgba(255,255,255,.8)!important}
+.sorot .ikon{background:rgba(255,255,255,.16)!important;color:#fff!important}
+/* tim */
+.tim{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.agen{padding:24px 22px}
+.agen .ikon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:18px;background:#EEF0FF;color:var(--biru);margin-bottom:20px}
+.agen .no{font-family:var(--mono);font-size:11.5px;color:var(--abu)}
+.agen b{display:block;font-size:19px;margin:4px 0 8px}
+.agen p{margin:0;font-size:14.5px;color:var(--abu)}
+/* hasil */
+.hasil{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:32px;align-items:center}
+.hp{padding:8px;border-radius:34px;background:#0B1033;box-shadow:0 40px 70px -30px rgba(26,34,184,.5)}
+.hp video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:27px;background:#dde}
+.hp-wrap{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.hp-wrap:first-child{transform:rotate(-4deg)}.hp-wrap:nth-child(3){transform:rotate(4deg)}
+.hp-wrap:hover{transform:rotate(0) translateY(-6px)}
+.hp-ket{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:var(--abu);justify-content:center}
+.fiktif{font-family:var(--mono);font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:6px;background:#FFF4DB;color:#8A5800}
+.hasil-teks{text-align:center}
+.hasil-teks h3{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:0 0 14px}
+.hasil-teks p{margin:0;color:var(--abu)}
+/* siapa */
+.siapa{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.siapa .kartu{padding:24px}
+.siapa b{display:block;font-size:19px;margin:14px 0 8px}
+.siapa p{margin:0;font-size:15px;color:var(--abu)}
+.siapa .t{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--biru)}
+/* sesi */
+.sesi{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sesi .kartu{padding:30px}
+.sesi .angka{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--biru);display:inline-block;padding:4px 10px;border-radius:999px;background:#EEF0FF}
+.sesi .sorot .angka{background:rgba(255,255,255,.16);color:#fff}
+.sesi h3{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:14px 0 4px}
+.sesi .jam{font-family:var(--mono);font-size:12px;color:var(--abu)}
+.sesi .sorot .jam{color:rgba(255,255,255,.75)}
+.sesi ol{margin:20px 0 0;padding:0;list-style:none;display:grid}
+.sesi li{position:relative;padding:12px 0 12px 30px;border-top:1px solid var(--garis);font-size:15.5px}
+.sesi .sorot li{border-color:rgba(255,255,255,.18)}
+.sesi li::before{content:"✓";position:absolute;left:0;top:12px;font-weight:800;color:var(--biru)}
+.sesi .sorot li::before{color:#fff}
+.sesi mark{background:#FFE78A;color:var(--teks);padding:0 4px;border-radius:4px}
+/* benefit + harga */
+.duo{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}
+.duo .kepala{text-align:left;margin:0 0 28px}
+.benefit{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.benefit li{display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:14px;background:#fff;border:1px solid var(--garis);font-size:16px}
+.benefit li span{width:26px;height:26px;flex:none;border-radius:8px;display:grid;place-items:center;background:#E3F7EE;color:var(--hijau);font-size:13px;font-weight:800}
+.tiket{padding:32px;position:sticky;top:30px;color:#fff;border:0;background:linear-gradient(180deg,#070B4F,#1A22B8 70%,#3346F5);overflow:hidden}
+.tiket::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.06) 30px 32px);pointer-events:none}
+.tiket>*{position:relative}
+.tiket .mono{color:#C9D0FF;font-weight:600}
+.tiket .harga{font-size:clamp(48px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:16px 0 6px}
+.tiket .sobek{border-top:1px dashed rgba(255,255,255,.3);margin:24px 0}
+.tiket dl{margin:0;display:grid;gap:12px;font-size:14.5px}
+.tiket dl div{display:flex;justify-content:space-between;gap:12px}
+.tiket dt{color:#C9D0FF}.tiket dd{margin:0;text-align:right;font-weight:600}
+.tiket .btn{width:100%;margin-top:26px;background:#fff;color:var(--tua)}
+.tiket small{display:block;margin-top:12px;color:#C9D0FF;font-size:13px;text-align:center}
+/* persiapan */
+.siap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.siap .kartu{padding:26px}
+.siap b{display:block;font-size:18px;margin-bottom:8px}
+.siap p{margin:0;color:var(--abu);font-size:15.5px}
+.tag-saran{font-family:var(--mono);font-size:10.5px;background:#E8EBFF;color:var(--biru);padding:2px 8px;border-radius:5px;margin-left:8px;vertical-align:2px;font-weight:600}
+/* jadwal */
+.batch{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;padding:28px}
+.tgl{text-align:center;padding:16px 22px;border-radius:16px;background:linear-gradient(160deg,#2B3BF0,#1A22B8);color:#fff}
+.tgl b{display:block;font-size:42px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.tgl small{display:block;font-family:var(--mono);font-size:11.5px;opacity:.8;margin-top:6px}
+.batch h3{font-size:21px;font-weight:800;margin:0}
+.batch p{margin:4px 0 0;color:var(--abu);font-size:15px}
+.kursi{margin-top:16px}
+.kursi-bar{display:grid;grid-template-columns:repeat(15,1fr);gap:4px;margin-top:10px}
+.kursi-bar i{height:8px;border-radius:3px;background:#E3E7F3}
+.kursi-bar i.min{background:var(--biru)}
+.status{font-family:var(--mono);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;background:#E3F7EE;color:var(--hijau);text-transform:uppercase;white-space:nowrap;display:inline-flex;gap:8px;align-items:center}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hijau);animation:kedip 1.6s infinite}
+@keyframes kedip{50%{opacity:.3}}
+.catatan{margin:18px auto 0;color:var(--abu);font-size:15px;max-width:720px;text-align:center}
+/* faq */
+.faq-isi{max-width:780px;margin:0 auto;display:grid;gap:10px}
+.faq details{border:1px solid var(--garis);border-radius:16px;background:#fff;padding:20px 22px}
+.faq details[open]{border-color:#C3CAFF}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;transition:transform .3s;color:var(--biru)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:12px 0 0;color:var(--abu)}
+/* akhir */
+.akhir{position:relative;margin:0 20px 20px;padding:110px 20px;text-align:center;overflow:hidden;border-radius:36px;color:#fff;background:linear-gradient(180deg,#070B4F,#1A22B8 60%,#3346F5)}
+.akhir::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.07) 38px 40px,transparent 40px 78px)}
+.akhir .wrap{z-index:1}
+.akhir img{width:64px;margin:0 auto 24px;border-radius:16px}
+.akhir h2{font-weight:800;font-size:clamp(38px,6.5vw,72px);line-height:1.02;letter-spacing:-.04em;margin:0 0 16px}
+.akhir h2 .grad{color:#C9D0FF}
+.akhir p{color:rgba(255,255,255,.78);margin:0 0 30px}
+.akhir .btn{background:#fff;color:var(--tua);min-height:56px;padding:0 30px;font-size:17px}
+.kaki{color:var(--abu);font-size:13px;padding:10px 0 40px;text-align:center}
+.bar-hp{display:none}
+/* gerak */
+.muncul{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.muncul.tampil{opacity:1;transform:none}
+.muncul.anak{opacity:1;transform:none}
+.muncul.anak>*{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.muncul.anak.tampil>*{opacity:1;transform:none}
+.muncul.anak.tampil>*:nth-child(2){transition-delay:.08s}.muncul.anak.tampil>*:nth-child(3){transition-delay:.16s}.muncul.anak.tampil>*:nth-child(4){transition-delay:.24s}.muncul.anak.tampil>*:nth-child(5){transition-delay:.32s}.muncul.anak.tampil>*:nth-child(6){transition-delay:.4s}.muncul.anak.tampil>*:nth-child(7){transition-delay:.48s}
+@media (prefers-reduced-motion:reduce){.muncul,.muncul.anak>*{opacity:1!important;transform:none!important}.pita-isi,.ui,.status::before,.ui-kanan .bar i{animation:none}}
+@media (max-width:900px){
+  .duo,.sesi{grid-template-columns:1fr}
+  .tim,.siapa{grid-template-columns:1fr 1fr}
+  .hasil{grid-template-columns:1fr 1fr}.hasil-teks{grid-column:1/-1;order:-1}
+  .siap{grid-template-columns:1fr}.tiket{position:static}
+  .ui-bawah,.ui-bawah2{display:none}.panggung{height:330px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .hero{padding-top:110px;border-radius:0 0 28px 28px}
+  .hero-aksi .btn{flex:1 1 100%}
+  .panggung{height:300px;margin-top:44px}
+  .ui-kiri,.stiker{display:none}
+  .ui-tengah{width:260px;margin-left:-130px;left:50%}
+  .ui-kanan{right:-30px;top:200px;width:180px}
+  .bagian{padding:48px 0}
+  .tim,.siapa{grid-template-columns:1fr}
+  .hasil{gap:14px}.hp{padding:5px;border-radius:22px}.hp video{border-radius:18px}
+  .hp-wrap:first-child,.hp-wrap:nth-child(3){transform:none}
+  .batch{grid-template-columns:1fr}.tgl{text-align:left}
+  .atas .btn{display:none}
+  .akhir{margin:0 12px 12px;border-radius:26px;padding:80px 16px}
+  .bar-hp{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;justify-content:space-between;align-items:center;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:var(--tua);color:#fff;box-shadow:0 14px 30px -12px rgba(5,10,80,.6)}
+  .bar-hp span{font-size:14px;color:#C9D0FF}.bar-hp b{color:#fff;font-size:17px}
+  .bar-hp .btn{min-height:42px;background:#fff;color:var(--tua)}
+  .kaki{padding-bottom:100px}
+}
 </style>
 </head>
 <body>
-<header class="atas">
-  <a class="logo" href="../" aria-label="Maliki Studio, ke beranda">Maliki <span>Studio</span></a>
-  <nav aria-label="Navigasi utama">
-    <a href="../alat/">Alat Web</a>
-    <a href="../kode/">Source Code</a>
-    <a href="../skill/">Skill</a>
-    <a class="tombol kecil" href="#daftar">Daftar Kelas</a>
-  </nav>
-</header>
+<header class="atas"><div class="wrap">
+  <a class="merek" href="#" aria-label="Rakn Academy"><img src="logo.svg" alt="" width="34" height="34">Rakn Academy</a>
+  <a class="btn btn-putih btn-kecil" data-wa href="#">Daftar kelas</a>
+</div></header>
 
-<main class="kl">
-  <!-- 1. Hero -->
-  <p class="kl-mono" data-k="akademi"></p>
-  <h1 data-k="judul"></h1>
-  <p class="kl-sub">Kelas offline 6 jam. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator &amp; agency.</p>
-  <div class="kl-chip"><span data-k="kota"></span><span>2 sesi × 3 jam</span><span data-k="maks"></span></div>
-  <div class="kl-aksi"><a class="kl-btn kl-utama" data-wa href="#">Daftar via WhatsApp</a><a class="kl-btn kl-dua" href="#hasil">Lihat hasilnya</a></div>
-
-  <!-- 2. Hasil -->
-  <section id="hasil">
-    <p class="kl-mono">hasil yang dibawa pulang</p>
-    <h2>Satu brief, tim agent yang mengerjakan.</h2>
-    <div class="kl-video">
-      <figure><video src="teknokita.mp4" poster="teknokita.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><span class="kl-fiktif">klien fiktif</span>TeknoKita, video tips laptop</figcaption></figure>
-      <figure><video src="kopi-lereng.mp4" poster="kopi-lereng.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><span class="kl-fiktif">klien fiktif</span>Kopi Lereng, video edukasi produk</figcaption></figure>
+<main>
+<section class="hero"><div class="wrap">
+  <p class="hero-label mono"><i>Batch 1</i><span data-k="labelHero"></span></p>
+  <h1>Bangun tim <span class="grad">AI agency</span>-mu sendiri.</h1>
+  <p class="hero-sub">Kelas offline 6 jam. Pulang bawa tim AI agent yang bikin konten sampai siap posting, untuk kreator &amp; agency.</p>
+  <div class="hero-aksi"><a class="btn btn-putih" data-wa href="#">Daftar via WhatsApp →</a><a class="btn btn-kaca" href="#hasil">Lihat hasilnya</a></div>
+  <div class="panggung" id="panggung" aria-hidden="true">
+    <div class="ui ui-kiri"><small>Tim kamu</small><div class="angka">4 agent</div><small>bekerja dari 1 brief</small></div>
+    <div class="ui ui-tengah" id="pipa"><small>Brief: video tips laptop</small>
+      <div class="baris"><span class="t">◎</span><div><b>Strategi</b><small>ide &amp; sudut konten</small></div><span class="s ok">selesai</span></div>
+      <div class="baris"><span class="t">✎</span><div><b>Copywriter</b><small>naskah &amp; caption</small></div><span class="s ok">selesai</span></div>
+      <div class="baris"><span class="t">▶</span><div><b>Motion Designer</b><small>video 9:16</small></div><span class="s jalan">render</span></div>
+      <div class="baris"><span class="t">✓</span><div><b>Publisher</b><small>siap dijadwalkan</small></div><span class="s tunggu">tunggu kamu</span></div>
     </div>
-    <p class="kl-cat">Dibuat oleh tim AI agent dari satu brief. Klien contoh fiktif.</p>
-  </section>
+    <div class="ui ui-kaca ui-kanan"><small>Render video</small><b><span id="persen">0</span>% · 9:16</b><div class="bar"><i id="bar-render" style="animation:none;width:0"></i></div></div>
+    <div class="ui ui-kaca ui-bawah"><small>Kalender konten</small><b>14 hari terisi</b></div>
+    <div class="ui ui-bawah2" id="tanya"><small>Publisher</small><b>Boleh dijadwalkan?</b><small>menunggu persetujuanmu</small></div>
+    <span class="stiker" style="left:22%;top:0">AI AGENT</span><span class="stiker" style="right:2%;top:150px;transform:rotate(7deg)">OFFLINE · BOGOR</span>
+  </div>
+</div>
+</section>
+<div class="pita" aria-hidden="true"><div class="pita-isi"><span>Strategi</span><span>Motion Designer</span><span>Copywriter</span><span>Publisher</span><span>Brief → Video → Caption → Jadwal</span><span>Strategi</span><span>Motion Designer</span><span>Copywriter</span><span>Publisher</span><span>Brief → Video → Caption → Jadwal</span></div></div>
 
-  <!-- 3. Untuk siapa -->
-  <section>
-    <p class="kl-mono">untuk siapa</p>
-    <h2>Cocok kalau kamu…</h2>
-    <div class="kl-grid">
-      <div class="kl-kotak"><b>Kreator pemula</b><p>Mau rutin posting tanpa begadang edit tiap hari.</p></div>
-      <div class="kl-kotak"><b>Freelancer sosmed</b><p>Pegang beberapa klien dan butuh alur kerja yang lebih ringan.</p></div>
-      <div class="kl-kotak"><b>Pemilik agency kecil</b><p>Mau tim kecilmu dibantu agent dari ide sampai siap posting.</p></div>
-      <div class="kl-kotak"><b>Admin konten UMKM</b><p>Mengurus konten usaha sendirian dan ingin lebih teratur.</p></div>
-    </div>
-  </section>
+<section class="bagian"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">01 · Tim kamu</p><h2>Empat agent, satu alur. <em class="grad">Kamu tetap yang memutuskan.</em></h2></div>
+  <div class="tim muncul anak" id="tim"><div class="tim-garis" aria-hidden="true"><i id="tim-garis"></i></div>
+    <div class="agen kartu"><span class="ikon">◎</span><span class="no">AGENT 01</span><b>Strategi</b><p>Baca brief &amp; referensi gaya, tentukan ide dan sudut konten.</p></div>
+    <div class="agen kartu"><span class="ikon">▶</span><span class="no">AGENT 02</span><b>Motion Designer</b><p>Mengubah naskah jadi video 9:16 siap tayang.</p></div>
+    <div class="agen kartu"><span class="ikon">✎</span><span class="no">AGENT 03</span><b>Copywriter</b><p>Menulis naskah, hook, dan caption sesuai gaya brand.</p></div>
+    <div class="agen kartu"><span class="ikon">✓</span><span class="no">AGENT 04</span><b>Publisher</b><p>Menyiapkan posting, lalu berhenti minta persetujuanmu sebelum dijadwalkan.</p></div>
+  </div>
+</div></section>
 
-  <!-- 4. Materi -->
-  <section>
-    <p class="kl-mono">yang kamu pelajari</p>
-    <h2>Dua sesi, langsung praktik.</h2>
-    <div class="kl-sesi">
-      <div class="kl-kotak"><span class="kl-no">SESI 1 · BIKIN</span><ul>
-        <li>Petakan kerja kontenmu: apa yang bisa diserahkan ke agent.</li>
-        <li>Brief + referensi gaya supaya hasil sesuai selera.</li>
-        <li>Susun tim 4 agent: Strategi, Motion Designer, Copywriter, Publisher.</li>
-        <li>Agent membuat naskah, video, dan caption.</li></ul></div>
-      <div class="kl-kotak"><span class="kl-no">SESI 2 · POSTING &amp; UKUR</span><ul>
-        <li>Revisi hasil lewat agent.</li>
-        <li>Publisher menyiapkan posting lewat browser dan <b style="display:inline;font-size:inherit">berhenti minta persetujuanmu</b> sebelum dijadwalkan.</li>
-        <li>Kalender konten 2 minggu.</li>
-        <li>Dashboard konten sederhana.</li>
-        <li>Story Instagram + showcase hasil.</li></ul></div>
-    </div>
-  </section>
+<section class="bagian" id="hasil"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">02 · Hasil</p><h2>Satu brief masuk, <em class="grad">video jadi</em> keluar.</h2></div>
+  <div class="hasil">
+    <div class="hp-wrap muncul"><div class="hp"><video src="teknokita.mp4" poster="teknokita.jpg" autoplay muted loop playsinline preload="metadata"></video></div><p class="hp-ket"><span class="fiktif">klien fiktif</span>TeknoKita · tips laptop</p></div>
+    <div class="hasil-teks muncul"><h3>Dibuat tim AI agent dari satu brief.</h3><p>Ini contoh hasil uji agent yang kita pakai di kelas. Klien contoh fiktif, tanpa data klien asli. Di kelas, kamu membuat versimu sendiri.</p></div>
+    <div class="hp-wrap muncul"><div class="hp"><video src="kopi-lereng.mp4" poster="kopi-lereng.jpg" autoplay muted loop playsinline preload="metadata"></video></div><p class="hp-ket"><span class="fiktif">klien fiktif</span>Kopi Lereng · edukasi produk</p></div>
+  </div>
+</div></section>
 
-  <!-- 5. Benefit -->
-  <section>
-    <p class="kl-mono">benefit</p>
-    <h2>Yang kamu dapat</h2>
-    <ul class="kl-benefit">
-      <li>Tempat &amp; konsumsi</li>
-      <li>Paket starter: template video, resep 4 agent, template Story</li>
-      <li>Grup WA sejak daftar</li>
-      <li>Lembar langkah untuk diulang di rumah</li>
-      <li>Sertifikat</li>
-      <li>Story-mu di-repost ke @malikisaputra</li>
-      <li>Rekap materi H+1</li>
+<section class="bagian"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">03 · Untuk siapa</p><h2>Cocok kalau kamu…</h2></div>
+  <div class="siapa muncul anak">
+    <div class="kartu sorot"><span class="t">01</span><b>Kreator pemula</b><p>Mau rutin posting tanpa begadang edit tiap hari.</p></div>
+    <div class="kartu"><span class="t">02</span><b>Freelancer sosmed</b><p>Pegang beberapa klien dan butuh alur kerja yang lebih ringan.</p></div>
+    <div class="kartu"><span class="t">03</span><b>Pemilik agency kecil</b><p>Mau tim kecilmu dibantu agent dari ide sampai siap posting.</p></div>
+    <div class="kartu"><span class="t">04</span><b>Admin konten UMKM</b><p>Mengurus konten usaha sendirian dan ingin lebih teratur.</p></div>
+  </div>
+</div></section>
+
+<section class="bagian"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">04 · Materi</p><h2>Dua sesi, <em class="grad">langsung praktik.</em></h2></div>
+  <div class="sesi">
+    <article class="kartu muncul"><div class="angka">SESI 01</div><h3>Bikin</h3><span class="jam" data-k="jam1"></span><ol>
+      <li>Petakan kerja kontenmu: apa yang bisa diserahkan ke agent.</li>
+      <li>Brief + referensi gaya supaya hasil sesuai selera.</li>
+      <li>Susun tim 4 agent: Strategi, Motion Designer, Copywriter, Publisher.</li>
+      <li>Agent membuat naskah, video, dan caption.</li></ol></article>
+    <article class="kartu sorot muncul"><div class="angka">SESI 02</div><h3>Posting &amp; Ukur</h3><span class="jam" data-k="jam2"></span><ol>
+      <li>Revisi hasil lewat agent.</li>
+      <li>Publisher menyiapkan posting lewat browser dan <mark>berhenti minta persetujuanmu</mark> sebelum dijadwalkan.</li>
+      <li>Kalender konten 2 minggu.</li>
+      <li>Dashboard konten sederhana.</li>
+      <li>Story Instagram + showcase hasil.</li></ol></article>
+  </div>
+</div></section>
+
+<section class="bagian"><div class="wrap duo">
+  <div>
+    <div class="kepala muncul"><p class="mono">05 · Benefit</p><h2>Yang kamu <em class="grad">bawa pulang</em></h2></div>
+    <ul class="benefit muncul anak">
+      <li><span>✓</span>Tempat &amp; konsumsi</li>
+      <li><span>✓</span>Paket starter: template video, resep 4 agent, template Story</li>
+      <li><span>✓</span>Grup WA sejak daftar</li>
+      <li><span>✓</span>Lembar langkah untuk diulang di rumah</li>
+      <li><span>✓</span>Sertifikat</li>
+      <li><span>✓</span>Story-mu di-repost ke @malikisaputra</li>
+      <li><span>✓</span>Rekap materi H+1</li>
     </ul>
-  </section>
+  </div>
+  <aside class="tiket kartu muncul" aria-label="Harga kelas">
+    <p class="mono">Tiket · <span data-k="batchNama"></span></p>
+    <div class="harga" data-k="harga"></div>
+    <p style="margin:0">untuk 2 sesi (total 6 jam)</p>
+    <p data-k="promo" hidden style="margin:8px 0 0;color:var(--oranye)"></p>
+    <div class="sobek"></div>
+    <dl>
+      <div><dt>Tanggal</dt><dd data-k="tglPendek"></dd></div>
+      <div><dt>Jam</dt><dd data-k="jamPendek"></dd></div>
+      <div><dt>Kota</dt><dd data-k="kota"></dd></div>
+      <div><dt>Kursi</dt><dd data-k="kursiPendek"></dd></div>
+    </dl>
+    <a class="btn" data-wa href="#">Ambil kursi →</a>
+    <small>Biaya langganan AI di luar harga kelas.</small>
+  </aside>
+</div></section>
 
-  <!-- 6. Harga -->
-  <section>
-    <div class="kl-harga">
-      <p class="kl-mono" style="margin:0 0 10px">investasi</p>
-      <div class="kl-angka" data-k="harga"></div>
-      <p>Untuk 2 sesi (total 6 jam).</p>
-      <p data-k="promo" hidden></p>
-      <p style="font-size:14px;opacity:.6">Biaya langganan AI di luar harga kelas.</p>
-    </div>
-  </section>
+<section class="bagian"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">06 · Persiapan</p><h2>Yang perlu disiapkan</h2></div>
+  <div class="siap muncul anak">
+    <div class="kartu"><b>Perangkat</b><p>Laptop (Mac/Windows) + charger + HP.</p></div>
+    <div class="kartu"><b>Langganan AI<span class="tag-saran">disarankan</span></b><p>Salah satu: Claude, ChatGPT, atau Google AI, supaya praktik 6 jam lancar. Versi gratis boleh, tapi kuotanya bisa habis di tengah praktik. Tidak perlu kunci API.</p></div>
+    <div class="kartu"><b>Instalasi</b><p>Panduan instalasi dikirim lewat grup WA 3 hari sebelum kelas.</p></div>
+  </div>
+</div></section>
 
-  <!-- 7. Persiapan -->
-  <section>
-    <p class="kl-mono">persiapan</p>
-    <h2>Yang perlu dibawa</h2>
-    <div class="kl-grid">
-      <div class="kl-kotak"><b>Perangkat</b><p>Laptop (Mac/Windows) + charger + HP.</p></div>
-      <div class="kl-kotak"><b>Langganan AI (disarankan)</b><p>Salah satu: Claude, ChatGPT, atau Google AI, supaya praktik 6 jam lancar. Versi gratis boleh, tapi kuotanya bisa habis di tengah praktik. Tidak perlu kunci API.</p></div>
-      <div class="kl-kotak"><b>Instalasi</b><p>Panduan instalasi dikirim lewat grup WA 3 hari sebelum kelas.</p></div>
-    </div>
-  </section>
+<section class="bagian" id="jadwal"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">07 · Jadwal</p><h2>Jadwal &amp; <em class="grad">kursi</em></h2></div>
+  <div id="batch" class="muncul"></div>
+  <p class="catatan muncul" data-k="kursi"></p>
+</div></section>
 
-  <!-- 8. Jadwal -->
-  <section id="jadwal">
-    <p class="kl-mono">jadwal &amp; kursi</p>
-    <h2>Jadwal kelas</h2>
-    <p class="kl-sub" style="font-size:16px;margin-bottom:16px"><span data-k="pola"></span><br><span data-k="tempat"></span></p>
-    <div class="kl-batch" id="kl-batch"></div>
-    <p class="kl-cat" data-k="kursi"></p>
-  </section>
-
-  <!-- 9. FAQ -->
-  <section>
-    <p class="kl-mono">faq</p>
-    <h2>Pertanyaan yang sering muncul</h2>
+<section class="bagian faq"><div class="wrap">
+  <div class="kepala muncul"><p class="mono">08 · FAQ</p><h2>Yang sering ditanya</h2></div>
+  <div class="faq-isi muncul anak">
     <details><summary>Harus bisa coding?</summary><p>Tidak. Kamu memberi arahan ke agent dengan bahasa biasa; semua langkah dipandu.</p></details>
     <details><summary>Bedanya dengan Kelas AI Gratis di YouTube?</summary><p>Ini kelas offline: praktik didampingi langsung sampai hasilmu jadi, plus dapat paket starter dan grup WA.</p></details>
     <details><summary>Laptopku spek rendah, bisa?</summary><p>Minimal bisa menjalankan browser dan Node.js. Kita cek bareng di H-3 lewat grup WA.</p></details>
     <details><summary>Boleh pakai AI versi gratis?</summary><p>Boleh. Hanya saja kuota gratis bisa habis di tengah praktik, jadi langganan disarankan.</p></details>
     <details><summary>Bagaimana dengan data klien?</summary><p>Selama kelas kita pakai data contoh atau data yang disamarkan.</p></details>
-    <details><summary>Kalau peserta kurang?</summary><p data-k="kursi2"></p></details>
-  </section>
+    <details><summary>Kalau peserta kurang dari minimal?</summary><p data-k="kursi2"></p></details>
+  </div>
+</div></section>
 
-  <!-- 10. CTA -->
-  <section id="daftar" class="kl-akhir">
-    <p class="kl-mono">kursi terbatas</p>
-    <h2 style="margin-bottom:6px">Siap bikin tim AI-mu sendiri?</h2>
-    <p class="kl-sub" style="margin:0 auto" data-k="ringkas"></p>
-    <div class="kl-aksi"><a class="kl-btn kl-utama" data-wa href="#">Daftar via WhatsApp</a></div>
-  </section>
+<section class="akhir" id="daftar"><div class="wrap">
+  <img src="logo.svg" alt="Rakn Academy" width="64" height="64">
+  <h2>Kursinya cuma <em data-k="maksAngka2"></em>.</h2>
+  <p data-k="ringkas"></p>
+  <a class="btn" data-wa href="#">Daftar via WhatsApp →</a>
+</div></section>
 </main>
+<footer class="kaki" style="border:0"><div class="wrap">Rakn Academy · oleh <a href="../">Maliki Saputra</a></div></footer>
 
+<div class="bar-hp"><span><b data-k="harga2"></b> · 2 sesi</span><a class="btn" data-wa href="#">Daftar</a></div>
 
 <script>
 /* ===== KONFIGURASI KELAS: ubah di sini saja ===== */
 const KELAS = {
-  akademi: "Rakn Academy",                                           // diputuskan Maliki 27 Nov
+  akademi: "Rakn Academy",
   judul: "Tim AI Agency: dari Konten sampai Posting",
   kota: "Bogor",
-  tempat: "Lokasi diumumkan ke peserta",                             // [USULAN]
-  pola: "2 sesi × 3 jam · Sabtu–Minggu · 09.00–12.30 WIB",
-  batch: [{ nama: "Batch 1", tanggal: "Sabtu–Minggu, 19–20 Desember 2026 · 09.00–12.30 WIB", batas: "15 Desember 2026", status: "buka" }],
-  harga: 499000, earlyBird: null, rombongan3: null,                  // null = disembunyikan
+  tempat: "Lokasi diumumkan ke peserta",                // [USULAN]
+  hari: "Sabtu–Minggu", jam: "09.00–12.30 WIB",
+  batch: [{ nama: "Batch 1", tanggal: "19–20 Desember 2026", tgl: "19–20", bulan: "Des 2026", batas: "15 Desember 2026", status: "buka" }],
+  harga: 499000, earlyBird: null, rombongan3: null,     // null = disembunyikan
   kursiMin: 10, kursiMaks: 15,
   waDaftar: "08563230232",
-  usulan: [],                               // tandai [USULAN] selama draf; kosongkan saat final
 };
 /* ================================================ */
 (() => {
-  const rp = (n) => "Rp" + n.toLocaleString("id-ID");
-  const tag = (k) => KELAS.usulan.includes(k) ? ' <span class="kl-usulan">[USULAN]</span>' : "";
+  const K = KELAS, B = K.batch[0], rp = (n) => "Rp" + n.toLocaleString("id-ID");
+  const kursi = `Kelas berjalan bila minimal ${K.kursiMin} peserta${B.batas ? " sampai " + B.batas : ""}. Jika kurang, kamu bisa pindah ke jadwal berikutnya atau uang kembali penuh. Maks. ${K.kursiMaks} kursi.`;
   const isi = {
-    akademi: KELAS.akademi, judul: KELAS.judul, kota: KELAS.kota, maks: "maks. " + KELAS.kursiMaks + " orang",
-    harga: rp(KELAS.harga), tempat: KELAS.tempat + tag("tempat"), pola: KELAS.pola + tag("pola"),
-    kursi: `Kelas berjalan bila minimal ${KELAS.kursiMin} peserta${KELAS.batch[0].batas ? " sampai " + KELAS.batch[0].batas : ""}. Jika kurang, kamu bisa pindah ke jadwal berikutnya atau uang kembali penuh. Maks. ${KELAS.kursiMaks} kursi.`,
-    ringkas: `${KELAS.batch[0].tanggal.split(" · ")[0]} · ${KELAS.kota} · 2 sesi × 3 jam · ${rp(KELAS.harga)} · maks. ${KELAS.kursiMaks} orang`,
+    labelHero: `${K.akademi} · kelas offline · ${K.kota} · ${B.tanggal}`,
+    maksAngka: K.kursiMaks, maksAngka2: K.kursiMaks + " orang", harga: rp(K.harga), harga2: rp(K.harga),
+    batchNama: B.nama, tglPendek: `${K.hari}, ${B.tanggal}`, jamPendek: K.jam, kota: K.kota,
+    kursiPendek: `min. ${K.kursiMin} · maks. ${K.kursiMaks}`, jam1: `HARI 1 · ${K.hari.split("–")[0].toUpperCase()} · ${K.jam}`,
+    jam2: `HARI 2 · ${(K.hari.split("–")[1] || "").toUpperCase()} · ${K.jam}`, kursi, kursi2: kursi,
+    ringkas: `${B.tanggal} · ${K.kota} · 2 sesi × 3 jam · ${rp(K.harga)}`,
   };
-  isi.kursi2 = isi.kursi;
-  document.querySelectorAll("[data-k]").forEach((el) => { if (isi[el.dataset.k] != null) el.innerHTML = isi[el.dataset.k]; });
-  const promo = [KELAS.earlyBird && `Early bird: ${rp(KELAS.earlyBird)}`, KELAS.rombongan3 && `Rombongan 3 orang: ${rp(KELAS.rombongan3)}/orang`].filter(Boolean);
+  document.querySelectorAll("[data-k]").forEach((el) => { if (isi[el.dataset.k] != null) el.textContent = isi[el.dataset.k]; });
+  const promo = [K.earlyBird && `Early bird: ${rp(K.earlyBird)}`, K.rombongan3 && `Rombongan 3 orang: ${rp(K.rombongan3)}/orang`].filter(Boolean);
   const pEl = document.querySelector('[data-k="promo"]'); if (promo.length) { pEl.textContent = promo.join(" · "); pEl.hidden = false; }
-  document.getElementById("kl-batch").innerHTML = KELAS.batch.map((b) =>
-    `<div class="kl-kotak"><div><b>${b.nama}</b><p>${b.tanggal}${tag("batch")}</p>${b.batas ? `<p style="font-size:13px;opacity:.6">Batas daftar: ${b.batas}</p>` : ""}</div><span class="kl-status">${b.status}</span></div>`).join("");
-  const wa = "62" + KELAS.waDaftar.replace(/^0/, "");
-  const pesan = `Halo Maliki, aku mau daftar ${KELAS.judul} ${KELAS.batch[0].nama}. Nama: `;
+  document.getElementById("batch").innerHTML = K.batch.map((b) => `<div class="batch kartu">
+    <div class="tgl"><b>${b.tgl}</b><small>${b.bulan}</small></div>
+    <div><h3>${b.nama} · ${K.hari}</h3><p>${K.jam} · ${K.kota} · ${K.tempat}</p>${b.batas ? `<p>Batas daftar: ${b.batas}</p>` : ""}
+      <div class="kursi"><span class="mono" style="font-size:11px;color:var(--abu)">${K.kursiMaks} kursi · minimal ${K.kursiMin} agar kelas berjalan</span>
+      <div class="kursi-bar">${Array.from({ length: K.kursiMaks }, (_, i) => `<i class="${i < K.kursiMin ? "min" : ""}"></i>`).join("")}</div></div></div>
+    <span class="status">${b.status}</span></div>`).join("");
+  const wa = "62" + K.waDaftar.replace(/^0/, "");
+  const pesan = `Halo Maliki, aku mau daftar ${K.akademi} – ${K.judul} ${B.nama} (${B.tanggal}). Nama: `;
   document.querySelectorAll("[data-wa]").forEach((a) => { a.href = `https://wa.me/${wa}?text=${encodeURIComponent(pesan)}`; a.target = "_blank"; a.rel = "noopener"; });
+
+  /* === animasi alur agent === */
+  const diam = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const baris = [...document.querySelectorAll("#pipa .baris")], persen = document.getElementById("persen"), barR = document.getElementById("bar-render"), tanya = document.getElementById("tanya");
+  const S = (i, k, tx) => { const s = baris[i].querySelector(".s"); s.className = "s " + k; s.textContent = tx; };
+  function pipa() {
+    baris.forEach((b, i) => S(i, "antri", "antri")); baris.forEach((b) => (b.querySelector(".s").style.cssText = "background:#F1F2F8;color:#8A90B0"));
+    tanya.style.visibility = "hidden"; tanya.classList.remove("muncul-ui"); persen.textContent = 0; barR.style.width = "0";
+    const urut = [[0, "jalan", "kerja"], [0, "ok", "selesai"], [1, "jalan", "nulis"], [1, "ok", "selesai"], [2, "jalan", "render"], [2, "ok", "selesai"], [3, "tunggu", "tunggu kamu"]];
+    let n = 0;
+    (function langkah() {
+      if (n >= urut.length) { tanya.style.visibility = "visible"; tanya.classList.add("muncul-ui"); setTimeout(pipa, 4000); return; }
+      const [i, k, tx] = urut[n++]; baris[i].querySelector(".s").style.cssText = ""; S(i, k, tx);
+      baris.forEach((b, j) => b.classList.toggle("aktif", j === i && k !== "ok"));
+      if (i === 2 && k === "jalan") { let p = 0; const iv = setInterval(() => { p = Math.min(100, p + 4); persen.textContent = p; barR.style.width = p + "%"; if (p >= 100) { clearInterval(iv); setTimeout(langkah, 300); } }, 60); return; }
+      setTimeout(langkah, k === "jalan" ? 1100 : 600);
+    })();
+  }
+  if (!diam) pipa(); else { persen.textContent = 100; barR.style.width = "100%"; }
+
+  /* kartu hero ikut kursor */
+  const pg = document.getElementById("panggung");
+  if (!diam && matchMedia("(pointer:fine)").matches) document.querySelector(".hero").addEventListener("pointermove", (e) => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5; pg.style.transform = `perspective(1200px) rotateY(${x * 6}deg) rotateX(${-y * 5}deg)`; });
+
+  /* estafet 4 agent */
+  const agen = [...document.querySelectorAll("#tim .agen")], garis = document.getElementById("tim-garis"); let ia = 0, jalanTim;
+  const estafet = () => { agen.forEach((a, j) => a.classList.toggle("estafet", j === ia)); garis.style.width = ((ia + 1) / agen.length * 100) + "%"; ia = (ia + 1) % agen.length; };
+  if (!diam) new IntersectionObserver(([e]) => { clearInterval(jalanTim); if (e.isIntersecting) { estafet(); jalanTim = setInterval(estafet, 1500); } }).observe(document.getElementById("tim"));
+  else agen[0].classList.add("estafet");
+
+  /* harga hitung naik + kursi terisi */
+  const hargaEl = document.querySelector('.tiket [data-k="harga"]');
+  const io2 = new IntersectionObserver((es) => es.forEach((x) => { if (!x.isIntersecting) return; io2.unobserve(x.target);
+    if (x.target === hargaEl && !diam) { const t0 = performance.now(), akhir = K.harga; (function f(t) { const p = Math.min(1, (t - t0) / 1200), e = 1 - Math.pow(1 - p, 3); hargaEl.textContent = "Rp" + (Math.round(akhir * e / 1000) * 1000).toLocaleString("id-ID"); if (p < 1) requestAnimationFrame(f); })(t0); }
+    if (x.target.classList.contains("kursi-bar")) { x.target.querySelectorAll("i").forEach((i, n) => (i.style.transitionDelay = n * 50 + "ms")); x.target.classList.remove("tutup"); }
+  }), { threshold: .4 });
+  io2.observe(hargaEl); document.querySelectorAll(".kursi-bar").forEach((k) => { if (!diam) k.classList.add("tutup"); io2.observe(k); });
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("tampil"); io.unobserve(x.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".muncul").forEach((el) => io.observe(el));
+  } else document.querySelectorAll(".muncul").forEach((el) => el.classList.add("tampil"));
 })();
 </script>
 </body>
