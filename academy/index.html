@@ -288,7 +288,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .fitur ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
 .fitur b{display:block;font-size:18px;margin-bottom:6px}.fitur p{margin:0;font-size:14.5px}
 @media (max-width:900px){.babak1,.babak3{grid-template-columns:1fr}.peramban iframe{height:520px}}
-.alur{margin:8px auto 0;max-width:min(1060px,calc((100vh - 220px) * 16 / 9))}
+.alur{margin:8px auto 0;max-width:min(1280px,calc((100vh - 150px) * 16 / 9))}
 .alur-layar{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#DCE3FF,#F4F6FC);border:1px solid var(--garis);box-shadow:0 30px 60px -36px rgba(11,16,51,.35)}
 .alur-slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1);pointer-events:none}
 .alur-slide.aktif{opacity:1;transform:none;pointer-events:auto}
@@ -300,6 +300,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .s1-agen span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;color:#fff;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:10px}
 .s1-agen b{display:block;font-size:17px}.s1-agen small{color:var(--abu);font-size:13px}
 .s3{position:relative;height:100%}
+.s3 iframe{width:150%!important;height:150%!important;transform:scale(.6667);transform-origin:0 0}
 .s3-tool{position:absolute;right:16px;bottom:16px;width:280px;padding:18px;box-shadow:0 20px 40px -20px rgba(11,16,51,.6)}
 .s3-tool .mono{margin:0 0 6px;font-size:11px;color:rgba(255,255,255,.8)}.s3-tool b{display:block;font-size:16px;margin-bottom:4px}.s3-tool p{margin:0;font-size:13.5px}
 .alur-ket{text-align:center;margin:14px auto 10px;font-size:16px;color:var(--abu);min-height:1.6em}
@@ -310,7 +311,7 @@ a{color:inherit}img,video{display:block;max-width:100%}
 .alur-langkah b{display:block;height:100%;width:0;background:var(--biru)}
 .alur-langkah button:focus-visible{outline:2px solid var(--biru);outline-offset:4px;border-radius:6px}
 .alur-lanjut{margin:14px auto 0;display:block;border:0;background:var(--biru);color:#fff;font-weight:700;padding:10px 18px;border-radius:999px;cursor:pointer}
-@media (max-width:700px){.alur-layar{aspect-ratio:4/5}.alur-slide iframe{width:200%;height:200%;transform:scale(.5);transform-origin:0 0}.s1{padding:14px}.brief dl div:nth-child(n+2){display:none}.brief .mono{margin-bottom:8px}.brief-kirim{margin-top:10px;padding:6px 12px;font-size:12px}.s1-tim{gap:8px}.s1{grid-template-columns:1fr;align-content:center;gap:12px}.s1-agen{padding:10px}.s1-agen b{font-size:14px}.s1-agen small{font-size:11.5px}.s1-agen span{width:24px;height:24px;margin-bottom:6px}.brief{padding:14px}.brief dl{gap:6px;font-size:13px}.s3-tool{left:12px;right:12px;width:auto;padding:12px}.s3-tool p{display:none}.alur-langkah span{font-size:11.5px}}
+@media (max-width:700px){.alur-layar{aspect-ratio:4/5}.alur-slide iframe,.s3 iframe{width:200%!important;height:200%!important;transform:scale(.5);transform-origin:0 0}.s1{padding:14px}.brief dl div:nth-child(n+2){display:none}.brief .mono{margin-bottom:8px}.brief-kirim{margin-top:10px;padding:6px 12px;font-size:12px}.s1-tim{gap:8px}.s1{grid-template-columns:1fr;align-content:center;gap:12px}.s1-agen{padding:10px}.s1-agen b{font-size:14px}.s1-agen small{font-size:11.5px}.s1-agen span{width:24px;height:24px;margin-bottom:6px}.brief{padding:14px}.brief dl{gap:6px;font-size:13px}.s3-tool{left:12px;right:12px;width:auto;padding:12px}.s3-tool p{display:none}.alur-langkah span{font-size:11.5px}}
 </style>
 </head>
 <body>
@@ -574,13 +575,14 @@ const KELAS = {
     }
     tombol.forEach((b, j) => b.addEventListener("click", () => tampil(j)));
     lanjut.addEventListener("click", () => tampil(ke + 1));
-    if (diam) { lanjut.hidden = false; tampil(0); clearInterval(nyalaT); agen1.forEach((a) => a.classList.add("nyala")); return; }
+    const awal = Math.max(0, Math.min(2, (+(location.hash.match(/babak(\d)/) || [])[1] || 1) - 1));
+    if (diam) { lanjut.hidden = false; tampil(awal); clearInterval(nyalaT); agen1.forEach((a) => a.classList.add("nyala")); return; }
     const henti = () => { if (!jeda) { jeda = true; terpakai += performance.now() - mulaiT; } };
     const jalan = () => { if (jeda) { jeda = false; mulaiT = performance.now(); } };
     alur.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") henti(); });
     alur.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") jalan(); });
     alur.addEventListener("touchstart", () => { henti(); clearTimeout(alur._t); alur._t = setTimeout(jalan, 5000); }, { passive: true });
-    new IntersectionObserver(([e]) => { terlihat = e.isIntersecting; if (terlihat && !mulai) { mulai = true; tampil(0); } if (terlihat) jalan(); else henti(); }, { threshold: .35 }).observe(alur);
+    new IntersectionObserver(([e]) => { terlihat = e.isIntersecting; if (terlihat && !mulai) { mulai = true; tampil(awal); } if (terlihat) jalan(); else henti(); }, { threshold: .35 }).observe(alur);
     document.addEventListener("visibilitychange", () => (document.hidden ? henti() : terlihat && jalan()));
     (function putar(now) {
       requestAnimationFrame(putar); if (!mulai || jeda) return;
